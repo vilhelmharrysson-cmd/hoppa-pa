@@ -9,7 +9,7 @@ on:
     - cron: "17 5 * * *"      # varje natt, efter att Trafiklab uppdaterat datan (03–07 svensk tid)
   workflow_dispatch:
   push:
-    branches: [webbapp]
+    branches: [main]
     paths: ["tools/**", ".github/workflows/data.yml"]
 
 permissions:

@@ -1,0 +1,50 @@
+name: Uppdatera linjer
+
+# Hämtar SL:s och Västtrafiks tidtabellsdata (GTFS Regional via Trafiklab) och bygger om alla turer
+# i public/data. Körs varje natt, så att ändrade linjer och planerade omledningar kommer med.
+# Kräver hemligheten TRAFIKLAB_KEY (Settings → Secrets and variables → Actions).
+
+on:
+  schedule:
+    - cron: "17 5 * * *"      # varje natt, efter att Trafiklab uppdaterat datan (03–07 svensk tid)
+  workflow_dispatch:
+  push:
+    branches: [webbapp]
+    paths: ["tools/**", ".github/workflows/data.yml"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: data
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Bygg turer från GTFS
+        env:
+          TRAFIKLAB_KEY: ${{ secrets.TRAFIKLAB_KEY }}
+        run: |
+          if [ -z "$TRAFIKLAB_KEY" ]; then
+            echo "::error::Hemligheten TRAFIKLAB_KEY saknas. Lägg till den under Settings → Secrets and variables → Actions."
+            exit 1
+          fi
+          python3 tools/gtfs_build.py
+      - name: Spara om något ändrats
+        run: |
+          git config user.name "hoppa-pa databygge"
+          git config user.email "actions@users.noreply.github.com"
+          git add public/data
+          if git diff --cached --quiet; then
+            echo "Inga ändringar i linjerna."
+          else
+            git commit -m "Uppdatera linjer från GTFS ($(date -u +%Y-%m-%d))"
+            git push
+          fi

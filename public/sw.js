@@ -1,7 +1,7 @@
 // Offline-stöd: sidan och turdatan hämtas från nätet i första hand (så att ändringar syns),
 // ljudfiler och ikoner sparas i telefonen när de spelats en gång. Realtid (/api) cachas aldrig.
-const CACHE = "hoppa-pa-v1";
-const CORE = ["./", "index.html", "tours.json", "manifest.webmanifest", "icons/icon-192.png"];
+const CACHE = "hoppa-pa-v2";
+const CORE = ["./", "index.html", "data/index.json", "manifest.webmanifest", "icons/icon-192.png"];
 
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(CORE)).then(() => self.skipWaiting()));

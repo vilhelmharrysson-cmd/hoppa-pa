@@ -184,6 +184,13 @@ select{font:inherit;font-size:13px;color:var(--ink);background:var(--surface);bo
 .tour[aria-current="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
 .tour .num{min-width:30px;text-align:center}
 .dirs{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.picker{display:flex;flex-direction:column;gap:12px}
+.pick-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+#lineSearch{font:inherit;font-size:14px;padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--ink);min-width:0;width:12rem}
+.tours{max-height:15rem;overflow-y:auto;padding:2px}
+.tour.chip-only{padding:4px;border-radius:8px}
+.tour.chip-only .num{min-width:38px;font-size:15px;padding:4px 6px}
+.dirs .route-name{font-weight:700;margin-right:6px}
 .dir{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 14px;font-weight:600;font-size:13px}
 .dir:hover{border-color:var(--ink)}
 .dir[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
@@ -200,8 +207,15 @@ select{font:inherit;font-size:13px;color:var(--ink);background:var(--surface);bo
     <div class="sign" id="sign"><span class="num" id="signNum">11</span> <span id="signText">Laddar turen…</span></div>
   </header>
 
-  <nav class="tours" id="tours" aria-label="Välj linje"></nav>
-  <div class="dirs" id="dirs" role="group" aria-label="Välj riktning"></div>
+  <section class="picker" aria-label="Välj linje">
+    <div class="pick-row">
+      <div class="mode" role="group" aria-label="Stad" id="cityPick"></div>
+      <div class="mode" role="group" aria-label="Färdmedel" id="modePick"></div>
+      <input id="lineSearch" type="search" inputmode="numeric" placeholder="Sök linje, t.ex. 54" aria-label="Sök linjenummer">
+    </div>
+    <nav class="tours" id="tours" aria-label="Linjer"></nav>
+    <div class="dirs" id="dirs" role="group" aria-label="Välj riktning"></div>
+  </section>
 
   <section class="card alerts" id="alerts" hidden aria-live="polite">
     <h2 id="alertsTitle">Trafikstörningar</h2>
@@ -324,7 +338,7 @@ select{font:inherit;font-size:13px;color:var(--ink);background:var(--surface);bo
             narr:null, pendingLook:null, gps:null, gpsWatch:null, gpsSeen:false };
 
   function prepTour(key){
-    T=DATA.tours[key];
+    T=loaded[key];
     const lat0=T.route[0][0];
     const P=T.route.map(p=>toXY(p[0],p[1],lat0));
     const cum=[0]; for(let i=1;i<P.length;i++) cum.push(cum[i-1]+Math.hypot(P[i][0]-P[i-1][0],P[i][1]-P[i-1][1]));
@@ -341,41 +355,67 @@ select{font:inherit;font-size:13px;color:var(--ink);background:var(--surface);bo
 
   // ---- Turväljare --------------------------------------------------------
   const tabs=$("tours");
-  const groups={};
-  function buildTabs(){
-    let city=null;
-    DATA.order.forEach(key=>{
-      const t=DATA.tours[key];
-      if(groups[t.group]){ groups[t.group].push(key); return; }
-      groups[t.group]=[key];
-      if(t.city!==city){ city=t.city; const h=document.createElement("span"); h.className="tour-city"; h.textContent=city+" · "+t.vehicleLong; tabs.appendChild(h); }
-      const btn=document.createElement("button");
-      btn.type="button"; btn.className="tour"; btn.dataset.group=t.group;
-      btn.setAttribute("aria-label",t.vehicleLong+" "+t.line+", "+t.from+" – "+t.to);
-      const n=document.createElement("span"); n.className="num"; n.textContent=t.line; paintNum(n,t.color);
-      const w=document.createElement("span");
-      const c=document.createElement("b"); c.textContent=t.from+" – "+t.to;
-      const r=document.createElement("small"); r.textContent=t.tab;
-      w.append(c,r); btn.append(n,w);
-      btn.addEventListener("click",()=>{ const k=groups[t.group][0]; if(location.hash!=="#"+k) location.hash=k; else loadTour(k); });
-      tabs.appendChild(btn);
-    });
+  // ---- Linjeväljare -----------------------------------------------------------
+  // index.json listar alla turer; varje tur laddas först när den väljs.
+  const groups={}, byId={}, loaded={};
+  const MODE_LABEL={tram:"Spårvagn",bus:"Buss",boat:"Båt"};
+  const pick={city:null,mode:null,q:""};
+  function buildIndex(){
+    DATA.tours.forEach(e=>{ byId[e.id]=e; (groups[e.group]=groups[e.group]||[]).push(e.id); });
   }
   function paintNum(elm,color){
     if(!color) return;
     elm.style.background=color[0]; elm.style.color=color[1];
     elm.style.boxShadow = color[0].toLowerCase()==="#ffffff" ? "inset 0 0 0 2px "+color[1] : "none";
   }
+  function segButtons(box,items,current,onPick){
+    box.textContent="";
+    items.forEach(([val,label])=>{ const b=document.createElement("button"); b.type="button"; b.textContent=label;
+      b.setAttribute("aria-pressed", val===current ? "true":"false"); b.addEventListener("click",()=>onPick(val)); box.appendChild(b); });
+  }
+  function buildTabs(){
+    const cities=[...new Set(DATA.tours.map(e=>e.city))];
+    segButtons($("cityPick"),cities.map(c=>[c,c]),pick.city,c=>{ pick.city=c; pick.mode=null; buildTabs(); });
+    const inCity=DATA.tours.filter(e=>e.city===pick.city);
+    const modes=["tram","bus","boat"].filter(m=>inCity.some(e=>e.mode===m));
+    if(!modes.includes(pick.mode)) pick.mode=modes[0];
+    segButtons($("modePick"),modes.map(m=>[m,MODE_LABEL[m]+" ("+new Set(inCity.filter(e=>e.mode===m).map(e=>e.group)).size+")"]),pick.mode,m=>{ pick.mode=m; buildTabs(); });
+    const q=pick.q.trim().toLowerCase();
+    tabs.textContent="";
+    const seen=new Set();
+    inCity.filter(e=>e.mode===pick.mode && (!q || e.line.toLowerCase().startsWith(q))).forEach(e=>{
+      if(seen.has(e.group)) return; seen.add(e.group);
+      const first=byId[groups[e.group].find(id=>!byId[id].guide)||groups[e.group][0]];
+      const btn=document.createElement("button");
+      btn.type="button"; btn.className="tour chip-only"; btn.dataset.group=e.group;
+      btn.title=first.from+" – "+first.to+(first.tab?" · "+first.tab:"");
+      btn.setAttribute("aria-label",first.vehicleLong+" "+e.line+", "+btn.title);
+      const n=document.createElement("span"); n.className="num"; n.textContent=e.line; paintNum(n,first.color);
+      btn.append(n);
+      if(groups[e.group].some(id=>byId[id].guide)){ const v=document.createElement("small"); v.textContent=" 🔊"; btn.append(v); }
+      btn.setAttribute("aria-current", T && T.group===e.group ? "true":"false");
+      btn.addEventListener("click",()=>{ const k=groups[e.group][0]; if(location.hash!=="#"+k) location.hash=k; else loadTour(k); });
+      tabs.appendChild(btn);
+    });
+    if(!tabs.children.length){ const p=document.createElement("span"); p.className="muted"; p.textContent="Ingen linje matchar."; tabs.appendChild(p); }
+  }
   function buildDirs(){
     const box=$("dirs"); box.textContent="";
+    const nm=document.createElement("span"); nm.className="route-name";
+    nm.textContent=T.vehicleLong.charAt(0).toUpperCase()+T.vehicleLong.slice(1)+" "+T.line+(T.tab?" · "+T.tab:"");
+    box.appendChild(nm);
     groups[T.group].forEach(k=>{
-      const t=DATA.tours[k];
+      const t=byId[k];
       const b=document.createElement("button"); b.type="button"; b.className="dir";
-      b.setAttribute("aria-pressed", t===T ? "true":"false");
+      b.setAttribute("aria-pressed", k===T.id ? "true":"false");
       b.textContent=(t.guide?"🔊 ":"")+t.variant;
       b.addEventListener("click",()=>{ if(location.hash!=="#"+k) location.hash=k; else loadTour(k); });
       box.appendChild(b);
     });
+  }
+  async function fetchTour(id){
+    if(!loaded[id]){ const r=await fetch("data/tours/"+encodeURIComponent(id)+".json"); if(!r.ok) throw new Error(r.status); loaded[id]=await r.json(); }
+    return loaded[id];
   }
 
   // ---- Karta ---------------------------------------------------------------
@@ -765,11 +805,12 @@ select{font:inherit;font-size:13px;color:var(--ink);background:var(--surface);bo
   $("modeSim").addEventListener("click",()=>setMode("sim"));
   $("modeGps").addEventListener("click",()=>setMode("gps"));
 
-  function loadTour(key){
-    if(!DATA.tours[key]) key=DATA.order[0];
+  async function loadTour(key){
+    if(!byId[key]) key=DEFAULT_TOUR in byId ? DEFAULT_TOUR : DATA.tours[0].id;
     if(S.gpsWatch!==null) stopGps();
+    try{ await fetchTour(key); }catch(e){ $("signText").textContent="Kunde inte ladda turen. Försök igen."; return; }
     prepTour(key);
-    [...tabs.querySelectorAll(".tour")].forEach(b=>b.setAttribute("aria-current", b.dataset.group===T.group ? "true":"false"));
+    pick.city=T.city; pick.mode=T.mode; buildTabs();
     buildDirs();
     paintNum($("signNum"),T.color);
     $("cityName").textContent=T.city;
@@ -801,8 +842,10 @@ select{font:inherit;font-size:13px;color:var(--ink);background:var(--surface);bo
     loadAlerts();
   }
 
-  fetch("tours.json").then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); }).then(d=>{
-    DATA=d; buildTabs();
+  const DEFAULT_TOUR="goteborg-tram-11-rost";
+  $("lineSearch").addEventListener("input",e=>{ pick.q=e.target.value; buildTabs(); });
+  fetch("data/index.json").then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); }).then(d=>{
+    DATA=d; buildIndex();
     window.addEventListener("hashchange",()=>loadTour(location.hash.slice(1)));
     loadTour(location.hash.slice(1));
     S.last=performance.now(); requestAnimationFrame(tick);

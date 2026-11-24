@@ -4,7 +4,7 @@
 #   asFirst   alternativ text när turen börjar här
 #   variants  riktningsberoende text, väljs utifrån nästa hållplats (ifNext)
 
-LINE_NAMES = {"7": "Spårväg City", "12": "Nockebybanan", "21": "Lidingöbanan", "30": "Tvärbanan",
+LINE_NAMES = {"7": "Spårväg City", "12": "Nockebybanan", "21": "Lidingöbanan", "29": "Roslagsbanan", "30": "Tvärbanan",
               "31": "Tvärbanan", "80": "Pendelbåt", "82": "Djurgårdsfärjan", "84": "Pendelbåt", "89": "Pendelbåt"}
 
 PLACES = {

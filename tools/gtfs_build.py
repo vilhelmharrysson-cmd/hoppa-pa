@@ -171,6 +171,7 @@ def build_feed(op, z):
         rid, d, sh = k
         R = routes[rid]
         if not R["line"] or k not in seq: continue
+        if not re.search(r"\d", R["line"]): continue   # t.ex. Västtrafiks extravagnar "X" och "BÅT"
         st = [stops[sid] for _, sid in sorted(seq[k]) if sid in stops]
         names = []
         for nm, la, lo, par in st:

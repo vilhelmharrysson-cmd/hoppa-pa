@@ -220,7 +220,7 @@ def make_tour(p):
             pl = {"story": story, "tips": pl["tips"] if pl else [], "images": pl.get("images", []) if pl else []}
         if pl:
             st.update({"story": pl["story"], "tips": pl["tips"], "dur": round(len(pl["story"]) / 14, 1)})
-            if pl.get("images"): st["images"] = pl["images"][:3]
+            if pl.get("images"): st["images"] = pl["images"][:4]
         stops_out.append(st)
     looks_out = []
     for L in looks:
@@ -260,6 +260,8 @@ def main():
         for k, v in extra.get(city, {}).items():   # bilder läggs även på handskrivna platser
             if v.get("images") and not lib[norm(k)].get("images"):
                 lib[norm(k)] = dict(lib[norm(k)], images=v["images"])
+            if v.get("historic"):   # historiska foton (K-samsök) varvas efter de moderna
+                lib[norm(k)] = dict(lib[norm(k)], images=lib[norm(k)].get("images", [])[:2] + v["historic"][:2])
     groups = sl_line_groups()
     tours = []
     for op in FEEDS:

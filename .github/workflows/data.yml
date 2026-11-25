@@ -30,6 +30,8 @@ jobs:
           python-version: "3.12"
       - name: Hämta bilder till nya platser (Wikimedia Commons)
         run: python3 tools/wiki_images.py || echo "::warning::Bildhämtningen misslyckades, försöker igen nästa natt"
+      - name: Hämta historiska foton (K-samsök)
+        run: python3 tools/historic_images.py || echo "::warning::Historiska foton misslyckades, försöker igen nästa natt"
       - name: Bygg turer från GTFS
         env:
           TRAFIKLAB_KEY: ${{ secrets.TRAFIKLAB_KEY }}

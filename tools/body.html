@@ -24,6 +24,7 @@
 .story .w{transition:opacity .3s ease}
 .story .w.dim{opacity:.3}
 .credit{position:absolute;top:8px;right:8px;z-index:1;font-size:11px;color:rgba(255,255,255,.9);background:rgba(0,0,0,.4);padding:2px 7px;border-radius:4px;text-decoration:none;max-width:75%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.credit.old{white-space:normal;max-width:85%;background:rgba(60,40,10,.75);color:#fff3d6;font-size:12px;line-height:1.35}
 @media (prefers-reduced-motion: reduce){.stage-bg.on{animation:none}.stage-bg{transition:none}}
 /* Avgår nära dig */
 .near-btn{margin-left:auto}
@@ -699,7 +700,8 @@
     const next=CAP.layer===0?$("bgB"):$("bgA"), prev=CAP.layer===0?$("bgA"):$("bgB");
     const pre=new Image(); pre.onload=()=>{ next.style.backgroundImage="url(\""+im.src.replace(/"/g,"%22")+"\")"; next.classList.remove("on"); void next.offsetWidth; next.classList.add("on"); prev.classList.remove("on"); };
     pre.src=im.src; CAP.layer=1-CAP.layer;
-    const c=$("credit"); c.hidden=false; c.textContent="Foto: "+(im.credit||"okänd")+(im.license?" · "+im.license:"");
+    const c=$("credit"); c.hidden=false; c.textContent=(im.old?"Förr"+(im.year?" ("+im.year+")":"")+": "+(im.title||"").slice(0,70)+" · ":"")+"Foto: "+(im.credit||"okänd")+(im.license?" · "+im.license:"");
+    c.classList.toggle("old",!!im.old);
     c.href=(im.page||"").startsWith("https://")?im.page:"#"; c.title=im.title||"";
   }
   function capStart(i){ if(CAP.i!==i) return; CAP.n=-1; CAP.spans.forEach(sp=>sp.classList.add("dim")); }

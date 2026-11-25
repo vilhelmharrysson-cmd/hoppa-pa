@@ -465,7 +465,7 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
   }
   function buildTabs(){
     const cities=[...new Set(DATA.tours.map(e=>e.city))];
-    segButtons($("cityPick"),cities.map(c=>[c,c]),pick.city,c=>{ pick.city=c; pick.mode=null; buildTabs(); });
+    segButtons($("cityPick"),cities.map(c=>[c,c]),pick.city,c=>{ pick.city=c; pick.mode=null; saveCity(c); buildTabs(); });
     const inCity=DATA.tours.filter(e=>e.city===pick.city);
     $("cityName").textContent=pick.city; buildFeatured();
     const modes=["tram","bus","boat"].filter(m=>inCity.some(e=>e.mode===m));
@@ -946,6 +946,8 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
     navigator.geolocation.getCurrentPosition(async pos=>{
       const p={lat:pos.coords.latitude,lon:pos.coords.longitude};
       const c=CITY_CENTERS.map(c=>({...c,d:distM(p,c,p.lat)})).sort((a,b)=>a.d-b.d)[0];
+      // byt stad automatiskt efter var man är
+      if(c.d<=60000 && pick.city!==c.city && document.body.dataset.view==="home"){ pick.city=c.city; pick.mode=null; saveCity(c.city); buildTabs(); }
       if(c.d>60000){ nearInfo("Hoppa på finns i Göteborg och Stockholm. Du är "+Math.round(c.d/1000)+" km från närmaste stad."); return; }
       nearInfo("Hämtar avgångar nära dig…");
       try{
@@ -1146,6 +1148,16 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
 
   const DEFAULT_TOUR="goteborg-tram-11-rost";
   $("lineSearch").addEventListener("input",e=>{ pick.q=e.target.value; buildTabs(); });
+  // stad: senast valda sparas; vid första besöket (eller om platsåtkomst redan är tillåten)
+  // läses positionen av, så att rätt stad och linjerna nära en visas direkt
+  function savedCity(){ try{ return localStorage.getItem("hp_city"); }catch(e){ return null; } }
+  function saveCity(c){ try{ localStorage.setItem("hp_city",c); }catch(e){} }
+  async function autoLocate(){
+    if(!("geolocation" in navigator)) return;
+    let state="prompt";
+    try{ state=(await navigator.permissions.query({name:"geolocation"})).state; }catch(e){}
+    if(state==="granted" || (state==="prompt" && !savedCity())) $("nearBtn").click();
+  }
   // två lägen: startsidan (ingen tur i adressen) och turen (#tur-id)
   function setView(v){
     document.body.dataset.view=v;
@@ -1158,7 +1170,7 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
       if(S.playing){ S.playing=false; stopNarr(); }
       if(S.gpsWatch!==null) stopGps();
       setView("home");
-      if(!pick.city){ pick.city=DATA.tours[0].city; }
+      if(!pick.city){ pick.city=savedCity() || DATA.tours[0].city; autoLocate(); }
       buildTabs();
     }
   }

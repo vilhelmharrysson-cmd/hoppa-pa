@@ -28,6 +28,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Hämta bilder till nya platser (Wikimedia Commons)
+        run: python3 tools/wiki_images.py || echo "::warning::Bildhämtningen misslyckades, försöker igen nästa natt"
       - name: Bygg turer från GTFS
         env:
           TRAFIKLAB_KEY: ${{ secrets.TRAFIKLAB_KEY }}
@@ -66,7 +68,7 @@ jobs:
         run: |
           git config user.name "hoppa-pa databygge"
           git config user.email "actions@users.noreply.github.com"
-          git add public/data public/audio/piper
+          git add public/data public/audio/piper tools/places_extra.json
           if git diff --cached --quiet; then
             echo "Inga ändringar i linjerna."
           else

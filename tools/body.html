@@ -274,6 +274,13 @@
     if(!modes.includes(pick.mode)) pick.mode=modes[0];
     segButtons($("modePick"),modes.map(m=>[m,MODE_LABEL[m]+" ("+new Set(inCity.filter(e=>e.mode===m).map(e=>e.group)).size+")"]),pick.mode,m=>{ pick.mode=m; buildTabs(); });
     const q=pick.q.trim().toLowerCase();
+    // söker man på en linje som finns som ett annat färdmedel (eller i den andra staden) byts valet automatiskt
+    const hit=e=>e.line.toLowerCase().startsWith(q);
+    if(q && !inCity.some(e=>e.mode===pick.mode && hit(e))){
+      const exact=e=>e.line.toLowerCase()===q;
+      const alt=inCity.find(exact) || DATA.tours.find(exact) || inCity.find(hit) || DATA.tours.find(hit);
+      if(alt){ pick.city=alt.city; pick.mode=alt.mode; return buildTabs(); }
+    }
     tabs.textContent="";
     const seen=new Set();
     inCity.filter(e=>e.mode===pick.mode && (!q || e.line.toLowerCase().startsWith(q))).forEach(e=>{

@@ -287,6 +287,13 @@ def main():
             if st.get("story") and p and p.get("images"): st["images"] = p["images"][:4]
     tours += voiced
     # tipsen får koordinater (tools/tip_places.py), så att appen kan visa vägen i kartappen
+    # "Läs mer": fördjupningskort per plats (tools/more.json)
+    more_path = os.path.join(HERE, "more.json")
+    more = json.load(open(more_path, encoding="utf8")) if os.path.exists(more_path) else {}
+    for t in tours:
+        for st in t["stops"]:
+            m = more.get(f"{t['city']}|{st['name']}")
+            if st.get("story") and m: st["more"] = m
     tp_path = os.path.join(HERE, "tip_places.json")
     tip_pos = json.load(open(tp_path, encoding="utf8")) if os.path.exists(tp_path) else {}
     for t in tours:

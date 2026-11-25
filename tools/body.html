@@ -98,6 +98,11 @@
         <div class="trip" id="trip" hidden></div>
       </section>
 
+      <button type="button" class="hint" id="moreHint" hidden></button>
+      <details class="panel more" id="morePanel" hidden>
+        <summary id="moreTitle">Läs mer</summary>
+        <div class="more-list" id="moreList"></div>
+      </details>
       <details class="panel stops" id="stopsPanel">
         <summary>Alla guidade hållplatser</summary>
         <ol id="stopList"></ol>
@@ -618,6 +623,26 @@
         link.append(a,b,c); li.appendChild(link); ul.appendChild(li);
       });
     }
+    // "Läs mer": fördjupning man kan läsa i egen takt
+    const mp=$("morePanel"), mk=T.id+"|"+D;
+    if(mp.dataset.k!==mk){ mp.dataset.k=mk; mp.open=false; const box=$("moreList"); box.textContent="";
+      mp.hidden=!(st.more&&st.more.length);
+      $("moreTitle").textContent="Läs mer om "+st.name;
+      (st.more||[]).forEach(c=>{
+        const card=document.createElement("article"); card.className="more-card";
+        const k=document.createElement("span"); k.className="kicker"; k.textContent=c.k;
+        const h=document.createElement("h4"); h.textContent=c.h||"";
+        const p=document.createElement("p"); p.textContent=c.t;
+        card.append(k); if(c.h) card.append(h); card.append(p);
+        if(c.src){ const a=document.createElement("a"); a.className="srclink"; a.target="_blank"; a.rel="noopener";
+          a.href="https://sv.wikipedia.org/wiki/"+encodeURIComponent(c.src.replace(/ /g,"_")); a.textContent="Källa: Wikipedia – "+c.src+" ↗"; card.append(a); }
+        box.appendChild(card);
+      });
+    }
+    // tyst sträcka till nästa hållplats: tipsa om att läsa mer
+    const quiet = S.started && !S.hopped && (!S.narr || S.narr.done) && ng>=0 && T.stops[ng].s-S.s>700 && st.more && st.more.length && !mp.open;
+    $("moreHint").hidden=!quiet;
+    if(quiet) $("moreHint").textContent="📖 Medan vi åker: läs mer om "+st.name+" ›";
     $("tips").querySelector("h3").textContent = S.hopped ? "Du har klivit av – passa på" : "Om du kliver av vid "+st.name;
     hopBtn.textContent = S.hopped ? "Hoppa på igen" : "Hoppa av här";
     hopBtn.disabled = finished && !S.hopped;
@@ -1115,6 +1140,7 @@
       buildTabs();
     }
   }
+  $("moreHint").addEventListener("click",()=>{ const mp=$("morePanel"); mp.open=true; $("moreHint").hidden=true; mp.scrollIntoView({behavior:"smooth",block:"start"}); });
   $("settingsBtn").addEventListener("click",()=>$("settings").showModal());
   document.querySelectorAll("[data-about]").forEach(b=>b.addEventListener("click",()=>$("about").showModal()));
   $("backBtn").addEventListener("click",e=>{ e.preventDefault(); location.hash=""; });

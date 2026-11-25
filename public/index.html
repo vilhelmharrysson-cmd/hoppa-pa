@@ -197,6 +197,15 @@ body[data-view="home"] #tourView{display:none}
 .stops .nm{font-weight:500;min-width:0}
 .stops li.cur .nm{font-weight:800}
 .stops .tag{font-size:12px;color:var(--muted)}
+.more>summary::before{content:"📖"}
+.hint{border:0;text-align:left;background:color-mix(in srgb,var(--sea) 14%,var(--surface));color:var(--ink);border-radius:14px;padding:11px 14px;font-weight:600;font-size:14px}
+.more-list{display:flex;flex-direction:column;gap:10px;padding:0 12px 14px}
+.more-card{background:var(--bg);border-radius:14px;padding:14px 15px;display:flex;flex-direction:column;gap:6px}
+.more-card .kicker{font-size:11.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--sea)}
+.more-card h4{margin:0;font-size:16px;line-height:1.3}
+.more-card p{margin:0;font-size:15px;line-height:1.6}
+.srclink{font-size:12.5px;color:var(--muted);text-decoration:none}
+.srclink:hover{text-decoration:underline}
 /* fast kontrollrad */
 .dock{position:fixed;z-index:30;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom,0px));width:min(560px,calc(100% - 24px));display:flex;align-items:center;gap:10px;padding:8px 8px 8px 10px;border-radius:22px;background:color-mix(in srgb,var(--raised) 92%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:var(--shadow-up),0 0 0 1px var(--line)}
 .dock .play{flex:none;border:0;background:var(--accent);color:var(--accent-ink);border-radius:16px;height:48px;padding:0 18px;font-weight:800;font-size:15px}
@@ -346,6 +355,11 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
         <div class="trip" id="trip" hidden></div>
       </section>
 
+      <button type="button" class="hint" id="moreHint" hidden></button>
+      <details class="panel more" id="morePanel" hidden>
+        <summary id="moreTitle">Läs mer</summary>
+        <div class="more-list" id="moreList"></div>
+      </details>
       <details class="panel stops" id="stopsPanel">
         <summary>Alla guidade hållplatser</summary>
         <ol id="stopList"></ol>
@@ -866,6 +880,26 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
         link.append(a,b,c); li.appendChild(link); ul.appendChild(li);
       });
     }
+    // "Läs mer": fördjupning man kan läsa i egen takt
+    const mp=$("morePanel"), mk=T.id+"|"+D;
+    if(mp.dataset.k!==mk){ mp.dataset.k=mk; mp.open=false; const box=$("moreList"); box.textContent="";
+      mp.hidden=!(st.more&&st.more.length);
+      $("moreTitle").textContent="Läs mer om "+st.name;
+      (st.more||[]).forEach(c=>{
+        const card=document.createElement("article"); card.className="more-card";
+        const k=document.createElement("span"); k.className="kicker"; k.textContent=c.k;
+        const h=document.createElement("h4"); h.textContent=c.h||"";
+        const p=document.createElement("p"); p.textContent=c.t;
+        card.append(k); if(c.h) card.append(h); card.append(p);
+        if(c.src){ const a=document.createElement("a"); a.className="srclink"; a.target="_blank"; a.rel="noopener";
+          a.href="https://sv.wikipedia.org/wiki/"+encodeURIComponent(c.src.replace(/ /g,"_")); a.textContent="Källa: Wikipedia – "+c.src+" ↗"; card.append(a); }
+        box.appendChild(card);
+      });
+    }
+    // tyst sträcka till nästa hållplats: tipsa om att läsa mer
+    const quiet = S.started && !S.hopped && (!S.narr || S.narr.done) && ng>=0 && T.stops[ng].s-S.s>700 && st.more && st.more.length && !mp.open;
+    $("moreHint").hidden=!quiet;
+    if(quiet) $("moreHint").textContent="📖 Medan vi åker: läs mer om "+st.name+" ›";
     $("tips").querySelector("h3").textContent = S.hopped ? "Du har klivit av – passa på" : "Om du kliver av vid "+st.name;
     hopBtn.textContent = S.hopped ? "Hoppa på igen" : "Hoppa av här";
     hopBtn.disabled = finished && !S.hopped;
@@ -1363,6 +1397,7 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
       buildTabs();
     }
   }
+  $("moreHint").addEventListener("click",()=>{ const mp=$("morePanel"); mp.open=true; $("moreHint").hidden=true; mp.scrollIntoView({behavior:"smooth",block:"start"}); });
   $("settingsBtn").addEventListener("click",()=>$("settings").showModal());
   document.querySelectorAll("[data-about]").forEach(b=>b.addEventListener("click",()=>$("about").showModal()));
   $("backBtn").addEventListener("click",e=>{ e.preventDefault(); location.hash=""; });

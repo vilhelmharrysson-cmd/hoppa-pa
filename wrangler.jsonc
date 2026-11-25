@@ -1,0 +1,12 @@
+// Cloudflare Workers: statiska filer från public/ och API:erna /api/vt och /api/sl.
+// Västtrafiks nyckel läggs in som hemlighet VT_AUTH_KEY (Settings → Variables and Secrets).
+{
+  "name": "hoppa-pa",
+  "main": "worker.mjs",
+  "compatibility_date": "2025-09-01",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
+  }
+}

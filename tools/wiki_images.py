@@ -20,7 +20,7 @@ def api(params):
         try:
             return json.loads(urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=40).read())
         except Exception as e:
-            print("  väntar:", e); time.sleep(20 * (a + 1))
+            print("  väntar:", e); time.sleep(60 * (a + 1))
     return {}
 
 def clean(s):
@@ -28,7 +28,8 @@ def clean(s):
 
 def main():
     data = json.load(open(PATH, encoding="utf8"))
-    todo = [(c, k) for c, d in data.items() for k, v in d.items() if "images" not in v and v.get("sources")]
+    # nya platser, och platser som inte fick någon bild förra gången (försöker igen)
+    todo = [(c, k) for c, d in data.items() for k, v in d.items() if not v.get("images") and v.get("sources")]
     titles = sorted({t for c, k in todo for t in data[c][k]["sources"]})
     print(len(todo), "platser,", len(titles), "artiklar", flush=True)
     page_img = {}
@@ -37,7 +38,7 @@ def main():
         red = {r["to"]: r["from"] for r in q.get("query", {}).get("redirects", [])}
         for p in q.get("query", {}).get("pages", []):
             if p.get("pageimage"): page_img[red.get(p["title"], p["title"])] = p["pageimage"]
-        time.sleep(1)
+        time.sleep(2)
     files = sorted(set(page_img.values()))
     info = {}
     for i in range(0, len(files), 40):
@@ -51,7 +52,7 @@ def main():
             info[p["title"].split(":", 1)[1]] = {"src": ii.get("thumburl") or ii.get("url"),
                 "credit": (clean(m.get("Artist", {}).get("value", "")) or "Okänd")[:80], "license": lic,
                 "page": ii.get("descriptionurl", ""), "title": clean(m.get("ObjectName", {}).get("value", ""))[:100]}
-        time.sleep(1)
+        time.sleep(2)
     n = 0
     for c, k in todo:
         imgs, seen = [], set()

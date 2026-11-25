@@ -1,0 +1,30 @@
+name: Faktainsamling (Wikipedia)
+
+# Hämtar fakta från svenska Wikipedia om områdena kring alla hållplatser som saknar berättelse.
+# Resultatet (tools/research/research.json) används som underlag när nya berättelser skrivs.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Samla fakta
+        run: python3 tools/wiki_research.py
+      - name: Spara
+        run: |
+          git config user.name "hoppa-pa faktainsamling"
+          git config user.email "actions@users.noreply.github.com"
+          git add tools/research
+          git commit -m "Faktainsamling från Wikipedia ($(date -u +%Y-%m-%d))" || exit 0
+          git pull --rebase
+          git push

@@ -111,6 +111,26 @@ async function journey(q) {
   return { to: dest.name, journeys };
 }
 
+const SL_MODE = { BUS: "bus", TRAM: "tram", SHIP: "boat", FERRY: "boat" };
+async function nearby(q) {
+  const sites = await get("https://transport.integration.sl.se/v1/sites?expand=false", 24 * 3600_000);
+  const p = { lat: +q.lat, lon: +q.lon };
+  const near = sites.map((s) => ({ s, d: dist(p, s) })).filter((x) => x.d <= 700).sort((a, b) => a.d - b.d).slice(0, 4);
+  const seen = new Map();
+  for (const { s, d } of near) {   // en i taget: SL begränsar samtidiga anrop
+    let j; try { j = await get(`https://transport.integration.sl.se/v1/sites/${s.id}/departures?forecast=40`, 20_000); } catch { continue; }
+    for (const x of j.departures || []) {
+      const mode = SL_MODE[x.line?.transport_mode]; const line = x.line?.designation; if (!mode || !line) continue;
+      const dir = x.destination || x.direction; const time = isoLocal(x.expected || x.scheduled);
+      const k = `${mode}|${line}|${dir}`;
+      if (!seen.has(k) || Date.parse(time) < Date.parse(seen.get(k).time))
+        seen.set(k, { line, mode, direction: dir, stop: s.name, dist: Math.round(d), time, cancelled: x.state === "CANCELLED" });
+    }
+  }
+  const lines = [...seen.values()].sort((a, b) => Date.parse(a.time) - Date.parse(b.time));
+  return { stops: near.map(({ s, d }) => ({ name: s.name, dist: Math.round(d) })), lines };
+}
+
 export default async (req) => {
   const q = Object.fromEntries(new URL(req.url).searchParams);
   try {
@@ -118,7 +138,8 @@ export default async (req) => {
     if (q.op === "departures" && q.stop) body = await departures(q);
     else if (q.op === "situations" && q.line) body = await situations(q);
     else if (q.op === "journey" && q.toStop && q.fromLat && q.fromLon) body = await journey(q);
-    else throw new HttpError(400, "Okänd fråga. Använd op=departures, op=situations eller op=journey.");
+    else if (q.op === "nearby" && q.lat && q.lon) body = await nearby(q);
+    else throw new HttpError(400, "Okänd fråga. Använd op=departures, op=situations, op=journey eller op=nearby.");
     return Response.json(body, { headers: { "Cache-Control": "public, max-age=15" } });
   } catch (e) {
     const status = e.status || 500;

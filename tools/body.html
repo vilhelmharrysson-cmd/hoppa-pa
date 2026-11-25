@@ -11,6 +11,32 @@
 .gpsmsg{margin:0;padding:10px 14px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
 .dist{font-family:var(--mono);font-variant-numeric:tabular-nums}
 .src{font-size:12px;color:var(--muted);margin:0}
+/* Bildyta med textning */
+.stage{position:relative;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;gap:10px}
+.stage.has-img{min-height:320px;padding:20px 18px 18px;justify-content:flex-end;background:#0b1a1f}
+.stage-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.4s ease;transform:scale(1.03)}
+.stage-bg.on{opacity:1;animation:kenburns 14s ease-out forwards}
+@keyframes kenburns{from{transform:scale(1.03)}to{transform:scale(1.1)}}
+.stage.has-img::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(4,14,18,.92) 0%,rgba(4,14,18,.62) 50%,rgba(4,14,18,.08) 100%)}
+.stage-text{position:relative;z-index:1;display:flex;flex-direction:column;gap:10px}
+.stage.has-img h2,.stage.has-img .story{color:#fff}
+.stage.has-img .story{font-size:16.5px;line-height:1.55;text-shadow:0 1px 2px rgba(0,0,0,.4)}
+.story .w{transition:opacity .3s ease}
+.story .w.dim{opacity:.3}
+.credit{position:absolute;top:8px;right:8px;z-index:1;font-size:11px;color:rgba(255,255,255,.9);background:rgba(0,0,0,.4);padding:2px 7px;border-radius:4px;text-decoration:none;max-width:75%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media (prefers-reduced-motion: reduce){.stage-bg.on{animation:none}.stage-bg{transition:none}}
+/* Avgår nära dig */
+.near-btn{margin-left:auto}
+.nearby{padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+.near-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.near-head h2{font-size:17px}
+.near-list{display:flex;flex-direction:column;gap:4px;max-height:20rem;overflow-y:auto}
+.near-row{display:flex;align-items:center;gap:10px;border:0;background:transparent;text-align:left;padding:7px 6px;border-radius:8px;width:100%}
+.near-row:hover{background:var(--bg)}
+.near-row .what{min-width:0;flex:1}
+.near-row .what small{display:block;color:var(--muted);font-size:12px}
+.near-row .min{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.near-row[disabled]{opacity:.55;cursor:default}
 .mapgl-wrap{position:relative}
 #mapgl{width:100%;height:440px}
 @media (max-width:860px){#mapgl{height:360px}}
@@ -63,7 +89,13 @@
       <div class="mode" role="group" aria-label="Stad" id="cityPick"></div>
       <div class="mode" role="group" aria-label="Färdmedel" id="modePick"></div>
       <input id="lineSearch" type="search" inputmode="numeric" placeholder="Sök linje, t.ex. 54" aria-label="Sök linjenummer">
+      <button class="btn near-btn" id="nearBtn" type="button">📍 Avgår nära mig</button>
     </div>
+    <section class="card nearby" id="nearby" hidden aria-live="polite">
+      <div class="near-head"><h2>Avgår nära dig</h2><button type="button" class="dir" id="nearClose">Stäng</button></div>
+      <p class="muted" id="nearInfo"></p>
+      <div class="near-list" id="nearList"></div>
+    </section>
     <nav class="tours" id="tours" aria-label="Linjer"></nav>
     <div class="dirs" id="dirs" role="group" aria-label="Välj riktning"></div>
   </section>
@@ -113,8 +145,14 @@
           <span class="chip" id="stopCount">Hållplats</span>
           <span class="chip" id="status">Redo att åka</span>
         </div>
-        <h2 id="stopName"></h2>
-        <p class="story" id="story"></p>
+        <div class="stage" id="stage">
+          <div class="stage-bg" id="bgA"></div><div class="stage-bg" id="bgB"></div>
+          <div class="stage-text">
+            <h2 id="stopName"></h2>
+            <p class="story" id="story"></p>
+          </div>
+          <a class="credit" id="credit" target="_blank" rel="noopener" hidden></a>
+        </div>
         <div class="lookout" id="lookout" hidden><b>Titta ut</b><span id="lookoutText"></span></div>
         <div class="row">
           <button class="btn" id="listen" type="button">🔊 Lyssna</button>
@@ -458,10 +496,11 @@
     const n={kind, idx, t0:Date.now(), done:false};
     S.narr=n;
     const finish=()=>{ if(n.done) return; n.done=true; if(S.narr===n){ S.narr=null; setSpeaking(false); } };
+    n.ms=textMs;
     if(S.voice==="off" || !src){ n.timer=setTimeout(finish,textMs); return n; }
     try{
       player.onended=finish; player.onerror=()=>{ n.timer=setTimeout(finish,textMs); };
-      player.src=src; setSpeaking(true);
+      player.src=src; setSpeaking(true); n.audio=true;
       const p=player.play(); if(p) p.catch(()=>{ setSpeaking(false); n.timer=setTimeout(finish,textMs); });
     }catch(e){ n.timer=setTimeout(finish,textMs); }
     return n;
@@ -559,8 +598,7 @@
     const last=guided[guided.length-1];
     const D = S.topic>=0 ? S.topic : (nextGuided()>=0 ? nextGuided() : last);
     const st=T.stops[D];
-    $("stopName").textContent=st.name;
-    $("story").textContent=st.story;
+    showStop(D);
     $("stopCount").textContent="Guidad hållplats "+(guided.indexOf(D)+1)+" av "+guided.length;
     const chip=$("status"); chip.className="chip";
     const at=nearestStopAt(), ng=nextGuided();
@@ -629,8 +667,91 @@
   function startStory(i){
     S.played.add(i); S.topic=i; showLook("");
     play("story",i,T.stops[i].audio,readMs(T.stops[i].story));
-    render();
+    S.shownD=-1; render(); capStart(i);
   }
+
+  // ---- Textning och bilder -------------------------------------------------------
+  // Orden tänds i takt med rösten (eller i lästakt utan ljud). Bilderna byts under berättelsen.
+  const CAP={i:-1,spans:[],n:-1,imgs:[],img:-1,layer:0};
+  function showStop(D){
+    if(S.shownD===D && S.shownTour===T.id) return;
+    S.shownD=D; S.shownTour=T.id;
+    const st=T.stops[D];
+    $("stopName").textContent=st.name;
+    const p=$("story"); p.textContent="";
+    CAP.spans=(st.story||"").split(/(\s+)/).map(w=>{ if(/^\s+$/.test(w)) { p.appendChild(document.createTextNode(w)); return null; }
+      const sp=document.createElement("span"); sp.className="w"; sp.textContent=w; p.appendChild(sp); return sp; }).filter(Boolean);
+    CAP.i=D; CAP.n=-1; CAP.imgs=st.images||[]; CAP.img=-1;
+    $("stage").classList.toggle("has-img",CAP.imgs.length>0);
+    if(!CAP.imgs.length){ $("bgA").classList.remove("on"); $("bgB").classList.remove("on"); $("credit").hidden=true; }
+    else showImage(0);
+  }
+  function showImage(k){
+    if(k===CAP.img || !CAP.imgs[k]) return;
+    CAP.img=k; const im=CAP.imgs[k];
+    const next=CAP.layer===0?$("bgB"):$("bgA"), prev=CAP.layer===0?$("bgA"):$("bgB");
+    const pre=new Image(); pre.onload=()=>{ next.style.backgroundImage="url(\""+im.src.replace(/"/g,"%22")+"\")"; next.classList.remove("on"); void next.offsetWidth; next.classList.add("on"); prev.classList.remove("on"); };
+    pre.src=im.src; CAP.layer=1-CAP.layer;
+    const c=$("credit"); c.hidden=false; c.textContent="Foto: "+(im.credit||"okänd")+(im.license?" · "+im.license:"");
+    c.href=(im.page||"").startsWith("https://")?im.page:"#"; c.title=im.title||"";
+  }
+  function capStart(i){ if(CAP.i!==i) return; CAP.n=-1; CAP.spans.forEach(sp=>sp.classList.add("dim")); }
+  function capUpdate(){
+    if(!CAP.spans.length) return;
+    const n=S.narr;
+    let prog;
+    if(n && n.kind==="story" && n.idx===CAP.i && !n.done){
+      prog = n.audio && player.duration>0 ? player.currentTime/player.duration : (Date.now()-n.t0)/(n.ms||8000);
+    } else prog = 1;
+    const k=Math.min(CAP.spans.length, Math.ceil(prog*CAP.spans.length*1.04));
+    if(k!==CAP.n){ CAP.n=k; CAP.spans.forEach((sp,j)=>sp.classList.toggle("dim", j>=k)); }
+    if(CAP.imgs.length>1 && prog<1) showImage(Math.min(CAP.imgs.length-1, Math.floor(prog*CAP.imgs.length)));
+  }
+
+  // ---- Avgår nära dig ----------------------------------------------------------------
+  const CITY_CENTERS=[{city:"Göteborg",api:"/api/vt",lat:57.7089,lon:11.9746},{city:"Stockholm",api:"/api/sl",lat:59.3293,lon:18.0686}];
+  const slugify=s=>(s||"").normalize("NFKD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+  const normName=s=>(s||"").normalize("NFKD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]/g,"");
+  function nearInfo(t){ $("nearInfo").textContent=t; }
+  function findTour(city,mode,line,direction){
+    const g=groups[slugify(city)+"-"+mode+"-"+slugify(line)]; if(!g) return null;
+    const d=normName(direction);
+    return g.find(id=>!byId[id].guide && d && (d.includes(normName(byId[id].to))||normName(byId[id].to).includes(d))) || g.find(id=>!byId[id].guide) || g[0];
+  }
+  $("nearClose").addEventListener("click",()=>{ $("nearby").hidden=true; });
+  $("nearBtn").addEventListener("click",()=>{
+    const box=$("nearby"); box.hidden=false; $("nearList").textContent=""; nearInfo("Söker din position…");
+    if(!("geolocation" in navigator)){ nearInfo("Den här enheten saknar platstjänster."); return; }
+    navigator.geolocation.getCurrentPosition(async pos=>{
+      const p={lat:pos.coords.latitude,lon:pos.coords.longitude};
+      const c=CITY_CENTERS.map(c=>({...c,d:distM(p,c,p.lat)})).sort((a,b)=>a.d-b.d)[0];
+      if(c.d>60000){ nearInfo("Hoppa på finns i Göteborg och Stockholm. Du är "+Math.round(c.d/1000)+" km från närmaste stad."); return; }
+      nearInfo("Hämtar avgångar nära dig…");
+      try{
+        const r=await fetch(c.api+"?op=nearby&lat="+p.lat.toFixed(5)+"&lon="+p.lon.toFixed(5));
+        if(!(r.headers.get("content-type")||"").includes("json")) throw new Error("ingen server");
+        const j=await r.json(); if(!r.ok) throw new Error(j.error);
+        const list=$("nearList"); list.textContent="";
+        const rows=j.lines.filter(l=>!l.cancelled).slice(0,40);
+        let shown=0;
+        rows.forEach(l=>{
+          const id=findTour(c.city,l.mode,l.line,l.direction);
+          if(!id) return;
+          const e=byId[id]; shown++;
+          const b=document.createElement("button"); b.type="button"; b.className="near-row";
+          const n=document.createElement("span"); n.className="badge"; n.textContent=l.line; paintNum(n,e.color);
+          const w=document.createElement("span"); w.className="what"; w.textContent="mot "+l.direction;
+          const sm=document.createElement("small"); sm.textContent=l.stop+(l.dist!=null?" · "+l.dist+" m bort":"")+(e.guided>2?" · "+e.guided+" berättelser":"");
+          w.appendChild(sm);
+          const m=document.createElement("span"); m.className="min"; m.textContent=minsUntil(l.time);
+          b.append(n,w,m);
+          b.addEventListener("click",()=>{ $("nearby").hidden=true; if(location.hash!=="#"+id) location.hash=id; else loadTour(id); window.scrollTo({top:0,behavior:"smooth"}); });
+          list.appendChild(b);
+        });
+        nearInfo(shown ? "Närmast: "+j.stops.slice(0,3).map(s=>s.name).join(", ")+". Tryck på en linje för att starta turen." : "Inga turer avgår från hållplatserna nära dig den närmaste halvtimmen.");
+      }catch(e){ nearInfo("Kunde inte hämta avgångar just nu. Funktionen fungerar i webbappen, inte i förhandsvisningen."); }
+    }, err=>{ nearInfo(err.code===1 ? "Tillåt platsåtkomst för att se linjer nära dig." : "Kunde inte läsa din position just nu."); }, {enableHighAccuracy:true,timeout:15000,maximumAge:30000});
+  });
 
   // ---- Simulator -------------------------------------------------------------
   function tick(now){
@@ -652,6 +773,7 @@
       triggers(pointAt(R,S.s));
       drawPosition(); render();
     }
+    if(T) capUpdate();
     requestAnimationFrame(tick);
   }
 
@@ -745,7 +867,7 @@
       render();
     }
   });
-  listenBtn.addEventListener("click",()=>{ const D=S.topic>=0?S.topic:guided[0]; const v=S.voice; S.voice="guide"; play("story",D,T.stops[D].audio,readMs(T.stops[D].story)); S.voice=v; });
+  listenBtn.addEventListener("click",()=>{ setTimeout(()=>capStart(S.topic>=0?S.topic:guided[0]),0); const D=S.topic>=0?S.topic:guided[0]; const v=S.voice; S.voice="guide"; play("story",D,T.stops[D].audio,readMs(T.stops[D].story)); S.voice=v; });
   stopAudioBtn.addEventListener("click",()=>{ stopNarr(); });
   $("depBtn").addEventListener("click",()=>{ const D=S.topic>=0?S.topic:guided[0]; showDepartures(D); });
   $("speed").addEventListener("change",e=>{ S.speed=Number(e.target.value)||10; });

@@ -122,6 +122,28 @@ async function journey(q) {
   return { to: dest.name, journeys };
 }
 
+// Hållplatser nära en position och linjerna som avgår därifrån den närmaste halvtimmen.
+const VT_MODE = { tram: "tram", bus: "bus", ferry: "boat", ship: "boat", boat: "boat" };
+async function nearby(q) {
+  const r = await vt("/pr/v4/locations/by-coordinates", { latitude: q.lat, longitude: q.lon, radiusInMeters: 700, types: "stoparea", limit: 6 }, 60_000);
+  const areas = (r.results || []).filter((l) => l.gid).slice(0, 4);
+  const seen = new Map();
+  for (const a of areas) {
+    let d; try { d = await vt(`/pr/v4/stop-areas/${a.gid}/departures`, { timeSpanInMinutes: 40, limit: 60, maxDeparturesPerLineAndDirection: 2 }, 20_000); } catch { continue; }
+    for (const x of d.results || []) {
+      const line = x.serviceJourney?.line?.shortName; if (!line) continue;
+      const mode = VT_MODE[(x.serviceJourney?.line?.transportMode || "").toLowerCase()]; if (!mode) continue;
+      const dir = x.serviceJourney?.directionDetails?.shortDirection || x.serviceJourney?.direction;
+      const time = x.estimatedTime || x.plannedTime;
+      const k = `${mode}|${line}|${dir}`;
+      if (!seen.has(k) || Date.parse(time) < Date.parse(seen.get(k).time))
+        seen.set(k, { line, mode, direction: dir, stop: a.name.split(",")[0], dist: a.straightLineDistanceInMeters ?? null, time, cancelled: !!x.isCancelled });
+    }
+  }
+  const lines = [...seen.values()].sort((a, b) => Date.parse(a.time) - Date.parse(b.time));
+  return { stops: areas.map((a) => ({ name: a.name.split(",")[0], dist: a.straightLineDistanceInMeters ?? null })), lines };
+}
+
 export default async (req) => {
   const q = Object.fromEntries(new URL(req.url).searchParams);
   try {
@@ -129,7 +151,8 @@ export default async (req) => {
     if (q.op === "departures" && q.stop) body = await departures(q);
     else if (q.op === "situations" && q.line) body = await situations(q);
     else if (q.op === "journey" && q.toStop && q.fromLat && q.fromLon) body = await journey(q);
-    else throw new HttpError(400, "Okänd fråga. Använd op=departures, op=situations eller op=journey.");
+    else if (q.op === "nearby" && q.lat && q.lon) body = await nearby(q);
+    else throw new HttpError(400, "Okänd fråga. Använd op=departures, op=situations, op=journey eller op=nearby.");
     return Response.json(body, { headers: { "Cache-Control": "public, max-age=15" } });
   } catch (e) {
     const status = e.status || 500;

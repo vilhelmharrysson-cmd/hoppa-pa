@@ -14,6 +14,7 @@ ROOT = os.path.dirname(HERE)
 TOURS = os.path.join(ROOT, "public", "data", "tours")
 OUT = os.path.join(HERE, "research")
 UA = {"User-Agent": "hoppa-pa-research/1.0 (open source travel guide prototype)"}
+MAX_MIN = float(os.environ.get("MAX_MIN", "240"))
 AREA = re.compile(r"(stadsdel|tätort|småort|ort i|bostadsområde|primärområde|stadsområde|kommundel|ö i|förort|område i)", re.I)
 
 def norm(s):
@@ -48,13 +49,27 @@ def main():
     print(len(stops), "hållplatser att undersöka", flush=True)
     os.makedirs(OUT, exist_ok=True)
     articles = {}
+    # kontrollpunkt: avbruten körning fortsätter där den slutade
+    ck_path = os.path.join(OUT, "partial.json")
+    done = json.load(open(ck_path, encoding="utf8")) if os.path.exists(ck_path) else {}
+    t0 = time.time()
     for n, s in enumerate(stops):
-        g = api({"action": "query", "list": "geosearch", "gscoord": f"{s['lat']}|{s['lon']}", "gsradius": "800", "gslimit": "15"})
-        s["near"] = [[h["title"], round(h["dist"])] for h in g.get("query", {}).get("geosearch", [])]
-        g2 = api({"action": "query", "list": "geosearch", "gscoord": f"{s['lat']}|{s['lon']}", "gsradius": "3000", "gslimit": "40"})
-        time.sleep(1.0)
-        s["area_cand"] = [[h["title"], round(h["dist"])] for h in g2.get("query", {}).get("geosearch", [])]
-        if n % 100 == 0: print(n, s["city"], s["name"], len(s["near"]), flush=True)
+        k = s["city"] + "|" + s["name"]
+        if k in done:
+            s["near"], s["area_cand"] = done[k]; continue
+        # en sökning räcker: träffarna kommer i avståndsordning
+        g = api({"action": "query", "list": "geosearch", "gscoord": f"{s['lat']}|{s['lon']}", "gsradius": "3000", "gslimit": "60"})
+        hits = [[h["title"], round(h["dist"])] for h in g.get("query", {}).get("geosearch", [])]
+        s["near"] = [h for h in hits if h[1] <= 800][:15]
+        s["area_cand"] = hits
+        done[k] = [s["near"], s["area_cand"]]
+        if n % 100 == 0:
+            print(n, s["city"], s["name"], len(s["near"]), f"{(time.time()-t0)/60:.0f} min", flush=True)
+            json.dump(done, open(ck_path, "w", encoding="utf8"), ensure_ascii=False)
+        if time.time() - t0 > MAX_MIN * 60:
+            json.dump(done, open(ck_path, "w", encoding="utf8"), ensure_ascii=False)
+            print("Tidsgräns nådd, sparar kontrollpunkt och avslutar. Kör igen för att fortsätta.", flush=True)
+            return
         time.sleep(1.0)
     titles = sorted({t for s in stops for t, _ in s["near"] + s["area_cand"]})
     print(len(titles), "artiklar att hämta", flush=True)
@@ -68,6 +83,7 @@ def main():
         s["area"] = [[t, d] for t, d in s.pop("area_cand") if AREA.search(articles.get(t, {}).get("desc", "") + " " + articles.get(t, {}).get("extract", "")[:160])][:3]
     used = {t for s in stops for t, _ in s["near"] + s["area"]}
     articles = {t: a for t, a in articles.items() if t in used and a.get("extract")}
+    if os.path.exists(ck_path): os.remove(ck_path)
     json.dump({"stops": stops, "articles": articles}, open(os.path.join(OUT, "research.json"), "w", encoding="utf8"),
               ensure_ascii=False, separators=(",", ":"))
     print("Klart:", len(stops), "hållplatser,", len(articles), "artiklar,",

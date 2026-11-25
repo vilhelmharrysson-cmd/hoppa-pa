@@ -120,12 +120,13 @@ def color_for(op, mode, line, group):
 def place_story(lib, name, nxt, first):
     p = lib.get(norm(name))
     if not p: return None
-    if first and p.get("asFirst"): return {"story": p["asFirst"], "tips": p.get("tips", [])}
+    imgs = p.get("images", [])
+    if first and p.get("asFirst"): return {"story": p["asFirst"], "tips": p.get("tips", []), "images": imgs}
     for v in p.get("variants", []):
         if nxt in v["ifNext"]:
-            return {"story": v["story"], "tips": p.get("tips", [])}
+            return {"story": v["story"], "tips": p.get("tips", []), "images": imgs}
     if "story" not in p: return None
-    return {"story": p["story"], "tips": p.get("tips", [])}
+    return {"story": p["story"], "tips": p.get("tips", []), "images": imgs}
 
 def sl_line_groups():
     """SL:s linjelista (öppet API, ingen nyckel): linjegrupp per linjenummer, t.ex. Blåbuss."""
@@ -210,14 +211,16 @@ def make_tour(p):
         if k == 0:
             intro = f"Välkommen ombord på {long_} {line} mot {to}! Resan tar ungefär {mins} minuter."
             pl = {"story": intro + (" " + pl["story"] if pl else " Luta dig tillbaka och titta ut genom fönstret."),
-                  "tips": pl["tips"] if pl else []}
+                  "tips": pl["tips"] if pl else [], "images": pl.get("images", []) if pl else []}
         elif k == len(proj) - 1:
             body = pl["story"] if pl else ""
             story = body if body.startswith(("Ändhållplats", "Snart är vi framme")) else \
                 f"Snart är vi framme vid ändhållplatsen {nm}." + (" " + body if body else "")
             if not story.endswith("Tack för att du åkte med!"): story += " Tack för att du åkte med!"
-            pl = {"story": story, "tips": pl["tips"] if pl else []}
-        if pl: st.update({"story": pl["story"], "tips": pl["tips"], "dur": round(len(pl["story"]) / 14, 1)})
+            pl = {"story": story, "tips": pl["tips"] if pl else [], "images": pl.get("images", []) if pl else []}
+        if pl:
+            st.update({"story": pl["story"], "tips": pl["tips"], "dur": round(len(pl["story"]) / 14, 1)})
+            if pl.get("images"): st["images"] = pl["images"][:3]
         stops_out.append(st)
     looks_out = []
     for L in looks:
@@ -248,7 +251,15 @@ def make_tour(p):
 def main():
     cache = sys.argv[sys.argv.index("--cache") + 1] if "--cache" in sys.argv else None
     global GBG_PLACES, STH_PLACES
-    GBG_PLACES, STH_PLACES = _normlib(_G["places"]), _normlib(_STH)
+    # Kunskapsbanken (places_extra.json) fylls på med research; handskrivna texter går före.
+    extra_path = os.path.join(HERE, "places_extra.json")
+    extra = json.load(open(extra_path, encoding="utf8")) if os.path.exists(extra_path) else {}
+    GBG_PLACES = _normlib(extra.get("Göteborg", {})) | _normlib(_G["places"])
+    STH_PLACES = _normlib(extra.get("Stockholm", {})) | _normlib(_STH)
+    for city, lib in (("Göteborg", GBG_PLACES), ("Stockholm", STH_PLACES)):
+        for k, v in extra.get(city, {}).items():   # bilder läggs även på handskrivna platser
+            if v.get("images") and not lib[norm(k)].get("images"):
+                lib[norm(k)] = dict(lib[norm(k)], images=v["images"])
     groups = sl_line_groups()
     tours = []
     for op in FEEDS:

@@ -280,7 +280,19 @@ def main():
         if seen[t["id"]] > 1: t["id"] += f"-{seen[t['id']]}"
     # inspelade turer (med röst) behålls från voiced.json
     voiced = json.load(open(os.path.join(HERE, "voiced.json"), encoding="utf8"))
+    for t in voiced:   # bilder från kunskapsbanken även på de inlästa turerna
+        lib = GBG_PLACES if t["city"] == "Göteborg" else STH_PLACES
+        for st in t["stops"]:
+            p = lib.get(norm(st["name"]))
+            if st.get("story") and p and p.get("images"): st["images"] = p["images"][:4]
     tours += voiced
+    for t in tours:    # samma bild ska inte dyka upp på flera hållplatser under en tur
+        used = set()
+        for st in t["stops"]:
+            if st.get("images"):
+                st["images"] = [im for im in st["images"] if im["src"] not in used]
+                used |= {im["src"] for im in st["images"]}
+                if not st["images"]: del st["images"]
     os.makedirs(os.path.join(OUT, "tours"), exist_ok=True)
     for f in os.listdir(os.path.join(OUT, "tours")):
         os.remove(os.path.join(OUT, "tours", f))

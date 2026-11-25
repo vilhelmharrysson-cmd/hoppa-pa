@@ -58,8 +58,9 @@ def clean(s):
 
 def main():
     data = json.load(open(PATH, encoding="utf8"))
-    # nya platser, och platser som inte fick någon bild förra gången (försöker igen)
-    todo = [(c, k) for c, d in data.items() for k, v in d.items() if not v.get("images") and v.get("sources")]
+    # nya platser, och platser som inte fick någon bild förra gången (försöker igen);
+    # platser vars bilder granskats för hand (imgReviewed) rörs inte
+    todo = [(c, k) for c, d in data.items() for k, v in d.items() if not v.get("images") and v.get("sources") and not v.get("imgReviewed")]
     titles = sorted({t for c, k in todo for t in data[c][k]["sources"]})
     print(len(todo), "platser,", len(titles), "artiklar", flush=True)
     page_img = wikidata_images(titles)
@@ -129,7 +130,7 @@ def stop_coords():
 def near_photos(data, budget_min=float(os.environ.get("PHOTO_MIN", "60"))):
     """Fria, geotaggade foton på Commons nära hållplatsen för platser som fortfarande saknar bild."""
     co = stop_coords()
-    todo = [(c, k) for c, d in data.items() for k, v in d.items() if not v.get("images") and (c, k) in co]
+    todo = [(c, k) for c, d in data.items() for k, v in d.items() if not v.get("images") and (c, k) in co and not v.get("imgReviewed")]
     print(len(todo), "platser utan bild: söker geotaggade foton på Commons", flush=True)
     t0, n = time.time(), 0
     for i, (c, k) in enumerate(todo):

@@ -258,6 +258,18 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
     <input id="lineSearch" type="search" inputmode="numeric" placeholder="Sök linje, t.ex. 11 eller 540" aria-label="Sök linjenummer">
   </label>
 
+  <section class="sec" aria-labelledby="detH">
+    <div class="sec-head"><h2 id="detH">Sitter du redan på?</h2></div>
+    <div class="near-card">
+      <div class="near-empty" id="detectPrompt"><p>Åk en bit så känner appen av vilken buss, spårvagn eller båt du sitter på.</p><button class="btn primary" id="detectBtn" type="button">🛰 Känn av</button></div>
+      <div id="detect" hidden aria-live="polite">
+        <p class="muted" id="detectInfo"></p>
+        <div class="near-list" id="detectList"></div>
+        <div style="padding:4px 12px 10px"><button class="btn" id="detectStop" type="button">Avbryt</button></div>
+      </div>
+    </div>
+  </section>
+
   <section class="sec" aria-labelledby="nearH">
     <div class="sec-head"><h2 id="nearH">Nära dig</h2><button type="button" class="btn" id="nearClose" hidden>Dölj</button></div>
     <div class="near-card">
@@ -1144,10 +1156,118 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
     S.tripShown=false; $("trip").hidden=true; $("deps").hidden=true;
     $("depBtn").hidden=!usesVT() || apiOk===false;
     loadAlerts();
+    if(pendingGps){ pendingGps=false; setMode("gps"); startGps(); }
   }
 
   const DEFAULT_TOUR="goteborg-tram-11-rost";
   $("lineSearch").addEventListener("input",e=>{ pick.q=e.target.value; buildTabs(); });
+  // ---- Vilken linje åker jag? -------------------------------------------------------
+  // GPS-spåret jämförs med alla linjers dragning i staden: linjer som spåret följer, i rätt riktning,
+  // och som har hållplatser där fordonet stannat, föreslås.
+  const DET={watch:null,pts:[],lines:{},city:null,pick:false};
+  let pendingGps=false;
+  function detInfo(t){ $("detectInfo").textContent=t; }
+  function detStop(){
+    if(DET.watch!==null){ navigator.geolocation.clearWatch(DET.watch); DET.watch=null; }
+    $("detect").hidden=true; $("detectPrompt").hidden=false;
+  }
+  async function detLines(city){
+    if(!DET.lines[city]){
+      const r=await fetch("data/lines-"+slugify(city)+".json"); DET.lines[city]=await r.json();
+    }
+    return DET.lines[city];
+  }
+  function polyMeasure(r,lat0){
+    const P=r.map(p=>toXY(p[0],p[1],lat0)), cum=[0];
+    for(let i=1;i<P.length;i++) cum.push(cum[i-1]+Math.hypot(P[i][0]-P[i-1][0],P[i][1]-P[i-1][1]));
+    return {P,cum};
+  }
+  function nearestOn(M,x,y){
+    let best=Infinity,bs=0; const P=M.P;
+    for(let i=1;i<P.length;i++){
+      const ax=P[i-1][0],ay=P[i-1][1],dx=P[i][0]-ax,dy=P[i][1]-ay,L=dx*dx+dy*dy;
+      const t=L?Math.max(0,Math.min(1,((x-ax)*dx+(y-ay)*dy)/L)):0;
+      const d=Math.hypot(x-ax-t*dx,y-ay-t*dy);
+      if(d<best){ best=d; bs=M.cum[i-1]+t*Math.sqrt(L); }
+    }
+    return [best,bs];
+  }
+  function detAnalyse(){
+    const pts=DET.pts, lines=DET.lines[DET.city]; if(!lines || pts.length<3) return;
+    const lat0=pts[0].lat, XY=pts.map(p=>toXY(p.lat,p.lon,lat0));
+    let trav=0; for(let i=1;i<XY.length;i++) trav+=Math.hypot(XY[i][0]-XY[i-1][0],XY[i][1]-XY[i-1][1]);
+    // platser där fordonet stått still en stund (hållplatser eller rödljus)
+    const dwells=[];
+    for(let i=0,j=0;i<pts.length;i=j){
+      j=i+1; while(j<pts.length && distM(pts[i],pts[j],lat0)<20) j++;
+      if(pts[j-1].t-pts[i].t>=12000) dwells.push(XY[i]);
+    }
+    if(trav<250){ detInfo("Åk en bit så känner jag av linjen… "+Math.round(trav)+" av 250 m."+(trav<20?" Väntar på att fordonet ska rulla.":"")); return; }
+    const res=[];
+    for(const id in lines){
+      const L=lines[id]; if(!byId[id]) continue;
+      // snabb gallring: första och sista punkten måste ligga nära linjen
+      const M=L._m||(L._m=polyMeasure(L.r,lat0));
+      const tol=Math.max(40,Math.min(80,pts[pts.length-1].acc*1.3));
+      const a=nearestOn(M,XY[0][0],XY[0][1]); if(a[0]>tol*1.5) continue;
+      const z=nearestOn(M,XY[XY.length-1][0],XY[XY.length-1][1]); if(z[0]>tol*1.5) continue;
+      let sum=0,inside=0,back=0,prev=a[1];
+      for(const [x,y] of XY){ const [d,sv]=nearestOn(M,x,y); sum+=d; if(d<=tol) inside++; if(sv<prev-40) back++; prev=Math.max(prev,sv); }
+      if(inside/XY.length<.85 || z[1]-a[1]<trav*.55 || back>XY.length*.15) continue;
+      let score=sum/XY.length;
+      if(dwells.length){
+        const SP=L._s||(L._s=L.s.map(q=>toXY(q[0],q[1],lat0)));
+        for(const [x,y] of dwells) score+= SP.some(q=>Math.hypot(q[0]-x,q[1]-y)<70) ? -8 : 4;
+      }
+      res.push({id,score});
+    }
+    res.sort((p,q)=>p.score-q.score);
+    const seen=new Set(), top=[];
+    for(const r of res){ const e=byId[r.id], k=e.group+"|"+e.to; if(seen.has(k)) continue; seen.add(k); top.push(r); if(top.length===4) break; }
+    const list=$("detectList"); list.textContent="";
+    if(!top.length){ detInfo(trav>800 ? "Hittar ingen linje som stämmer med sträckan. Fortsätter att lyssna…" : "Letar efter linjer som stämmer… "+Math.round(trav)+" m hittills."); return; }
+    detInfo(top.length===1 ? "Det ser ut som att du åker med:" : "Det ser ut som någon av de här. Välj rätt:");
+    top.forEach(r=>{
+      const e=byId[r.id];
+      const b=document.createElement("button"); b.type="button"; b.className="near-row";
+      const n=document.createElement("span"); n.className="badge"; n.textContent=e.line; paintNum(n,e.color);
+      const w=document.createElement("span"); w.className="what"; w.textContent=e.vehicleLong.charAt(0).toUpperCase()+e.vehicleLong.slice(1)+" "+e.line+" mot "+e.to;
+      const sm=document.createElement("small"); sm.textContent=(e.guided?e.guided+" berättelser · ":"")+"startar guiden med GPS"; w.appendChild(sm);
+      const go=document.createElement("span"); go.className="min"; go.textContent="›";
+      b.append(n,w,go);
+      b.addEventListener("click",()=>{
+        // finns en inläst tur åt samma håll väljs den
+        const v=groups[e.group].find(k=>byId[k].guide && normName(byId[k].to)===normName(e.to));
+        detStop(); pendingGps=true; location.hash=v||r.id;
+      });
+      list.appendChild(b);
+    });
+  }
+  $("detectStop").addEventListener("click",detStop);
+  $("detectBtn").addEventListener("click",()=>{
+    if(!("geolocation" in navigator)){ return; }
+    $("detectPrompt").hidden=true; $("detect").hidden=false; $("detectList").textContent="";
+    DET.pts=[]; DET.city=null; detInfo("Söker din position…");
+    try{ navigator.wakeLock && navigator.wakeLock.request("screen").catch(()=>{}); }catch(e){}
+    DET.watch=navigator.geolocation.watchPosition(async pos=>{
+      const p={lat:pos.coords.latitude,lon:pos.coords.longitude,acc:pos.coords.accuracy||30,t:pos.timestamp||Date.now()};
+      if(p.acc>80) { detInfo("Väntar på bättre GPS-signal (±"+Math.round(p.acc)+" m)…"); return; }
+      if(!DET.city){
+        const c=CITY_CENTERS.map(c=>({...c,d:distM(p,c,p.lat)})).sort((a,b)=>a.d-b.d)[0];
+        if(c.d>60000){ detInfo("Hoppa på finns i Göteborg och Stockholm. Du är "+Math.round(c.d/1000)+" km från närmaste stad."); return; }
+        DET.city=c.city;
+        if(pick.city!==c.city){ pick.city=c.city; pick.mode=null; saveCity(c.city); buildTabs(); }
+        detInfo("Laddar linjerna i "+c.city+"…");
+        try{ await detLines(c.city); }catch(e){ detInfo("Kunde inte ladda linjerna. Försök igen."); return; }
+      }
+      DET.pts.push(p);
+      // behåll ungefär de senaste 2 km
+      let d=0; for(let i=DET.pts.length-1;i>0;i--){ d+=distM(DET.pts[i],DET.pts[i-1],p.lat); if(d>2000){ DET.pts=DET.pts.slice(i); break; } }
+      detAnalyse();
+    }, err=>{ detInfo(err.code===1 ? "Tillåt platsåtkomst för att känna av linjen." : "Kunde inte läsa positionen just nu."); },
+    {enableHighAccuracy:true,maximumAge:1000,timeout:20000});
+  });
+
   // stad: senast valda sparas; vid första besöket (eller om platsåtkomst redan är tillåten)
   // läses positionen av, så att rätt stad och linjerna nära en visas direkt
   function savedCity(){ try{ return localStorage.getItem("hp_city"); }catch(e){ return null; } }
@@ -1165,7 +1285,7 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
   }
   function route(){
     const key=location.hash.slice(1);
-    if(key && byId[key]){ setView("tour"); window.scrollTo(0,0); if(!T || T.id!==key) loadTour(key); }
+    if(key && byId[key]){ if(DET.watch!==null) detStop(); setView("tour"); window.scrollTo(0,0); if(!T || T.id!==key) loadTour(key); }
     else{
       if(S.playing){ S.playing=false; stopNarr(); }
       if(S.gpsWatch!==null) stopGps();

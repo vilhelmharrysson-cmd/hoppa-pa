@@ -27,9 +27,11 @@ public/                 webbappen (publiceras som den är)
   data/tours/*.json     en fil per tur: linjeform, hållplatser, berättelser, "titta ut"
   audio/                inlästa berättelser (ElevenLabs)
   sw.js, manifest.webmanifest, icons/
-netlify/functions/
+lib/
   vt.mjs                /api/vt – Västtrafik (Planera Resa v4, Störning v1), kräver nyckel
   sl.mjs                /api/sl – SL via Trafiklab (öppna API:er, ingen nyckel)
+functions/api/          tunna omslag för Cloudflare Pages (huvudvärd)
+netlify/functions/      tunna omslag för Netlify (reserv)
 tools/                  källor och byggskript för turer och sidan
 ```
 
@@ -45,16 +47,22 @@ Kräver en hemlighet i GitHub: **Settings → Secrets and variables → Actions 
 
 Kör första gången via **Actions → Uppdatera linjer → Run workflow**.
 
-## Publicera på Netlify
+## Publicera på Cloudflare Pages (gratis)
 
-1. Logga in på [netlify.com](https://www.netlify.com) med GitHub.
-2. **Add new site → Import an existing project → GitHub →** välj `hoppa-pa` och den gren som ska
-   publiceras. Inställningarna läses från `netlify.toml`, så inget behöver fyllas i.
-3. **Site configuration → Environment variables → Add a variable:**
-   - Key: `VT_AUTH_KEY`
-   - Value: Västtrafiks **Autentiseringsnyckel** för applikationen (developer.vasttrafik.se →
-     din applikation). Markera den som hemlig.
-4. Publicera om (Deploys → Trigger deploy). Klart.
+1. Logga in på [dash.cloudflare.com](https://dash.cloudflare.com) (gratiskonto).
+2. **Workers & Pages → Create → Pages → Connect to Git →** välj GitHub och repot `hoppa-pa`.
+3. Bygginställningar:
+   - Production branch: `main`
+   - Framework preset: `None`
+   - Build command: lämna tomt
+   - Build output directory: `public`
+4. **Save and Deploy.** Mappen `functions/` blir automatiskt `/api/vt` och `/api/sl`.
+5. **Settings → Variables and Secrets → Add:** typ *Secret*, namn `VT_AUTH_KEY`, värde Västtrafiks
+   **Autentiseringsnyckel** (developer.vasttrafik.se → din applikation). Publicera sedan om
+   (Deployments → senaste → Retry deployment), så att funktionerna får nyckeln.
+
+Sajten hamnar på `https://<projektnamn>.pages.dev`. Netlify-inställningarna (`netlify.toml`) finns
+kvar som reserv.
 
 Applikationen i Västtrafiks utvecklarportal ska prenumerera på **Planera Resa v4** och
 **Störning v1**.

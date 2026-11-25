@@ -46,7 +46,8 @@ def main():
         r = simplify(route, lat0)
         out.setdefault(t["city"], {})[t["id"]] = {
             "r": [[round(a, 5), round(b, 5)] for a, b in r],
-            "s": [[round(s["lat"], 5), round(s["lon"], 5)] for s in t["stops"]]}
+            "s": [[round(s["lat"], 5), round(s["lon"], 5)] for s in t["stops"]],
+            "n": [s["name"] for s in t["stops"]]}
     for city, lines in out.items():
         slug = "goteborg" if city.startswith("G") else "stockholm"
         path = os.path.join(DATA, f"lines-{slug}.json")

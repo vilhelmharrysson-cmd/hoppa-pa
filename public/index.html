@@ -1164,7 +1164,7 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
   // ---- Vilken linje åker jag? -------------------------------------------------------
   // GPS-spåret jämförs med alla linjers dragning i staden: linjer som spåret följer, i rätt riktning,
   // och som har hållplatser där fordonet stannat, föreslås.
-  const DET={watch:null,pts:[],lines:{},city:null,pick:false};
+  const DET={watch:null,pts:[],lines:{},city:null,pick:false,rt:{},rtAt:0,rtBusy:false,rtStop:""};
   let pendingGps=false;
   function detInfo(t){ $("detectInfo").textContent=t; }
   function detStop(){
@@ -1221,9 +1221,13 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
       }
       res.push({id,score});
     }
+    // realtid: linjer vars fordon väntas vid nästa hållplats ungefär när vi är där går först,
+    // linjer som inte har något fordon på väg in hamnar sist
+    res.forEach(r=>{ const q=DET.rt[r.id]; if(q) r.score+= q.ok ? -40 : 25; });
     res.sort((p,q)=>p.score-q.score);
     const seen=new Set(), top=[];
     for(const r of res){ const e=byId[r.id], k=e.group+"|"+e.to; if(seen.has(k)) continue; seen.add(k); top.push(r); if(top.length===4) break; }
+    if(top.length>1) detRealtime(top, XY, lat0);
     const list=$("detectList"); list.textContent="";
     if(!top.length){ detInfo(trav>800 ? "Hittar ingen linje som stämmer med sträckan. Fortsätter att lyssna…" : "Letar efter linjer som stämmer… "+Math.round(trav)+" m hittills."); return; }
     detInfo(top.length===1 ? "Det ser ut som att du åker med:" : "Det ser ut som någon av de här. Välj rätt:");
@@ -1232,7 +1236,11 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
       const b=document.createElement("button"); b.type="button"; b.className="near-row";
       const n=document.createElement("span"); n.className="badge"; n.textContent=e.line; paintNum(n,e.color);
       const w=document.createElement("span"); w.className="what"; w.textContent=e.vehicleLong.charAt(0).toUpperCase()+e.vehicleLong.slice(1)+" "+e.line+" mot "+e.to;
-      const sm=document.createElement("small"); sm.textContent=(e.guided?e.guided+" berättelser · ":"")+"startar guiden med GPS"; w.appendChild(sm);
+      const q=DET.rt[r.id];
+      const sm=document.createElement("small");
+      sm.textContent= q ? (q.ok ? "🟢 "+q.text : "Inget fordon på väg in enligt "+(DET.city==="Stockholm"?"SL":"Västtrafik")) : (e.guided?e.guided+" berättelser · ":"")+"startar guiden med GPS";
+      if(q && !q.ok) b.style.opacity=".6";
+      w.appendChild(sm);
       const go=document.createElement("span"); go.className="min"; go.textContent="›";
       b.append(n,w,go);
       b.addEventListener("click",()=>{
@@ -1243,11 +1251,47 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
       list.appendChild(b);
     });
   }
+  // Frågar SL/Västtrafik vilka fordon som väntas vid nästa hållplats. Fordonet man sitter i
+  // ska vara på väg dit och komma ungefär när vi beräknas vara framme.
+  async function detRealtime(top, XY, lat0){
+    const now=Date.now();
+    if(DET.rtBusy || now-DET.rtAt<40000) return;
+    const lines=DET.lines[DET.city], L0=lines[top[0].id], M=L0._m;
+    const [x,y]=XY[XY.length-1], cur=nearestOn(M,x,y)[1];
+    const ss=L0._ss||(L0._ss=L0.s.map(q=>{ const [a,b]=toXY(q[0],q[1],lat0); return nearestOn(M,a,b)[1]; }));
+    const k=ss.findIndex(v=>v>cur+60); if(k<0) return;
+    // fart de senaste ~60 sekunderna
+    const P=DET.pts, last=P[P.length-1]; let i=P.length-1; while(i>0 && last.t-P[i-1].t<60000) i--;
+    const v=Math.max(3, distM(P[i],last,lat0)/Math.max(1,(last.t-P[i].t)/1000));
+    const eta=(ss[k]-cur)/v/60;                 // minuter till nästa hållplats
+    const stop=L0.n[k], c=CITY_CENTERS.find(c=>c.city===DET.city);
+    DET.rtBusy=true; DET.rtAt=now; DET.rtStop=stop;
+    try{
+      const r=await fetch(c.api+"?op=departures&all=1&stop="+encodeURIComponent(stop)+"&lat="+L0.s[k][0]+"&lon="+L0.s[k][1]);
+      if(!(r.headers.get("content-type")||"").includes("json")) throw new Error("ingen server");
+      const j=await r.json(); if(!r.ok) throw new Error(j.error);
+      const deps=(j.departures||[]).filter(d=>!d.cancelled);
+      top.forEach(t=>{
+        const e=byId[t.id];
+        if(!lines[t.id].n.includes(stop)) return;      // linjen stannar inte där – kan inte avgöras
+        const mine=deps.filter(d=>String(d.line)===String(e.line));
+        if(!mine.length){ DET.rt[t.id]={ok:false}; return; }
+        const dir=mine.filter(d=>{ const a=normName(d.direction), b=normName(e.to); return a && b && (a.includes(b)||b.includes(a)); });
+        const pool=dir.length?dir:mine;
+        const hit=pool.map(d=>(Date.parse(d.estimated||d.planned)-Date.now())/60000).filter(m=>m>=-1.5 && m<=eta+3).sort((a,b)=>a-b)[0];
+        if(hit===undefined){ if(dir.length) DET.rt[t.id]={ok:false}; return; }
+        const m=Math.max(0,Math.round(hit));
+        DET.rt[t.id]={ok:true,text:"Väntas vid "+stop+(m?" om "+m+" min":" nu")+" enligt realtid"};
+      });
+      detAnalyse();
+    }catch(e){ /* realtid saknas – förslagen bygger då bara på sträckan */ }
+    finally{ DET.rtBusy=false; }
+  }
   $("detectStop").addEventListener("click",detStop);
   $("detectBtn").addEventListener("click",()=>{
     if(!("geolocation" in navigator)){ return; }
     $("detectPrompt").hidden=true; $("detect").hidden=false; $("detectList").textContent="";
-    DET.pts=[]; DET.city=null; detInfo("Söker din position…");
+    DET.pts=[]; DET.city=null; DET.rt={}; DET.rtAt=0; detInfo("Söker din position…");
     try{ navigator.wakeLock && navigator.wakeLock.request("screen").catch(()=>{}); }catch(e){}
     DET.watch=navigator.geolocation.watchPosition(async pos=>{
       const p={lat:pos.coords.latitude,lon:pos.coords.longitude,acc:pos.coords.accuracy||30,t:pos.timestamp||Date.now()};

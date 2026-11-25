@@ -394,7 +394,8 @@ select{font:inherit;font-size:13px;color:var(--ink);background:var(--surface);bo
       btn.append(n);
       if(groups[e.group].some(id=>byId[id].guide)){ const v=document.createElement("small"); v.textContent=" 🔊"; btn.append(v); }
       btn.setAttribute("aria-current", T && T.group===e.group ? "true":"false");
-      btn.addEventListener("click",()=>{ const k=groups[e.group][0]; if(location.hash!=="#"+k) location.hash=k; else loadTour(k); });
+      // linjer med inläst röst öppnar röstturen först
+      btn.addEventListener("click",()=>{ const k=groups[e.group].find(id=>byId[id].guide)||groups[e.group][0]; if(location.hash!=="#"+k) location.hash=k; else loadTour(k); });
       tabs.appendChild(btn);
     });
     if(!tabs.children.length){ const p=document.createElement("span"); p.className="muted"; p.textContent="Ingen linje matchar."; tabs.appendChild(p); }
@@ -404,7 +405,7 @@ select{font:inherit;font-size:13px;color:var(--ink);background:var(--surface);bo
     const nm=document.createElement("span"); nm.className="route-name";
     nm.textContent=T.vehicleLong.charAt(0).toUpperCase()+T.vehicleLong.slice(1)+" "+T.line+(T.tab?" · "+T.tab:"");
     box.appendChild(nm);
-    groups[T.group].forEach(k=>{
+    [...groups[T.group]].sort((a,b)=>(byId[b].guide?1:0)-(byId[a].guide?1:0)).forEach(k=>{
       const t=byId[k];
       const b=document.createElement("button"); b.type="button"; b.className="dir";
       b.setAttribute("aria-pressed", k===T.id ? "true":"false");

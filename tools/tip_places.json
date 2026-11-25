@@ -1,0 +1,5407 @@
+{
+"Göteborg|Aeroseum": [
+57.770767,
+11.880573,
+"Aeroseum"
+],
+"Göteborg|Aftonstjärnan": [
+57.70696,
+11.93283,
+"Aftonstjärnan (teater)"
+],
+"Göteborg|Alelyckan": [
+57.750833,
+12.011111,
+"Alelyckan"
+],
+"Göteborg|Alelyckans sportcenter": [
+57.754519,
+12.011722,
+"Alelyckans sportcenter"
+],
+"Göteborg|Allmänna bastun": [
+57.717178,
+11.959692,
+"Allmänna bastun"
+],
+"Göteborg|Allum": [
+57.738056,
+12.105556,
+"Allum"
+],
+"Göteborg|Angered arena": [
+57.7947,
+12.0546,
+"Angered arena"
+],
+"Göteborg|Angereds torg": [
+57.796709,
+12.05117,
+"Angereds torg"
+],
+"Göteborg|Arendalsbanan": [
+57.701063,
+11.85589,
+"Arendalsbanan"
+],
+"Göteborg|Askims kyrka": [
+57.61625,
+11.941194,
+"Askims kyrka"
+],
+"Göteborg|Askims norra kyrkogård": [
+57.636022,
+11.939028,
+"Askims norra kyrkogård"
+],
+"Göteborg|Askims torg": [
+57.633414,
+11.936839,
+"Askims torg"
+],
+"Göteborg|Asperö kyrka": [
+57.650086,
+11.796358,
+"Asperö kyrka"
+],
+"Göteborg|Axel Dahlströms torg": [
+57.671,
+11.927247,
+"Axel Dahlströms torg"
+],
+"Göteborg|Backa Folkets hus": [
+57.734739,
+11.974289,
+"Backa Folkets hus"
+],
+"Göteborg|Backa Röd": [
+57.743,
+11.97,
+"Backa Röd"
+],
+"Göteborg|Backa kyrka": [
+57.744,
+11.980861,
+"Backa kyrka"
+],
+"Göteborg|Backaplan, handel": [
+57.722778,
+11.956944,
+"Backaplan"
+],
+"Göteborg|Barken Viking vid kajen": [
+57.712806,
+11.965389,
+"Barken Viking"
+],
+"Göteborg|Bastun i Jubileumsparken": [
+57.717735,
+11.957073,
+"Jubileumsparken"
+],
+"Göteborg|Bergsjön (Göteborg, Västergötland)": [
+57.748506,
+12.064103,
+"Bergsjön (Göteborg, Västergötland)"
+],
+"Göteborg|Bergslagernas Järnvägssällskap": [
+57.73035,
+12.004467,
+"Bergslagernas Järnvägssällskap"
+],
+"Göteborg|Besök Kulturhuset Bergsjön": [
+57.7566,
+12.0733,
+"Kulturhuset Bergsjön"
+],
+"Göteborg|Billdals gård": [
+57.580833,
+11.945278,
+"Billdals gård"
+],
+"Göteborg|Billdals kyrka": [
+57.57585,
+11.94248,
+"Billdals kyrka"
+],
+"Göteborg|Biografen Möllan": [
+57.657778,
+12.015,
+"Biografen Möllan"
+],
+"Göteborg|Biskopsgårdens bibliotek": [
+57.711985,
+11.892215,
+"Biskopsgårdens bibliotek"
+],
+"Göteborg|Bjurslättskyrkan": [
+57.7265,
+11.9391,
+"Bjurslättskyrkan"
+],
+"Göteborg|Björkekärrs kyrka": [
+57.71447,
+12.04696,
+"Björkekärrs kyrka"
+],
+"Göteborg|Björlanda kyrka": [
+57.761464,
+11.824567,
+"Björlanda kyrka"
+],
+"Göteborg|Bogserbåten Sven": [
+57.7195,
+11.974867,
+"Bogserbåten Sven"
+],
+"Göteborg|Brunnsbokyrkan": [
+57.728056,
+11.970278,
+"Brunnsbokyrkan"
+],
+"Göteborg|Brunnstorpsnäs": [
+57.818065,
+11.886452,
+"Brunnstorpsnäs"
+],
+"Göteborg|Bräcke kyrkogård": [
+57.705578,
+11.904197,
+"Bräcke kyrkogård, Göteborg"
+],
+"Göteborg|Bräcke soldattorp": [
+57.846669,
+11.759764,
+"Bräcke soldattorp"
+],
+"Göteborg|Brännö brygga och bad": [
+57.639151,
+11.777511,
+"Brännö"
+],
+"Göteborg|Bullegummans gata": [
+57.665331,
+11.877625,
+"Bullegummans gata"
+],
+"Göteborg|Burås kvarn": [
+57.82246,
+11.7534,
+"Burås kvarn"
+],
+"Göteborg|Bäckebol Center": [
+57.77,
+11.998889,
+"Bäckebol Center"
+],
+"Göteborg|Bäckebols gård": [
+57.760311,
+11.9841,
+"Bäckebols gård"
+],
+"Göteborg|Bö herrgård": [
+57.700514,
+12.005953,
+"Bö herrgård"
+],
+"Göteborg|Capitol": [
+57.695917,
+11.959417,
+"Capitol, Göteborg"
+],
+"Göteborg|Chalmers campus Johanneberg": [
+57.691111,
+11.980306,
+"Johanneberg"
+],
+"Göteborg|Chapmans torg": [
+57.693333,
+11.918611,
+"Chapmans torg"
+],
+"Göteborg|Citytorget": [
+57.757417,
+12.036389,
+"Citytorget"
+],
+"Göteborg|De tre vingarna": [
+57.795917,
+12.052792,
+"De tre vingarna"
+],
+"Göteborg|Dvärgahuset": [
+57.601449,
+12.109808,
+"Dvärgahuset"
+],
+"Göteborg|Elementens kamp": [
+57.714578,
+12.002942,
+"Elementens kamp"
+],
+"Göteborg|Eriksbergs bockkran": [
+57.6975,
+11.908889,
+"Eriksbergs bockkran"
+],
+"Göteborg|Eriksbergshallen": [
+57.7013,
+11.9145,
+"Eriksbergshallen"
+],
+"Göteborg|Falutorget": [
+57.717222,
+11.980833,
+"Falutorget"
+],
+"Göteborg|Feskekôrka, räkmacka vid vattnet": [
+57.701,
+11.957778,
+"Feskekörka"
+],
+"Göteborg|Fiskebäcks museum": [
+57.646214,
+11.859436,
+"Fiskebäcks museum"
+],
+"Göteborg|Fjällbohemmet": [
+57.741331,
+12.062128,
+"Fjällbohemmet"
+],
+"Göteborg|Flabäck": [
+57.592075,
+12.057961,
+"Flabäck"
+],
+"Göteborg|Fontänen Elementens kamp": [
+57.714578,
+12.002942,
+"Elementens kamp"
+],
+"Göteborg|Fredrikshamns skans": [
+57.743178,
+12.00086,
+"Fredrikshamns skans"
+],
+"Göteborg|Fridhems kyrkogård": [
+57.765133,
+11.97645,
+"Fridhems kyrkogård"
+],
+"Göteborg|Friedländerska kyrkogården": [
+57.754167,
+11.978611,
+"Friedländerska kyrkogården"
+],
+"Göteborg|Frölunda Torg, köpcentrum": [
+57.652789,
+11.911589,
+"Frölunda torg (station)"
+],
+"Göteborg|Frölunda kulturhus": [
+57.65425,
+11.909833,
+"Frölunda kulturhus"
+],
+"Göteborg|Frölunda torg": [
+57.654167,
+11.9,
+"Frölunda torg"
+],
+"Göteborg|Furulundskyrkan": [
+57.725889,
+12.126833,
+"Furulundskyrkan"
+],
+"Göteborg|Furåsens kyrka": [
+57.660469,
+11.872797,
+"Furåsens kyrka"
+],
+"Göteborg|Fynda på Kvibergs marknad": [
+57.737917,
+12.031511,
+"Kvibergs marknad"
+],
+"Göteborg|Fässbergs Bio": [
+57.656702,
+12.001956,
+"Fässbergs Bio"
+],
+"Göteborg|Fässbergs kyrka": [
+57.65625,
+12.009722,
+"Fässbergs kyrka"
+],
+"Göteborg|Fässbergs kyrkogård": [
+57.654167,
+11.985278,
+"Fässbergs kyrkogård"
+],
+"Göteborg|Fågelbergskyrkan": [
+57.644083,
+12.034444,
+"Fågelbergskyrkan"
+],
+"Göteborg|GP-huset": [
+57.7087,
+11.977817,
+"GP-huset"
+],
+"Göteborg|Gallhålans naturreservat": [
+57.693586,
+12.195736,
+"Gallhålans naturreservat"
+],
+"Göteborg|Gamla Härlanda fängelse": [
+57.716667,
+12.016667,
+"Härlanda fängelse"
+],
+"Göteborg|Gamlestadsbron": [
+57.727463,
+12.007776,
+"Gamlestadsbron"
+],
+"Göteborg|Gibraltar herrgård": [
+57.684272,
+11.981709,
+"Gibraltar (herrgård)"
+],
+"Göteborg|Glöstorpskyrkan": [
+57.754256,
+11.927114,
+"Glöstorpskyrkan"
+],
+"Göteborg|Gothia Arena": [
+57.645278,
+11.914722,
+"Gothia Arena"
+],
+"Göteborg|Gothia Park Academy": [
+57.7404,
+11.949,
+"Gothia Park Academy"
+],
+"Göteborg|Guldhedens norra vattentorn": [
+57.686417,
+11.966333,
+"Guldhedens norra vattentorn"
+],
+"Göteborg|Guldhedens vattentorn": [
+57.680278,
+11.97,
+"Guldhedens vattentorn"
+],
+"Göteborg|Gunnar Gren-statyn": [
+57.706961,
+11.979056,
+"Gunnar Gren (staty)"
+],
+"Göteborg|Gunnareds kyrka": [
+57.798808,
+12.049675,
+"Gunnareds kyrka"
+],
+"Göteborg|Gunnareds kyrkogård": [
+57.8008,
+12.047292,
+"Gunnareds kyrkogård"
+],
+"Göteborg|Gustaf Adolfs torg och Stora Hamnkanalen": [
+57.707111,
+11.966806,
+"Gustaf Adolfs torg, Göteborg"
+],
+"Göteborg|Gå Friidrottens väg mot Slottsskogsvallen": [
+57.677778,
+11.939444,
+"Slottsskogsvallen"
+],
+"Göteborg|Gå Friidrottens väg vid Slottsskogsvallen": [
+57.677778,
+11.939444,
+"Slottsskogsvallen"
+],
+"Göteborg|Gå ner till Klippans värdshus": [
+57.690939,
+11.910478,
+"Klippans värdshus"
+],
+"Göteborg|Gå runt i Härlanda park, det gamla fängelset": [
+57.7183,
+12.0216,
+"Härlanda, Göteborg"
+],
+"Göteborg|Gå runt i Härlanda park, före detta fängelse": [
+57.7183,
+12.0216,
+"Härlanda, Göteborg"
+],
+"Göteborg|Gå till Sveaplan med Gösta Silléns stenskulpturer": [
+57.692304,
+11.954804,
+"Sveaplan, Göteborg"
+],
+"Göteborg|Gårdahallen": [
+57.710526,
+11.99275,
+"Gårdahallen"
+],
+"Göteborg|Göta Bio": [
+57.743159,
+12.173911,
+"Göta Bio"
+],
+"Göteborg|Götaplatsen och Poseidon": [
+57.697167,
+11.979583,
+"Götaplatsen"
+],
+"Göteborg|Göteborgs Hospitalskyrkogård": [
+57.738544,
+12.005339,
+"Göteborgs Hospitalskyrkogård"
+],
+"Göteborg|Göteborgs botaniska trädgård": [
+57.682881,
+11.950389,
+"Göteborgs botaniska trädgård"
+],
+"Göteborg|Göteborgs konstmuseum": [
+57.696389,
+11.980556,
+"Göteborgs konstmuseum"
+],
+"Göteborg|Göteborgs pepparkaksbageri": [
+57.690472,
+12.005556,
+"Göteborgs pepparkaksbageri"
+],
+"Göteborg|Göteborgs stadsmuseum i Ostindiska huset": [
+57.706389,
+11.963333,
+"Göteborgs stadsmuseum"
+],
+"Göteborg|Göteborgsoperan": [
+57.711111,
+11.964167,
+"Göteborgsoperan"
+],
+"Göteborg|Haga Nygata och jättekanelbullar": [
+57.698397,
+11.957481,
+"Haga Nygata"
+],
+"Göteborg|Hammarkullen (station)": [
+57.779692,
+12.0365,
+"Hammarkullen (station)"
+],
+"Göteborg|Hammarkulletorget": [
+57.780542,
+12.037325,
+"Hammarkulletorget"
+],
+"Göteborg|Harestads kyrka": [
+57.817417,
+11.8377,
+"Harestads kyrka"
+],
+"Göteborg|Heden, stort öppet fält": [
+57.702175,
+11.978617,
+"Heden, Göteborg"
+],
+"Göteborg|Helige kung Stefan Dečanskis kyrka, Göteborg": [
+57.748261,
+12.028269,
+"Helige kung Stefan Dečanskis kyrka, Göteborg"
+],
+"Göteborg|Hitta Emotrappan i Nordstan": [
+57.708333,
+11.969167,
+"Nordstan"
+],
+"Göteborg|Hjällbo centrum": [
+57.769167,
+12.020556,
+"Hjällbo centrum"
+],
+"Göteborg|Hjällbo kyrka": [
+57.769392,
+12.021528,
+"Hjällbo kyrka"
+],
+"Göteborg|Hotel The Weaver": [
+57.668,
+12.0105,
+"Hotel The Weaver"
+],
+"Göteborg|Hovgårdsvallen": [
+57.751111,
+11.826111,
+"Hovgårdsvallen"
+],
+"Göteborg|Hult Åsens naturvårdsområde": [
+57.631583,
+11.926778,
+"Hult Åsens naturvårdsområde"
+],
+"Göteborg|Härlanda kyrka": [
+57.7193,
+12.02365,
+"Härlanda kyrka"
+],
+"Göteborg|Härlanda kyrkoruin": [
+57.719722,
+12.0225,
+"Härlanda kyrkoruin"
+],
+"Göteborg|Hästskosömsfabriken": [
+57.70334,
+11.99162,
+"Hästskosömsfabriken"
+],
+"Göteborg|Högenskolan": [
+57.645,
+11.875,
+"Högenskolan"
+],
+"Göteborg|Högsbo pegmatitbrott": [
+57.663056,
+11.946111,
+"Högsbo pegmatitbrott"
+],
+"Göteborg|Hönö kyrka": [
+57.690878,
+11.647069,
+"Hönö kyrka"
+],
+"Göteborg|Idtjärnet": [
+57.8068,
+12.0686,
+"Idtjärnet"
+],
+"Göteborg|Ingo – the Champ": [
+57.70689,
+11.98564,
+"Ingo - the Champ"
+],
+"Göteborg|Interkulturella folkhögskolan": [
+57.760556,
+12.052222,
+"Interkulturella folkhögskolan"
+],
+"Göteborg|Johannebergs vattentorn": [
+57.691236,
+11.984119,
+"Johannebergs vattentorn"
+],
+"Göteborg|Jonsereds strömmar": [
+57.747955,
+12.170378,
+"Jonsereds strömmar"
+],
+"Göteborg|Jordfallsbron": [
+57.855465,
+12.00917,
+"Jordfallsbron"
+],
+"Göteborg|Jubileumsparken": [
+57.717735,
+11.957073,
+"Jubileumsparken"
+],
+"Göteborg|Jubileumsparken med bastu och bad": [
+57.717735,
+11.957073,
+"Jubileumsparken"
+],
+"Göteborg|Jungfruplatsen": [
+57.65929,
+12.00116,
+"Jungfruplatsen"
+],
+"Göteborg|Kaféer kring Mariaplan": [
+57.687,
+11.921483,
+"Mariaplan"
+],
+"Göteborg|Kaggeledstorget": [
+57.723141,
+12.033665,
+"Kaggeledstorget"
+],
+"Göteborg|Karin Boye-statyn": [
+57.698,
+11.978867,
+"Karin Boye (staty)"
+],
+"Göteborg|Karlatornet": [
+57.7098,
+11.9393,
+"Karlatornet"
+],
+"Göteborg|Kastalakyrkan": [
+57.869361,
+11.957417,
+"Kastalakyrkan"
+],
+"Göteborg|Keillers park och utsikten från Ramberget": [
+57.715389,
+11.934861,
+"Keillers park"
+],
+"Göteborg|Klare mosse": [
+57.7431,
+11.8974,
+"Klare mosse"
+],
+"Göteborg|Klippans kulturreservat": [
+57.690278,
+11.906944,
+"Klippans kulturreservat"
+],
+"Göteborg|Klippans värdshus": [
+57.690939,
+11.910478,
+"Klippans värdshus"
+],
+"Göteborg|Klättra upp till stångmärket Valen": [
+57.709381,
+11.680431,
+"Stångmärket Valen"
+],
+"Göteborg|Knarrholmen": [
+57.622222,
+11.827778,
+"Knarrholmen"
+],
+"Göteborg|Kolerakyrkogården i Lunden": [
+57.708708,
+12.0007,
+"Kolerakyrkogården i Lunden"
+],
+"Göteborg|Komettorget": [
+57.750658,
+12.072119,
+"Komettorget"
+],
+"Göteborg|Kongahälla Center": [
+57.8734,
+11.9678,
+"Kongahälla Center"
+],
+"Göteborg|Kornhall": [
+57.819722,
+11.872778,
+"Kornhall"
+],
+"Göteborg|Kornhallsleden": [
+57.81838,
+11.87862,
+"Kornhallsleden"
+],
+"Göteborg|Kortedala museum": [
+57.7581,
+12.035933,
+"Kortedala museum"
+],
+"Göteborg|Kortedala torg": [
+57.751433,
+12.031667,
+"Kortedala torg"
+],
+"Göteborg|Krokängsparken": [
+57.7025,
+11.905833,
+"Krokängsparken"
+],
+"Göteborg|Kulturhuset Bergsjön": [
+57.7566,
+12.0733,
+"Kulturhuset Bergsjön"
+],
+"Göteborg|Kulturhuset Blå Stället": [
+57.795839,
+12.051133,
+"Blå Stället"
+],
+"Göteborg|Kungsgatan, shopping": [
+57.704186,
+11.964872,
+"Kungsgatan, Göteborg"
+],
+"Göteborg|Kungälv Arena": [
+57.870806,
+11.940389,
+"Kungälv Arena"
+],
+"Göteborg|Kungälvs rådhus": [
+57.86478,
+11.99448,
+"Kungälvs rådhus"
+],
+"Göteborg|Kvastekulla griftegård och kapell": [
+57.734444,
+12.1425,
+"Kvastekulla griftegård och kapell"
+],
+"Göteborg|Kvibergs kyrkogård": [
+57.739167,
+12.0175,
+"Kvibergs kyrkogård"
+],
+"Göteborg|Kvibergs marknad": [
+57.737917,
+12.031511,
+"Kvibergs marknad"
+],
+"Göteborg|Kvibergsnäs landeri": [
+57.732631,
+12.041114,
+"Kvibergsnäs landeri"
+],
+"Göteborg|Kville saluhall": [
+57.720998,
+11.944501,
+"Kville saluhall"
+],
+"Göteborg|Kyrkbyns bibliotek": [
+57.712085,
+11.907514,
+"Kyrkbyns bibliotek"
+],
+"Göteborg|Källan": [
+57.711617,
+11.963789,
+"Källan (skulptur)"
+],
+"Göteborg|Källö": [
+57.625,
+11.780556,
+"Källö"
+],
+"Göteborg|Kärna bokskog": [
+57.857288,
+11.768061,
+"Kärna bokskog"
+],
+"Göteborg|Kärra kyrka": [
+57.791206,
+11.991958,
+"Kärra kyrka"
+],
+"Göteborg|Kållereds kyrka": [
+57.606111,
+12.055556,
+"Kållereds kyrka"
+],
+"Göteborg|Kållereds station": [
+57.610694,
+12.048333,
+"Kållereds station"
+],
+"Göteborg|Lemmingvallen": [
+57.735225,
+12.052239,
+"Lemmingvallen"
+],
+"Göteborg|Leta upp statyn Ung man": [
+57.683083,
+11.924972,
+"Ung man (staty)"
+],
+"Göteborg|Lexby": [
+57.74576,
+12.11612,
+"Lexby"
+],
+"Göteborg|Lilla Bommen och Göteborgsoperan": [
+57.711111,
+11.964167,
+"Göteborgsoperan"
+],
+"Göteborg|Lillhagsparkens sjukhus": [
+57.759722,
+11.951389,
+"Lillhagsparkens sjukhus"
+],
+"Göteborg|Lindome kyrka": [
+57.57748,
+12.1093,
+"Lindome kyrka"
+],
+"Göteborg|Linnarhultsbron": [
+57.777611,
+12.068944,
+"Linnarhultsbron"
+],
+"Göteborg|Linnégatan, restauranger": [
+57.695547,
+11.951772,
+"Linnégatan, Göteborg"
+],
+"Göteborg|Liseberg": [
+57.695556,
+11.99,
+"Liseberg"
+],
+"Göteborg|Liseberg Grand Curiosa Hotel": [
+57.69162,
+11.99392,
+"Liseberg Grand Curiosa Hotel"
+],
+"Göteborg|Lundby Koloniträdgårdar": [
+57.717778,
+11.925,
+"Lundby Koloniträdgårdar"
+],
+"Göteborg|Lundbybadet": [
+57.719167,
+11.928225,
+"Lundbybadet"
+],
+"Göteborg|Lundens vattentorn": [
+57.70894,
+12.00545,
+"Lundens vattentorn"
+],
+"Göteborg|Lycke kyrka": [
+57.875478,
+11.720814,
+"Lycke kyrka"
+],
+"Göteborg|Länsmanstorget": [
+57.733461,
+11.893472,
+"Länsmanstorget"
+],
+"Göteborg|Lärje": [
+57.752747,
+12.009617,
+"Lärje"
+],
+"Göteborg|Lärjeholms gård": [
+57.76162,
+12.00681,
+"Lärjeholms gård"
+],
+"Göteborg|Lärjeån": [
+57.766667,
+12.0,
+"Lärjeån"
+],
+"Göteborg|Långetjärnen": [
+57.6517,
+12.1565,
+"Långetjärnen (Råda socken, Västergötland)"
+],
+"Göteborg|Lövgärdets kyrka": [
+57.81663,
+12.04033,
+"Lövgärdets kyrka"
+],
+"Göteborg|Majorna": [
+57.69195,
+11.91605,
+"Majorna (stadsdelsnämndsområde)"
+],
+"Göteborg|Mariakyrkan": [
+57.707778,
+11.987722,
+"Mariakyrkan, Göteborg"
+],
+"Göteborg|Mariakyrkan i Hammarkullen": [
+57.781667,
+12.029583,
+"Mariakyrkan i Hammarkullen"
+],
+"Göteborg|Mariebergs kyrkogård": [
+57.6926,
+11.9239,
+"Mariebergs kyrkogård"
+],
+"Göteborg|Masthuggskyrkan, stadens bästa utsikt": [
+57.697074,
+11.93745,
+"Masthuggskyrkan"
+],
+"Göteborg|Masthuggskyrkan, utsikt": [
+57.697074,
+11.93745,
+"Masthuggskyrkan"
+],
+"Göteborg|Mossens IP": [
+57.6844,
+11.9797,
+"Mossens IP"
+],
+"Göteborg|Mölndals kvarnby": [
+57.656469,
+12.029858,
+"Mölndals Kvarnby"
+],
+"Göteborg|Mölndals stadsmuseum": [
+57.657647,
+12.032025,
+"Mölndals stadsmuseum"
+],
+"Göteborg|Mölndalsfallen": [
+57.657031,
+12.029686,
+"Mölndalsfallen"
+],
+"Göteborg|Nasirmoskén": [
+57.6766,
+11.9142,
+"Nasirmoskén"
+],
+"Göteborg|Nilento Studio": [
+57.614223,
+12.09725,
+"Nilento Studio"
+],
+"Göteborg|Nils Ericsonterminalen": [
+57.71,
+11.9725,
+"Nils Ericsonterminalen"
+],
+"Göteborg|Nordic Wellness Arena": [
+57.7192,
+11.9306,
+"Nordic Wellness Arena"
+],
+"Göteborg|Nordstan, inomhusgalleria": [
+57.708333,
+11.969167,
+"Nordstan"
+],
+"Göteborg|Norra Biskopsgårdens kyrka": [
+57.719278,
+11.895944,
+"Norra Biskopsgårdens kyrka"
+],
+"Göteborg|Nostalgicum": [
+57.726389,
+12.009167,
+"Nostalgicum"
+],
+"Göteborg|Nya Solevi": [
+57.78,
+11.86,
+"Nya Solevi"
+],
+"Göteborg|Nya Ullevi": [
+57.705833,
+11.987222,
+"Ullevi"
+],
+"Göteborg|Nya Varvets kyrkogård": [
+57.681067,
+11.887744,
+"Nya Varvets kyrkogård"
+],
+"Göteborg|Nylöse kyrka": [
+57.73575,
+12.007222,
+"Nylöse kyrka"
+],
+"Göteborg|Näsets kyrka": [
+57.625097,
+11.898753,
+"Näsets kyrka"
+],
+"Göteborg|Oasen sim- och ishall": [
+57.8719,
+11.9725,
+"Oasen sim- och ishall"
+],
+"Göteborg|Opaltorget": [
+57.641389,
+11.901111,
+"Opaltorget"
+],
+"Göteborg|Ormo naturreservat": [
+57.846379,
+11.890893,
+"Ormo (naturreservat)"
+],
+"Göteborg|Osbäcken": [
+57.754975,
+11.859869,
+"Osbäcken"
+],
+"Göteborg|Oscar Fredriks kyrka": [
+57.696667,
+11.9475,
+"Oscar Fredriks kyrka"
+],
+"Göteborg|Partille Arena": [
+57.739991,
+12.116957,
+"Partille Arena"
+],
+"Göteborg|Partille herrgård": [
+57.738381,
+12.1025,
+"Partille herrgård"
+],
+"Göteborg|Partille kyrka": [
+57.739683,
+12.104536,
+"Partille kyrka"
+],
+"Göteborg|Pepparred naturreservat": [
+57.62865,
+12.032652,
+"Pepparred (naturreservat)"
+],
+"Göteborg|Prioritet Serneke Arena": [
+57.738318,
+12.035002,
+"Prioritet Serneke Arena"
+],
+"Göteborg|Promenera Allmänna vägen": [
+57.697048,
+11.930275,
+"Allmänna vägen"
+],
+"Göteborg|Promenera längs Kungsladugårdsgatan": [
+57.681417,
+11.928964,
+"Kungsladugårdsgatan"
+],
+"Göteborg|Promenera på Östra kyrkogården": [
+57.715278,
+12.013889,
+"Östra kyrkogården, Göteborg"
+],
+"Göteborg|Promenera till Guldhedstorget från 1945": [
+57.68943,
+11.96708,
+"Guldhedstorget"
+],
+"Göteborg|Prova curling i Göteborgs Curlinghall": [
+57.7087,
+11.9493,
+"Göteborgs Curlinghall"
+],
+"Göteborg|Radiotorget": [
+57.657089,
+11.932611,
+"Radiotorget"
+],
+"Göteborg|Rannebergen Centrum": [
+57.803958,
+12.068353,
+"Rannebergen Centrum"
+],
+"Göteborg|Rya skog": [
+57.695294,
+11.886264,
+"Rya skog"
+],
+"Göteborg|Rymdconfetti": [
+57.707683,
+11.99045,
+"Rymdconfetti"
+],
+"Göteborg|Räddningsstation Hovås": [
+57.619672,
+11.927864,
+"Räddningsstation Hovås"
+],
+"Göteborg|Råda säteri": [
+57.66,
+12.090278,
+"Råda säteri"
+],
+"Göteborg|Rådasjöns naturreservat": [
+57.663203,
+12.083268,
+"Rådasjöns naturreservat"
+],
+"Göteborg|Röda Sten konsthall": [
+57.689167,
+11.901647,
+"Röda Sten konsthall"
+],
+"Göteborg|Röda Sten konsthall under Älvsborgsbron": [
+57.689167,
+11.901647,
+"Röda Sten konsthall"
+],
+"Göteborg|Rödbo kyrka": [
+57.856389,
+11.994444,
+"Rödbo kyrka"
+],
+"Göteborg|Röhsska museet för design och konsthantverk": [
+57.7,
+11.973333,
+"Röhsska museet"
+],
+"Göteborg|S/V Isolda": [
+57.719783,
+11.974533,
+"S/V Isolda"
+],
+"Göteborg|Safjällets naturreservat": [
+57.668056,
+11.995833,
+"Safjällets naturreservat"
+],
+"Göteborg|Sankt Pauli kyrka": [
+57.714328,
+12.003208,
+"Sankt Pauli kyrka, Göteborg"
+],
+"Göteborg|Sannegårdsmonumentet": [
+57.706873,
+11.916112,
+"Sannegårdsmonumentet"
+],
+"Göteborg|Scandinavium": [
+57.699167,
+11.987778,
+"Scandinavium"
+],
+"Göteborg|Se Ankarsmedjan i Klippan": [
+57.691359,
+11.911443,
+"Ankarsmedjan"
+],
+"Göteborg|Se Exercishuset vid Parkgatan": [
+57.702953,
+11.975806,
+"Exercishuset, Göteborg"
+],
+"Göteborg|Se Fina fisken i fontänen": [
+57.684114,
+11.972211,
+"Fina fisken"
+],
+"Göteborg|Se Frölundaborgs isstadion": [
+57.677778,
+11.93625,
+"Frölundaborgs isstadion"
+],
+"Göteborg|Se Härlanda kyrkoruin": [
+57.719722,
+12.0225,
+"Härlanda kyrkoruin"
+],
+"Göteborg|Se Kanalhuset vid vattnet": [
+57.712572,
+11.948297,
+"Kanalhuset"
+],
+"Göteborg|Se Kanalhuset, SVT:s och SR:s hus vid vattnet": [
+57.712572,
+11.948297,
+"Kanalhuset"
+],
+"Göteborg|Se Koka på Viktoriagatan 12": [
+57.697406,
+11.965914,
+"Viktoriagatan, Göteborg"
+],
+"Göteborg|Se Kungsladugårds kyrka": [
+57.681011,
+11.927272,
+"Kungsladugårds kyrka"
+],
+"Göteborg|Se Kustens hus på Majnabbeberget": [
+57.693889,
+11.916389,
+"Kustens hus"
+],
+"Göteborg|Se Milles Susanna på Kvilletorget": [
+57.71911,
+11.94786,
+"Kvilletorget"
+],
+"Göteborg|Se Prioritet Serneke Arena": [
+57.738318,
+12.035002,
+"Prioritet Serneke Arena"
+],
+"Göteborg|Se bautastenarna i Sannegårdsmonumentet": [
+57.706873,
+11.916112,
+"Sannegårdsmonumentet"
+],
+"Göteborg|Se en match på Majvallen": [
+57.689539,
+11.936089,
+"Majvallen"
+],
+"Göteborg|Se herrgården Bäckebols gård": [
+57.760311,
+11.9841,
+"Bäckebols gård"
+],
+"Göteborg|Se skulpturen Bohuslän vid Centralen": [
+57.708739,
+11.9721,
+"Bohuslän (skulptur)"
+],
+"Göteborg|Se statyn Våren": [
+57.723108,
+12.034972,
+"Våren (skulptur av Eric Grate)"
+],
+"Göteborg|Selma Lagerlöfs torg": [
+57.749519,
+11.982372,
+"Selma Lagerlöfs torg"
+],
+"Göteborg|Shopping Park Kållered": [
+57.606389,
+12.045278,
+"Shopping Park Kållered"
+],
+"Göteborg|Siriusgatan": [
+57.75623,
+12.047701,
+"Siriusgatan"
+],
+"Göteborg|Sisjöns industriområde": [
+57.6417,
+11.9522,
+"Sisjöns industriområde"
+],
+"Göteborg|Sjöbacken": [
+57.644167,
+11.868056,
+"Sjöbacken"
+],
+"Göteborg|Sjöfartsmuseet Akvariet": [
+57.699028,
+11.932083,
+"Sjöfartsmuseet Akvariet"
+],
+"Göteborg|Sjömannasällskapets hus": [
+57.6951,
+11.9433,
+"Sjömannasällskapets hus"
+],
+"Göteborg|Skansen Kronan, utsikt över staden": [
+57.696024,
+11.955319,
+"Skansen Kronan"
+],
+"Göteborg|Skansen Lejonet": [
+57.714306,
+11.989444,
+"Skansen Lejonet"
+],
+"Göteborg|Skra bro": [
+57.75885,
+11.832317,
+"Skra bro"
+],
+"Göteborg|Skulpturen Arbetarhustru": [
+57.693472,
+11.971636,
+"Arbetarhustru"
+],
+"Göteborg|Skulpturen Boll": [
+57.685194,
+11.920222,
+"Boll (skulptur)"
+],
+"Göteborg|Skulpturen Ensam": [
+57.718031,
+12.038103,
+"Ensam (skulptur)"
+],
+"Göteborg|Skulpturen Våren": [
+57.723108,
+12.034972,
+"Våren (skulptur av Eric Grate)"
+],
+"Göteborg|Skändla rös": [
+57.781412,
+11.92831,
+"Skändla rös"
+],
+"Göteborg|Skändla sörgård": [
+57.77729,
+11.93257,
+"Skändla sörgård"
+],
+"Göteborg|Skårs kyrka": [
+57.690864,
+12.006736,
+"Skårs kyrka"
+],
+"Göteborg|Slottsskogen": [
+57.686,
+11.943,
+"Slottsskogen"
+],
+"Göteborg|Slottsskogskolonin": [
+57.686111,
+11.93,
+"Slottsskogskolonin"
+],
+"Göteborg|Solringen i Renströmsparken": [
+57.695,
+11.983391,
+"Renströmsparken"
+],
+"Göteborg|Solvädersbyn": [
+57.7229,
+11.8879,
+"Solvädersbyn"
+],
+"Göteborg|Spana in Tomtehuset vid Vasagatan": [
+57.6977,
+11.9654,
+"Tomtehuset"
+],
+"Göteborg|Stensjökyrkan": [
+57.662778,
+12.033889,
+"Stensjökyrkan"
+],
+"Göteborg|Stora Förö": [
+57.627778,
+11.847222,
+"Stora Förö"
+],
+"Göteborg|Stora Mölnesjön": [
+57.80658,
+12.07566,
+"Stora Mölnesjön"
+],
+"Göteborg|Stora Saluhallen vid Kungstorget": [
+57.703236,
+11.968039,
+"Kungstorget, Göteborg"
+],
+"Göteborg|Stora Torp": [
+57.698889,
+12.018889,
+"Stora Torp"
+],
+"Göteborg|Strandska huset": [
+57.86574,
+11.99433,
+"Strandska huset"
+],
+"Göteborg|Strosa runt Kvibergs kaserner": [
+57.734972,
+12.031583,
+"Kvibergs kaserner"
+],
+"Göteborg|Studio 1": [
+57.699306,
+12.017222,
+"Studio 1 (bostäder)"
+],
+"Göteborg|Ställbart universum": [
+57.652872,
+11.91145,
+"Ställbart universum"
+],
+"Göteborg|Svankälla våtmarkspark": [
+57.8166,
+11.9805,
+"Svankälla våtmarkspark"
+],
+"Göteborg|Svensbydösen": [
+57.79368,
+11.932893,
+"Svensbydösen"
+],
+"Göteborg|Säve kyrka": [
+57.8028,
+11.9186,
+"Säve kyrka"
+],
+"Göteborg|Södra Långevattnet": [
+57.64675,
+12.05924,
+"Södra Långevattnet"
+],
+"Göteborg|Teaterhuset Mölndal": [
+57.636944,
+12.024444,
+"Teaterhuset Mölndal"
+],
+"Göteborg|Titta in på Guldhedens bibliotek": [
+57.683261,
+11.971636,
+"Guldhedens bibliotek"
+],
+"Göteborg|Titta på gamla Lundbybadet på Herkulesgatan": [
+57.719167,
+11.928225,
+"Lundbybadet"
+],
+"Göteborg|Titteridamm": [
+57.8008,
+12.0589,
+"Titteridamm"
+],
+"Göteborg|Toleredskyrkan": [
+57.731317,
+11.919325,
+"Toleredskyrkan"
+],
+"Göteborg|Torpet Klara": [
+57.73435,
+11.90331,
+"Torpet Klara"
+],
+"Göteborg|Torrekullagården": [
+57.6157,
+12.0333,
+"Torrekullagården"
+],
+"Göteborg|Torsby kyrka": [
+57.841336,
+11.780342,
+"Torsby kyrka"
+],
+"Göteborg|Torslanda kyrka": [
+57.725,
+11.7691,
+"Torslanda kyrka"
+],
+"Göteborg|Trähästen Havre och betong": [
+57.678981,
+11.973789,
+"Havre och betong"
+],
+"Göteborg|Tuve kyrka": [
+57.7661,
+11.9331,
+"Tuve kyrka"
+],
+"Göteborg|Tuve torg": [
+57.754728,
+11.927569,
+"Tuve torg"
+],
+"Göteborg|Tynnereds kyrka": [
+57.650153,
+11.899525,
+"Tynnereds kyrka"
+],
+"Göteborg|Universeum": [
+57.695556,
+11.989167,
+"Universeum"
+],
+"Göteborg|Utby kyrka, Göteborgs stift": [
+57.7401,
+12.05003,
+"Utby kyrka, Göteborgs stift"
+],
+"Göteborg|Vallhamra ishall": [
+57.723889,
+12.079722,
+"Vallhamra ishall"
+],
+"Göteborg|Vasaparken": [
+57.6981,
+11.9717,
+"Vasaparken, Göteborg"
+],
+"Göteborg|Villa Korndal": [
+57.655642,
+12.022628,
+"Villa Korndal"
+],
+"Göteborg|Villa Porthälla": [
+57.742778,
+12.098611,
+"Villa Porthälla"
+],
+"Göteborg|Volvohallen": [
+57.724222,
+11.848569,
+"Volvohallen"
+],
+"Göteborg|Vrångö naturreservat": [
+57.572915,
+11.784744,
+"Vrångö"
+],
+"Göteborg|Välens naturreservat": [
+57.633369,
+11.910225,
+"Välens naturreservat"
+],
+"Göteborg|Världskulturmuseet": [
+57.694722,
+11.989167,
+"Världskulturmuseet"
+],
+"Göteborg|Världslitteraturhuset": [
+57.727722,
+12.00525,
+"Världslitteraturhuset"
+],
+"Göteborg|Västra Balltorp": [
+57.626,
+12.0044,
+"Västra Balltorp"
+],
+"Göteborg|Västra Frölunda kyrka": [
+57.648842,
+11.921533,
+"Västra Frölunda kyrka"
+],
+"Göteborg|Västra Frölunda kyrkogård": [
+57.647783,
+11.938106,
+"Västra Frölunda kyrkogård"
+],
+"Göteborg|Västra kyrkogården": [
+57.871944,
+11.981389,
+"Västra kyrkogården, Kungälv"
+],
+"Göteborg|Vårväderstorget": [
+57.713169,
+11.893386,
+"Vårväderstorget"
+],
+"Göteborg|Vårväderstorget, lokala butiker": [
+57.713169,
+11.893386,
+"Vårväderstorget"
+],
+"Göteborg|Wallenstam Arena": [
+57.660806,
+12.127278,
+"Wallenstam Arena"
+],
+"Göteborg|Wendelsbergs folkhögskola": [
+57.663889,
+12.123028,
+"Wendelsbergs folkhögskola"
+],
+"Göteborg|Ytterby gamla kyrka": [
+57.8616,
+11.9211,
+"Ytterby gamla kyrka"
+],
+"Göteborg|Älvsborgs kyrka": [
+57.67561,
+11.88441,
+"Älvsborgs kyrka"
+],
+"Göteborg|Ät eller handla i Kville saluhall": [
+57.720998,
+11.944501,
+"Kville saluhall"
+],
+"Göteborg|Åbybadet": [
+57.646667,
+11.996111,
+"Åbybadet"
+],
+"Göteborg|Åbytravet": [
+57.6504,
+12.001,
+"Åbytravet"
+],
+"Göteborg|Årstidstorget": [
+57.762222,
+12.041111,
+"Årstidstorget"
+],
+"Göteborg|Ö-varvet": [
+57.7072,
+11.6615,
+"Ö-varvet"
+],
+"Göteborg|ÖIS-gården": [
+57.6748,
+12.028,
+"ÖIS-gården"
+],
+"Göteborg|Öckerö gamla kyrka": [
+57.706744,
+11.643575,
+"Öckerö gamla kyrka"
+],
+"Göteborg|Öckerö nya kyrka": [
+57.708278,
+11.644875,
+"Öckerö nya kyrka"
+],
+"Göteborg|Örgryte gamla kyrka": [
+57.698567,
+11.996931,
+"Örgryte gamla kyrka"
+],
+"Göteborg|Örgryte gamla kyrkogård": [
+57.698472,
+11.99765,
+"Örgryte gamla kyrkogård"
+],
+"Göteborg|Örgryte nya kyrka": [
+57.7029,
+12.0054,
+"Örgryte nya kyrka"
+],
+"Göteborg|Örgryte nya kyrkogård": [
+57.7091,
+12.0106,
+"Örgryte nya kyrkogård"
+],
+"Göteborg|Östra Balltorp": [
+57.626447,
+12.026633,
+"Östra Balltorp"
+],
+"Göteborg|Östra kyrkogården": [
+57.715278,
+12.013889,
+"Östra kyrkogården, Göteborg"
+],
+"Stockholm|79&Park": [
+59.338,
+18.07463,
+"Park (biograf)"
+],
+"Stockholm|AGA:s optiktorn": [
+59.347167,
+18.155583,
+"AGA:s optiktorn"
+],
+"Stockholm|Abeniuska villan": [
+59.348722,
+18.210667,
+"Abeniuska villan"
+],
+"Stockholm|Abrahamsbergskyrkan": [
+59.334583,
+17.953333,
+"Abrahamsbergskyrkan"
+],
+"Stockholm|Ahlby säteri": [
+59.3575,
+17.9725,
+"Ahlby säteri"
+],
+"Stockholm|Akalla by": [
+59.41275,
+17.911969,
+"Akalla by"
+],
+"Stockholm|Akalla värmeverk": [
+59.416389,
+17.927778,
+"Akalla värmeverk"
+],
+"Stockholm|Albanova": [
+59.353889,
+18.058056,
+"Albanova"
+],
+"Stockholm|Alby centrum": [
+59.238056,
+17.845278,
+"Alby centrum"
+],
+"Stockholm|Alby centrum och torget": [
+59.238056,
+17.845278,
+"Alby centrum"
+],
+"Stockholm|Alby gård": [
+59.240556,
+17.862222,
+"Alby gård"
+],
+"Stockholm|Alby tunnelbanestation": [
+59.239028,
+17.844861,
+"Alby (tunnelbanestation)"
+],
+"Stockholm|Albykistan": [
+59.232778,
+17.840556,
+"Albykistan"
+],
+"Stockholm|Alléparken": [
+59.32875,
+17.973472,
+"Alléparken"
+],
+"Stockholm|Almhöjden": [
+59.276347,
+18.098044,
+"Almhöjden"
+],
+"Stockholm|Altartorp": [
+59.273889,
+17.925278,
+"Altartorp"
+],
+"Stockholm|Altorps gravkapell": [
+59.407778,
+18.0775,
+"Altorps gravkapell"
+],
+"Stockholm|Alviks Torn": [
+59.331944,
+17.984722,
+"Alviks Torn"
+],
+"Stockholm|Alviks rättarbostad": [
+59.3325,
+17.976944,
+"Alviks rättarbostad"
+],
+"Stockholm|Alviks strand": [
+59.330458,
+17.984417,
+"Alviks strand"
+],
+"Stockholm|Alviksbron": [
+59.326389,
+17.986111,
+"Alviksbron"
+],
+"Stockholm|Annelunds gård": [
+59.37225,
+18.021167,
+"Annelunds gård"
+],
+"Stockholm|Anundsvägen": [
+59.3526,
+17.89055,
+"Anundsvägen"
+],
+"Stockholm|Apelsinlunden": [
+59.284417,
+18.014528,
+"Apelsinlunden"
+],
+"Stockholm|Apelsinvillan": [
+59.345569,
+18.181031,
+"Apelsinvillan"
+],
+"Stockholm|Arbetarrörelsens arkiv och bibliotek": [
+59.221183,
+17.9573,
+"Arbetarrörelsens arkiv och bibliotek"
+],
+"Stockholm|Arena Satelliten": [
+59.42998,
+17.94919,
+"Arena Satelliten"
+],
+"Stockholm|Aspnäskyrkan": [
+59.429056,
+17.842,
+"Aspnäskyrkan"
+],
+"Stockholm|Aspnässkolan": [
+59.423936,
+17.844184,
+"Aspnässkolan"
+],
+"Stockholm|Aspuddsparken": [
+59.308095,
+17.993782,
+"Aspuddsparken"
+],
+"Stockholm|Astrid Lindgrens berg": [
+59.430278,
+17.906389,
+"Astrid Lindgrens berg"
+],
+"Stockholm|Atlantisområdet": [
+59.366944,
+17.884722,
+"Atlantisområdet"
+],
+"Stockholm|Aula Magna": [
+59.363889,
+18.056667,
+"Aula Magna"
+],
+"Stockholm|Bada på Husbybadet": [
+59.411833,
+17.922639,
+"Husbybadet"
+],
+"Stockholm|Bagarby": [
+59.427222,
+17.944167,
+"Bagarby"
+],
+"Stockholm|Bandhagshallen": [
+59.268958,
+18.05325,
+"Bandhagshallen"
+],
+"Stockholm|Bandyhallen i Gubbängen": [
+59.2615,
+18.07059,
+"Bandyhallen i Gubbängen"
+],
+"Stockholm|Barkarby villastad": [
+59.405,
+17.871667,
+"Barkarby villastad"
+],
+"Stockholm|Barnet med käpphästen i Hagsätra centrum": [
+59.2628,
+18.015067,
+"Hagsätra centrum"
+],
+"Stockholm|Barnängsparken": [
+59.308333,
+18.09625,
+"Barnängsparken"
+],
+"Stockholm|Beckbrukets chefsbostad": [
+59.315111,
+18.123389,
+"Beckbrukets chefsbostad"
+],
+"Stockholm|Bellmanskällan": [
+59.304167,
+17.956389,
+"Bellmanskällan"
+],
+"Stockholm|Bellmanslindarna": [
+59.227222,
+18.122778,
+"Bellmanslindarna"
+],
+"Stockholm|Besök Akalla by med 4H-gård och kafé": [
+59.41275,
+17.911969,
+"Akalla by"
+],
+"Stockholm|Besök Fjärilshuset": [
+59.366111,
+18.030833,
+"Fjärilshuset"
+],
+"Stockholm|Besök Sankta Birgitta kyrka": [
+59.328611,
+17.915833,
+"Sankta Birgitta kyrka, Stockholm"
+],
+"Stockholm|Besök konsthallen Accelerator i det gamla underjordslabbet": [
+59.366111,
+18.055,
+"Accelerator (konsthall)"
+],
+"Stockholm|Betlehemskyrkan": [
+59.342778,
+18.058611,
+"Betlehemskyrkan, Stockholm"
+],
+"Stockholm|Biblioteksgatan, butiker": [
+59.33375,
+18.073,
+"Biblioteksgatan"
+],
+"Stockholm|Biografen Bristol": [
+59.36351,
+17.96678,
+"Bristol (biograf)"
+],
+"Stockholm|Biografen Reflexen": [
+59.283933,
+18.114281,
+"Reflexen"
+],
+"Stockholm|Björkhagens skola": [
+59.294,
+18.117,
+"Björkhagens skola"
+],
+"Stockholm|Björkängens IP": [
+59.240833,
+18.008889,
+"Björkängens IP"
+],
+"Stockholm|Björns trädgård": [
+59.315278,
+18.073889,
+"Björns trädgård"
+],
+"Stockholm|Blocket": [
+59.348972,
+18.203444,
+"Blocket (byggnad)"
+],
+"Stockholm|Blockmakarens hus": [
+59.316889,
+18.084111,
+"Blockmakarens hus"
+],
+"Stockholm|Bo kvarn": [
+59.374167,
+18.16,
+"Bo kvarn"
+],
+"Stockholm|Bofills båge och Fatbursparken": [
+59.314444,
+18.068333,
+"Fatbursparken"
+],
+"Stockholm|Bollmora": [
+59.240833,
+18.223611,
+"Bollmora"
+],
+"Stockholm|Bollmoradalens kyrka": [
+59.242778,
+18.230556,
+"Bollmoradalens kyrka"
+],
+"Stockholm|Botkyrka fattighus": [
+59.239583,
+17.818611,
+"Botkyrka fattighus"
+],
+"Stockholm|Botkyrka kyrka och runstenarna": [
+59.239083,
+17.818389,
+"Botkyrka kyrka"
+],
+"Stockholm|Botkyrka kyrkskola": [
+59.24075,
+17.825722,
+"Botkyrka kyrkskola"
+],
+"Stockholm|Botkyrkahallen": [
+59.247167,
+17.837833,
+"Botkyrkahallen"
+],
+"Stockholm|Botkyrkamonumentet": [
+59.239167,
+17.818333,
+"Botkyrkamonumentet"
+],
+"Stockholm|Brantingmonumentet": [
+59.335278,
+18.054444,
+"Brantingmonumentet"
+],
+"Stockholm|Bredängshallen": [
+59.294281,
+17.937061,
+"Bredängshallen"
+],
+"Stockholm|Bredängsparken": [
+59.296667,
+17.934444,
+"Bredängsparken"
+],
+"Stockholm|Breviks kyrka": [
+59.349861,
+18.206028,
+"Breviks kyrka, Lidingö"
+],
+"Stockholm|Bromma Blocks": [
+59.356389,
+17.953333,
+"Bromma Blocks"
+],
+"Stockholm|Bromma kyrka": [
+59.354444,
+17.920556,
+"Bromma kyrka, Stockholm"
+],
+"Stockholm|Bromma kyrkskola": [
+59.355797,
+17.919731,
+"Bromma kyrkskola"
+],
+"Stockholm|Brotorp": [
+59.270472,
+18.148472,
+"Brotorp"
+],
+"Stockholm|Brunnsvikens trädgård": [
+59.380139,
+18.018528,
+"Brunnsvikens trädgård"
+],
+"Stockholm|Bussenhus": [
+59.392222,
+17.909444,
+"Bussenhus"
+],
+"Stockholm|Bäckahagens skola": [
+59.268194,
+18.0435,
+"Bäckahagens skola"
+],
+"Stockholm|Bällsta bro": [
+59.360278,
+17.960694,
+"Bällsta bro"
+],
+"Stockholm|Bällstaån": [
+59.383889,
+17.897361,
+"Bällstaån"
+],
+"Stockholm|Bänk vid vattnet med utsikt mot Långholmen": [
+59.321111,
+18.027778,
+"Långholmen"
+],
+"Stockholm|Båtar från Nybrokajen": [
+59.331489,
+18.076356,
+"Nybrokajen"
+],
+"Stockholm|Centralpalatset": [
+59.365917,
+18.138111,
+"Centralpalatset, Lidingö"
+],
+"Stockholm|Centrumkyrkan": [
+59.363333,
+17.970833,
+"Centrumkyrkan, Sundbyberg"
+],
+"Stockholm|Charlottenburg, Solna hembygdsmuseum": [
+59.36004,
+18.00086,
+"Solna"
+],
+"Stockholm|Clas på Hörnet": [
+59.346494,
+18.061158,
+"Clas på Hörnet"
+],
+"Stockholm|Coldinuorden 3": [
+59.293122,
+17.939858,
+"Coldinuorden 3"
+],
+"Stockholm|Colour by Numbers": [
+59.298056,
+17.9925,
+"Colour by Numbers"
+],
+"Stockholm|Confidencen, Ulriksdals slottsteater": [
+59.386292,
+18.017319,
+"Ulriksdals slottsteater"
+],
+"Stockholm|Cornelisparken": [
+59.3175,
+18.082222,
+"Cornelisparken"
+],
+"Stockholm|Curmanska villan": [
+59.341667,
+18.074483,
+"Curmanska villan"
+],
+"Stockholm|Cyklopen": [
+59.259383,
+18.039647,
+"Cyklopen (kulturhus)"
+],
+"Stockholm|Dammträsket": [
+59.179722,
+18.142222,
+"Dammträsket"
+],
+"Stockholm|Danderyds Centrum": [
+59.397778,
+18.036667,
+"Danderyds Centrum"
+],
+"Stockholm|Danderyds gymnasium": [
+59.415,
+18.043611,
+"Danderyds gymnasium"
+],
+"Stockholm|Danderyds kyrka": [
+59.407222,
+18.036667,
+"Danderyds kyrka"
+],
+"Stockholm|Danvikcenter": [
+59.312625,
+18.108944,
+"Danvikcenter"
+],
+"Stockholm|Danvikens begravningsplats": [
+59.313428,
+18.118853,
+"Danvikens begravningsplats"
+],
+"Stockholm|Det entomologiska kvinnorovet": [
+59.347975,
+18.029292,
+"Det entomologiska kvinnorovet"
+],
+"Stockholm|Dieselverkstaden": [
+59.305426,
+18.121528,
+"Dieselverkstaden"
+],
+"Stockholm|Djursholms kapell": [
+59.394444,
+18.089444,
+"Djursholms kapell"
+],
+"Stockholm|Djursholms slott": [
+59.401389,
+18.089167,
+"Djursholms slott"
+],
+"Stockholm|Djursholms vattentorn": [
+59.401111,
+18.087222,
+"Djursholms vattentorn"
+],
+"Stockholm|Drottninggatan, shopping": [
+59.331944,
+18.063333,
+"Drottninggatan, Stockholm"
+],
+"Stockholm|Duggregnet 5": [
+59.290944,
+18.117389,
+"Duggregnet 5"
+],
+"Stockholm|Edsbacka krog": [
+59.440694,
+17.950694,
+"Edsbacka krog"
+],
+"Stockholm|Edsbergs centrum": [
+59.445278,
+17.965833,
+"Edsbergs centrum"
+],
+"Stockholm|Edsbergs slott": [
+59.441111,
+17.955556,
+"Edsbergs slott"
+],
+"Stockholm|Edsbergskyrkan": [
+59.444683,
+17.96825,
+"Edsbergskyrkan"
+],
+"Stockholm|Edsängens gravfält": [
+59.449167,
+17.955,
+"Edsängens gravfält"
+],
+"Stockholm|Edvard Andersons växthus": [
+59.369028,
+18.046667,
+"Edvard Andersons växthus"
+],
+"Stockholm|Efter badet": [
+59.293333,
+17.977389,
+"Efter badet"
+],
+"Stockholm|Eggeby gård": [
+59.398417,
+17.919722,
+"Eggeby gård"
+],
+"Stockholm|Einar Forseths Park": [
+59.323456,
+17.94246,
+"Einar Forseths Park"
+],
+"Stockholm|Ekeby vattentorn": [
+59.412551,
+18.050986,
+"Ekeby vattentorn"
+],
+"Stockholm|Ekebyhovs slott": [
+59.282778,
+17.814722,
+"Ekebyhovs slott"
+],
+"Stockholm|Ekebyhovsbacken": [
+59.2782,
+17.8331,
+"Ekebyhovsbacken"
+],
+"Stockholm|Ekebyhovseken": [
+59.28,
+17.820278,
+"Ekebyhovseken"
+],
+"Stockholm|Ekebysjöns naturreservat": [
+59.407787,
+18.050339,
+"Ekebysjöns naturreservat"
+],
+"Stockholm|Ekerö centrum": [
+59.29,
+17.811,
+"Ekerö centrum"
+],
+"Stockholm|Elektraparken": [
+59.294722,
+18.008333,
+"Elektraparken"
+],
+"Stockholm|Elfviks gård": [
+59.366194,
+18.247361,
+"Elfviks gård"
+],
+"Stockholm|Enebykyrkan": [
+59.432117,
+18.039567,
+"Enebykyrkan"
+],
+"Stockholm|Enskede kyrka": [
+59.284528,
+18.081389,
+"Enskede kyrka"
+],
+"Stockholm|Enskedefältets skola": [
+59.282944,
+18.068694,
+"Enskedefältets skola"
+],
+"Stockholm|Eric Ericsonhallen": [
+59.32635,
+18.082364,
+"Eric Ericsonhallen"
+],
+"Stockholm|Eric Grates park": [
+59.358056,
+18.001667,
+"Eric Grates park"
+],
+"Stockholm|Eriksdalsbadet": [
+59.304444,
+18.075833,
+"Eriksdalsbadet"
+],
+"Stockholm|Essinge kyrka": [
+59.320833,
+17.990139,
+"Essinge kyrka"
+],
+"Stockholm|Fagersjöskogen": [
+59.249389,
+18.072639,
+"Fagersjöskogen"
+],
+"Stockholm|Falkenerarbostället": [
+59.351944,
+18.022528,
+"Falkenerarbostället"
+],
+"Stockholm|Fantans hög": [
+59.27665,
+17.766919,
+"Fantans hög"
+],
+"Stockholm|Farsta Centrum": [
+59.242844,
+18.092381,
+"Farsta Centrum"
+],
+"Stockholm|Farsta gård": [
+59.238911,
+18.0825,
+"Farsta gård"
+],
+"Stockholm|Farsta gård och Farstastenen": [
+59.238911,
+18.0825,
+"Farsta gård"
+],
+"Stockholm|Farsta torg": [
+59.242831,
+18.092294,
+"Farsta torg"
+],
+"Stockholm|Farstanäsbron": [
+59.240278,
+18.073889,
+"Farstanäsbron"
+],
+"Stockholm|Filmhuset": [
+59.33987,
+18.10366,
+"Filmhuset"
+],
+"Stockholm|Filmstaden Heron City": [
+59.2674,
+17.9098,
+"Filmstaden Heron City"
+],
+"Stockholm|Filmstaden Kista": [
+59.402856,
+17.944569,
+"Filmstaden Kista"
+],
+"Stockholm|Filmstaden Scandinavia": [
+59.371528,
+18.003383,
+"Filmstaden Scandinavia"
+],
+"Stockholm|Filmstaden Täby": [
+59.444972,
+18.071522,
+"Filmstaden Täby"
+],
+"Stockholm|Filmstaden i Råsunda": [
+59.366047,
+17.998336,
+"Råsunda (stadsdel)"
+],
+"Stockholm|Finn Malmgrens plan": [
+59.29559,
+18.10219,
+"Finn Malmgrens plan"
+],
+"Stockholm|Finnstugorna": [
+59.357605,
+18.034028,
+"Finnstugorna"
+],
+"Stockholm|Fittja gård": [
+59.2467,
+17.865,
+"Fittja gård"
+],
+"Stockholm|Fittja moské": [
+59.2515,
+17.8679,
+"Fittja moské"
+],
+"Stockholm|Fittjanäset": [
+59.250278,
+17.873333,
+"Fittjanäset"
+],
+"Stockholm|Fittjaviken": [
+59.252778,
+17.871111,
+"Fittjaviken"
+],
+"Stockholm|Flatenbadet": [
+59.253025,
+18.1595,
+"Flatenbadet"
+],
+"Stockholm|Flatenbanan": [
+59.2497,
+18.1706,
+"Flatenbanan"
+],
+"Stockholm|Flemingsbergs gård": [
+59.2265,
+17.951861,
+"Flemingsbergs gård"
+],
+"Stockholm|Flemingsbergs kyrka": [
+59.223556,
+17.938819,
+"Flemingsbergs kyrka"
+],
+"Stockholm|Flemingsbergsparken": [
+59.221694,
+17.944,
+"Flemingsbergsparken"
+],
+"Stockholm|Folksamhuset": [
+59.306111,
+18.079722,
+"Folksamhuset"
+],
+"Stockholm|Fontändamm": [
+59.305556,
+17.997778,
+"Fontändamm"
+],
+"Stockholm|Fontänen Tors fiske": [
+59.318167,
+18.062861,
+"Tors fiske"
+],
+"Stockholm|Fordhuset": [
+59.339444,
+18.120833,
+"Fordhuset, Stockholm"
+],
+"Stockholm|Forsån": [
+59.236111,
+18.121667,
+"Forsån"
+],
+"Stockholm|Framtiden 1": [
+59.285636,
+18.089731,
+"Framtiden 1"
+],
+"Stockholm|Fredens rike": [
+59.223511,
+17.940044,
+"Fredens rike"
+],
+"Stockholm|Fredhällsparken": [
+59.331528,
+18.005833,
+"Fredhällsparken"
+],
+"Stockholm|Frescati hage": [
+59.361389,
+18.0525,
+"Frescati hage"
+],
+"Stockholm|Frihetens port": [
+59.322028,
+18.133528,
+"Frihetens port"
+],
+"Stockholm|Frimurarhemmet": [
+59.359167,
+18.150944,
+"Frimurarhemmet"
+],
+"Stockholm|Fructushuset": [
+59.346667,
+17.958611,
+"Fructushuset"
+],
+"Stockholm|Fruängens skola": [
+59.283861,
+17.9625,
+"Fruängens skola"
+],
+"Stockholm|Frösundatoppen": [
+59.366111,
+18.024722,
+"Frösundatoppen"
+],
+"Stockholm|Fullersta bio": [
+59.24,
+17.972778,
+"Fullersta bio"
+],
+"Stockholm|Fullersta gård": [
+59.238869,
+17.974819,
+"Fullersta gård"
+],
+"Stockholm|Fyrtalet": [
+59.347222,
+18.102778,
+"Fyrtalet"
+],
+"Stockholm|Fåfängan, kafé med utsikt": [
+59.314722,
+18.101389,
+"Fåfängan"
+],
+"Stockholm|Följ Älvestaån": [
+59.225917,
+17.842139,
+"Älvestaån"
+],
+"Stockholm|Gamla Enskedes radhus": [
+59.2835,
+18.079917,
+"Gamla Enskedes radhus"
+],
+"Stockholm|Gamla kvarnkontoret": [
+59.317722,
+18.140944,
+"Gamla kvarnkontoret"
+],
+"Stockholm|Gamla stan": [
+59.32332,
+18.06698,
+"Gamla stan (tunnelbanestation)"
+],
+"Stockholm|Gomanhuset": [
+59.315056,
+18.114361,
+"Gomanhuset"
+],
+"Stockholm|Granholmstoppen": [
+59.403517,
+17.898916,
+"Granholmstoppen"
+],
+"Stockholm|Granängsringen": [
+59.236389,
+18.229444,
+"Granängsringen"
+],
+"Stockholm|Graverska huset": [
+59.328066,
+18.039932,
+"Graverska huset"
+],
+"Stockholm|Gretas backe": [
+59.243333,
+17.928472,
+"Gretas backe"
+],
+"Stockholm|Groens malmgård": [
+59.310833,
+18.087222,
+"Groens malmgård"
+],
+"Stockholm|Grotte 7": [
+59.39953,
+18.08906,
+"Grotte 7"
+],
+"Stockholm|Grynkvarnsparken": [
+59.297222,
+18.072778,
+"Grynkvarnsparken"
+],
+"Stockholm|Gröna Lund": [
+59.323056,
+18.096111,
+"Gröna Lund"
+],
+"Stockholm|Gröndals kyrka": [
+59.315,
+18.007778,
+"Gröndals kyrka"
+],
+"Stockholm|Gubbängens IP": [
+59.26188,
+18.06949,
+"Gubbängens IP"
+],
+"Stockholm|Gubbängshallen": [
+59.261333,
+18.084556,
+"Gubbängshallen"
+],
+"Stockholm|Gubbängsparken": [
+59.260833,
+18.09,
+"Gubbängsparken"
+],
+"Stockholm|Gubbängstorget": [
+59.261769,
+18.082869,
+"Gubbängstorget"
+],
+"Stockholm|Gudöån": [
+59.2119,
+18.2111,
+"Gudöån"
+],
+"Stockholm|Guldrummet i Historiska museet": [
+59.334819,
+18.090265,
+"Guldrummet"
+],
+"Stockholm|Gustavsbergs kyrka": [
+59.326667,
+18.386194,
+"Gustavsbergs kyrka"
+],
+"Stockholm|Gustavsbergs porslinsmuseum": [
+59.325083,
+18.384933,
+"Gustavsbergs porslinsmuseum"
+],
+"Stockholm|Gällstaöeken": [
+59.283875,
+17.842876,
+"Gällstaöeken"
+],
+"Stockholm|Gå förbi Havrekvarnen vid vattnet": [
+59.317003,
+18.138194,
+"Havrekvarnen"
+],
+"Stockholm|Gå förbi Oscarsteatern och jazzklubben Fasching": [
+59.333333,
+18.056111,
+"Oscarsteatern"
+],
+"Stockholm|Gå ner mot Magelungen och Rödkinda": [
+59.228056,
+18.104722,
+"Magelungen"
+],
+"Stockholm|Gå ner till Apelsinvillan vid Kottlasjön": [
+59.345569,
+18.181031,
+"Apelsinvillan"
+],
+"Stockholm|Gå nerför Pipmakartrappan mot Tanto": [
+59.316139,
+18.043,
+"Pipmakartrappan"
+],
+"Stockholm|Gå på bio på Filmstaden Kista": [
+59.402856,
+17.944569,
+"Filmstaden Kista"
+],
+"Stockholm|Gå till Annelunds gård, Per Henrik Lings hem": [
+59.37225,
+18.021167,
+"Annelunds gård"
+],
+"Stockholm|Gå till Solvalla travbana": [
+59.3675,
+17.939722,
+"Solvalla"
+],
+"Stockholm|Gå till Turebergshuset och biblioteket": [
+59.429444,
+17.949722,
+"Turebergshuset"
+],
+"Stockholm|Gå till Wallenbergs minnesmärke i Kappsta naturreservat": [
+59.340581,
+18.166711,
+"Kappsta naturreservat"
+],
+"Stockholm|Gå till luftvärnsställningen Käppalaställningen": [
+59.354167,
+18.225833,
+"Käppalaställningen"
+],
+"Stockholm|Gå trapporna genom Medborgarhuset Trappan": [
+59.362818,
+17.871262,
+"Medborgarhuset Trappan"
+],
+"Stockholm|Gå upp på Skinnarviksberget via Yttersta Tvärgränd": [
+59.318806,
+18.050194,
+"Yttersta Tvärgränd"
+],
+"Stockholm|Gå uppför Kvastmakarbacken till trähusen på Åsöberget": [
+59.313806,
+18.097417,
+"Kvastmakarbacken"
+],
+"Stockholm|Gå ut på Allébron över Sickla kanal": [
+59.303056,
+18.1075,
+"Sickla kanal"
+],
+"Stockholm|Gå ut på Mariebergsbron och titta över Mariebergssundet": [
+59.326111,
+18.007778,
+"Mariebergssundet"
+],
+"Stockholm|Gå ut på Nockebybron": [
+59.327556,
+17.909306,
+"Nockebybron"
+],
+"Stockholm|Görvälns griftegård": [
+59.427883,
+17.7922,
+"Görvälns griftegård"
+],
+"Stockholm|Görvälns gårdsmuseum": [
+59.435556,
+17.7875,
+"Görvälns gårdsmuseum"
+],
+"Stockholm|Götgatan": [
+59.33525,
+18.062333,
+"Götgatan"
+],
+"Stockholm|Haga parkmuseum i Koppartälten": [
+59.364722,
+18.030556,
+"Haga parkmuseum"
+],
+"Stockholm|Haga tingshus": [
+59.35351,
+18.03985,
+"Haga tingshus"
+],
+"Stockholm|Hagalunds tvätterimuseum": [
+59.247333,
+17.877517,
+"Hagalunds tvätterimuseum"
+],
+"Stockholm|Hagsätra centrum": [
+59.2628,
+18.015067,
+"Hagsätra centrum"
+],
+"Stockholm|Hagsätraskogens naturreservat": [
+59.264444,
+18.001389,
+"Hagsätraskogens naturreservat"
+],
+"Stockholm|Hallunda Folkets hus": [
+59.2445,
+17.822,
+"Hallunda Folkets hus"
+],
+"Stockholm|Hallunda centrum": [
+59.244921,
+17.825072,
+"Hallunda centrum"
+],
+"Stockholm|Handens museum och smedja": [
+59.176833,
+18.138833,
+"Handens museum och smedja"
+],
+"Stockholm|Haninge kulturhus": [
+59.1675,
+18.139722,
+"Haninge kulturhus"
+],
+"Stockholm|Haninge kulturpark": [
+59.174889,
+18.138778,
+"Haninge kulturpark"
+],
+"Stockholm|Hanneberg": [
+59.356772,
+17.9998,
+"Hanneberg, Solna"
+],
+"Stockholm|Havrekvarnen": [
+59.317003,
+18.138194,
+"Havrekvarnen"
+],
+"Stockholm|Hellasgården": [
+59.28994,
+18.1602,
+"Hellasgården"
+],
+"Stockholm|Herrgårdsvillan": [
+59.302611,
+18.204278,
+"Herrgårdsvillan"
+],
+"Stockholm|Herrängens gård": [
+59.273056,
+17.960278,
+"Herrängens gård"
+],
+"Stockholm|Hersby gymnasium": [
+59.363911,
+18.15225,
+"Hersby gymnasium"
+],
+"Stockholm|Hersby gårdsmagasin": [
+59.36475,
+18.157472,
+"Hersby gårdsmagasin"
+],
+"Stockholm|Hitta Biskopsstenen": [
+59.238182,
+17.987699,
+"Biskopsstenen"
+],
+"Stockholm|Hitta Calles klimp vid vattnet": [
+59.385553,
+18.036309,
+"Calles klimp"
+],
+"Stockholm|Hjorthagens kyrka": [
+59.355,
+18.103333,
+"Hjorthagens kyrka"
+],
+"Stockholm|Hjulsta koloniträdgård": [
+59.394167,
+17.885,
+"Hjulsta koloniträdgård"
+],
+"Stockholm|Holmiaparken": [
+59.331944,
+18.017917,
+"Holmiaparken"
+],
+"Stockholm|Hornsbergs strandpark": [
+59.340556,
+18.007222,
+"Hornsbergs strandpark"
+],
+"Stockholm|Hornstulls strand": [
+59.315278,
+18.030556,
+"Hornstulls strand"
+],
+"Stockholm|Hornstulls strand, restauranger vid vattnet": [
+59.315278,
+18.030556,
+"Hornstulls strand"
+],
+"Stockholm|Hotel Rival": [
+59.31817,
+18.06364,
+"Hotel Rival"
+],
+"Stockholm|Huddinge centrum": [
+59.234739,
+17.980519,
+"Huddinge centrum"
+],
+"Stockholm|Huddinge kyrka": [
+59.240069,
+17.985,
+"Huddinge kyrka"
+],
+"Stockholm|Huddingegymnasiet": [
+59.243611,
+17.996389,
+"Huddingegymnasiet"
+],
+"Stockholm|Humlegården och Kungliga biblioteket": [
+59.338056,
+18.072153,
+"Kungliga biblioteket"
+],
+"Stockholm|Hummelmoraberget": [
+59.411609,
+17.778938,
+"Hummelmoraberget"
+],
+"Stockholm|Hundhamra": [
+59.25183,
+17.80438,
+"Hundhamra"
+],
+"Stockholm|Husarviksbron": [
+59.361028,
+18.096417,
+"Husarviksbron"
+],
+"Stockholm|Husbybadet": [
+59.411833,
+17.922639,
+"Husbybadet"
+],
+"Stockholm|Husbykyrkan": [
+59.407778,
+17.928611,
+"Husbykyrkan"
+],
+"Stockholm|Hustegaholm": [
+59.364972,
+18.188722,
+"Hustegaholm"
+],
+"Stockholm|Huvudsta gamla slott": [
+59.346111,
+17.989444,
+"Huvudsta gamla slott"
+],
+"Stockholm|Huvudsta gård": [
+59.344722,
+17.993333,
+"Huvudsta gård"
+],
+"Stockholm|Huvudstabadet": [
+59.345833,
+17.991111,
+"Huvudstabadet"
+],
+"Stockholm|Hägerstens gård": [
+59.305611,
+17.973056,
+"Hägerstens gård"
+],
+"Stockholm|Hägerstensbadet": [
+59.290833,
+17.9825,
+"Hägerstensbadet"
+],
+"Stockholm|Hägerstensåsens postkontor": [
+59.297778,
+17.983056,
+"Hägerstensåsens postkontor"
+],
+"Stockholm|Häggvikstunneln": [
+59.443889,
+17.937222,
+"Häggvikstunneln"
+],
+"Stockholm|Hälsa på Bellmansbysten": [
+59.324139,
+18.112189,
+"Bellmansbysten"
+],
+"Stockholm|Härbreparken": [
+59.222056,
+18.145722,
+"Härbreparken"
+],
+"Stockholm|Hässelby Strands kyrka": [
+59.3603,
+17.83219,
+"Hässelby Strands kyrka"
+],
+"Stockholm|Hässelby familjehotell": [
+59.363611,
+17.844444,
+"Hässelby familjehotell"
+],
+"Stockholm|Hässelby slott": [
+59.365556,
+17.854444,
+"Hässelby slott"
+],
+"Stockholm|Hässelby strandbad": [
+59.3638,
+17.821,
+"Hässelby strandbad"
+],
+"Stockholm|Hässelby trädgårds- och hembygdsmuseum": [
+59.377233,
+17.81405,
+"Hässelby trädgårds- och hembygdsmuseum"
+],
+"Stockholm|Hästa klack naturreservat": [
+59.408278,
+17.887556,
+"Hästa klack naturreservat"
+],
+"Stockholm|Hågelby gård": [
+59.22074,
+17.83081,
+"Hågelby gård"
+],
+"Stockholm|Högalidskyrkan": [
+59.3175,
+18.0375,
+"Högalidskyrkan"
+],
+"Stockholm|Högdalens skatepark": [
+59.260278,
+18.040278,
+"Högdalens skatepark"
+],
+"Stockholm|Högdalshallen": [
+59.264667,
+18.040972,
+"Högdalshallen"
+],
+"Stockholm|Högdalstoppen": [
+59.255878,
+18.05295,
+"Högdalstoppen"
+],
+"Stockholm|Höglandsbiografen": [
+59.323889,
+17.940556,
+"Höglandsbiografen"
+],
+"Stockholm|Hökarängens gård": [
+59.248333,
+18.106944,
+"Hökarängens gård"
+],
+"Stockholm|Hökarängsbadet": [
+59.246389,
+18.109444,
+"Hökarängsbadet"
+],
+"Stockholm|Hökmossens gård": [
+59.290314,
+17.990864,
+"Hökmossens gård"
+],
+"Stockholm|Hötorgshallen": [
+59.334114,
+18.062875,
+"Hötorgshallen"
+],
+"Stockholm|IMRSV Studios": [
+59.29588,
+18.09037,
+"IMRSV Studios"
+],
+"Stockholm|Ikea Kungens kurva": [
+59.2711,
+17.9164,
+"Ikea Kungens kurva"
+],
+"Stockholm|Imam Ali-moskén": [
+59.413472,
+17.825167,
+"Imam Ali-moskén"
+],
+"Stockholm|Ingenting": [
+59.352222,
+18.008611,
+"Ingenting, Solna"
+],
+"Stockholm|Invalidkyrkogården": [
+59.384167,
+18.023056,
+"Invalidkyrkogården"
+],
+"Stockholm|Ivar Los park": [
+59.320417,
+18.061111,
+"Ivar Los park"
+],
+"Stockholm|Jakobs stege": [
+59.301583,
+17.951167,
+"Jakobs stege (gata)"
+],
+"Stockholm|Jakobsbergs Centrum": [
+59.423333,
+17.8375,
+"Jakobsbergs Centrum"
+],
+"Stockholm|Jakobsbergs folkhögskola": [
+59.426111,
+17.829167,
+"Jakobsbergs folkhögskola"
+],
+"Stockholm|Jakobsbergs gamla stationshus": [
+59.4235,
+17.83356,
+"Jakobsbergs gamla stationshus"
+],
+"Stockholm|Jakobsbergs sporthall": [
+59.418889,
+17.825556,
+"Jakobsbergs sporthall"
+],
+"Stockholm|Jarlabergs vattentorn": [
+59.313244,
+18.164636,
+"Jarlabergs vattentorn"
+],
+"Stockholm|Judiska begravningsplatsen Aronsberg": [
+59.336306,
+18.02675,
+"Judiska begravningsplatsen Aronsberg"
+],
+"Stockholm|Judiska begravningsplatsen Kronoberg": [
+59.332778,
+18.034167,
+"Judiska begravningsplatsen Kronoberg"
+],
+"Stockholm|Jungfrudansen": [
+59.349167,
+17.981667,
+"Jungfrudansen, Solna"
+],
+"Stockholm|Juringe gård": [
+59.272739,
+17.928531,
+"Juringe gård"
+],
+"Stockholm|Järfällabadet": [
+59.4194,
+17.8256,
+"Järfällabadet"
+],
+"Stockholm|Järla gård": [
+59.304167,
+18.153056,
+"Järla gård"
+],
+"Stockholm|Järla sjö": [
+59.304794,
+18.150497,
+"Järla sjö"
+],
+"Stockholm|Järva begravningsplats": [
+59.40257,
+17.90077,
+"Järva begravningsplats"
+],
+"Stockholm|Järvabadet": [
+59.39708,
+17.92064,
+"Järvabadet"
+],
+"Stockholm|Kampementsbadet": [
+59.342861,
+18.109444,
+"Kampementsbadet"
+],
+"Stockholm|Kappsta naturreservat": [
+59.340581,
+18.166711,
+"Kappsta naturreservat"
+],
+"Stockholm|Kista Galleria": [
+59.401369,
+17.944461,
+"Kista Galleria"
+],
+"Stockholm|Kista Nod": [
+59.40725,
+17.945861,
+"Kista Nod"
+],
+"Stockholm|Kista Science Tower": [
+59.402,
+17.947,
+"Kista Science Tower"
+],
+"Stockholm|Kista brandstation": [
+59.40575,
+17.939583,
+"Kista brandstation"
+],
+"Stockholm|Kista kyrka": [
+59.401389,
+17.9425,
+"Kista kyrka"
+],
+"Stockholm|Kistamässan": [
+59.405931,
+17.95685,
+"Kistamässan"
+],
+"Stockholm|Klasroskolan": [
+59.448611,
+17.927222,
+"Klasroskolan"
+],
+"Stockholm|Klingska huset": [
+59.278389,
+18.0065,
+"Klingska huset"
+],
+"Stockholm|Klättra upp på Frösundatoppen": [
+59.366111,
+18.024722,
+"Frösundatoppen"
+],
+"Stockholm|Kolardammarna": [
+59.2421,
+18.2606,
+"Kolardammarna"
+],
+"Stockholm|Kolla in Flatenbanan för radiostyrda bilar": [
+59.2497,
+18.1706,
+"Flatenbanan"
+],
+"Stockholm|Konsthallen Accelerator": [
+59.366111,
+18.055,
+"Accelerator (konsthall)"
+],
+"Stockholm|Konsthallen Kummelholmen": [
+59.273333,
+17.885833,
+"Kummelholmen"
+],
+"Stockholm|Konstverket Sophie": [
+59.309728,
+18.086264,
+"Sophie (konstverk)"
+],
+"Stockholm|Konsum Kvarnholmen": [
+59.315694,
+18.13475,
+"Konsum Kvarnholmen"
+],
+"Stockholm|Kopparhusen": [
+59.363028,
+18.123361,
+"Kopparhusen, Lidingö"
+],
+"Stockholm|Kristalltorget": [
+59.2902,
+17.999,
+"Kristalltorget"
+],
+"Stockholm|Kristinebergs slott": [
+59.333889,
+18.005556,
+"Kristinebergs slott"
+],
+"Stockholm|Kronobergsparken": [
+59.332083,
+18.035333,
+"Kronobergsparken"
+],
+"Stockholm|Kulturhuset": [
+59.331944,
+18.064722,
+"Kulturhuset, Stockholm"
+],
+"Stockholm|Kumla herrgård": [
+59.216667,
+18.1925,
+"Kumla herrgård"
+],
+"Stockholm|Kummelby kyrka": [
+59.415556,
+17.961111,
+"Kummelby kyrka"
+],
+"Stockholm|Kummelbystenen": [
+59.41578,
+17.96149,
+"Kummelbystenen"
+],
+"Stockholm|Kummelholmen": [
+59.273333,
+17.885833,
+"Kummelholmen"
+],
+"Stockholm|Kungliga Operan": [
+59.329722,
+18.070556,
+"Kungliga Operan"
+],
+"Stockholm|Kungsträdgården": [
+59.330833,
+18.070994,
+"Kungsträdgården (tunnelbanestation)"
+],
+"Stockholm|Kurdiska biblioteket": [
+59.333417,
+17.9785,
+"Kurdiska biblioteket"
+],
+"Stockholm|Kvarngården vid Duvnäs kvarn": [
+59.301667,
+18.206444,
+"Duvnäs kvarn"
+],
+"Stockholm|Kvarnparken": [
+59.404444,
+18.022222,
+"Kvarnparken"
+],
+"Stockholm|Kvarntorpshällen": [
+59.4333,
+18.06577,
+"Kvarntorpshällen"
+],
+"Stockholm|Kvarteret Canada": [
+59.37073,
+18.16394,
+"Kvarteret Canada"
+],
+"Stockholm|Kvarteret Gamlebo": [
+59.279167,
+18.065278,
+"Kvarteret Gamlebo"
+],
+"Stockholm|Kvarteret Lojo": [
+59.375833,
+18.184028,
+"Lojo, Lidingö"
+],
+"Stockholm|Kvarteret Murbruket": [
+59.269722,
+18.050278,
+"Kvarteret Murbruket"
+],
+"Stockholm|Kvinnohuset": [
+59.335556,
+18.024167,
+"Kvinnohuset (byggnad)"
+],
+"Stockholm|Kynäsberget": [
+59.24,
+18.033056,
+"Kynäsberget"
+],
+"Stockholm|Kyrkviken": [
+59.365278,
+18.177778,
+"Kyrkviken"
+],
+"Stockholm|Källtorpssjön runt": [
+59.290444,
+18.159861,
+"Källtorpssjön runt"
+],
+"Stockholm|Kälvesta kvarn": [
+59.385278,
+17.88175,
+"Kälvesta kvarn"
+],
+"Stockholm|Kämpakumlet": [
+59.3219,
+17.96902,
+"Kämpakumlet"
+],
+"Stockholm|Kämpingebacken 13": [
+59.393889,
+17.908333,
+"Kämpingebacken 13"
+],
+"Stockholm|Käppala vattentorn": [
+59.353389,
+18.205833,
+"Käppala vattentorn"
+],
+"Stockholm|Käppalaställningen": [
+59.354167,
+18.225833,
+"Käppalaställningen"
+],
+"Stockholm|Lekande elefanter": [
+59.369278,
+18.151778,
+"Lekande elefanter"
+],
+"Stockholm|Lekplatsen Lilla Kvarnholmen": [
+59.3153,
+18.1384,
+"Lilla Kvarnholmen"
+],
+"Stockholm|Leksaks- och samlarmuseet": [
+59.295278,
+18.259722,
+"Leksaks- och samlarmuseet"
+],
+"Stockholm|Leksaksmuseet": [
+59.311756,
+18.098678,
+"Leksaksmuseet, Stockholm"
+],
+"Stockholm|Lerkrogen": [
+59.279431,
+18.008239,
+"Lerkrogen"
+],
+"Stockholm|Leta upp Lidingös kortaste väg vid Lidingsberg": [
+59.353219,
+18.132361,
+"Lidingsberg"
+],
+"Stockholm|Leta upp betongsnigeln i Snigelparken": [
+59.299444,
+18.042222,
+"Snigelparken"
+],
+"Stockholm|Lidingö Arena": [
+59.364889,
+18.126611,
+"Lidingö Arena"
+],
+"Stockholm|Lidingö golfklubb": [
+59.379556,
+18.127472,
+"Lidingö golfklubb"
+],
+"Stockholm|Lidingö museum": [
+59.366747,
+18.135939,
+"Lidingö museum"
+],
+"Stockholm|Lidingö stadshus": [
+59.3643,
+18.133069,
+"Lidingö stadshus"
+],
+"Stockholm|Liljevalchs konsthall": [
+59.325556,
+18.096111,
+"Liljevalchs konsthall"
+],
+"Stockholm|Lill-Tumba gård": [
+59.205,
+17.818889,
+"Lill-Tumba gård"
+],
+"Stockholm|Lilla Frösunda": [
+59.368472,
+18.012917,
+"Lilla Frösunda"
+],
+"Stockholm|Lilla Katrineberg 1": [
+59.311325,
+18.025769,
+"Lilla Katrineberg 1"
+],
+"Stockholm|Lillängens station": [
+59.30518,
+18.16102,
+"Lillängens station"
+],
+"Stockholm|Lindeparken": [
+59.293334,
+18.069445,
+"Lindeparken"
+],
+"Stockholm|Lissmasjön": [
+59.175556,
+18.0675,
+"Lissmasjön"
+],
+"Stockholm|Listudden": [
+59.256272,
+18.146861,
+"Listudden"
+],
+"Stockholm|Litografiska museet": [
+59.201,
+18.016517,
+"Litografiska museet"
+],
+"Stockholm|Ljusets kyrka": [
+59.244889,
+17.830389,
+"Ljusets kyrka"
+],
+"Stockholm|Lovö kyrka och runstenarna": [
+59.321289,
+17.839908,
+"Lovö kyrka"
+],
+"Stockholm|Lovö kyrkallé": [
+59.320278,
+17.853333,
+"Lovö kyrkallé"
+],
+"Stockholm|Lovö skogskyrkogård": [
+59.320833,
+17.855833,
+"Lovö skogskyrkogård"
+],
+"Stockholm|Lullehovsbron": [
+59.303306,
+17.783944,
+"Lullehovsbron"
+],
+"Stockholm|Lundbergs konditori": [
+59.316,
+18.010417,
+"Lundbergs konditori"
+],
+"Stockholm|Lännafortet": [
+59.2125,
+18.149722,
+"Lännafortet"
+],
+"Stockholm|Långbro gård": [
+59.2819,
+17.9722,
+"Långbro"
+],
+"Stockholm|Långbroparken": [
+59.28068,
+17.974,
+"Långbroparken"
+],
+"Stockholm|Långholmen och fängelsemuseet": [
+59.321111,
+18.027778,
+"Långholmen"
+],
+"Stockholm|Långsjö gård": [
+59.265833,
+17.9725,
+"Långsjö gård"
+],
+"Stockholm|Långsjöhöjden": [
+59.264167,
+17.979722,
+"Långsjöhöjden"
+],
+"Stockholm|Långsjön": [
+59.3072,
+18.1886,
+"Långsjön (Nacka socken, Södermanland)"
+],
+"Stockholm|Lötsjön": [
+59.371667,
+17.9675,
+"Lötsjön, Sundbyberg"
+],
+"Stockholm|Magelungsfortet": [
+59.224167,
+18.130556,
+"Magelungsfortet"
+],
+"Stockholm|Majroskogens naturreservat": [
+59.267528,
+18.069778,
+"Majroskogens naturreservat"
+],
+"Stockholm|Malmvägen": [
+59.428611,
+17.942778,
+"Malmvägen"
+],
+"Stockholm|Marabouparken": [
+59.364081,
+17.956411,
+"Marabouparken"
+],
+"Stockholm|Marabouparkens konsthall": [
+59.364333,
+17.957222,
+"Marabouparkens konsthall"
+],
+"Stockholm|Margaretaparken": [
+59.282222,
+18.083056,
+"Margaretaparken"
+],
+"Stockholm|Margretelunds gård": [
+59.341853,
+17.973869,
+"Margretelunds gård"
+],
+"Stockholm|Mariehälls gård": [
+59.361278,
+17.957583,
+"Mariehälls gård"
+],
+"Stockholm|Markuskyrkan": [
+59.291944,
+18.116944,
+"Markuskyrkan"
+],
+"Stockholm|Masmo villa": [
+59.243889,
+17.885,
+"Masmo villa"
+],
+"Stockholm|Medborgarhuset Trappan": [
+59.362818,
+17.871262,
+"Medborgarhuset Trappan"
+],
+"Stockholm|Medborgarplatsen": [
+59.31472,
+18.07222,
+"Medborgarplatsen"
+],
+"Stockholm|Mellanjärva gravfält": [
+59.382498,
+18.009266,
+"Mellanjärva gravfält"
+],
+"Stockholm|Midsommargården": [
+59.298975,
+17.996967,
+"Midsommargården"
+],
+"Stockholm|Millesgården": [
+59.35861,
+18.12139,
+"Millesgården"
+],
+"Stockholm|Minnesstenen Norges tack": [
+59.33288,
+18.108225,
+"Minnesstenen Norges tack"
+],
+"Stockholm|Mitt hjärta i världen": [
+59.335278,
+18.054444,
+"Mitt hjärta i världen"
+],
+"Stockholm|Moderna museet": [
+59.32639,
+18.08361,
+"Moderna Museet"
+],
+"Stockholm|Moment teater": [
+59.26246,
+18.084056,
+"Moment teater"
+],
+"Stockholm|Monica Zetterlunds park": [
+59.346389,
+18.060556,
+"Monica Zetterlunds park"
+],
+"Stockholm|Monumentholmen": [
+59.323611,
+17.876944,
+"Monumentholmen"
+],
+"Stockholm|Myrstuguberget": [
+59.246661,
+17.88145,
+"Myrstuguberget"
+],
+"Stockholm|Mälarhöjdens idrottsplats": [
+59.2881,
+17.9564,
+"Mälarhöjdens idrottsplats"
+],
+"Stockholm|Mälarhöjdens skola": [
+59.297403,
+17.958217,
+"Mälarhöjdens skola"
+],
+"Stockholm|Mälarhöjdsbadet": [
+59.299831,
+17.923842,
+"Mälarhöjdsbadet"
+],
+"Stockholm|Mälarskogens naturreservat": [
+59.256111,
+17.817167,
+"Mälarskogens naturreservat"
+],
+"Stockholm|Måndalsfortet": [
+59.215111,
+18.22,
+"Måndalsfortet"
+],
+"Stockholm|Mörby verkstäder": [
+59.389722,
+18.044722,
+"Mörby verkstäder"
+],
+"Stockholm|Münchenbryggeriet": [
+59.320556,
+18.053056,
+"Münchenbryggeriet"
+],
+"Stockholm|Nacka gård": [
+59.298056,
+18.146389,
+"Nacka gård"
+],
+"Stockholm|Nacka kyrka": [
+59.307156,
+18.143094,
+"Nacka kyrka"
+],
+"Stockholm|Nacka ström": [
+59.298183,
+18.147069,
+"Nacka ström"
+],
+"Stockholm|Nationalmuseum": [
+59.328611,
+18.078056,
+"Nationalmuseum, Stockholm"
+],
+"Stockholm|Naturhistoriska riksmuseet": [
+59.368889,
+18.053611,
+"Naturhistoriska riksmuseet"
+],
+"Stockholm|Naturhistoriska riksmuseet och Cosmonova": [
+59.368889,
+18.053611,
+"Naturhistoriska riksmuseet"
+],
+"Stockholm|Nelly Sachs park": [
+59.339111,
+18.008472,
+"Nelly Sachs park"
+],
+"Stockholm|Neonskylten Råcksta Centrum": [
+59.357039,
+17.884831,
+"Råcksta Centrum (skylt)"
+],
+"Stockholm|Nobelparken": [
+59.331944,
+18.098889,
+"Nobelparken"
+],
+"Stockholm|Nockeby torg": [
+59.329167,
+17.927778,
+"Nockeby torg (Nockebybanan)"
+],
+"Stockholm|Nora träsk": [
+59.4046,
+18.0086,
+"Nora träsk"
+],
+"Stockholm|Norahällen": [
+59.405,
+18.0217,
+"Norahällen"
+],
+"Stockholm|Nordiska museet": [
+59.329167,
+18.093333,
+"Nordiska museet"
+],
+"Stockholm|Norra begravningsplatsen": [
+59.356667,
+18.019167,
+"Norra begravningsplatsen"
+],
+"Stockholm|Norra tornen": [
+59.34586,
+18.03361,
+"Norra tornen"
+],
+"Stockholm|Novum Forskningspark": [
+59.21745,
+17.938739,
+"Novum Forskningspark"
+],
+"Stockholm|Nybohovshissen": [
+59.308597,
+18.016622,
+"Nybohovshissen"
+],
+"Stockholm|Nyckelviksskolan": [
+59.368844,
+18.128081,
+"Nyckelviksskolan"
+],
+"Stockholm|Nytorget": [
+59.312167,
+18.083611,
+"Nytorget"
+],
+"Stockholm|Nytorget och kaféerna runt torget": [
+59.312167,
+18.083611,
+"Nytorget"
+],
+"Stockholm|Nytorpsbadet": [
+59.289694,
+18.106694,
+"Nytorpsbadet"
+],
+"Stockholm|Näsby allé station": [
+59.427306,
+18.084861,
+"Näsby allé station"
+],
+"Stockholm|Näsby slott": [
+59.424167,
+18.086667,
+"Näsby slott"
+],
+"Stockholm|Näsbydal": [
+59.437778,
+18.065,
+"Näsbydal"
+],
+"Stockholm|Näsbyparks kyrka": [
+59.429972,
+18.095639,
+"Näsbyparks kyrka"
+],
+"Stockholm|Olaus Petri kyrka": [
+59.344861,
+18.088056,
+"Olaus Petri kyrka, Stockholm"
+],
+"Stockholm|Olle Olsson Hagalund-museet": [
+59.361056,
+18.01605,
+"Olle Olsson Hagalund-museet"
+],
+"Stockholm|One Tonne Life": [
+59.387778,
+17.809167,
+"One Tonne Life"
+],
+"Stockholm|Orhems gård": [
+59.246944,
+18.1375,
+"Orhems gård"
+],
+"Stockholm|Ormen Långe": [
+59.2517,
+17.880639,
+"Ormen Långe (hus, Masmo)"
+],
+"Stockholm|Park-Bio": [
+59.283268,
+18.027148,
+"Park-Bio"
+],
+"Stockholm|Philipshuset": [
+59.35,
+18.099444,
+"Philipshuset"
+],
+"Stockholm|Prins Eugens Waldemarsudde": [
+59.32,
+18.113056,
+"Prins Eugens Waldemarsudde"
+],
+"Stockholm|Promenad längs Djurgårdsbrunnsviken": [
+59.3309,
+18.108,
+"Djurgårdsbrunnsviken"
+],
+"Stockholm|Promenad längs Hammarby sjö": [
+59.3075,
+18.1,
+"Hammarby sjö"
+],
+"Stockholm|Promenad längs Norr Mälarstrand": [
+59.327222,
+18.038333,
+"Norr Mälarstrand"
+],
+"Stockholm|Promenad längs Årstaviken": [
+59.304722,
+18.047222,
+"Årstaviken"
+],
+"Stockholm|Promenad tillbaka genom Vita bergen": [
+59.311111,
+18.089722,
+"Vita bergen"
+],
+"Stockholm|Promenad tillbaka upp på Västerbron för utsikten": [
+59.324444,
+18.027222,
+"Västerbron"
+],
+"Stockholm|Promenad upp på Västerbron för utsikten": [
+59.324444,
+18.027222,
+"Västerbron"
+],
+"Stockholm|Promenera till Näsby slott vid vattnet": [
+59.424167,
+18.086667,
+"Näsby slott"
+],
+"Stockholm|Promenera till gästhamnen vid Tappström": [
+59.2925,
+17.811111,
+"Tappström"
+],
+"Stockholm|Promenera till parken och badplatsen Svandammen": [
+59.381111,
+17.893611,
+"Svandammen, Stockholm"
+],
+"Stockholm|Promenera till Älvsjö gård": [
+59.277222,
+18.010833,
+"Älvsjö gård"
+],
+"Stockholm|Promenera upp till Hersby vattentorn": [
+59.359,
+18.139278,
+"Hersby vattentorn"
+],
+"Stockholm|Pråmholmen": [
+59.35791,
+17.96372,
+"Pråmholmen"
+],
+"Stockholm|Radhusområdet Hersby Åker": [
+59.362056,
+18.156944,
+"Radhusområdet Hersby Åker"
+],
+"Stockholm|Reenstiernska palatset": [
+59.316111,
+18.058686,
+"Reenstiernska palatset"
+],
+"Stockholm|Riddarholmen och utsikten över Riddarfjärden": [
+59.323889,
+18.048611,
+"Riddarfjärden"
+],
+"Stockholm|Rinkebytorget": [
+59.388136,
+17.928614,
+"Rinkebytorget"
+],
+"Stockholm|Rissne torg": [
+59.376289,
+17.9403,
+"Rissne torg"
+],
+"Stockholm|Rissne äng": [
+59.37599,
+17.95283,
+"Rissne äng"
+],
+"Stockholm|Ritorps gård": [
+59.375892,
+18.006198,
+"Ritorps gård"
+],
+"Stockholm|Rudans gård": [
+59.164439,
+18.131669,
+"Rudans gård"
+],
+"Stockholm|Rudbecksparken": [
+59.329722,
+18.006778,
+"Rudbecksparken"
+],
+"Stockholm|Rudbecksskolan, Sollentuna": [
+59.443889,
+17.9525,
+"Rudbecksskolan, Sollentuna"
+],
+"Stockholm|Rudboda gård": [
+59.367528,
+18.178111,
+"Rudboda gård"
+],
+"Stockholm|Runhällarna vid Sundby": [
+59.3681,
+17.9161,
+"Sundby, Stockholm"
+],
+"Stockholm|Runstenarna vid Lovö kyrka": [
+59.321289,
+17.839908,
+"Lovö kyrka"
+],
+"Stockholm|Runstenen vid Hässelby slott": [
+59.365556,
+17.854444,
+"Hässelby slott"
+],
+"Stockholm|Runstenen vid Troxhammar": [
+59.31572,
+17.773735,
+"Troxhammar"
+],
+"Stockholm|Ryssbergen": [
+59.3125,
+18.143333,
+"Ryssbergen"
+],
+"Stockholm|Ryttaren 15": [
+59.33944,
+18.09478,
+"Ryttaren 15"
+],
+"Stockholm|Råcksta Centrum-skylten": [
+59.357039,
+17.884831,
+"Råcksta Centrum (skylt)"
+],
+"Stockholm|Råcksta träsk": [
+59.3525,
+17.874722,
+"Råcksta träsk"
+],
+"Stockholm|Rådsparken": [
+59.240833,
+17.986944,
+"Rådsparken"
+],
+"Stockholm|Rågsveds friområde": [
+59.25,
+18.033333,
+"Rågsveds friområde"
+],
+"Stockholm|Rågsveds naturreservat": [
+59.251131,
+18.039655,
+"Rågsveds naturreservat"
+],
+"Stockholm|Rålambshovsparken": [
+59.328889,
+18.023889,
+"Rålambshovsparken"
+],
+"Stockholm|Råstahällen": [
+59.371336,
+17.984824,
+"Råstahällen"
+],
+"Stockholm|Råstasjön": [
+59.372222,
+17.988889,
+"Råstasjön"
+],
+"Stockholm|Råsunda vattentorn": [
+59.369167,
+17.983694,
+"Råsunda vattentorn"
+],
+"Stockholm|Röda Korsets Högskola": [
+59.222222,
+17.938611,
+"Röda Korsets Högskola"
+],
+"Stockholm|Rörstrands slott": [
+59.339167,
+18.034722,
+"Rörstrands slott"
+],
+"Stockholm|S:t Tomas kyrka": [
+59.363056,
+17.870278,
+"S:t Tomas kyrka"
+],
+"Stockholm|Salems kyrka": [
+59.21852,
+17.77046,
+"Salems kyrka"
+],
+"Stockholm|Saltvägen": [
+59.254556,
+18.082694,
+"Saltvägen"
+],
+"Stockholm|Sandsborgskyrkogården": [
+59.284025,
+18.095436,
+"Sandsborgskyrkogården"
+],
+"Stockholm|Sankt Botvids källa": [
+59.2175,
+17.778333,
+"Sankt Botvids källa"
+],
+"Stockholm|Sankt Olofs kyrka, Täby": [
+59.443611,
+18.11475,
+"Sankt Olofs kyrka, Täby"
+],
+"Stockholm|Sankta Birgitta kyrka": [
+59.328611,
+17.915833,
+"Sankta Birgitta kyrka, Stockholm"
+],
+"Stockholm|Se Ahlby säteri": [
+59.3575,
+17.9725,
+"Ahlby säteri"
+],
+"Stockholm|Se Akalla kyrka": [
+59.413431,
+17.918,
+"Akalla kyrka"
+],
+"Stockholm|Se Akallafontänen längs Sibeliusgången": [
+59.41475,
+17.914361,
+"Sibeliusgången"
+],
+"Stockholm|Se Bergshamra vattentorn": [
+59.383333,
+18.034444,
+"Bergshamra vattentorn"
+],
+"Stockholm|Se Blocket, ett av Lidingös äldsta hyreshus": [
+59.348972,
+18.203444,
+"Blocket (byggnad)"
+],
+"Stockholm|Se Bo gård, Lidingös äldsta gård": [
+59.373889,
+18.155556,
+"Bo gård"
+],
+"Stockholm|Se Bysis och Bysistorget": [
+59.31826,
+18.05602,
+"Bysistorget"
+],
+"Stockholm|Se Carl Malmstens hus, Övre Karlsro": [
+59.37735,
+18.02998,
+"Övre Karlsro"
+],
+"Stockholm|Se Flicka med fruktkorg": [
+59.238611,
+17.988333,
+"Flicka med fruktkorg"
+],
+"Stockholm|Se Fructushuset, där Pommac tillverkades": [
+59.346667,
+17.958611,
+"Fructushuset"
+],
+"Stockholm|Se Granen 14 från 1886–1887": [
+59.343858,
+18.076406,
+"Granen 14"
+],
+"Stockholm|Se Grindvakten 1 från 1790-talet": [
+59.317639,
+18.039861,
+"Grindvakten 1"
+],
+"Stockholm|Se Husbykyrkan": [
+59.407778,
+17.928611,
+"Husbykyrkan"
+],
+"Stockholm|Se Juristernas hus som böjer sig runt eken": [
+59.364167,
+18.055556,
+"Juristernas hus"
+],
+"Stockholm|Se Kista torn": [
+59.4048,
+17.9418,
+"Kista torn"
+],
+"Stockholm|Se Larsbergs brostuga vid stranden": [
+59.34375,
+18.151611,
+"Larsbergs brostuga"
+],
+"Stockholm|Se Soundtrade Studios, Abbas gamla studio på Råsundavägen 45": [
+59.364944,
+18.008194,
+"Råsundavägen"
+],
+"Stockholm|Se Teater Pero i gamla biografen Rialto": [
+59.343861,
+18.055944,
+"Teater Pero"
+],
+"Stockholm|Se Tyresö View": [
+59.24358,
+18.22963,
+"Tyresö View"
+],
+"Stockholm|Se de gamla Karl Johans-ekarna": [
+59.323611,
+18.103333,
+"Karl Johans-ekarna"
+],
+"Stockholm|Se det gamla Bageriet, i dag Kvarnholmens centrum": [
+59.316556,
+18.139667,
+"Bageriet"
+],
+"Stockholm|Se det gamla värdshuset Ekensberg": [
+59.314972,
+17.990669,
+"Ekensberg, Stockholm"
+],
+"Stockholm|Se film eller ät på Bio & Bistro Capitol": [
+59.34028,
+18.03735,
+"Capitol, Stockholm"
+],
+"Stockholm|Se gamla Näsets krog": [
+59.368667,
+18.151944,
+"Näsets krog"
+],
+"Stockholm|Se kullen med Wallenberg-mausoleet": [
+59.292778,
+17.83,
+"Wallenberg-mausoleet"
+],
+"Stockholm|Se skulpturerna i Eric Grates park": [
+59.358056,
+18.001667,
+"Eric Grates park"
+],
+"Stockholm|Se villorna i kvarteret Tofslärkan": [
+59.346333,
+18.066389,
+"Kvarteret Tofslärkan"
+],
+"Stockholm|Se Årsta kyrka": [
+59.295556,
+18.051667,
+"Årsta kyrka"
+],
+"Stockholm|Segeltorps järnåldersgård": [
+59.272811,
+17.942643,
+"Segeltorps järnåldersgård"
+],
+"Stockholm|Segeltorps kyrka": [
+59.27715,
+17.941289,
+"Segeltorps kyrka"
+],
+"Stockholm|Segeltorpsskolan": [
+59.278333,
+17.944444,
+"Segeltorpsskolan"
+],
+"Stockholm|Setterwallska villan": [
+59.307222,
+18.135833,
+"Setterwallska villan"
+],
+"Stockholm|Silo III": [
+59.317694,
+18.1405,
+"Silo III"
+],
+"Stockholm|Silverdals griftegård": [
+59.406111,
+17.971389,
+"Silverdals griftegård"
+],
+"Stockholm|Silverdalskapellet": [
+59.406231,
+17.974003,
+"Silverdalskapellet"
+],
+"Stockholm|Sjön Grötfatet": [
+59.2878,
+18.2473,
+"Grötfatet"
+],
+"Stockholm|Sjöräddningens station vid Hammarbyslussen": [
+59.303167,
+18.07875,
+"Hammarbyslussen"
+],
+"Stockholm|Sjöskumspipan 4": [
+59.255089,
+18.077294,
+"Sjöskumspipan 4"
+],
+"Stockholm|Sjövikstorget": [
+59.307778,
+18.029583,
+"Sjövikstorget"
+],
+"Stockholm|Skagershuset": [
+59.2975,
+18.066111,
+"Skagershuset"
+],
+"Stockholm|Skansen": [
+59.32445,
+18.101,
+"Skansen"
+],
+"Stockholm|Skanskvarns koloniträdgårdsförening": [
+59.300556,
+18.073611,
+"Skanskvarns koloniträdgårdsförening"
+],
+"Stockholm|Skarpnäcks gård": [
+59.267097,
+18.136678,
+"Skarpnäcks gård (stadsdel)"
+],
+"Stockholm|Skarpnäcks koloniträdgårdsområde": [
+59.268228,
+18.111328,
+"Skarpnäcks koloniträdgårdsområde"
+],
+"Stockholm|Skarpnäcksgrottan": [
+59.260875,
+18.153206,
+"Skarpnäcksgrottan"
+],
+"Stockholm|Skinnarviksberget, utsikt": [
+59.319861,
+18.050389,
+"Skinnarviksberget"
+],
+"Stockholm|Skinnarviksberget, utsikt över Riddarfjärden": [
+59.319861,
+18.050389,
+"Skinnarviksberget"
+],
+"Stockholm|Skogskapellet": [
+59.27411,
+18.10357,
+"Skogskapellet"
+],
+"Stockholm|Skogskrematoriet": [
+59.276208,
+18.100942,
+"Skogskrematoriet"
+],
+"Stockholm|Skrubbatriangeln": [
+59.237583,
+18.193056,
+"Skrubbatriangeln"
+],
+"Stockholm|Skulpturen Fosterbröderna": [
+59.32875,
+18.077389,
+"Fosterbröderna"
+],
+"Stockholm|Skulpturen Husmorssemester": [
+59.34073,
+18.09276,
+"Husmorssemester (skulptur)"
+],
+"Stockholm|Skulpturen Protest": [
+59.338056,
+18.104167,
+"Protest (skulptur)"
+],
+"Stockholm|Skulpturen Vesslan": [
+59.328056,
+18.0425,
+"Vesslan (skulptur)"
+],
+"Stockholm|Skurubroarna": [
+59.314167,
+18.221667,
+"Skurubroarna"
+],
+"Stockholm|SkyView, gondolen upp på kupolen": [
+59.293611,
+18.083056,
+"Skyview"
+],
+"Stockholm|Skärholmen Centrum": [
+59.275967,
+17.906197,
+"Skärholmen Centrum"
+],
+"Stockholm|Skärholmens bergbana": [
+59.277738,
+17.906095,
+"Skärholmens bergbana"
+],
+"Stockholm|Skärholmens fornborg": [
+59.283889,
+17.896944,
+"Skärholmens fornborg"
+],
+"Stockholm|Skärholmens gård": [
+59.283,
+17.889456,
+"Skärholmens gård"
+],
+"Stockholm|Skärisbiografen": [
+59.276071,
+17.904639,
+"Skärisbiografen"
+],
+"Stockholm|Skärsätra vattentorn": [
+59.345472,
+18.172056,
+"Skärsätra vattentorn"
+],
+"Stockholm|Sköndalsskolan": [
+59.256111,
+18.108333,
+"Sköndalsskolan"
+],
+"Stockholm|Skönstaholm": [
+59.258,
+18.095381,
+"Skönstaholm"
+],
+"Stockholm|Slagsta gård": [
+59.253056,
+17.845,
+"Slagsta gård"
+],
+"Stockholm|Slagsta hällristning": [
+59.251,
+17.850167,
+"Slagsta hällristning"
+],
+"Stockholm|Slagstabadet": [
+59.258333,
+17.8475,
+"Slagstabadet"
+],
+"Stockholm|Slättens gård": [
+59.290833,
+17.949194,
+"Slättens gård"
+],
+"Stockholm|Smedsuddsbadet vid Mälaren": [
+59.325286,
+18.021311,
+"Smedsuddsbadet"
+],
+"Stockholm|Smistabron": [
+59.282194,
+17.925722,
+"Smistabron"
+],
+"Stockholm|Små butiker i SoFo": [
+59.313611,
+18.080342,
+"Sofo"
+],
+"Stockholm|Snigelparken": [
+59.299444,
+18.042222,
+"Snigelparken"
+],
+"Stockholm|Sockenstugan och Bromma kyrka": [
+59.3544,
+17.9208,
+"Bromma kyrka (stadsdel)"
+],
+"Stockholm|Solbergaskogen": [
+59.2852,
+18.0027,
+"Solbergaskogen"
+],
+"Stockholm|Sollentunavallen": [
+59.4361,
+17.9528,
+"Sollentunavallen"
+],
+"Stockholm|Solnahallen": [
+59.358889,
+17.988889,
+"Solnahallen"
+],
+"Stockholm|Solparken": [
+59.365756,
+17.992933,
+"Solparken"
+],
+"Stockholm|Solsunda": [
+59.315997,
+18.215933,
+"Solsunda"
+],
+"Stockholm|Solvalla": [
+59.3675,
+17.939722,
+"Solvalla"
+],
+"Stockholm|Solvalla travbana": [
+59.3675,
+17.939722,
+"Solvalla"
+],
+"Stockholm|Spånga IP": [
+59.3867,
+17.9062,
+"Spånga IP"
+],
+"Stockholm|Stadsarkivet Liljeholmskajen": [
+59.305236,
+18.035628,
+"Stadsarkivet Liljeholmskajen"
+],
+"Stockholm|Stadshagsberget": [
+59.337778,
+18.021389,
+"Stadshagsberget"
+],
+"Stockholm|Stallgrunden": [
+59.361667,
+18.031389,
+"Stallgrunden"
+],
+"Stockholm|Statarmuseet, Överjärva gård": [
+59.387967,
+17.992817,
+"Statarmuseet, Överjärva gård"
+],
+"Stockholm|Stefanskyrkan": [
+59.3475,
+18.054722,
+"Stefanskyrkan, Stockholm"
+],
+"Stockholm|Stensättra gård": [
+59.208611,
+18.003611,
+"Stensättra gård"
+],
+"Stockholm|Sticklinge naturreservat": [
+59.379806,
+18.103861,
+"Sticklinge naturreservat"
+],
+"Stockholm|Stieg Trenters torg": [
+59.235489,
+18.1019,
+"Stieg Trenters torg"
+],
+"Stockholm|Stinsen": [
+59.436667,
+17.938333,
+"Stinsen"
+],
+"Stockholm|Stockby gård": [
+59.382917,
+18.052361,
+"Stockby gård"
+],
+"Stockholm|Stockholm Toy Museum": [
+59.326667,
+18.081944,
+"Stockholm Toy Museum"
+],
+"Stockholm|Stockholms ånglokssällskap": [
+59.298617,
+18.01585,
+"Stockholms ånglokssällskap"
+],
+"Stockholm|Stockholmsmässan": [
+59.277778,
+18.015278,
+"Stockholmsmässan"
+],
+"Stockholm|Stocksunds vattentorn": [
+59.384722,
+18.051944,
+"Stocksunds vattentorn"
+],
+"Stockholm|Stocksunds värdshus": [
+59.3822,
+18.04564,
+"Stocksunds värdshus"
+],
+"Stockholm|Stocksundstorps gård": [
+59.380139,
+18.044167,
+"Stocksundstorps gård"
+],
+"Stockholm|Stora Frösunda": [
+59.366389,
+18.0175,
+"Stora Frösunda"
+],
+"Stockholm|Stora Sköndal": [
+59.249639,
+18.119944,
+"Stora Sköndal"
+],
+"Stockholm|Storholmen": [
+59.231903,
+18.021808,
+"Storholmen, Huddinge"
+],
+"Stockholm|Storängshallen": [
+59.231667,
+17.984306,
+"Storängshallen"
+],
+"Stockholm|Strandkyrkogården": [
+59.237983,
+18.182094,
+"Strandkyrkogården"
+],
+"Stockholm|Strandliden": [
+59.359167,
+17.828611,
+"Strandliden"
+],
+"Stockholm|Strandvägen, promenad längs vattnet": [
+59.331667,
+18.088333,
+"Strandvägen, Stockholm"
+],
+"Stockholm|Strawberry Arena": [
+59.3725,
+18.0,
+"Strawberry Arena"
+],
+"Stockholm|Strosa genom Gasqueparken vid Nymble": [
+59.347028,
+18.070972,
+"Gasqueparken"
+],
+"Stockholm|Strosa i Ekerö centrum och leta upp den höga pricken": [
+59.29,
+17.811,
+"Ekerö centrum"
+],
+"Stockholm|Strosa i Järla sjö bland gamla industrihus": [
+59.304794,
+18.150497,
+"Järla sjö"
+],
+"Stockholm|Stuvsta gårds kvarn, Kvarnberget": [
+59.241667,
+17.997222,
+"Stuvsta gårds kvarn"
+],
+"Stockholm|Stuvstatunneln": [
+59.251667,
+18.000278,
+"Stuvstatunneln"
+],
+"Stockholm|Subtopia": [
+59.239722,
+17.858333,
+"Subtopia"
+],
+"Stockholm|Sundbybergs kyrka": [
+59.364139,
+17.972639,
+"Sundbybergs kyrka"
+],
+"Stockholm|Sundbybergs museum": [
+59.364717,
+17.9626,
+"Sundbybergs museum"
+],
+"Stockholm|Sundbyfortet": [
+59.194722,
+18.016667,
+"Sundbyfortet"
+],
+"Stockholm|Sundet Tappström": [
+59.290556,
+17.810278,
+"Tappström (bostadsområde)"
+],
+"Stockholm|Svandammen": [
+59.381111,
+17.893611,
+"Svandammen, Stockholm"
+],
+"Stockholm|Svartlöten": [
+59.24,
+17.836389,
+"Svartlöten"
+],
+"Stockholm|Svedmyrabadet": [
+59.278763,
+18.070683,
+"Svedmyrabadet"
+],
+"Stockholm|Svindersvik": [
+59.31,
+18.13,
+"Svindersvik"
+],
+"Stockholm|Synskadades museum": [
+59.276861,
+18.093889,
+"Synskadades museum"
+],
+"Stockholm|Säby gård": [
+59.426389,
+17.859722,
+"Säby gård"
+],
+"Stockholm|Sätra friidrottshall": [
+59.289722,
+17.9275,
+"Sätra friidrottshall"
+],
+"Stockholm|Sätra gård": [
+59.288333,
+17.910556,
+"Sätra gård"
+],
+"Stockholm|Sätraängskyrkan": [
+59.422694,
+18.000556,
+"Sätraängskyrkan"
+],
+"Stockholm|Söderledskyrkan": [
+59.259306,
+18.084167,
+"Söderledskyrkan, Stockholm"
+],
+"Stockholm|Södra Lidingöstråket": [
+59.35415,
+18.13293,
+"Södra Lidingöstråket"
+],
+"Stockholm|T/S Constantia": [
+59.345917,
+17.9876,
+"T/S Constantia"
+],
+"Stockholm|Ta en paus i Trekantsparken vid sjön Trekanten": [
+59.311111,
+18.022222,
+"Trekantsparken"
+],
+"Stockholm|Tallkrogsplan": [
+59.271639,
+18.084,
+"Tallkrogsplan"
+],
+"Stockholm|Tallumpaviljongen": [
+59.270958,
+18.103797,
+"Tallumpaviljongen"
+],
+"Stockholm|Tantolunden": [
+59.3125,
+18.041667,
+"Tantolunden"
+],
+"Stockholm|Tehuset Zui-Ki-Tei": [
+59.332028,
+18.120889,
+"Zui-Ki-Tei"
+],
+"Stockholm|Tekniska museet": [
+59.3325,
+18.118611,
+"Tekniska museet"
+],
+"Stockholm|Tennispaviljongen": [
+59.3485,
+18.0819,
+"Tennispaviljongen"
+],
+"Stockholm|Tensta gymnasium och Tekniska i Tensta": [
+59.395608,
+17.896042,
+"Tensta gymnasium"
+],
+"Stockholm|Tensta konsthall": [
+59.393611,
+17.903056,
+"Tensta konsthall"
+],
+"Stockholm|Tensta vattentorn": [
+59.398611,
+17.8975,
+"Tensta vattentorn"
+],
+"Stockholm|Tenstakyrkan": [
+59.393056,
+17.9025,
+"Tenstakyrkan"
+],
+"Stockholm|Tibble kyrka": [
+59.443333,
+18.066111,
+"Tibble kyrka"
+],
+"Stockholm|Till en annan värld": [
+59.363028,
+18.132167,
+"Till en annan värld"
+],
+"Stockholm|Titta in i Childhoodhallen, känd från HCZ": [
+59.348531,
+18.154569,
+"Childhoodhallen"
+],
+"Stockholm|Titta in på Fryshuset": [
+59.301111,
+18.088611,
+"Fryshuset"
+],
+"Stockholm|Titta på Trisshusen, tidiga radhus från 1909": [
+59.372611,
+18.160944,
+"Trisshusen"
+],
+"Stockholm|Torpet Kärrtorp": [
+59.282778,
+18.113111,
+"Torpet Kärrtorp"
+],
+"Stockholm|Torpet Pungpinan": [
+59.272547,
+18.110714,
+"Torpet Pungpinan"
+],
+"Stockholm|Torpet i Orhem": [
+59.248056,
+18.140556,
+"Torpet i Orhem"
+],
+"Stockholm|Torsviks fyr": [
+59.366556,
+18.114833,
+"Torsviks fyr"
+],
+"Stockholm|Tranebergs gård": [
+59.335556,
+17.990278,
+"Tranebergs gård"
+],
+"Stockholm|Triangelhuset": [
+59.287403,
+17.967611,
+"Triangelhuset"
+],
+"Stockholm|Trollbäckens IP": [
+59.225,
+18.2194,
+"Trollbäckens IP"
+],
+"Stockholm|Trollbäckens kyrka": [
+59.221417,
+18.203944,
+"Trollbäckens kyrka"
+],
+"Stockholm|Trädgårdshallen": [
+59.293611,
+18.033056,
+"Trädgårdshallen"
+],
+"Stockholm|Trångsunds gård": [
+59.228056,
+18.171944,
+"Trångsunds gård"
+],
+"Stockholm|Trångsundsskogens naturreservat": [
+59.226654,
+18.168639,
+"Trångsundsskogens naturreservat"
+],
+"Stockholm|Tullinge gymnasium": [
+59.214167,
+17.918056,
+"Tullinge gymnasium"
+],
+"Stockholm|Tumba gymnasium": [
+59.202222,
+17.835556,
+"Tumba gymnasium"
+],
+"Stockholm|Tumba kyrka": [
+59.205639,
+17.826528,
+"Tumba kyrka"
+],
+"Stockholm|Turebergshuset": [
+59.429444,
+17.949722,
+"Turebergshuset"
+],
+"Stockholm|Turebergskyrkan": [
+59.428339,
+17.949894,
+"Turebergskyrkan"
+],
+"Stockholm|Tussmöteparken": [
+59.280556,
+18.048056,
+"Tussmöteparken"
+],
+"Stockholm|Tuvanparken": [
+59.358611,
+17.965833,
+"Tuvanparken"
+],
+"Stockholm|Tyresö Centrum": [
+59.2444,
+18.2286,
+"Tyresö Centrum"
+],
+"Stockholm|Tyresö View": [
+59.24358,
+18.22963,
+"Tyresö View"
+],
+"Stockholm|Tyresövallen": [
+59.2477,
+18.2241,
+"Tyresövallen"
+],
+"Stockholm|Täby Enskilda gymnasium": [
+59.451111,
+18.083611,
+"Täby Enskilda gymnasium"
+],
+"Stockholm|Täby Racketcenter": [
+59.445532,
+18.102297,
+"Täby Racketcenter"
+],
+"Stockholm|Täby centrum": [
+59.445,
+18.071389,
+"Täby centrum"
+],
+"Stockholm|Täby park": [
+59.44438,
+18.09045,
+"Täby park"
+],
+"Stockholm|Täby simhall": [
+59.448056,
+18.091111,
+"Täby simhall"
+],
+"Stockholm|Ulriksdals Golfklubb": [
+59.383194,
+18.002556,
+"Ulriksdals Golfklubb"
+],
+"Stockholm|Ulriksdals Wärdshus": [
+59.386186,
+18.019542,
+"Ulriksdals Wärdshus"
+],
+"Stockholm|Ulvsunda kvarn": [
+59.344167,
+17.958333,
+"Ulvsunda kvarn"
+],
+"Stockholm|Ulvsunda slott": [
+59.340833,
+17.963889,
+"Ulvsunda slott"
+],
+"Stockholm|Upplands runinskrifter 91": [
+59.425556,
+17.829167,
+"Upplands runinskrifter 91"
+],
+"Stockholm|Uppståndelsekapellet": [
+59.269028,
+18.101944,
+"Uppståndelsekapellet, Stockholm"
+],
+"Stockholm|Uppståndelsemonumentet": [
+59.275806,
+18.100806,
+"Uppståndelsemonumentet"
+],
+"Stockholm|Utsikt från Katarinahissen": [
+59.32,
+18.072778,
+"Katarinahissen"
+],
+"Stockholm|Utsikt mot Lidingö": [
+59.364155,
+18.131047,
+"Lidingö (tätort)"
+],
+"Stockholm|Vanadisbadet": [
+59.347778,
+18.053056,
+"Vanadisbadet"
+],
+"Stockholm|Vantörs kyrka": [
+59.264167,
+18.038889,
+"Vantörs kyrka"
+],
+"Stockholm|Vasamuseet": [
+59.32807,
+18.09139,
+"Vasamuseet"
+],
+"Stockholm|Vasaparken": [
+59.340278,
+18.043333,
+"Vasaparken, Stockholm"
+],
+"Stockholm|Vattentornet i Tornparken": [
+59.364981,
+17.967461,
+"Tornparken"
+],
+"Stockholm|Vattängens gård": [
+59.366917,
+18.139444,
+"Vattängens gård"
+],
+"Stockholm|Vendelsån": [
+59.203194,
+18.194306,
+"Vendelsån"
+],
+"Stockholm|Vendevägens station": [
+59.399861,
+18.068056,
+"Vendevägens station"
+],
+"Stockholm|Victoria Tower": [
+59.406667,
+17.9575,
+"Victoria Tower"
+],
+"Stockholm|Viggbyholms station": [
+59.449439,
+18.104578,
+"Viggbyholms station"
+],
+"Stockholm|Viksjö gård": [
+59.417222,
+17.810556,
+"Viksjö gård"
+],
+"Stockholm|Villa Bellona": [
+59.362861,
+18.057583,
+"Villa Bellona"
+],
+"Stockholm|Villa Bergh": [
+59.309167,
+18.173611,
+"Villa Bergh"
+],
+"Stockholm|Villa Bergtomta": [
+59.342222,
+18.181389,
+"Villa Bergtomta"
+],
+"Stockholm|Villa Beylon": [
+59.385556,
+18.014444,
+"Villa Beylon"
+],
+"Stockholm|Villa Brännugnen": [
+59.228833,
+18.084472,
+"Villa Brännugnen"
+],
+"Stockholm|Villa Edvardshäll": [
+59.251306,
+18.062333,
+"Villa Edvardshäll"
+],
+"Stockholm|Villa Emmalund": [
+59.304722,
+18.0,
+"Villa Emmalund"
+],
+"Stockholm|Villa Finedal": [
+59.35256,
+18.1723,
+"Villa Finedal"
+],
+"Stockholm|Villa Gärdsgården": [
+59.386944,
+18.063333,
+"Villa Gärdsgården"
+],
+"Stockholm|Villa Höganloft": [
+59.371944,
+18.162472,
+"Villa Höganloft"
+],
+"Stockholm|Villa Lodén": [
+59.306944,
+18.176944,
+"Villa Lodén"
+],
+"Stockholm|Villa Ludvigsberg": [
+59.320186,
+18.054436,
+"Villa Ludvigsberg"
+],
+"Stockholm|Villa Lundin": [
+59.249444,
+18.051667,
+"Villa Lundin"
+],
+"Stockholm|Villa Lyran": [
+59.301311,
+17.936211,
+"Villa Lyran"
+],
+"Stockholm|Villa Marieborg": [
+59.233056,
+18.0925,
+"Marieborg"
+],
+"Stockholm|Villa Mittag-Leffler": [
+59.395833,
+18.085833,
+"Villa Mittag-Leffler"
+],
+"Stockholm|Villa Myrdal": [
+59.332222,
+17.959722,
+"Villa Myrdal"
+],
+"Stockholm|Villa Oldenburg": [
+59.367639,
+18.134611,
+"Villa Oldenburg"
+],
+"Stockholm|Villa Snellman": [
+59.39177,
+18.07676,
+"Villa Snellman"
+],
+"Stockholm|Villa Tallom": [
+59.382778,
+18.069722,
+"Villa Tallom"
+],
+"Stockholm|Villa Victorson": [
+59.253139,
+18.108833,
+"Villa Victorson"
+],
+"Stockholm|Villa Waern": [
+59.308294,
+18.177343,
+"Villa Waern"
+],
+"Stockholm|Villa Wållgren": [
+59.306944,
+18.166111,
+"Villa Wållgren"
+],
+"Stockholm|Villa Yngve Larsson": [
+59.309536,
+18.168547,
+"Villa Yngve Larsson"
+],
+"Stockholm|Viloparken": [
+59.282306,
+18.108528,
+"Viloparken"
+],
+"Stockholm|Vindarnas tempel": [
+59.362778,
+18.114194,
+"Vindarnas tempel, Lidingö"
+],
+"Stockholm|Vinterbrinken": [
+59.293728,
+18.26815,
+"Vinterbrinken"
+],
+"Stockholm|Visättra sportcenter": [
+59.216569,
+17.963389,
+"Visättra sportcenter"
+],
+"Stockholm|Vivstavarvsparken": [
+59.277944,
+18.0545,
+"Vivstavarvsparken"
+],
+"Stockholm|Vivstavarvsvägens radhusområde": [
+59.282917,
+18.049556,
+"Vivstavarvsvägens radhusområde"
+],
+"Stockholm|Vridande moment": [
+59.273889,
+17.910278,
+"Vridande moment"
+],
+"Stockholm|Vällingby Centrum": [
+59.3625,
+17.8725,
+"Vällingby Centrum"
+],
+"Stockholm|Värtagasverket": [
+59.357156,
+18.091144,
+"Värtagasverket"
+],
+"Stockholm|Väsjöbacken": [
+59.453333,
+17.9725,
+"Väsjöbacken"
+],
+"Stockholm|Västberga begravningsplats": [
+59.288528,
+18.017861,
+"Västberga begravningsplats"
+],
+"Stockholm|Västberga gård": [
+59.2925,
+18.014722,
+"Västberga gård"
+],
+"Stockholm|Västerledskyrkan": [
+59.327778,
+17.9675,
+"Västerledskyrkan, Stockholm"
+],
+"Stockholm|Västerortskyrkan": [
+59.362639,
+17.876111,
+"Västerortskyrkan"
+],
+"Stockholm|Västertorps skulpturpark": [
+59.294008,
+17.969608,
+"Västertorps skulpturpark"
+],
+"Stockholm|Vättersparken": [
+59.296389,
+18.059722,
+"Vättersparken"
+],
+"Stockholm|Vårberg centrum": [
+59.276111,
+17.888333,
+"Vårberg centrum"
+],
+"Stockholm|Vårbergstoppen": [
+59.270833,
+17.879722,
+"Vårbergstoppen"
+],
+"Stockholm|Vårby gårds kyrka": [
+59.26315,
+17.884561,
+"Vårby gårds kyrka"
+],
+"Stockholm|Vårby herrgårdspark": [
+59.263333,
+17.875278,
+"Vårby herrgårdspark"
+],
+"Stockholm|Vårfrukyrkan": [
+59.285139,
+17.9675,
+"Vårfrukyrkan, Stockholm"
+],
+"Stockholm|Willy Brandts park": [
+59.295278,
+18.1075,
+"Willy Brandts park"
+],
+"Stockholm|YK-huset": [
+59.3475,
+18.0975,
+"YK-huset"
+],
+"Stockholm|Älta kyrka": [
+59.257,
+18.180389,
+"Älta kyrka"
+],
+"Stockholm|Älta mosse-Strålsjön": [
+59.26644,
+18.18853,
+"Älta mosse-Strålsjön"
+],
+"Stockholm|Älvsjöbadet": [
+59.268611,
+18.010556,
+"Älvsjöbadet"
+],
+"Stockholm|Ängbystenen": [
+59.350429,
+17.900983,
+"Ängbystenen"
+],
+"Stockholm|Ågesta gård": [
+59.222389,
+18.080361,
+"Ågesta gård"
+],
+"Stockholm|Ågestabadet": [
+59.227249,
+18.097185,
+"Ågestabadet (naturistbad)"
+],
+"Stockholm|Ågestabron": [
+59.231667,
+18.088889,
+"Ågestabron"
+],
+"Stockholm|Ågestasjön": [
+59.2225,
+18.074028,
+"Ågestasjön"
+],
+"Stockholm|Ågestaverket": [
+59.206111,
+18.0825,
+"Ågestaverket"
+],
+"Stockholm|Åkeshovs arboretum": [
+59.341806,
+17.923056,
+"Åkeshovs arboretum"
+],
+"Stockholm|Åkeshovs sim- och idrottshall": [
+59.342338,
+17.929288,
+"Åkeshovs sim- och idrottshall"
+],
+"Stockholm|Åkeshovs slotts orangeri": [
+59.341672,
+17.926517,
+"Åkeshovs slotts orangeri"
+],
+"Stockholm|Ålstens gård": [
+59.320556,
+17.951944,
+"Ålstens gård (Nockebybanan)"
+],
+"Stockholm|Ålstensängen": [
+59.3175,
+17.953056,
+"Ålstensängen"
+],
+"Stockholm|Årsta centrum": [
+59.297339,
+18.051931,
+"Årsta centrum"
+],
+"Stockholm|Årsta kyrka": [
+59.295556,
+18.051667,
+"Årsta kyrka"
+],
+"Stockholm|Årstabergsparken": [
+59.305111,
+18.025944,
+"Årstabergsparken"
+],
+"Stockholm|Årstafruns park": [
+59.298889,
+18.046611,
+"Årstafruns park"
+],
+"Stockholm|Åva gymnasium": [
+59.44,
+18.0631,
+"Åva gymnasium"
+],
+"Stockholm|Örby slott": [
+59.281389,
+18.030278,
+"Örby slott (byggnad)"
+],
+"Stockholm|Örbyskolan": [
+59.274833,
+18.027417,
+"Örbyskolan"
+],
+"Stockholm|Örvallen": [
+59.375556,
+17.98,
+"Örvallen"
+],
+"Stockholm|Ösbysjön": [
+59.4022,
+18.0632,
+"Ösbysjön"
+],
+"Stockholm|Östermalms saluhall": [
+59.335972,
+18.078083,
+"Östermalms saluhall"
+],
+"Stockholm|Östra Rudboda radhusområde": [
+59.372444,
+18.192861,
+"Östra Rudboda radhusområde"
+],
+"Stockholm|Östra Yttringe gård": [
+59.369778,
+18.2095,
+"Östra Yttringe gård"
+],
+"Stockholm|Övre Karlsro": [
+59.37735,
+18.02998,
+"Övre Karlsro"
+]
+}

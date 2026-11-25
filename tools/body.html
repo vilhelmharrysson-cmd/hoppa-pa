@@ -577,6 +577,17 @@
     }).catch(()=>{ box.textContent = apiOk===false ? "Reseplaneraren finns i webbappen." : "Kunde inte söka resa just nu."; });
   }
 
+  // Vägbeskrivning till fots i telefonens kartapp: Apple Kartor på iPhone/iPad, annars Google Maps.
+  // Utgår från hållplatsen. Tips utan koordinater blir en sökning på namnet i staden.
+  const IOS=/iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform==="MacIntel" && navigator.maxTouchPoints>1);
+  function mapsLink(what,lat,lon,stop){
+    const name=what.replace(/^(se|gå|besök|titta på|ta en paus i|ta en paus vid|fika på|ät på|promenera (till|längs|runt|i)|bada (i|vid)|upplev|kika på)\s+/i,"");
+    const dest = lat!=null ? lat+","+lon : name+", "+T.city;
+    const from = stop.lat+","+stop.lon;
+    return IOS
+      ? "https://maps.apple.com/?saddr="+from+"&daddr="+encodeURIComponent(dest)+(lat!=null?"&q="+encodeURIComponent(name):"")+"&dirflg=w"
+      : "https://www.google.com/maps/dir/?api=1&origin="+from+"&destination="+encodeURIComponent(dest)+"&travelmode=walking";
+  }
   // ---- Visning -------------------------------------------------------------
   function nextGuided(){ for(const i of guided){ if(T.stops[i].s > S.s+15) return i; } return -1; }
   function nearestStopAt(){ for(let i=0;i<T.stops.length;i++){ if(Math.abs(T.stops[i].s-S.s)<25) return i; } return -1; }
@@ -595,13 +606,18 @@
     else if(S.mode==="gps" && !S.gpsSeen){ chip.textContent="Väntar på GPS"; }
     else if(at>=0){ chip.textContent="Vid "+T.stops[at].name; chip.classList.add("live"); }
     else if(ng>=0){ const m=Math.round((T.stops[ng].s-S.s)/10)*10; chip.textContent="Mot "+T.stops[ng].name+" · "+(m>=1000?(m/1000).toFixed(1)+" km":m+" m"); chip.classList.add("live"); }
-    const ul=$("tipList"); ul.textContent="";
-    st.tips.forEach(([what,walk])=>{
-      const li=document.createElement("li");
-      const a=document.createElement("span"); a.textContent=what;
-      const b=document.createElement("span"); b.textContent=walk+" promenad";
-      li.append(a,b); ul.appendChild(li);
-    });
+    const ul=$("tipList"), tk=T.id+"|"+D;
+    if(ul.dataset.k!==tk){ ul.dataset.k=tk; ul.textContent="";
+      st.tips.forEach(([what,walk,lat,lon])=>{
+        const li=document.createElement("li");
+        const link=document.createElement("a"); link.href=mapsLink(what,lat,lon,st); link.target="_blank"; link.rel="noopener";
+        link.setAttribute("aria-label",what+", "+walk+" promenad. Öppna vägbeskrivning i kartan");
+        const a=document.createElement("span"); a.textContent=what;
+        const b=document.createElement("span"); b.textContent=walk;
+        const c=document.createElement("span"); c.className="go"; c.textContent="Visa vägen ↗";
+        link.append(a,b,c); li.appendChild(link); ul.appendChild(li);
+      });
+    }
     $("tips").querySelector("h3").textContent = S.hopped ? "Du har klivit av – passa på" : "Om du kliver av vid "+st.name;
     hopBtn.textContent = S.hopped ? "Hoppa på igen" : "Hoppa av här";
     hopBtn.disabled = finished && !S.hopped;

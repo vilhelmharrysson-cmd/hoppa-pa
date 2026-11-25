@@ -17,7 +17,16 @@
     "Frölundaborgs isstadion",
     "Friidrottens väg"
    ],
-   "web": []
+   "web": [],
+   "images": [
+    {
+     "src": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Marklandsgatan.jpg?utm_source=sv.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "credit": "Bulver",
+     "license": "CC BY-SA 3.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Marklandsgatan.jpg",
+     "title": "Marklandsgatan"
+    }
+   ]
   },
   "Eketrägatan": {
    "story": "Gatan minns adelsätten Eketrä, som från 1700-talet ägde godset Västra Pilegården ända fram till 1875 – just där asfalten ligger i dag. Härifrån svängde också Bräckelinjen av söderut. Spårvägen lades ner 1968 och revs under 1980-talet, men banvallen ligger kvar nästan orörd, som ett spår från en annan tid.",
@@ -25,7 +34,8 @@
    "sources": [
     "Eketrägatan"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Vågmästareplatsen": {
    "story": "Hungrig? Kville saluhall öppnade 2013 med kött, fisk, skaldjur, bageri och massor av restauranger. En bit bort låg biografen Gnistan. Premiären 1938 var militärfarsen Kamrater i vapenrocken, och 1968 släcktes ridån för gott efter Django skjuter alltid först. På Kvilletorget står Carl Milles staty Susanna, även kallad Flicka med snäcka.",
@@ -44,7 +54,16 @@
     "Gnistan (biograf, Göteborg)",
     "Kvilletorget"
    ],
-   "web": []
+   "web": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Kvilletorget.jpg/1280px-Kvilletorget.jpg?utm_source=sv.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Jesperhallen",
+     "license": "CC BY-SA 3.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Kvilletorget.jpg",
+     "title": "Kvilletorget"
+    }
+   ]
   },
   "Pumpgatan": {
    "story": "Varvsjätten Götaverken höll till här ända till 1991, och varvshallarna lever vidare som sporthallar. Kanalhuset vid vattnet ritades för kamerafirman Hasselblad, som flyttade ut efter kort tid. I dag sänder SVT och Sveriges Radio därifrån. Och Lundbybadet från 1915 blev karateklubb när sista badmästaren Ante Melander gått hem 1973.",
@@ -64,7 +83,8 @@
     "Renströmska badanstalten i Lundby",
     "Lundbystrandshallen"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Wavrinskys Plats": {
    "story": "Mitt i rondellen står en 4,5 meter hög knappnål, stucken genom ett kryss i marken. Skulpturen heter Här och är gjord av Ebba Matz. Själva namnet var omstritt. Fastighetskontoret ville hellre ha Reutersplatsen, delvis för att Wavrinsky var så svårt att uttala. På kullen intill bor studenter numera i Guldhedens gamla norra vattentorn.",
@@ -84,7 +104,8 @@
     "Guldhedens norra vattentorn",
     "Guldhedstorget"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Wieselgrensplatsen": {
    "story": "Platsen bär namnet Wieselgren, och enligt Göteborgs stadsmuseum syftar det på Peter Wieselgren och hans son Sigfrid. Peter blev domprost i Göteborg och räknas som en banbrytare för den svenska nykterhetsrörelsen. Hans anhängare lovade att avstå från brännvin – men öl och vin var tillåtet. Torget ligger i Rambergsstaden, nedanför Ramberget.",
@@ -109,7 +130,16 @@
     "Bellevue, Göteborg",
     "Mariedals landeri"
    ],
-   "web": []
+   "web": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Bellevue-2015-2.jpg/1280px-Bellevue-2015-2.jpg?utm_source=sv.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Bulver",
+     "license": "CC BY-SA 4.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Bellevue-2015-2.jpg",
+     "title": "Bellevue-2015-2"
+    }
+   ]
   },
   "Krokslätts torg": {
    "story": "Det är inte varje dag man ser en soffgrupp på ett tak. Men det gör man här: möbelhuset som Skinngruppen grundade 1975 har blivit ett landmärke tack vare jättesoffan högst upp. Krokslätt var förr en industribygd med Krokslätts fabriker, och här byggdes de första egnahemmen i Göteborgstrakten.",
@@ -123,7 +153,8 @@
     "Skinngruppen",
     "Krokslätt, Mölndal"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Lackarebäck": {
    "story": "Hotell The Weaver reser sig 22 våningar, med 370 rum och konferens för 600 personer. Namnet betyder vävaren. Det är en blinkning till Krokslätts fabriker, som var ett komplett vävnadsföretag ända in på 1970-talet. Där vävstolarna en gång stod sover nu affärsresenärer.",
@@ -136,7 +167,8 @@
    "sources": [
     "Hotel The Weaver"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Jaegerdorffsplatsen": {
    "story": "Torget har fått namn efter en by i Ostpreussen, känd för ett slag under sjuårskriget. Nere vid Klippan ligger värdshuset från 1762 som skeppsprästen Jacob Wallenberg gjorde berömt i Min son på galejan. I Kustens hus intill tog utvandrare gärna en sista öl innan båten gick till Amerika.",
@@ -155,7 +187,8 @@
     "Klippans värdshus",
     "Kustens hus"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Teleskopgatan": {
    "story": "I Bergsjön är rymden aldrig långt borta. Teleskopgatan fick sitt namn 1967 och hör till en hel grupp gatunamn på temat rymd och universum. Stadsdelen ligger ungefär 8 kilometer från centrum och hade drygt 16 000 invånare 2013. Håll utkik efter fler himlakroppar på skyltarna längs vägen.",
@@ -164,7 +197,23 @@
     "Teleskopgatan",
     "Bergsjön"
    ],
-   "web": []
+   "web": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Teleskopgatan-servicebutik.jpg/1280px-Teleskopgatan-servicebutik.jpg?utm_source=sv.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Bulver",
+     "license": "CC BY-SA 4.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Teleskopgatan-servicebutik.jpg",
+     "title": "Teleskopgatan-servicebutik"
+    },
+    {
+     "src": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Rymdtorget.jpg?utm_source=sv.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "credit": "Bulver",
+     "license": "CC BY-SA 3.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Rymdtorget.jpg",
+     "title": "Rymdtorget"
+    }
+   ]
   },
   "Beväringsgatan": {
    "story": "Kvibergs marknad håller till i det gamla artilleriregementets häststallar. Varje helg letar 10 000–15 000 besökare antikviteter, kuriosa och prylar i 160 bås. Lite längre bort ligger Prioritet Serneke Arena, Nordens största multisportanläggning, med fullstor fotbollsplan och ett 1,2 kilometer långt skidspår inomhus.",
@@ -182,7 +231,8 @@
     "Kvibergs marknad",
     "Prioritet Serneke Arena"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Kviberg": {
    "story": "Från 1895 till 1994 marscherade soldater på kasernområdet. I dag är byggnaderna byggnadsminnen med restaurang, marknad och museer. I Idrottsmuseet finns över 15 000 föremål, och sedan 2005 också Ingemar Johanssons prissamling. Det tidigare hästsjukhuset har rymt ett militärhistoriskt museum.",
@@ -201,7 +251,8 @@
     "Idrottsmuseet i Göteborg",
     "Kvibergs museum"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Sannaplan": {
    "story": "Sanna betyder ungefär sandmark. Här i närheten ligger Plaskis, Älvsborgsdammen från 1930-talet. På sommaren plaskar barnfamiljer i 20–45 centimeter vatten, och när dammen är torr tar skatare över. Vid kanten ligger skulpturen Boll, ett blått stålklot på två meter som ser ut som en jättelik badboll.",
@@ -216,7 +267,8 @@
     "Älvsborgsdammen",
     "Boll (skulptur)"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Kaggeledstorget": {
    "story": "Torget fick sitt namn 1946, troligen efter guvernören Nils Kagg. Här står Eric Grates bronsstaty Våren, en naken kvinna på en granitsockel, utplacerad 1950. En likadan finns i Alingsås. På gamla Torpavallen, där Qviding FIF spelade på grus, ligger numera ett handelsområde.",
@@ -231,7 +283,8 @@
     "Våren (skulptur av Eric Grate)",
     "Torpavallen"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Solrosgatan": {
    "story": "I Härlandaparken ligger resterna av en gammal kyrka. Församlingen gick upp i Nylöse redan 1528, och kvar blev Härlanda kyrkoruin, granne med den nya kyrkan. Munkebäckstorget i närheten har fått namn efter Munkebäcken. Munkarna i namnet var troligen munkar från Nya Lödöse.",
@@ -246,7 +299,16 @@
     "Härlanda församling (före 1528)",
     "Munkebäckstorget"
    ],
-   "web": []
+   "web": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/Munkeb%C3%A4ckstorget.JPG/1280px-Munkeb%C3%A4ckstorget.JPG?utm_source=sv.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Raphael Saulus",
+     "license": "Public domain",
+     "page": "https://commons.wikimedia.org/wiki/File:Munkeb%C3%A4ckstorget.JPG",
+     "title": "Munkebäckstorget"
+    }
+   ]
   },
   "Härlanda": {
    "story": "Bakom murarna i Härlanda satt fångar från 1907 till 1997. Det gamla centralfängelset är byggnadsminne och heter numera Härlanda park. Biografen Saga på Sofiagatan stängde 1964. Året därpå blev den livsmedelsbutik – Saga Hemköp, den första i kedjan Sagabutikerna. Mitt bland husen ligger även en gammal kyrkoruin.",
@@ -265,7 +327,8 @@
     "Saga (biograf, Göteborg)",
     "Härlanda kyrkoruin"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Mölndals sjukhus": {
    "story": "Mölndals sjukhus invigdes 1924 och ersatte då en kommunal sjukstuga. I dag ingår det i Sahlgrenska Universitetssjukhuset. Biografen Möllan i Mölndals Folkets hus har visat film sedan 1959. Den har 289 platser och moderniserades och digitaliserades med stöd från kommunen.",
@@ -279,7 +342,8 @@
     "Mölndals sjukhus",
     "Biografen Möllan"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Kaptensgatan": {
    "story": "Allmänna vägen var landsvägen västerut mot Klippan. Den var Majornas huvudgata ända tills Karl Johansgatan anlades 1882. En förödande brand härjade längs gatan 1862, och samma år byggdes villan på Åhmanssonska gården. Nere vid älven har Göteborgs fiskhamn legat sedan 1910.",
@@ -299,7 +363,8 @@
     "Åhmanssonska gården",
     "Göteborgs fiskhamn"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Vagnhallen Majorna": {
    "story": "Nere i Klippans kulturreservat ligger Ankarsmedjan. Där smiddes ankare och kättingar till Ostindiska kompaniets skepp, som hade Klippan som uthamn. Byggnaden sägs vara från 1770-talet. Väggarna var drygt en meter tjocka och murade i gråsten, och här fanns även en tunnbindarverkstad.",
@@ -312,7 +377,8 @@
    "sources": [
     "Ankarsmedjan"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Lantmilsgatan": {
    "story": "Titta på perrongen. Där sitter en kvinna i brons med spetsig mössa och väntar, och det har hon gjort sedan 2001. Skulpturen heter Väntan och är gjord av Britt Ignell. Kanske väntar hon på någon som ska kliva av spårvagnen. Under tiden har hon sett parkeringshuset mittemot byggas på med bostäder.",
@@ -325,7 +391,8 @@
    "sources": [
     "Väntan (skulptur)"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Olivedalsgatan": {
    "story": "Biograferna har avlöst varandra här. Biografteatern på Sveagatan visade film redan 1904–1908. Mignon på Linnégatan hade 182 platser och höll öppet från 1941 till 1982. Vid Sveaplan låg sedan Klappan och därefter Svea fram till 2008. Gatan har fått namn efter egendomen Olivedal, troligen uppkallad efter Olivia Melin.",
@@ -342,7 +409,16 @@
     "Sveaplan, Göteborg",
     "Olivedalsgatan"
    ],
-   "web": []
+   "web": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Olivedalsg.jpg/1280px-Olivedalsg.jpg?utm_source=sv.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Mjaha",
+     "license": "CC0",
+     "page": "https://commons.wikimedia.org/wiki/File:Olivedalsg.jpg",
+     "title": "Olivedalsg"
+    }
+   ]
   },
   "Rymdtorget Spårvagn": {
    "story": "Rymdtorget byggdes 1970, och gatunamnen runt omkring följer rymdtemat, som Tellusgatan och Merkuriusgatan. Vid torget ligger Kulturhuset Bergsjön med bibliotek, musikstudio, ateljéer och utställningshall. Där blandas konserter, hantverk och barnprogram.",
@@ -357,7 +433,16 @@
     "Kulturhuset Bergsjön",
     "Tellusgatan"
    ],
-   "web": []
+   "web": [],
+   "images": [
+    {
+     "src": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Rymdtorget.jpg?utm_source=sv.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "credit": "Bulver",
+     "license": "CC BY-SA 3.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Rymdtorget.jpg",
+     "title": "Rymdtorget"
+    }
+   ]
   },
   "Elisedal": {
    "story": "Tändstickor för hela världen tillverkades en gång i kvarteret intill. 1904 började Södertelje Tändsticksfabrik bygga en filial i Elisedal, och 1913 uppgick den i Ivar Kreugers tändsticksimperium. Fabriken revs i början av 2000-talet. På tomten, som fortfarande heter kvarteret Tändstickan, står nu ÅF-huset: 16 våningar och 65 meter högt, invigt 2014.",
@@ -371,7 +456,16 @@
     "Göteborgs Tändsticksfabrik",
     "ÅF-huset, Göteborg"
    ],
-   "web": []
+   "web": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/%C3%85fhuset.jpg/1280px-%C3%85fhuset.jpg?utm_source=sv.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Awgwerg32425sf",
+     "license": "CC BY-SA 4.0",
+     "page": "https://commons.wikimedia.org/wiki/File:%C3%85fhuset.jpg",
+     "title": "Åfhuset"
+    }
+   ]
   },
   "Almedal": {
    "story": "Bakom namnet Almedal finns ett litet barn. Området är uppkallat efter Alma Buchholtz, som bara levde 1840–41 och var dotter till en tidigare ägare av lantegendomen Almedal. Namnet fick sedan liv genom linnefabriken som Hans Hemming Wesslau grundade 1848 vid Mölndalsån, Almedahls fabriker. Almedalsvägen har funnits sedan 1933.",
@@ -380,7 +474,8 @@
     "Almedal",
     "Almedahls fabriker"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Stockholmsgatan": {
    "story": "En biograf blev början på en hel butikskedja. Saga på Sofiagatan visade film 1942–1964, och när Bengt Johansson köpte den nedlagda salongen öppnade han en livsmedelsbutik: Saga hemköp, den första av Sagabutikerna. Strax intill låg Härlanda fängelse, i drift 1907–97. Murarna står kvar som byggnadsminne, och sedan 2011 heter området Härlanda park.",
@@ -399,7 +494,8 @@
     "Härlanda fängelse",
     "Östra kyrkogården, Göteborg"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Vasa Viktoriagatan": {
    "story": "Viktoriagatan 12 är en adress för matälskare. Där fick Kock & Vin en stjärna i Michelinguiden 2008, och när krogen stängde 2014 öppnade kocken Björn Persson Koka i samma lokal. Den fick egen Michelinstjärna redan 2015. Kika också på Tomtehuset från 1890 i korsningen med Vasagatan. Väggmålningarna visar tomtar som arbetar som arkitekt, boktryckare och fotograf.",
@@ -418,7 +514,8 @@
     "Koka (restaurang)",
     "Tomtehuset"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Köpstadsö": {
    "story": "Ingen säger Köpstadsö. I dagligt tal heter ön Kössö, och den är känd för sina skottkärror. Bara drygt en kvadratkilometer stor och med 129 fastboende år 2020 hör den till Göteborgs södra skärgård. Håll utkik efter skottkärrorna när du kliver i land, de är öns signum.",
@@ -426,7 +523,8 @@
    "sources": [
     "Köpstadsö"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Majvallen": {
    "story": "Fotbollsplanen ligger på mark som förr hette Söderlingska ängen, efter orgelbyggaren Johan Nikolaus Söderling. Han var den förste som föreslog att Slottsskogen skulle bli en park. Majvallen byggdes som beredskapsarbete från 1946 och invigdes 5 juni 1949, för drygt 327 000 kronor. I dag spelar bland andra Göteborgs FF sina hemmamatcher här.",
@@ -440,7 +538,16 @@
     "Majvallen",
     "Söderlingska ängen"
    ],
-   "web": []
+   "web": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Majvallen1.jpg/1280px-Majvallen1.jpg?utm_source=sv.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Cphoto",
+     "license": "CC BY-SA 4.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Majvallen1.jpg",
+     "title": "Majvallen1"
+    }
+   ]
   },
   "Doktor Fries Torg": {
    "story": "Läkare och sjuksköterskor har gett namn åt gatorna på Guldheden. Doktor Allards gata hedrar läkaren bakom gratis badresor till Askim för Göteborgs barn, ”Doktor Allards badbarn”. Mitt på torget sprutar Fina fisken, Palle Pernevis stålskulptur från 1961. Han svetsade ihop den själv, och de fem vattenstrålarna ska påminna om Lyrön i Bohuslän, där den gjordes.",
@@ -459,7 +566,8 @@
     "Doktor Allards gata",
     "Doktor Fries torg"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Lundbystrand": {
    "story": "Här byggde Götaverken fartyg, och varvshallarna lever vidare på oväntade sätt. I en gammal verkstad spelas curling sedan 2001, och i plåtverkstaden ligger Lundbystrandshallen med fem handbollsplaner. Glashuset vid vattnet, Kanalhuset, byggdes för kameraföretaget Hasselblad, som snart flyttade ut. I dag sänder SVT och Sveriges Radio därifrån.",
@@ -479,7 +587,8 @@
     "Kanalhuset",
     "Lundbyvassen"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Klintens Väg": {
    "story": "Kungsladugårdsgatan är bred av en anledning. I Albert Lilienbergs stadsplan från 1916 var den ritad dubbelt så bred, för att ge plats åt en framtida järnväg mellan hamnen och staden. Namnet kommer från Älvsborgs Kungsladugård, som försåg Älvsborgs slott med hästar och spannmål. Längs gatan står Broströmska stiftelsens hus från 1924, byggnadsminne sedan 2017.",
@@ -497,7 +606,8 @@
     "Kungsladugårdsgatan",
     "Broströmska stiftelsen"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Högsbogatan": {
    "story": "Kungsladugård är tidigt bostadsbyggande i Göteborg. Kvarteret Svärdsliljan från 1927 var ett av HSB:s första kvarter med landshövdingehus. I stadsdelen står också bronsstatyn Ung man, gjord 1948 av Astrid Noack och uppställd i hörnet Ståthållaregatan och Fågelfängaregatan 1968. Kungsladugårds kyrka ligger en kort promenad bort.",
@@ -516,7 +626,8 @@
     "Ung man (staty)",
     "Kungsladugårds kyrka"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Bokekullsgatan": {
    "story": "Frölundaborg invigdes 12 september 1967 med en skräll: Västra Frölunda IF slog svenska ishockeylandslaget med 4–3. Arenan tar drygt 6 000 åskådare och används fortfarande av Frölunda HC. Intill går Friidrottens väg. Den hette tidigare Viljo Nousiainens Gångväg, efter tränaren som tog Patrik Sjöberg, Stefan Holm och Christian Olsson till stora framgångar på Slottsskogsvallen.",
@@ -535,7 +646,8 @@
     "Friidrottens väg",
     "Slottsskogsvallen"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Grötö färjeläge": {
    "story": "Grötö är liten: 84 bofasta och knappt två tredjedels kvadratkilometer. Ändå har ön något ovanligt för Bohuslän, nämligen en sandstrand. Den ligger i Grötö Knötens naturreservat på öns norra ände, och längs västkusten löper en rullstensås. På sommaren håller kiosken i stora hamnen öppet, och nära hamnen finns både sand och klippor med badstege.",
@@ -543,7 +655,8 @@
    "sources": [
     "Grötö, Öckerö kommun"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Kalvsund": {
    "story": "Det tornprydda huset vid farleden kallas Smugglarvillan. Bremerska villan byggdes 1912 och vittnar om förmögenheter från sillfisket kring sekelskiftet och från spritsmuggling på 1920-talet. Uppe på öns högsta punkt, 31 meter över havet, står sjömärket Valen. Under det finns en kompassros inhuggen i berget, med årtalet 1684.",
@@ -562,7 +675,16 @@
     "Stångmärket Valen",
     "Kalvsund"
    ],
-   "web": []
+   "web": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Kalvsund-Valen-1.JPG/1280px-Kalvsund-Valen-1.JPG?utm_source=sv.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Johan Jönsson",
+     "license": "CC BY-SA 3.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Kalvsund-Valen-1.JPG",
+     "title": "Kalvsund-Valen-1"
+    }
+   ]
   },
   "Heden": {
    "story": "När Trädgårn öppnade som kafé 1858 fanns bara manlig personal, och punsch var den enda spritdrycken. Huset intill hållplatsen, Exercishuset, stod klart 1867 som gåva från grosshandlaren Julius Lindström. Där skulle folkskolebarn gymnastisera och skarpskyttar exercera. Själva Heden var militärens övningsfält, och fram till 2019 låg en bandybana här.",
@@ -582,7 +704,16 @@
     "Exercisheden",
     "Arena Heden"
    ],
-   "web": []
+   "web": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/Exercishuset.jpg/1280px-Exercishuset.jpg?utm_source=sv.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Bolstermage",
+     "license": "Public domain",
+     "page": "https://commons.wikimedia.org/wiki/File:Exercishuset.jpg",
+     "title": "Exercishuset"
+    }
+   ]
   },
   "Järnvågen": {
    "story": "Namnet kommer från en våg. Här vägdes järnet som skeppades ut genom Göteborgs hamn, bland annat från bruk i Värmland. På 1780-talet flyttades stadens järnvåg till en tomt strax norr om dagens Järntorget, och torget fick sitt namn efter den. Järnbärarna, som hanterade tackorna, bosatte sig i kvarteren runt omkring. Själva vågen är riven sedan länge.",
@@ -611,7 +742,16 @@
     "Emotrappan i Göteborg",
     "Bohuslän (skulptur)"
    ],
-   "web": []
+   "web": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Bohusl%C3%A4n.sculpture.JPG/1280px-Bohusl%C3%A4n.sculpture.JPG?utm_source=sv.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Raphael Saulus",
+     "license": "CC0",
+     "page": "https://commons.wikimedia.org/wiki/File:Bohusl%C3%A4n.sculpture.JPG",
+     "title": "Bohuslän.sculpture"
+    }
+   ]
   },
   "Wieselgrensgatan": {
    "story": "Det här var en gång gurkland. Axel Svenssons handelsträdgård drevs från 1907 fram till 1970-talet, med gurkodling som specialitet. Där växthusen stod ligger i dag trädgårdsstaden Hildedal. Svenssons tvåvåningsvilla från 1919 finns kvar på Växthusvägen 60 och påminner om tiden då handelsträdgårdar var vanliga här.",
@@ -624,7 +764,8 @@
    "sources": [
     "Hildedal"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Nordviksgatan": {
    "story": "Mellan nybyggda hus och köpcentrum står fyra stenar från förhistorisk tid. Sannegårdsmonumentet är resterna av ett gravfält från övergången mellan brons- och järnålder. Den största, trekantiga bautastenen står kvar på sin ursprungliga plats, medan de andra har flyttats på grund av grustäkt. Hamnen nedanför, Sannegårdshamnen, invigdes 1914.",
@@ -639,7 +780,16 @@
     "Sannegårdshamnen",
     "Lundby nya kyrka"
    ],
-   "web": []
+   "web": [],
+   "images": [
+    {
+     "src": "https://upload.wikimedia.org/wikipedia/commons/9/92/Sanneg%C3%A5rdsmonumentet.jpg?utm_source=sv.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "credit": "Max Ronnersjö",
+     "license": "CC BY-SA 3.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Sanneg%C3%A5rdsmonumentet.jpg",
+     "title": "Sannegårdsmonumentet"
+    }
+   ]
   },
   "Körkarlens gata": {
    "story": "Den 3 april 1973 öppnade OBS i Bäckebol, 30 000 kvadratmeter stort och då landets största stormarknad. Långt innan dess fanns Bäckebols gård. Herrgården började byggas i sten 1764 av vågmästaren Johan Oliveholm och är byggnadsminne sedan 1969. Gårdens ägare har till och med en egen begravningsplats, i bruk sedan mitten av 1700-talet.",
@@ -653,7 +803,23 @@
     "Bäckebol",
     "Bäckebols gård"
    ],
-   "web": []
+   "web": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/B%C3%A4ckebol4.jpg/1280px-B%C3%A4ckebol4.jpg?utm_source=sv.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Eskil Malmberg",
+     "license": "CC BY-SA 4.0",
+     "page": "https://commons.wikimedia.org/wiki/File:B%C3%A4ckebol4.jpg",
+     "title": "Bäckebol4"
+    },
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/B%C3%A4ckebol5.jpg/1280px-B%C3%A4ckebol5.jpg?utm_source=sv.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Eskil Malmberg",
+     "license": "CC BY-SA 4.0",
+     "page": "https://commons.wikimedia.org/wiki/File:B%C3%A4ckebol5.jpg",
+     "title": "Bäckebol5"
+    }
+   ]
   },
   "Gårdstensliden": {
    "story": "Gårdsten har vänt en trend. När det kommunala bostadsbolaget Gårdstensbostäder bildades 1997 stod över 800 av cirka 2 200 lägenheter tomma. Bolaget placerades mitt i området för att arbeta nära hyresgästerna. Ombyggnaden av östra Gårdsten vann Stora Samhällsbyggarpriset 2006, och 2019 blev Gårdsten det första området som togs bort från polisens lista över särskilt utsatta områden.",
@@ -664,7 +830,8 @@
    "web": [
     "https://www.ctc-n.org/products/g-rdsten-turning-troubled-district-sustainable-model",
     "https://goteborg.se/wps/PA_Pabolagshandlingar/file?id=34124"
-   ]
+   ],
+   "images": []
   },
   "Mölndals bro": {
    "story": "Mölndal betyder kvarndalen, och forsen som gett namnet ligger alldeles i närheten. I Kvarnbyn har det funnits kvarnar vid forsen sedan 1300-talet, och fram till 1600-talet ägde kronan de flesta. Fallen är omkring 800 meter långa med en fallhöjd på runt 45–48 meter. Vattenkraften drev senare industrier, och Kvarnbyn är i dag kulturmiljö av riksintresse med Mölndals stadsmuseum vid forsen.",
@@ -727,7 +894,16 @@
     "Soundtrade Studios",
     "Råsundavägen"
    ],
-   "web": []
+   "web": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/R%C3%A5sundav%C3%A4gen16.JPG/1280px-R%C3%A5sundav%C3%A4gen16.JPG?utm_source=sv.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Ankara",
+     "license": "CC BY-SA 3.0",
+     "page": "https://commons.wikimedia.org/wiki/File:R%C3%A5sundav%C3%A4gen16.JPG",
+     "title": "Råsundavägen16"
+    }
+   ]
   },
   "Tappström": {
    "story": "Tappström är ett smalt sund mellan Ekerön och Lovön, cirka 1,5 kilometer långt och bara drygt tre meter djupt. Vid stranden ritade Ralph Erskine Ekerö centrum, klart 1991, med en över tjugo meter hög ”prick” som kännetecken. Erskine bodde själv på Lovön och sa att han gärna åkte hit för att handla. Härifrån går pendelbåt 89 ända in till Stadshuskajen.",
@@ -742,7 +918,8 @@
     "Ekerö centrum",
     "Tappström (bostadsområde)"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Solna centrum": {
    "story": "Djupt under fötterna, 27 till 36 meter ner i berget, ligger tunnelbanestationen som öppnade 1975. Ovanför väntar ett av Stockholmsregionens största köpcentrum med över 95 butiker och 22 restauranger. Tvärs över Centralvägen ligger Eric Grates park, döpt efter skulptören som bodde sina sista femton år i Solna. Där står hans bronsskulpturer Oberon och Sparvguden.",
@@ -757,7 +934,16 @@
     "Solna Centrum (köpcentrum)",
     "Eric Grates park"
    ],
-   "web": []
+   "web": [],
+   "images": [
+    {
+     "src": "https://upload.wikimedia.org/wikipedia/commons/8/84/SCtorget2.jpg?utm_source=sv.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "credit": "SkytteholmarN",
+     "license": "CC BY-SA 3.0",
+     "page": "https://commons.wikimedia.org/wiki/File:SCtorget2.jpg",
+     "title": "SCtorget2"
+    }
+   ]
   },
   "Liljeholmen": {
    "story": "Kvarteret Rosteriet har fått namn efter ett tyskt rosteri som mellan 1913 och 1920 gjorde surrogatkaffe här. Sedan tillverkade Pharmacia läkemedel i kvarteret, och på 1950- och 60-talen gjorde AB Atomenergi bränslestavar till svenska forskningsreaktorer. Uppe på Liljeholmsberget ligger Brännkyrkas gamla församlingshus från 1920-talet, där Nordiska Musikgymnasiet huserar sedan 2003.",
@@ -772,7 +958,8 @@
     "Lilla Katrineberg 1",
     "Trekantsparken"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Trekanten": {
    "story": "Sjön Trekanten hette Trehörningen fram till mitten av 1800-talet. På norra sidan låg Nynäs, en vildvuxen arbetarförstad med garveri, kafferosteri och verkstäder, och ett bageri som bakade den lokalt kända Nynäslimpan. När husen förföll blev de kuliss i Bo Widerbergs film Joe Hill från 1970, där de fick föreställa ”Lumberyard” och ”Saloon”. De sista resterna revs 1980.",
@@ -780,7 +967,8 @@
    "sources": [
     "Trekanten (sjö)"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Lilla Essingen": {
    "story": "Luxgatan är en blinkning till AB Lux, sedermera Electrolux, som hade sina fabriker på öns sydöstra del. Lux betyder ljus på latin. Här fanns också Nya Chartago, ordenssällskapet Coldinuordens fästning, och värdshuset Fridberg tog emot gäster från 1700-talet fram till 1850-talet. På Mariebergssidan byggde Gideon Forslund snabba motorbåtar, så kallade strykjärnsracer.",
@@ -797,7 +985,8 @@
     "Forslunds varv",
     "Mariebergsbron"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Baggeby": {
    "story": "Baggeby blev plötsligt slutstation i juni 2023. Gamla Lidingöbron revs, och nya Lilla Lidingöbron klarade ännu inte tågtrafik på grund av byggfel. Därför vände Lidingöbanans vagnar här i stället för att fortsätta till Ropsten. Uppe i villastaden Mosstorp, en kort promenad bort, står Hersby vattentorn vid slutet av Vattentornsvägen.",
@@ -812,7 +1001,8 @@
     "Mosstorp",
     "Hersby vattentorn"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "AGA": {
    "story": "Det gula tornet byggde AGA 1943 för att testa och tillverka bland annat periskop till svenska ubåtar. Inne i berget bakom pågick produktionen ända till 1987. Området heter i dag Dalénum efter uppfinnaren Gustaf Dalén, som verkade här från 1912 till sin död 1937. Ishallen intill blev känd för en bred publik genom tv-serien HCZ.",
@@ -831,7 +1021,8 @@
     "Dalénum",
     "Childhoodhallen"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Skärsätra": {
    "story": "Ner mot Lilla Värtan ligger Kappsta naturreservat, fullt av ovanliga husgrunder. En av dem hörde till Wisingska villan, där Raoul Wallenberg föddes. I dag markerar minnesmärket Attachéväska R.W. platsen. Strax intill stod Villa Nidaros, Trondheims paviljong på Stockholmsutställningen 1897. Den fraktades hit som sommarnöje och brann efter ett blixtnedslag 1960.",
@@ -846,7 +1037,8 @@
     "Kappsta (sommarvilla)",
     "Villa Nidaros"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Högberga": {
    "story": "Bakom hållplatsen ligger Östra Mölna radhusområde, även kallat Vita staden. Arkitekten Nils Tesch ritade de 52 radhusen och åtta villorna redan 1954, men de byggdes först mellan 1962 och 1972. Kommunen har klassat området som kulturhistoriskt omistligt. En bit bort står Villa Sjöstigen, som Ferdinand Boberg ritade 1911 som experiment med billigt sommarboende.",
@@ -861,7 +1053,8 @@
     "Villa Sjöstigen",
     "Högberga station"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Larsberg": {
    "story": "Uppe på berget står Larsbergs hus med tegelröda fasader, gröna plåttak och vita balkongfronter, ett tidstypiskt 1960-tal. Drygt 1 200 lägenheter stod klara 1969, ritade av arkitekten Bengt Gate. Nedanför ligger Malmstens, där studenter läser möbeldesign, möbelsnickeri och möbeltapetsering. Det gamla sjukhushuset i Högsätra ska rivas för det nya området Kärnan.",
@@ -876,7 +1069,8 @@
     "Carl Malmstensskolan",
     "Lidingö sjukhus"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Universitetet": {
    "story": "Djupt under campus forskade man en gång i acceleratorfysik. Sedan 2019 är laboratoriet konsthallen Accelerator, invigd av konstnären Tino Sehgal. Ralph Erskine ritade Juristernas hus som en halvcirkel runt en gammal ek, och i Aula Magna har Nobelföreläsningar hållits. Längre bort ligger Villa Frescati från 1790-talet, Gustaf Mauritz Armfelts sommarnöje.",
@@ -897,7 +1091,8 @@
     "Aula Magna",
     "Villa Frescati"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Gåshaga": {
    "story": "Bakom husen renar Käppalaverket avloppsvatten sedan 1969, och det räknas som ett av världens effektivaste reningsverk. En bit bort ligger Käppalaställningen, en luftvärnsställning från andra världskriget som återinvigdes 1994 som minnesmärke över Stockholms luftförsvar, unik i Sverige. En bit bort finns M/S Soya III, en tankbåt från 1936 byggd för sojaolja, i dag konferensfartyg.",
@@ -912,7 +1107,8 @@
     "Käppalaställningen",
     "M/S Soya III"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Mårtensdal": {
    "story": "I Hammarbyverket utvinns värme och kyla ur renat avloppsvatten. Verket togs i drift 1986, och 2013 räknades det som världens största värmepumpsanläggning av sitt slag. Granne är Fryshuset, ungdomshuset som vill hjälpa unga att förändra världen genom sina passioner. Vid kajen driver Internetstiftelsen Goto 10, en gratis mötesplats för internetidéer.",
@@ -927,7 +1123,8 @@
     "Fryshuset",
     "Goto 10"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Karlsbodavägen": {
    "story": "Här finns ett av Stockholms mer udda museer: Sveriges VVS-museum. Samlingen fanns först i Katrineholm och öppnade igen i Bromma 2016. Längre bort, i Tuvanparken, låg på 1890-talet Tuvans hem för nervsjuka. Vid en brand 1940 omkom tre patienter, och huset revs 1960. Där sjukhemmet stod finns i dag en park.",
@@ -942,7 +1139,8 @@
     "Tuvanparken",
     "Solna sjukhem"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Alléparken": {
    "story": "Författaren Gösta Langenfelt kallade namnet Alléparken ”ett monstrum” 1944, eftersom här fanns varken park eller allé. Senare visade det sig att en allé faktiskt hade lett till torpet Asplund, och några träd står kvar. Intill ligger ”Engelska radhusen”, 43 radhus från 1919–1920. Uppe på Alviksberget byggdes Elfvinggården 1939–1940, ett kollektivhus för ensamstående, bildade kvinnor.",
@@ -957,7 +1155,8 @@
     "Kvarteret Drivbänken",
     "Elfvinggården"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Djurgårdsskolan": {
    "story": "I trähuset i backen har Djurgårdsskolan funnits sedan 1878, och den är en av Stockholms äldsta skolor. Lite bort står Karl Johans-ekarna, där kungen enligt traditionen rastade på 1820-talet. På Slätten samlades förr ett brokigt folkliv, och enligt riksbibliotekarien Rydqvist kom Gustav III dit inkognito. Bellman ska ha suttit under en ek och improviserat visor till mandolinen.",
@@ -971,7 +1170,8 @@
     "Djurgårdsskolan",
     "Karl Johans-ekarna"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Olovslund": {
    "story": "En bit härifrån ligger Beckomberga, där mentalsjukhuset Beckomberga sjukhus fanns från 1930-talet fram till nedläggningen 1995. Sjukhuset byggdes 1930–1932, och i mitten av 2000-talet började de gamla sjukhusbyggnaderna göras om till bostäder. Bromma sjukhus i Beckomberga är sedan 2020 ett vård- och omsorgshus.",
@@ -980,7 +1180,8 @@
     "Beckomberga",
     "Bromma sjukhus"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Bellmansro": {
    "story": "Bysten av Carl Michael Bellman avtäcktes 1829. Året innan hade hovkonditorn Carlmark öppnat en servering här, som fick namnet Bellmansro efter bysten. Restaurangen brann ner 1955, men platsen heter fortfarande så. Granne är palatset Oakhill, som Ferdinand Boberg ritade åt prins Wilhelm 1910. Sedan 1926 är det Italiens ambassad.",
@@ -996,7 +1197,8 @@
     "Oakhill",
     "Italiens ambassad i Stockholm"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Valla torg": {
    "story": "Valla torg har fått namn efter Valla gård, som omtalas redan 1330. De sista gårdshusen revs 1960. På torget porlar Vallafontänen av Bertil Johnson. Längs gångvägen mot Årsta centrum ligger ett gravfält från yngre järnåldern med tio gravhögar och 35 stensättningar, varav två är skeppsformiga. Intill står Årsta kyrka, ritad av Johan Celsing och invigd 2011.",
@@ -1016,7 +1218,8 @@
     "Gravfältet i Kyrkparken, Årsta",
     "Årsta kyrka"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Årstafältet": {
    "story": "Över Årstafältet gick Göta landsväg, den medeltida vägen från Stockholm mot Götaland. Den nämns i stadens jordebok 1494, och en bevarad bit är klassad som fornminne. I Årsta finns också Snigelparken, döpt efter en sandlåda formad som en snigel i betong. Där står även statyn Melodi av Nils Sjögren.",
@@ -1030,7 +1233,16 @@
     "Gamla Göta landsväg",
     "Snigelparken"
    ],
-   "web": []
+   "web": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Snigelparken02.jpg/1280px-Snigelparken02.jpg?utm_source=sv.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Esquilo",
+     "license": "CC BY-SA 3.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Snigelparken02.jpg",
+     "title": "Snigelparken02"
+    }
+   ]
   },
   "Lidingö/Dalénum": {
    "story": "Det höga huset på berget är Fyrtornet Dalénum, ritat av Wingårdh och klart 2020. Med 68 meter över havet är det Lidingös högsta byggnad. Nere vid stranden står Larsbergs brostuga från omkring 1803. Den byggdes för den bro som samma år förband Larsberg med Kaknäs på Stockholmssidan. Hela området var förr AGA:s fabriker, där Gustaf Dalén verkade.",
@@ -1045,7 +1257,8 @@
     "Larsbergs brostuga",
     "Dalénum"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Kvarnholmen": {
    "story": "Kvarnholmen var en gång en ö full av mjöl och bröd. Kvarnen Tre Kronor startade 1897, och här fanns makaronifabrik, havrekvarn och ett spisbrödsbageri. I dag bor folk i siloerna. När Silo III byggdes om till bostäder stod en tid bara ytterväggarna kvar. I det gamla Bageriet ligger nu Kvarnholmens centrum, och Havrekvarnen är byggnadsminne sedan 2016.",
@@ -1067,7 +1280,8 @@
     "Silo III",
     "Kvarnholmen, Nacka kommun"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Näsby allé": {
    "story": "Stationen öppnade 1937, när Roslagsbanan förlängdes till Näsbypark. Först hette den Alléparken, men namnet byttes redan efter fyra månader. Här går tågen på enkelspår med en enda plattform. Vid Näsbyviken ligger Näsby slott, i dag konferensanläggning med hotell och restaurang.",
@@ -1081,7 +1295,8 @@
     "Näsby allé station",
     "Näsby slott"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Djursholms Ösby": {
    "story": "Stationen öppnade 1890 och fick el redan 1895. I början av 1950-talet var den Sveriges tågtätaste station, med cirka 340 tåg om dagen, godståg inräknade. Tågen gick då i fyra riktningar. Villorna runt omkring började byggas 1896, när Djursholms AB sålde tomter nära stationen. Under 1970- och 80-talen hotades hela Roslagsbanan av nedläggning.",
@@ -1090,7 +1305,8 @@
     "Djursholms Ösby station",
     "Ösby"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Stockholms östra": {
    "story": "Granne med stationen ligger Nymble, teknologernas kårhus från 1930, ritat av Sven Markelius och Uno Åhrén. I Gasqueparken med sin fontän har teknologerna firat sina gasquer sedan dess. På andra sidan Valhallavägen ligger Lärkstaden, där arkitekterna Per Olof Hallman och Erik Josephson ritade villor åt sig själva kring 1910.",
@@ -1107,7 +1323,16 @@
     "Piplärkan 7",
     "Stockholms östra station"
    ],
-   "web": []
+   "web": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Gasqueparken.jpg/1280px-Gasqueparken.jpg?utm_source=sv.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Esquilo",
+     "license": "CC BY-SA 3.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Gasqueparken.jpg",
+     "title": "Gasqueparken"
+    }
+   ]
   },
   "Bromma flygplats": {
    "story": "Huset vid Ulvsundavägen byggdes 1946 som huvudkontor för flygbolaget ABA och användes senare av SAS. Arkitekten Paul Hedqvist ritade det, och han ritade även flera av flygplatsens hangarer. De var på sin tid de största i norra Europa. I dag rymmer hangarerna köpcentrumet Bromma Blocks.",
@@ -1121,7 +1346,8 @@
     "Trafikflyget 4",
     "Bromma Blocks"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Bromma Blocks": {
    "story": "Shoppingen här sker i Bromma flygplats gamla hangarer, som en gång var de största i norra Europa. 1972 flyttade den första stormarknaden in i en av dem. I september 2010 invigdes den ombyggda Hangar 3, med ett 80-tal butiker under samma tak. Namnet Bromma Blocks anspelar på den blockliknande funkisarkitekturen.",
@@ -1134,7 +1360,8 @@
    "sources": [
     "Bromma Blocks"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Brevik": {
    "story": "Breviks gård, som gav området sitt namn, hade anor från 1300-talet. Den sista huvudbyggnaden revs 1987, och där ligger nu Breviks centrum. Intill står Blocket från 1914–1915, ett av Lidingös äldsta hyreshus. Gårdens ägare erbjöd sig 1905 att bekosta en liten folkskola, i dag Banvägen 7. En bit bort ligger Abeniuska villan, ritad av Ferdinand Boberg.",
@@ -1150,7 +1377,16 @@
     "Banvägen 7",
     "Abeniuska villan"
    ],
-   "web": []
+   "web": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Rimage.php-19.jpg/1280px-Rimage.php-19.jpg?utm_source=sv.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Rickard82",
+     "license": "CC BY-SA 4.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Rimage.php-19.jpg",
+     "title": "Rimage.php-19"
+    }
+   ]
   },
   "Kottla": {
    "story": "Vid Kottlasjöns västra strand ligger Apelsinvillan, som egentligen hette Skogsbacken. Snickarmästaren Per Johan Asker byggde den 1890 som sommarbostad med två lägenheter, på spekulation. Den var ett av flera sommarnöjen som växte upp runt sjön i slutet av 1800-talet. Villan och två små uthus är byggnadsminne sedan 1982.",
@@ -1163,7 +1399,8 @@
    "sources": [
     "Apelsinvillan"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Bodal": {
    "story": "Nedanför Baggeby, ner mot Lilla Värtan, ligger Lidingsberg. Det är ett av de bäst bevarade sommarresidensen från 1800-talet på Lidingö. Gården ägs av släkten Wedberg och har öns största privata tomt, omkring sex hektar. Dit leder Lidingsbergsvägen, som är Lidingös kortaste namngivna väg. Husen har varit byggnadsminnen sedan 1954.",
@@ -1177,7 +1414,16 @@
     "Lidingsberg",
     "Bodal, Lidingö"
    ],
-   "web": []
+   "web": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/05/Baggeby.JPG/1280px-Baggeby.JPG?utm_source=sv.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Ankara",
+     "license": "CC BY-SA 3.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Baggeby.JPG",
+     "title": "Baggeby"
+    }
+   ]
   },
   "Nockeby torg": {
    "story": "Spårvagnen kom hit redan hösten 1929, innan torget fanns. Själva torget anlades i början av 1930-talet som en långsmal piazza, ett typiskt trädgårdsstadstorg. Stadsplanen fastställdes 1932 och är undertecknad av Albert Lilienberg. Runt omkring breder Nockeby ut sig, en del av Bromma trädgårdsstad.",
@@ -1186,7 +1432,8 @@
     "Nockeby torg",
     "Nockeby"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Nockeby": {
    "story": "Sankta Birgitta kyrka byggdes 1960–1962 och invigdes i december 1962. Arkitekten Rolf Bergh ritade både kyrkan, klocktornet och församlingshemmet intill. I Nockeby byggde arkitekten Sven Markelius också sin egen villa 1930, en av de första som byggdes efter funktionalismens nya ideal.",
@@ -1215,7 +1462,8 @@
     "Spånga station",
     "Svandammen, Stockholm"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Londonviadukten": {
    "story": "Uppe på Åsöberget finns, tillsammans med Djurgårdsstaden, Stockholms största sammanhängande trähusbebyggelse. Området är kulturreservat sedan 1956. Vid Kvastmakarbacken står Hedbergs malmgård och trähus från tidigt 1700-tal. Nedanför låg viken Tegelviken, som fylldes igen 1910. Där lägger i dag Viking Lines finlandsfärjor till.",
@@ -1232,7 +1480,8 @@
     "Kvastmakarbacken",
     "Tegelviken, Stockholm"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Danderyds sjukhus": {
    "story": "I Inverness låg bryggeriet Inverness brunn mellan 1929 och 1945. Här tillverkades bland annat Sveriges första Club soda. Källan finns kvar vid Stocksundets strand, men vattnet är otjänligt och smakar salt. Närmare hållplatsen låg 1700-talsgården Mörby gård, som gav området namn. Den blev byggnadsminne 1944 men brann ner 1976.",
@@ -1247,7 +1496,8 @@
     "Mörby gård",
     "Mörby verkstäder"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Brommaplan": {
    "story": "Vid tunnelbanans viadukt står skulpturen ”Fågel Rock med tre ägg” av Berndt Helleberg från 1969. Viadukten är äldre än tunnelbanan. Den togs i bruk 1944 och trafikerades då av spårvagnar. Stationens konst, i plåt, glas och fotografier, handlar om Brommas och flygets historia. Höghuset Brommahöjden med sina 16 våningar kom först 2008.",
@@ -1262,7 +1512,16 @@
     "Brommahöjden",
     "Brommaplan"
    ],
-   "web": []
+   "web": [],
+   "images": [
+    {
+     "src": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Brommaplansrondellen.png?utm_source=sv.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "credit": "Gonate1",
+     "license": "CC BY-SA 3.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Brommaplansrondellen.png",
+     "title": "Brommaplansrondellen"
+    }
+   ]
   },
   "Jakobsbergs station": {
    "story": "Jakobsberg är uppkallat efter en död man. Jakob Lilliehöök ärvde gårdarna i Vibble by, och efter hans död 1657 byggde änkan Brita Cruus en herrgård som fick hans namn. I dag huserar Jakobsbergs folkhögskola där. Vid stationen står Gula villan, stationshuset från 1876. Väderkvarnen från 1840-talet brann tre gånger och byggdes inte upp efter branden 2005.",
@@ -1282,7 +1541,8 @@
     "Jakobsbergs kvarn",
     "Upplands runinskrifter 91"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Stadsbiblioteket": {
    "story": "Under korsningen Sveavägen–Odengatan ligger en bro begravd. Sveabron byggdes 1897, men när Sveavägen höjdes på 1910-talet lät man bron ligga kvar i fyllnadsmassorna. Kvarteren här var också ett biografstråk. Rialto öppnade 1921 i hörnet mot Odengatan, och i dess lokaler spelar Teater Pero barnteater sedan 1993. Röda Lyktan visade film från 1917 till 1982.",
@@ -1298,7 +1558,8 @@
     "Teater Pero",
     "Biograf Röda Lyktan"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Sollentuna station": {
    "story": "Längs Malmvägen står tio höghus med 1 247 lägenheter, därför kallas gatan ”Tian”. Servicehuset ritades av Åke Arell och fick internationell uppmärksamhet vid invigningen 1972. I bottenplanen samlades förskolor, affärer och föreningslokaler. Vid torget reser sig Turebergshuset med femton våningar, där kommunen och sedan 2023 även biblioteket finns.",
@@ -1312,7 +1573,16 @@
     "Malmvägen",
     "Turebergshuset"
    ],
-   "web": []
+   "web": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/HPIM1116.JPG/1280px-HPIM1116.JPG?utm_source=sv.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Johannes Scherman",
+     "license": "CC BY 2.5",
+     "page": "https://commons.wikimedia.org/wiki/File:HPIM1116.JPG",
+     "title": "HPIM1116"
+    }
+   ]
   },
   "Centralen": {
    "story": "På Vasagatan 7 låg krogen Tre Remmare, med casino och nattklubb i samma lokal. Den var en av få i Stockholm som fick hålla öppet till fem på morgonen, och den blev ökänd för fylla och drogmissbruk. 2007 förlorade krogen tillståndet och stängde. I dag ligger puben Bishops Arms i lokalen. Mitt emot står World Trade Center, ritat av Ralph Erskine.",
@@ -1321,7 +1591,8 @@
     "Tre Remmare, Vasagatan",
     "World Trade Center, Stockholm"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Henriksdal": {
    "story": "Saltsjöbanans station här öppnade 1894. Under bygget av nya Slussen var Henriksdal banans inre slutstation från 2016 till slutet av 2022. Sedan 2023 har stora delar av banan varit avstängda, och sträckan till Slussen väntas öppna tidigast 2028. Vid Danvikstull låg förr Klippans sommarteater, där publiken skrattade åt John Elfström och Arthur Fischer.",
@@ -1330,7 +1601,8 @@
     "Henriksdals station",
     "Klippans sommarteater"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Cityterminalen": {
    "story": "Kungsgatan 65 har levt många liv. Biografen Palladium öppnade 1918, med dansrestaurangen Bal Palais i källaren. Sedan blev det nattklubben Heaven och från 2003 till 2025 Casino Cosmopol. Granne är Oscarsteatern från 1906, döpt efter Oscar II och byggnadsminne. I samma hus ligger Fasching, Skandinaviens största arrangör av jazz sedan 1977.",
@@ -1347,7 +1619,8 @@
     "Oscarsteatern",
     "Fasching"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Norrbyvägen": {
    "story": "I Fructushuset på Ulvsundavägen tillverkades en gång Pommac. Fabriken byggdes 1939–1940, och den långa vita byggnaden anses vara ett fint exempel på en modern och funktionell fabrik. Vid kanalen mot Ulvsundasjön står Mejerivillan från 1905, den enda byggnad som finns kvar av Ulvsunda lantgård.",
@@ -1361,7 +1634,8 @@
     "Fructushuset",
     "Mejerivillan, Ulvsunda"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Vällingby": {
    "story": "Vällingby planerades som ABC-staden, med arbete, bostad och centrum på samma plats. Till och med en egen biograf ingick. Biografen Fontänen öppnade 1956 och fick namn efter fontänerna på torget. Samma år invigdes Medborgarhuset Trappan, byggt i avsatser mellan ett nedre och ett övre torg. Båda ritades av Backström & Reinius.",
@@ -1379,7 +1653,16 @@
     "Filmstaden Vällingby",
     "Medborgarhuset Trappan"
    ],
-   "web": []
+   "web": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Font%C3%A4nen.jpg/1280px-Font%C3%A4nen.jpg?utm_source=sv.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "JohanSahlen",
+     "license": "CC BY-SA 3.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Font%C3%A4nen.jpg",
+     "title": "Fontänen"
+    }
+   ]
   },
   "Frösunda": {
    "story": "En kort promenad bort ligger Annelunds gård, där ”gymnastikfadern” Per Henrik Ling bodde mellan 1822 och 1839. Huvudbyggnaden och gymnastikflygeln är byggnadsminnen. En gammal skröna säger att Gustav III skänkte gården till sin gunstling Elis Schröderheim, men den stämmer inte. Schröderheim bodde på en annan, numera försvunnen gård.",
@@ -1392,7 +1675,8 @@
    "sources": [
     "Annelunds gård"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Viksjö gård": {
    "story": "Namnet Viksjö är äldre än gården. Det dyker upp redan på en runsten från 1000-talet, som är det äldsta skriftligt belagda ortnamnet i Järfälla. Där står att ”Knut i Vikhusum lät resa stenen och göra bron” efter sina föräldrar och syskon. Själva gården finns belagd från 1734, och stadsdelen runt den byggdes på 1970-talet.",
@@ -1402,7 +1686,8 @@
    ],
    "web": [
     "https://en.wikipedia.org/wiki/Viksj%C3%B6"
-   ]
+   ],
+   "images": []
   },
   "Ekensberg": {
    "story": "Ekensberg har fått sitt namn efter värdshuset Ekensberg, som byggdes i början av 1700-talet och fortfarande står kvar vid Gröndalsvägen 184. Mellan 1926 och 1934 var Ekensberg namnet på större delen av det som i dag heter Gröndal. Udden ligger mellan Mörtviken och Essingesundet.",
@@ -1415,7 +1700,8 @@
    "sources": [
     "Ekensberg, Stockholm"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Gröndal": {
    "story": "Gröndal är känt för stjärnhusen, och här byggdes Sveriges första. Arkitekterna Sven Backström och Leif Reinius ritade dem, och byggmästaren Olle Engkvist drev på projektet. Husen har blivit internationellt kända. Mellan 1926 och 1934 hette stadsdelen Ekensberg, och sitt nuvarande namn fick den efter egendomen Gröndal.",
@@ -1448,7 +1734,8 @@
    ],
    "web": [
     "https://en.wikipedia.org/wiki/Hammarby_Sj%C3%B6stad"
-   ]
+   ],
+   "images": []
   },
   "Nacka strand": {
    "story": "Nacka strand hette länge Augustendal. 1899 köpte industripionjären J.V. Svensson området och skapade 500 jobb i verkstadsindustrin. Under en lågkonjunktur på 1920-talet gick han i konkurs. På 1980-talet byggdes kontor och bostäder, och 1988 fick området namnet Nacka strand. Vid årsskiftet 2024–2025 öppnade kocken Pontus Frithiof restaurangen Fabriken här.",
@@ -1607,7 +1894,8 @@
     "Bo gård",
     "Trisshusen"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Tillflykten": {
    "story": "Förr slingrade sig Ekerövägen genom skarpa och trånga kurvor just här, mellan Tillflykten och Lindö lada. 1994 sprängde man sig i stället rakt igenom klippan: Lindötunneln är 178 meter lång. Resultatet blev färre olyckor och kortare köer i rusningstrafiken.",
@@ -1615,7 +1903,8 @@
    "sources": [
     "Lindötunneln"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Lindö lada": {
    "story": "Vägen ser rak och bred ut här, och det är ingen slump. Förr gick den i en smal allé längs skogsbrynet mot Malmvik. När Lindötunneln invigdes 1994 flyttades sträckan från Lindö lada till Malmvik ut på åkern, där det fanns plats för en bredare väg. Trafikverket planerar dessutom ett andra tunnelrör.",
@@ -1623,7 +1912,8 @@
    "sources": [
     "Lindötunneln"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Malmvik": {
    "story": "På en trädbevuxen kulle söder om Ekerövägen vilar släkten Wallenberg. Mausoleet har blivit ett landmärke för hela trakten. Lindö var för övrigt en egen ö, men landhöjningen har gjort den större och knutit den till Lovön. Vid Tappström brändes tegel i Tappsunds tegelbruk ända fram till 1959.",
@@ -1638,7 +1928,8 @@
     "Lindö, Ekerö kommun",
     "Tappsunds tegelbruk"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Lovö Edeby": {
    "story": "Lovön är full av spår från vikingatiden. Cirka 500 meter söder om Edeby gård finns en runristning inhuggen direkt i berghällen, känd som U 52. Det är en påminnelse om att människor har bott och rört sig här i tusen år, långt innan bussarna började gå mot Ekerö.",
@@ -1651,7 +1942,8 @@
    "sources": [
     "Upplands runinskrifter 52"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Drottningholm": {
    "story": "Den låga raden av hus längs vägen kallas Långa raden och anlades på 1780-talet på Gustav III:s initiativ. I Kavaljershuset bodde hovets kavaljerer, i Apotekshuset låg slottsapoteket och i Kanslihuset från 1787 regerade landshövdingen, kungens gunstling Adolf Fredrik Munck. Allt ingår sedan 1991 i världsarvet Drottningholm.",
@@ -1671,7 +1963,8 @@
     "Apotekshuset, Drottningholm",
     "Kanslihuset, Drottningholm"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Brostugan": {
    "story": "Brostugan på Kärsön har anor från 1700-talet och ligger vid Nockebybron, en svängbro över Mälaren. Bron har nyligen fått nytt liv: Trafikverket har flyttat gång- och cykelbanan till andra sidan och byggt ett reversibelt körfält, som kan byta riktning efter trafiken. Arbetet hör ihop med bygget av Förbifart Stockholm.",
@@ -1692,7 +1985,8 @@
    "web": [
     "https://www.trafikverket.se/vara-projekt/projekt-i-stockholms-lan/e4-forbifart-stockholm/nyheter-for-e4-forbifart-stockholm/2026-06/reversibelt-korfalt--sa-kommer-det-ga-till/",
     "https://www.trafikverket.se/vara-projekt/projekt-i-stockholms-lan/e4-forbifart-stockholm/nyheter-for-e4-forbifart-stockholm/2026-06/gang--och-cykelbanan-byter-sida-pa-nockebybron/"
-   ]
+   ],
+   "images": []
   },
   "Barkarby station övre": {
    "story": "Barkarby är en plats i full förvandling. Pendeltågsstationen fick sin nuvarande form den 10 oktober 2016, med fyra spår och biljetthall på Barkarbybron. Under marken byggs samtidigt en ny tunnelbanestation, och en ny entré i stationens norra ände ska bli huvudingång när allt är klart.",
@@ -1706,7 +2000,8 @@
     "Barkarby (tunnelbanestation)",
     "Barkarby station"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Akalla": {
    "story": "Huvudstråket genom Akalla heter Sibeliusgången, efter den finländske kompositören Jean Sibelius, och är 900 meter långt. Längs vägen porlar Bertil Johnsons fontäner från 1976. Men namnet Akalla är känt redan från medeltiden: i Akalla by står Storgården från 1600-talet, i en av Stockholmstraktens bäst bevarade bymiljöer, med 4H-gård och kafé.",
@@ -1725,7 +2020,8 @@
     "Akalla by",
     "Akalla"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "S:t Eriksplan": {
    "story": "Bakom den trekantiga parken döljer sig ett av Stockholms mest omtalade olösta brott. Den 4 maj 1932 hittades Lilly Lindeström mördad i sin lägenhet på Sankt Eriksplan 11, i det som kallas Vampyrmordet. Ljusare minnen finns runt hörnet: biografen Capitol från 1926 stängde 1985 men öppnade igen 2018 som Bio & Bistro Capitol.",
@@ -1740,7 +2036,8 @@
     "Vampyrmordet",
     "Capitol, Stockholm"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Karolinska institutet Biomedicum": {
    "story": "Här, på Campus Solna, utses varje år mottagarna av Nobelpriset i fysiologi eller medicin, av Nobelförsamlingen vid Karolinska Institutet. Grannen Biomedicum är ett av Europas största laboratorier med drygt 82 000 kvadratmeter på elva plan. Kolla också in Aula Medica, ritad av Gert Wingårdh och utsedd till Årets Bygge 2014.",
@@ -1759,7 +2056,8 @@
     "Biomedicum, Karolinska Institutet",
     "Karolinska Institutets aula"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Kista centrum": {
    "story": "Kista tunnelbanestation är den enda på blå linjen som ligger ovan jord. Den vilar på en viadukt som är 1 120 meter lång, den längsta i hela tunnelbanenätet. När stationen skulle få namn ville namnberedningen först lägga till ”Gård”, för att ingen skulle tänka på en likkista. Ovanför gallerian reser sig Kista torn, 120 meter högt.",
@@ -1778,7 +2076,8 @@
     "Kista torn",
     "Filmstaden Kista"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Riksbyvägen": {
    "story": "På en berghäll vid Drottningholmsvägen finns två runristningar från 1000-talet. De upptäcktes av en slump 1904, när någon var ute och plockade bär. I århundraden hade de legat under jord och mossa, och därför är de fortfarande välbevarade. På den ena står att Sigvid och Sigrev lät rista stenen efter sin far Sinar.",
@@ -1791,7 +2090,8 @@
    "sources": [
     "Upplands runinskrifter 58"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Solna centrum norra": {
    "story": "Ett stenkast härifrån låg Råsunda fotbollsstadion. Där spelades VM-finalen den 29 juni 1958, då Brasilien slog Sverige med 5–2 inför nästan 50 000 åskådare. Stadion stängde 2012, när den nya nationalarenan i Arenastaden stod klar, och marken har sedan byggts om till bostäder och kontor.",
@@ -1802,7 +2102,8 @@
    "web": [
     "https://en.wikipedia.org/wiki/R%C3%A5sunda_Stadium",
     "https://www.dagensps.se/teknik/rasunda-och-soderstadion-revs-vad-hande-sen/"
-   ]
+   ],
+   "images": []
   },
   "Järla station": {
    "story": "Saltsjöbanans station invigdes 1894, då stavat Jerla. Härifrån gick stickspår till en jästfabrik och till De Lavals ångturbinfabrik. Kul detalj: Anna Book gick på Nacka musikskola när hon sjöng ”ABC” i Melodifestivalen 1986. Från 2030 ska man kunna byta till tunnelbanans blå linje i en ny station här.",
@@ -1817,7 +2118,8 @@
     "Nacka musikskola",
     "Järla sjö"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Trondheimsgatan": {
    "story": "Där Husby står i dag övade militären ända till 1965, för Järvafältet var ett militärt övningsfält. Stadsdelen bildades 1971 och hette först Husby gård. I dag finns här Husbybadet med äventyrsbad, 25-metersbassäng och hopptorn med 1- och 3-metersavsatser.",
@@ -1831,7 +2133,16 @@
     "Husby, Stockholm",
     "Husbybadet"
    ],
-   "web": []
+   "web": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Husbybadet02.jpg/1280px-Husbybadet02.jpg?utm_source=sv.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Ulkl",
+     "license": "Public domain",
+     "page": "https://commons.wikimedia.org/wiki/File:Husbybadet02.jpg",
+     "title": "Husbybadet02"
+    }
+   ]
   },
   "Bergengatan": {
    "story": "Under fötterna ligger Husby tunnelbanestation, insprängd i berget och öppnad 1977. Konstnären Birgit Broms har målat dess gula väggar med björkstammar och Vaxholmsbåtar, en oväntad skärgårdskänsla mitt i Järva. Ovan jord står Husbykyrkan från 1976, grönmärkt av Stadsmuseet för sitt höga kulturhistoriska värde.",
@@ -1849,7 +2160,16 @@
     "Husby (tunnelbanestation)",
     "Husbykyrkan"
    ],
-   "web": []
+   "web": [],
+   "images": [
+    {
+     "src": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Husbykyrkan.jpg?utm_source=sv.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "credit": "Anton Thilander",
+     "license": "CC BY-SA 4.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Husbykyrkan.jpg",
+     "title": "Husbykyrkan"
+    }
+   ]
   },
   "Helsingforsgatan": {
    "story": "Husbybadet öppnade kring millennieskiftet och lockar med äventyrsbad, bubbelpool och bastu. Lite längre bort ligger Akalla kyrka, med en ovanlig historia: invigd 1976, såld av Svenska kyrkan 2020 till Stockholms katolska stift. I dag är den hemkyrka för den syrianska katolska kyrkan.",
@@ -1867,7 +2187,16 @@
     "Husbybadet",
     "Akalla kyrka"
    ],
-   "web": []
+   "web": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Husbybadet02.jpg/1280px-Husbybadet02.jpg?utm_source=sv.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Ulkl",
+     "license": "Public domain",
+     "page": "https://commons.wikimedia.org/wiki/File:Husbybadet02.jpg",
+     "title": "Husbybadet02"
+    }
+   ]
   },
   "Tönsbergsgatan": {
    "story": "Det höga betongtornet i närheten hör till Kista brandstation från 1980. Det är ett övningstorn för brandmännen och ett välkänt landmärke i trakten. Vid Kista gård står dessutom Kistastenen, en runsten som visar att Järvafältet var bebott långt innan Kista blev IT-stad.",
@@ -1881,7 +2210,8 @@
     "Kista brandstation",
     "Upplands runinskrifter 75"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Kristinehamnsgatan": {
    "story": "Nere vid Magelungen står en stor röd trävilla från 1916–1917, byggd som barnhem. Namnet Rödkinda kom av tanken att frisk luft skulle ge barnen röda kinder. Villan står på en kulle med södersluttning ner mot sjön. Farsta gymnasiums gamla lokaler används numera av Farsta grundskola och Adolf Fredriks musikklasser.",
@@ -1895,7 +2225,8 @@
     "Jällö 9",
     "Farsta gymnasium"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Tyresö centrum": {
    "story": "Det höga huset som syns på långt håll heter Tyresö View. Det är 82 meter högt med 23 våningar och var 2016 det fjärde högsta bostadshuset i Stockholms län. Under taket i det inglasade centrumet ryms ett 70-tal butiker, kommunhus och bibliotek med egen utställningssal.",
@@ -1913,7 +2244,8 @@
     "Tyresö View",
     "Tyresö Centrum"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Färentunavägen": {
    "story": "Strax intill rinner Tappström, sundet mellan Ekerön och Lovön. Det är omkring 1,5 kilometer långt men bara 3,2 meter djupt. På Ekerösidan finns en gästhamn för fritidsbåtar, och bron här bär Ekerövägen, länsväg 261, hela vägen in mot Brommaplan. Här går alltså gränsen mellan två öar.",
@@ -1926,7 +2258,8 @@
    "sources": [
     "Tappström"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Albydal": {
    "story": "Under jord pågår ett stort bygge: Södra Hagalund blir en ny station på gröna linjens gren mot Arenastaden, hela 45 meter under marken. Den väntas öppna 2029. Ovan jord kan du i Eric Grates park möta skulptören Eric Grates brons, bland annat Oberon och Sparvguden.",
@@ -1940,7 +2273,8 @@
     "Södra Hagalund (tunnelbanestation)",
     "Eric Grates park"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Vretenvägen": {
    "story": "Ahlby säteri från 1620-talet är det äldsta huset i Lilla Alby. En av ägarna var Clas Fredrik Horn, som dömdes för delaktighet i mordet på Gustav III. Under gatan, 28 meter ner, ligger Solna strand station med Takashi Narahas konstverk Himmelen av kub, där himlen tagits ner till perrongen.",
@@ -1958,7 +2292,8 @@
     "Ahlby säteri",
     "Solna strand (tunnelbanestation)"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Torsplan": {
    "story": "Hagaparken börjar nästan här. Gustav III lät bygga Övre Haga som värdshus 1788–1789, med två kök och tre matsalar. Haga Trädgård är känd från Bellmans ”Fjäriln vingad syns på Haga”, och i ett av växthusen flyttade Fjärilshuset in 1989. Vill du ha utsikt kan du klättra upp på Frösundatoppen, cirka 72 meter över havet.",
@@ -1978,7 +2313,8 @@
     "Fjärilshuset",
     "Frösundatoppen"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Bergshamra bro": {
    "story": "Hela Bergshamra ligger i Nationalstadsparken. Marken till studentområdet Kungshamra skänktes av kung Gustaf VI Adolf, därav namnet. Vattentornet från 1951 vid Edsviken är ett landmärke på långt håll, och vid Pipers väg står Övre Karlsro, även kallat Carl Malmstens hus.",
@@ -1998,7 +2334,16 @@
     "Bergshamra vattentorn",
     "Övre Karlsro"
    ],
-   "web": []
+   "web": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Kungshamra16.JPG/1280px-Kungshamra16.JPG?utm_source=sv.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Einarspetz",
+     "license": "CC BY-SA 3.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Kungshamra16.JPG",
+     "title": "Kungshamra16"
+    }
+   ]
   },
   "Varvsgatan": {
    "story": "Varvsgatan hette fram till 1885 Pipbruksgränd. Namnet kom från ett pipbruk vid Långholmssundet, där man på 1700-talet tillverkade kritpipor av vit holländsk lera. Minnet lever kvar i Pipmakartrappan. De stora husen i kvarteren Plankan och Drakenberg visar att miljonprogrammet också nådde innerstaden.",
@@ -2018,7 +2363,23 @@
     "Drakenbergsområdet",
     "Grindvakten 1"
    ],
-   "web": []
+   "web": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Pipmakartrappan.JPG/1280px-Pipmakartrappan.JPG?utm_source=sv.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Enhamre",
+     "license": "Public domain",
+     "page": "https://commons.wikimedia.org/wiki/File:Pipmakartrappan.JPG",
+     "title": "Pipmakartrappan"
+    },
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Drakenberg.JPG/1280px-Drakenberg.JPG?utm_source=sv.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Own work",
+     "license": "Public domain",
+     "page": "https://commons.wikimedia.org/wiki/File:Drakenberg.JPG",
+     "title": "Drakenberg"
+    }
+   ]
   },
   "Zinkensdamm": {
    "story": "Platsen har fått namn efter Frantz Zinck, som bara bodde på gården i fem år på 1600-talet och formellt aldrig ägde den. Ändå lever namnet kvar. Kvarteren har också matminnen: på Brännkyrkagatan 93 låg restaurangen Gässlingen, som fick en stjärna i Guide Michelin 1999. Barnsjukhuset Samariten byggdes ut tack vare pengar som Jenny Lind testamenterade.",
@@ -2034,7 +2395,8 @@
     "Barnsjukhuset Samariten",
     "Yttersta Tvärgränd"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Hornsgatan/Rosenlundsgatan": {
    "story": "Det gamla huset på Hornsgatan 82 kallas Bysis. Det var Stockholms häkte för skuldsatta från 1782 till 1872. Bredvid låg biografen Rixi, som 1971 blev en musikstudio. Där spelades delar av Abbas Ring Ring och Carolas debutalbum Främling in. I dag heter den Ingridstudion, och här har bland andra Lykke Li och Peter Bjorn and John spelat in.",
@@ -2050,7 +2412,8 @@
     "Ingridstudion",
     "Bysistorget"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Svandammen": {
    "story": "Svandammen är både park och badplats, och en samlingspunkt för ungdomar och barnfamiljer i Solhem. Namnet Spånga är riktigt gammalt: det finns i skrift redan år 1300 och betyder ungefär spångar, alltså enkla broar över blöt mark. Spånga socken rymde en gång både Hässelby slott och Akalla.",
@@ -2065,7 +2428,8 @@
     "Spånga",
     "Spånga socken"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Rinkeby centrum": {
    "story": "Kliv ner i Rinkeby tunnelbanestation och du hamnar i en vikingaskattkammare. Konstnären Nisse Zetterberg har förstorat små fornfynd från vikingatiden, som grävts fram i området, till stora väggmosaiker på tegelröda väggar med guldinlägg och runor. Stationen öppnade 1975, när blå linjen invigdes.",
@@ -2083,7 +2447,8 @@
     "Rinkeby (tunnelbanestation)",
     "Bro över Rinkebystråket"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Kvarnen": {
    "story": "Hållplatsen har fått namn efter Näsets kvarn, en av bara två väderkvarnar som finns kvar på Lidingö. På 1840-talet fanns sju. Intill ligger Kvarnskolan från 1875, som först bara tog emot flickor. Vid Stockholmsvägen står Näsets krog, en vägkrog från 1700-talet, och Villa Nynäs, där Lidingös troligen första handelsbod låg.",
@@ -2103,7 +2468,8 @@
     "Näsets krog",
     "Villa Nynäs"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Ekgårdsvägen": {
    "story": "Kungens kurva har fått sitt namn från en riktig olycka. Den 28 september 1946 körde Gustaf V:s chaufför av Södertäljevägen här i närheten och fastnade i ett vattenfyllt dike. Namnet satt kvar. Ikea byggde sitt andra varuhus här 1965, och den runda byggnaden är inspirerad av Guggenheimmuseet i New York.",
@@ -2118,7 +2484,8 @@
     "Ikea Kungens kurva",
     "Scandic Kungens Kurva"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Älvestavägen": {
    "story": "Älvestaån rinner från sjön Aspen till Tullingesjön och faller 17 meter på bara cirka 2,5 kilometer. En bit av den går i kulvert under Hågelby gård och Hågelbyleden. I Hågelbys park har ån grävts om till en kanal och blivit en del av parkens design. Namnet kommer från Elvesta gård vid Tullingesjön, som också stavas Älvesta.",
@@ -2131,7 +2498,8 @@
    "sources": [
     "Älvestaån"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Huddinge centrum": {
    "story": "Kommunalvägen löper genom Huddinges hjärta, med station, centrum, kyrka och kommunalhus längs sina 1,3 kilometer. Det har också hänt saker nyligen: Sjödalsgymnasiet, som startade 1994, lades ner 2026. Det sista året hade skolan 185 elever, jämfört med 608 bara tre år tidigare.",
@@ -2140,7 +2508,8 @@
     "Kommunalvägen",
     "Sjödalsgymnasiet"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Sördalavägen": {
    "story": "Huddinge centrum ligger mitt i en villastad som aldrig blev av. 1902 började ägaren till Fullersta gård sälja tomter för Huddinge villastad. Det var mer lönsamt att sälja byggtomter nära Stockholm än att fortsätta med jordbruket. Bara några av de gamla villorna finns kvar.",
@@ -2149,7 +2518,8 @@
     "Huddinge villastad",
     "Huddinge centrum"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Huddinge kommunalkontor": {
    "story": "Vid kommunalhusets entré står Bror Hjorths brons Flicka med fruktkorg från 1951. Äppelkorgen är en hyllning till Huddinges tusentals villaträdgårdar och husmödrarna som skördade och mustade. Bakom kyrkogården ligger Biskopsstenen, ett jätteblock från istiden. Det mäter 7 gånger 4 meter, och spetsen liknar en biskopsmössa.",
@@ -2168,7 +2538,8 @@
     "Huddinge kommunalhus",
     "Biskopsstenen"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Kvarnbergsplan": {
    "story": "Namnet kommer från Stuvsta gårds väderkvarn, som en gång stod på Kvarnberget. Kvarnen är borta, men flera kvarnstenar finns kvar. En av dem har kommunen ställt vid Gymnasievägen. Norr om Huddinge station spårade ett tåg ur i kurvan en lördagskväll 1908. Ingen dog, och händelsen förevigades på två vykort.",
@@ -2183,7 +2554,16 @@
     "Kvarnbergsplan",
     "Järnvägsolyckan i Huddinge 1908"
    ],
-   "web": []
+   "web": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Kvarnbergsplan.jpg/1280px-Kvarnbergsplan.jpg?utm_source=sv.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "AleWi",
+     "license": "Public domain",
+     "page": "https://commons.wikimedia.org/wiki/File:Kvarnbergsplan.jpg",
+     "title": "Kvarnbergsplan"
+    }
+   ]
   },
   "Ekstubben": {
    "story": "Ältavägen är 8,1 kilometer lång och fick sin sträckning 1934. Den går mest genom obebyggd natur mellan Älta och Nackanäs. I Flatens naturreservat finns en ovanlig attraktion: en tävlingsbana för radiostyrda modellbilar. Den ligger på Ältavägen 301 i stadsdelen Flaten.",
@@ -2197,7 +2577,8 @@
     "Ältavägen",
     "Flatenbanan"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Fleminggatan": {
    "story": "Håll utkik efter de rödlysande neonglasögonen över Ringdahls Optik på Fleminggatan 36. Skyltarna är från 1950- och 1960-talen och nominerades 2017 av Stadsmuseet till tävlingen Lysande skylt. Celsiusgatan i närheten är uppkallad efter Anders Celsius, trots att han inte hade någon särskild koppling till Kungsholmen.",
@@ -2212,7 +2593,8 @@
     "Celsiusgatan, Stockholm",
     "Grubbens"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Mörbylund": {
    "story": "Vid Stocksundets strand låg bryggeriet Inverness brunn, som gjorde Sveriges första Club soda. Källan finns kvar, men vattnet smakar salt. Ett stenkast bort står Calles klimp, en stenhäll med förgylld text. Sägnerna säger att Calle var Karl IX, Karl XII eller Karl XV. Troligen var det en kryddhandlare, Carl Eneroth, som fick den i present på sin födelsedag.",
@@ -2230,7 +2612,8 @@
     "Inverness brunn",
     "Calles klimp"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Stadion": {
    "story": "Redan innan Stadion fanns idrottade stockholmarna här. Stockholms idrottspark invigdes 1896 och var stadens första civila idrottsarena. Den hade en 400 meter lång cementbana för cykling och löpning och revs 1910. Längs Valhallavägen står blåmärkta 1880-talshus i Villastaden.",
@@ -2245,7 +2628,16 @@
     "Granen 14",
     "Björken 18"
    ],
-   "web": []
+   "web": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/Valhallav%C3%A4gen92.JPG/1280px-Valhallav%C3%A4gen92.JPG?utm_source=sv.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Ankara",
+     "license": "CC BY-SA 3.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Valhallav%C3%A4gen92.JPG",
+     "title": "Valhallavägen92"
+    }
+   ]
   },
   "Odengatan": {
    "story": "De eleganta villorna i Lärkstaden byggdes kring 1912. I Tofslärkan 3 bodde statsminister Karl Staaff mellan 1912 och 1915. Grannvillan Tofslärkan 6 rymmer sedan 1995 Lettlands ambassad. Odengatan själv är cirka 30 meter bred och 1 850 meter lång, från Valhallavägen ända till Sankt Eriksplan.",
@@ -2261,7 +2653,8 @@
     "Lettlands ambassad i Stockholm",
     "Odengatan"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Duvkullavägen": {
    "story": "Strax intill ligger Solvalla, Sveriges nationalarena för trav och Nordens största travbana. Varje år körs Elitloppet här, ett av världens största travlopp, och läktarna rymmer 35 000 besökare. Banan invigdes den 31 juli 1927, och premiäråret kördes tolv lopp.",
@@ -2274,7 +2667,8 @@
    "sources": [
     "Solvalla"
    ],
-   "web": []
+   "web": [],
+   "images": []
   },
   "Mörby centrum": {
    "story": "Mörby centrum byggdes 1961 och glasades in 1977. 2026 kom ett nytt namn: efter tio års ombyggnad heter centrumet numera Danderyds Centrum. Tunnelbanan tar slut här, för Mörby centrum är ändstation på röda linjens linje 14. Det nya utseendet har ritats av Gatun Arkitekter.",

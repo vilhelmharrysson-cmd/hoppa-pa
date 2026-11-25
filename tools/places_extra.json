@@ -1172,7 +1172,15 @@
     "https://samlingar.goteborgsstadsmuseum.se/carlotta/web/image/blob/1677814/Gatuliv+kring+J%C3%A4rntorget.pdf",
     "https://en.wikipedia.org/wiki/J%C3%A4rntorget,_Gothenburg"
    ],
-   "images": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/G%C3%B6teborg%2C_J%C3%A4rnv%C3%A5gen_vid_Skeppsbroplatsen.jpg/1280px-G%C3%B6teborg%2C_J%C3%A4rnv%C3%A5gen_vid_Skeppsbroplatsen.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Unknown authorUnknown author",
+     "license": "Public domain",
+     "page": "https://commons.wikimedia.org/wiki/File:G%C3%B6teborg,_J%C3%A4rnv%C3%A5gen_vid_Skeppsbroplatsen.jpg",
+     "title": "Göteborg, Järnvågen vid Skeppsbroplatsen"
+    }
+   ],
    "historic": [],
    "imgReviewed": true
   },
@@ -1195,7 +1203,22 @@
     "Bohuslän (skulptur)"
    ],
    "web": [],
-   "images": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/Nils_Ericson_Terminalen_-_panoramio.jpg/1280px-Nils_Ericson_Terminalen_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Olof Lagerkvist",
+     "license": "CC BY 3.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Nils_Ericson_Terminalen_-_panoramio.jpg",
+     "title": "Nils Ericson Terminalen - panoramio"
+    },
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/G%C3%B6teborg_-_Bussterminalen_-_Nils_Ericson_Terminalen_%2811161731664%29.jpg/1280px-G%C3%B6teborg_-_Bussterminalen_-_Nils_Ericson_Terminalen_%2811161731664%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Ingolf from Berlin , Deutschland",
+     "license": "CC BY-SA 2.0",
+     "page": "https://commons.wikimedia.org/wiki/File:G%C3%B6teborg_-_Bussterminalen_-_Nils_Ericson_Terminalen_(11161731664).jpg",
+     "title": "Göteborg - Bussterminalen - Nils Ericson Terminalen (11161731664)"
+    }
+   ],
    "historic": [],
    "imgReviewed": true
   },
@@ -4475,7 +4498,15 @@
     "Högsboskolan"
    ],
    "web": [],
-   "images": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Endre_Nemes_Marmorintarsia_01.JPG/1280px-Endre_Nemes_Marmorintarsia_01.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Bengt Oberger",
+     "license": "CC BY-SA 4.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Endre_Nemes_Marmorintarsia_01.JPG",
+     "title": "Endre Nemes Marmorintarsia 01"
+    }
+   ],
    "historic": [],
    "imgReviewed": true
   },
@@ -6548,7 +6579,15 @@
     "Torslanda flygfält"
    ],
    "web": [],
-   "images": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Goteborg_Amhult_dworzec.jpg/1280px-Goteborg_Amhult_dworzec.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Andrzej Otrębski",
+     "license": "CC BY-SA 4.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Goteborg_Amhult_dworzec.jpg",
+     "title": "Goteborg Amhult dworzec"
+    }
+   ],
    "historic": [],
    "imgReviewed": true
   },
@@ -13343,7 +13382,22 @@
   "Grönsakstorget": {
    "story": "",
    "imageOnly": true,
-   "images": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Gr%C3%B6nsakstorget_september_2011.jpg/1280px-Gr%C3%B6nsakstorget_september_2011.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "ArildV",
+     "license": "CC BY-SA 3.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Gr%C3%B6nsakstorget_september_2011.jpg",
+     "title": "Grönsakstorget september 2011"
+    },
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Gr%C3%B6nsakstorget_ca_1970.jpg/1280px-Gr%C3%B6nsakstorget_ca_1970.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Andersreilund",
+     "license": "CC BY-SA 4.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Gr%C3%B6nsakstorget_ca_1970.jpg",
+     "title": "Grönsakstorget ca 1970"
+    }
+   ],
    "historic": [],
    "imgReviewed": true
   },
@@ -13400,7 +13454,22 @@
   "Stigbergstorget": {
    "story": "",
    "imageOnly": true,
-   "images": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/Stigbergstorget_med_Gathenhielmska_huset.jpg/1280px-Stigbergstorget_med_Gathenhielmska_huset.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Jens Hunt",
+     "license": "CC BY-SA 3.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Stigbergstorget_med_Gathenhielmska_huset.jpg",
+     "title": "Stigbergstorget med Gathenhielmska huset"
+    },
+    {
+     "src": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Majorna_Stigbergstorget.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "credit": "User Per Johansson on sv.wikipedia",
+     "license": "CC BY-SA 3.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Majorna_Stigbergstorget.jpg",
+     "title": "Majorna Stigbergstorget"
+    }
+   ],
    "historic": [],
    "imgReviewed": true
   },
@@ -13440,7 +13509,15 @@
   "Kungssten": {
    "story": "",
    "imageOnly": true,
-   "images": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/Kungsstenspanorama.jpg/1280px-Kungsstenspanorama.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Albin Olsson",
+     "license": "CC BY-SA 3.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Kungsstenspanorama.jpg",
+     "title": "Kungsstenspanorama"
+    }
+   ],
    "historic": [],
    "imgReviewed": true
   },
@@ -13490,14 +13567,30 @@
   "Valand": {
    "story": "",
    "imageOnly": true,
-   "images": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Avenyn_i_G%C3%B6teborg%2C_vid_Valand%2C_den_13_september_2005..JPG/1280px-Avenyn_i_G%C3%B6teborg%2C_vid_Valand%2C_den_13_september_2005..JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "User Västgöten on sv.wikipedia",
+     "license": "CC BY-SA 3.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Avenyn_i_G%C3%B6teborg,_vid_Valand,_den_13_september_2005..JPG",
+     "title": "Avenyn i Göteborg, vid Valand, den 13 september 2005."
+    }
+   ],
    "historic": [],
    "imgReviewed": true
   },
   "Berzeliigatan": {
    "story": "",
    "imageOnly": true,
-   "images": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Berzeliigatan_i_G%C3%B6teborg.JPG/1280px-Berzeliigatan_i_G%C3%B6teborg.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Mattias Blomgren",
+     "license": "CC BY-SA 3.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Berzeliigatan_i_G%C3%B6teborg.JPG",
+     "title": "Berzeliigatan i Göteborg"
+    }
+   ],
    "historic": [],
    "imgReviewed": true
   },
@@ -13768,7 +13861,15 @@
   "Nils Ericsonsplatsen": {
    "story": "",
    "imageOnly": true,
-   "images": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Nils_Ericsonsplatsen_-_20260705_-_01.jpg/1280px-Nils_Ericsonsplatsen_-_20260705_-_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "AleWi",
+     "license": "CC BY-SA 4.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Nils_Ericsonsplatsen_-_20260705_-_01.jpg",
+     "title": "Nils Ericsonsplatsen - 20260705 - 01"
+    }
+   ],
    "historic": [],
    "imgReviewed": true
   },
@@ -13793,7 +13894,22 @@
   "Jubileumsparken": {
    "story": "",
    "imageOnly": true,
-   "images": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/Jubileumsparken_02.jpg/1280px-Jubileumsparken_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Alicia Fagerving",
+     "license": "CC BY-SA 3.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Jubileumsparken_02.jpg",
+     "title": "Jubileumsparken 02"
+    },
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Utomhusbad_i_Jubileumsparken%2C_G%C3%B6teborg_01.jpg/1280px-Utomhusbad_i_Jubileumsparken%2C_G%C3%B6teborg_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Alicia Fagerving",
+     "license": "CC BY-SA 4.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Utomhusbad_i_Jubileumsparken,_G%C3%B6teborg_01.jpg",
+     "title": "Utomhusbad i Jubileumsparken, Göteborg 01"
+    }
+   ],
    "historic": [],
    "imgReviewed": true
   },
@@ -13836,7 +13952,15 @@
   "Hjalmar Brantingsplatsen": {
    "story": "",
    "imageOnly": true,
-   "images": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/Gr%C3%B6na_Annas_Gata_h%C3%B6ghus.jpg/1280px-Gr%C3%B6na_Annas_Gata_h%C3%B6ghus.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Alicia Fagerving",
+     "license": "CC BY-SA 3.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Gr%C3%B6na_Annas_Gata_h%C3%B6ghus.jpg",
+     "title": "Gröna Annas Gata höghus"
+    }
+   ],
    "historic": [],
    "imgReviewed": true
   },
@@ -14060,21 +14184,59 @@
   "Musikvägen": {
    "story": "",
    "imageOnly": true,
-   "images": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/86/Musikv%C3%A4gen%2C_Gothenburg_Municipality.jpg/1280px-Musikv%C3%A4gen%2C_Gothenburg_Municipality.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "BoneheadElsewhere",
+     "license": "CC BY-SA 4.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Musikv%C3%A4gen,_Gothenburg_Municipality.jpg",
+     "title": "Musikvägen, Gothenburg Municipality"
+    }
+   ],
    "historic": [],
    "imgReviewed": true
   },
   "Opaltorget": {
    "story": "",
    "imageOnly": true,
-   "images": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/Opaltorget_2008.jpg/1280px-Opaltorget_2008.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Eva Ekeblad",
+     "license": "CC BY-SA 3.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Opaltorget_2008.jpg",
+     "title": "Opaltorget 2008"
+    },
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Opaltorget_2011.jpg/1280px-Opaltorget_2011.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Eva Ekeblad",
+     "license": "CC BY-SA 3.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Opaltorget_2011.jpg",
+     "title": "Opaltorget 2011"
+    }
+   ],
    "historic": [],
    "imgReviewed": true
   },
   "Chapmans Torg": {
    "story": "",
    "imageOnly": true,
-   "images": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Chapmans_torg_%282012-07-01%29.jpg/1280px-Chapmans_torg_%282012-07-01%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Paracel63",
+     "license": "CC BY-SA 3.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Chapmans_torg_(2012-07-01).jpg",
+     "title": "Chapmans torg (2012-07-01)"
+    },
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Chapmans_Torg_-_nordost.JPG/1280px-Chapmans_Torg_-_nordost.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Historiker",
+     "license": "CC BY-SA 3.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Chapmans_Torg_-_nordost.JPG",
+     "title": "Chapmans Torg - nordost"
+    }
+   ],
    "historic": [],
    "imgReviewed": true
   },
@@ -14114,31 +14276,22 @@
    "imageOnly": true,
    "images": [
     {
-     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Saltholmen_sk%C3%A4rg%C3%A5rdsb%C3%A5tar.jpg/1280px-Saltholmen_sk%C3%A4rg%C3%A5rdsb%C3%A5tar.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-     "credit": "Averater",
-     "license": "CC BY-SA 3.0",
-     "page": "https://commons.wikimedia.org/wiki/File:Saltholmen_sk%C3%A4rg%C3%A5rdsb%C3%A5tar.jpg",
-     "title": "Entren till skärgårdsbåtarna som avgår till södra skärgården från saltholmen. Biljettkassa innanför ",
-     "near": true
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Saltholmen_in_January.jpg/1280px-Saltholmen_in_January.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "W.carter",
+     "license": "CC BY-SA 4.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Saltholmen_in_January.jpg",
+     "title": "Saltholmen in January"
     },
     {
-     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Saltholmens_Caf%C3%A9.jpg/1280px-Saltholmens_Caf%C3%A9.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-     "credit": "Averater",
-     "license": "CC BY-SA 3.0",
-     "page": "https://commons.wikimedia.org/wiki/File:Saltholmens_Caf%C3%A9.jpg",
-     "title": "Cafe på Saltholmen",
-     "near": true
-    },
-    {
-     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/Saltholmens_vagnhall.jpg/1280px-Saltholmens_vagnhall.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-     "credit": "Averater",
-     "license": "CC BY-SA 3.0",
-     "page": "https://commons.wikimedia.org/wiki/File:Saltholmens_vagnhall.jpg",
-     "title": "Vagnhallen på Saltholmen.",
-     "near": true
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Goteborg_port_Saltholmen_1.jpg/1280px-Goteborg_port_Saltholmen_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Andrzej Otrębski",
+     "license": "CC BY-SA 4.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Goteborg_port_Saltholmen_1.jpg",
+     "title": "Goteborg port Saltholmen 1"
     }
    ],
-   "historic": []
+   "historic": [],
+   "imgReviewed": true
   },
   "Lindholmspiren": {
    "story": "",
@@ -14287,7 +14440,22 @@
     "https://stockholmartwalk.se/the-history-of-the-art-at-t-centralen-blue-line-metro-station/?lang=en",
     "https://www.visitstockholm.com/art-in-the-subway/t-centralen"
    ],
-   "images": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/T-Centralen_ceiling.jpg/1280px-T-Centralen_ceiling.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "HartOve",
+     "license": "CC BY-SA 4.0",
+     "page": "https://commons.wikimedia.org/wiki/File:T-Centralen_ceiling.jpg",
+     "title": "T-Centralen ceiling"
+    },
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/T-Centralen_decorations.jpg/1280px-T-Centralen_decorations.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "HartOve",
+     "license": "CC BY-SA 4.0",
+     "page": "https://commons.wikimedia.org/wiki/File:T-Centralen_decorations.jpg",
+     "title": "T-Centralen decorations"
+    }
+   ],
    "historic": [],
    "imgReviewed": true
   },
@@ -15281,7 +15449,22 @@
     "https://www.svenskakyrkan.se/vasterled/sta-birgitta",
     "https://www.stylepark.com/en/designer/sven-markelius"
    ],
-   "images": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Nockeby_Torg.jpg/1280px-Nockeby_Torg.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Esquilo",
+     "license": "CC BY-SA 3.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Nockeby_Torg.jpg",
+     "title": "Nockeby Torg"
+    },
+    {
+     "src": "https://upload.wikimedia.org/wikipedia/commons/5/51/Nockeby_torg_1935.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "credit": "Bladh, Oscar (1895-1973)",
+     "license": "Public domain",
+     "page": "https://commons.wikimedia.org/wiki/File:Nockeby_torg_1935.jpg",
+     "title": "Nockeby torg 1935"
+    }
+   ],
    "historic": [],
    "imgReviewed": true
   },
@@ -16064,7 +16247,22 @@
     "https://www.kungligaslotten.se/english/articles-and-movies/news/2020-10-14-silk-cultivation-at-drottningholm.html",
     "https://en.wikipedia.org/wiki/Chinese_Pavilion_at_Drottningholm"
    ],
-   "images": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/Kantor_1_September_2015.jpg/1280px-Kantor_1_September_2015.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Arild Vågen",
+     "license": "CC BY-SA 4.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Kantor_1_September_2015.jpg",
+     "title": "Kantor 1 September 2015"
+    },
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/Cantor_1_september_2011a.jpg/1280px-Cantor_1_september_2011a.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "ArildV",
+     "license": "CC BY-SA 3.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Cantor_1_september_2011a.jpg",
+     "title": "Cantor 1 september 2011a"
+    }
+   ],
    "historic": [],
    "imgReviewed": true
   },
@@ -16076,7 +16274,15 @@
     "https://stockholmskallan.stockholm.se/contentfiles/SSM/Texter/Text_0001/SSM_DOK_000063.pdf",
     "https://en.wikipedia.org/wiki/Rissne_metro_station"
    ],
-   "images": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/Rissne_gard.JPG/1280px-Rissne_gard.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Toyah",
+     "license": "Public domain",
+     "page": "https://commons.wikimedia.org/wiki/File:Rissne_gard.JPG",
+     "title": "Rissne gard"
+    }
+   ],
    "historic": [],
    "imgReviewed": true
   },
@@ -16134,7 +16340,15 @@
     "https://miljobarometern.stockholm.se/content/docs/tema/natur/2001%20Hogdalstopparna%20BUS.pdf",
     "https://udisc.com/courses/hoegdalstoppens-dgb-JWIu"
    ],
-   "images": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/H%C3%B6gdalen_Skebokvarnsv%C3%A4gen%2C_1950-tal.jpg/1280px-H%C3%B6gdalen_Skebokvarnsv%C3%A4gen%2C_1950-tal.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "ingen uppgift",
+     "license": "Public domain",
+     "page": "https://commons.wikimedia.org/wiki/File:H%C3%B6gdalen_Skebokvarnsv%C3%A4gen,_1950-tal.jpg",
+     "title": "Högdalen Skebokvarnsvägen, 1950-tal"
+    }
+   ],
    "historic": [],
    "imgReviewed": true
   },
@@ -17590,7 +17804,15 @@
     "https://en.wikipedia.org/wiki/Sickla_K%C3%B6pkvarter",
     "https://www.atlascopco.com/sv-se/about-atlas-copco"
    ],
-   "images": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Lugnets_all%C3%A9_och_Sickla_kanal.jpg/1280px-Lugnets_all%C3%A9_och_Sickla_kanal.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Johan Jönsson (Julle)",
+     "license": "CC BY-SA 4.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Lugnets_all%C3%A9_och_Sickla_kanal.jpg",
+     "title": "Lugnets allé och Sickla kanal"
+    }
+   ],
    "historic": [],
    "imgReviewed": true
   },
@@ -31561,7 +31783,22 @@
     "Philipsenska skolinrättningen"
    ],
    "web": [],
-   "images": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Mariatorget_2012a.jpg/1280px-Mariatorget_2012a.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Holger.Ellgaard",
+     "license": "CC BY-SA 3.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Mariatorget_2012a.jpg",
+     "title": "Mariatorget 2012a"
+    },
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Mariatorget_in_Stockholm_april_2013.jpeg/1280px-Mariatorget_in_Stockholm_april_2013.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "User:Donkarasu",
+     "license": "CC BY-SA 3.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Mariatorget_in_Stockholm_april_2013.jpeg",
+     "title": "Mariatorget in Stockholm april 2013"
+    }
+   ],
    "historic": [],
    "imgReviewed": true
   },
@@ -36782,7 +37019,15 @@
     "Sundbybergs centrum (tunnelbanestation)"
    ],
    "web": [],
-   "images": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Carl_Fagerberg%2C_Industribrunnen_i_Sundbyberg%2C_2016.jpg/1280px-Carl_Fagerberg%2C_Industribrunnen_i_Sundbyberg%2C_2016.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Bysmon",
+     "license": "CC BY-SA 4.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Carl_Fagerberg,_Industribrunnen_i_Sundbyberg,_2016.jpg",
+     "title": "Carl Fagerberg, Industribrunnen i Sundbyberg, 2016"
+    }
+   ],
    "historic": [],
    "imgReviewed": true
   },
@@ -46425,14 +46670,44 @@
   "Östermalmstorg": {
    "story": "",
    "imageOnly": true,
-   "images": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Ostermalmstorg_2008.jpg/1280px-Ostermalmstorg_2008.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Holger.Ellgaard",
+     "license": "CC BY-SA 3.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Ostermalmstorg_2008.jpg",
+     "title": "Ostermalmstorg 2008"
+    },
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/%C3%96stermalmstorg_Stockholm_nordost_20060509.jpg/1280px-%C3%96stermalmstorg_Stockholm_nordost_20060509.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "No machine-readable author provided. FriskoKry~commonswiki assumed (based on cop",
+     "license": "CC BY-SA 2.5",
+     "page": "https://commons.wikimedia.org/wiki/File:%C3%96stermalmstorg_Stockholm_nordost_20060509.jpg",
+     "title": "Östermalmstorg Stockholm nordost 20060509"
+    }
+   ],
    "historic": [],
    "imgReviewed": true
   },
   "Odenplan": {
    "story": "",
    "imageOnly": true,
-   "images": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/Odenplan%2C_juni_2019._Gustaf_Vasa_kyrka_syns_i_bakgrunden.jpg/1280px-Odenplan%2C_juni_2019._Gustaf_Vasa_kyrka_syns_i_bakgrunden.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Ljuvlig",
+     "license": "CC BY-SA 4.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Odenplan,_juni_2019._Gustaf_Vasa_kyrka_syns_i_bakgrunden.jpg",
+     "title": "Odenplan, juni 2019. Gustaf Vasa kyrka syns i bakgrunden"
+    },
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Odenplan%2C_20230312%2C_02.jpg/1280px-Odenplan%2C_20230312%2C_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "AleWi",
+     "license": "CC BY-SA 4.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Odenplan,_20230312,_02.jpg",
+     "title": "Odenplan, 20230312, 02"
+    }
+   ],
    "historic": [],
    "imgReviewed": true
   },
@@ -46510,7 +46785,22 @@
   "Högalidsgatan": {
    "story": "",
    "imageOnly": true,
-   "images": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/H%C3%B6galidsgatan_Stockholm_2026-10-03_image02.jpg/1280px-H%C3%B6galidsgatan_Stockholm_2026-10-03_image02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Håkan Skogsjö",
+     "license": "CC BY-SA 4.0",
+     "page": "https://commons.wikimedia.org/wiki/File:H%C3%B6galidsgatan_Stockholm_2026-10-03_image02.jpg",
+     "title": "Högalidsgatan Stockholm 2026-10-03 image02"
+    },
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/H%C3%B6galidsgatan.JPG/1280px-H%C3%B6galidsgatan.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Enhamre",
+     "license": "Public domain",
+     "page": "https://commons.wikimedia.org/wiki/File:H%C3%B6galidsgatan.JPG",
+     "title": "Högalidsgatan"
+    }
+   ],
    "historic": [],
    "imgReviewed": true
   },
@@ -46542,7 +46832,29 @@
   "Reimersholme": {
    "story": "",
    "imageOnly": true,
-   "images": [],
+   "images": [
+    {
+     "src": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Reimersholme_monument_Anders_Reimers_februari_2007.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "credit": "Mats Halldin 17:22, 6 February 2007 (UTC)",
+     "license": "CC BY-SA 3.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Reimersholme_monument_Anders_Reimers_februari_2007.JPG",
+     "title": "Reimersholme monument Anders Reimers februari 2007"
+    },
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Reimersholme%2C_Oscar_Bladh%2C_1945.jpg/1280px-Reimersholme%2C_Oscar_Bladh%2C_1945.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Oscar Bladh",
+     "license": "Public domain",
+     "page": "https://commons.wikimedia.org/wiki/File:Reimersholme,_Oscar_Bladh,_1945.jpg",
+     "title": "Reimersholme, Oscar Bladh, 1945"
+    },
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Reimersholme.jpg/1280px-Reimersholme.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Axel Antas-Bergkvist",
+     "license": "CC0",
+     "page": "https://commons.wikimedia.org/wiki/File:Reimersholme.jpg",
+     "title": "Reimersholme"
+    }
+   ],
    "historic": [],
    "imgReviewed": true
   },
@@ -46599,28 +46911,67 @@
   "Södermannagatan": {
    "story": "",
    "imageOnly": true,
-   "images": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/S%C3%B6dermannagatan_g%C3%A5gata.jpeg/1280px-S%C3%B6dermannagatan_g%C3%A5gata.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "VisbyStar",
+     "license": "CC BY-SA 4.0",
+     "page": "https://commons.wikimedia.org/wiki/File:S%C3%B6dermannagatan_g%C3%A5gata.jpeg",
+     "title": "Södermannagatan gågata"
+    },
+    {
+     "src": "https://upload.wikimedia.org/wikipedia/commons/4/42/S%C3%B6dermannagatan_10-12.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "credit": "Kasper Salin",
+     "license": "CC BY-SA 2.5",
+     "page": "https://commons.wikimedia.org/wiki/File:S%C3%B6dermannagatan_10-12.jpg",
+     "title": "Södermannagatan 10-12"
+    }
+   ],
    "historic": [],
    "imgReviewed": true
   },
   "Klippgatan": {
    "story": "",
    "imageOnly": true,
-   "images": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/16042014-7986_Klippgatan_%2813897392656%29.jpg/1280px-16042014-7986_Klippgatan_%2813897392656%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Trausti Evans",
+     "license": "CC BY 2.0",
+     "page": "https://commons.wikimedia.org/wiki/File:16042014-7986_Klippgatan_(13897392656).jpg",
+     "title": "16042014-7986 Klippgatan (13897392656)"
+    }
+   ],
    "historic": [],
    "imgReviewed": true
   },
   "Erstagatan": {
    "story": "",
    "imageOnly": true,
-   "images": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/Erstagatan_syd_2014.jpg/1280px-Erstagatan_syd_2014.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "Holger.Ellgaard",
+     "license": "CC BY-SA 3.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Erstagatan_syd_2014.jpg",
+     "title": "Erstagatan syd 2014"
+    }
+   ],
    "historic": [],
    "imgReviewed": true
   },
   "Tengdahlsgatan": {
    "story": "",
    "imageOnly": true,
-   "images": [],
+   "images": [
+    {
+     "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/db/Tengdahlsgatan_21.jpeg/1280px-Tengdahlsgatan_21.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "credit": "VisbyStar",
+     "license": "CC BY-SA 4.0",
+     "page": "https://commons.wikimedia.org/wiki/File:Tengdahlsgatan_21.jpeg",
+     "title": "Tengdahlsgatan 21"
+    }
+   ],
    "historic": [],
    "imgReviewed": true
   },

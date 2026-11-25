@@ -1,151 +1,67 @@
-/* Positionsmotor: små hållplatser, radier och GPS-läge */
-.map-minor{fill:var(--surface);stroke:var(--muted);stroke-width:1.5}
-.map-minor.done{fill:var(--muted)}
-.map-radius{fill:var(--accent);fill-opacity:.14;stroke:var(--accent);stroke-opacity:.7;stroke-width:1.2;stroke-dasharray:3 3}
-.map-radius.done{fill-opacity:.05;stroke-opacity:.3}
-.map-route-bg{fill:none;stroke:var(--line);stroke-width:12;stroke-linecap:round;stroke-linejoin:round}
-.gps-dot{fill:#2f7de1;stroke:#fff;stroke-width:3}
-.mode{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
-.mode button{border:0;background:var(--surface);padding:8px 14px;font-weight:600;font-size:13px}
-.mode button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
-.gpsmsg{margin:0;padding:10px 14px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
-.dist{font-family:var(--mono);font-variant-numeric:tabular-nums}
-.src{font-size:12px;color:var(--muted);margin:0}
-/* Bildyta med textning */
-.stage{position:relative;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;gap:10px}
-.stage.has-img{min-height:320px;padding:20px 18px 18px;justify-content:flex-end;background:#0b1a1f}
-.stage-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.4s ease;transform:scale(1.03)}
-.stage-bg.on{opacity:1;animation:kenburns 14s ease-out forwards}
-@keyframes kenburns{from{transform:scale(1.03)}to{transform:scale(1.1)}}
-.stage.has-img::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(4,14,18,.92) 0%,rgba(4,14,18,.62) 50%,rgba(4,14,18,.08) 100%)}
-.stage-text{position:relative;z-index:1;display:flex;flex-direction:column;gap:10px}
-.stage.has-img h2,.stage.has-img .story{color:#fff}
-.stage.has-img .story{font-size:16.5px;line-height:1.55;text-shadow:0 1px 2px rgba(0,0,0,.4)}
-.story .w{transition:opacity .3s ease}
-.story .w.dim{opacity:.3}
-.credit{position:absolute;top:8px;right:8px;z-index:1;font-size:11px;color:rgba(255,255,255,.9);background:rgba(0,0,0,.4);padding:2px 7px;border-radius:4px;text-decoration:none;max-width:75%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.credit.old{white-space:normal;max-width:85%;background:rgba(60,40,10,.75);color:#fff3d6;font-size:12px;line-height:1.35}
-@media (prefers-reduced-motion: reduce){.stage-bg.on{animation:none}.stage-bg{transition:none}}
-/* Avgår nära dig */
-.near-btn{margin-left:auto}
-.nearby{padding:14px 16px;display:flex;flex-direction:column;gap:8px}
-.near-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
-.near-head h2{font-size:17px}
-.near-list{display:flex;flex-direction:column;gap:4px;max-height:20rem;overflow-y:auto}
-.near-row{display:flex;align-items:center;gap:10px;border:0;background:transparent;text-align:left;padding:7px 6px;border-radius:8px;width:100%}
-.near-row:hover{background:var(--bg)}
-.near-row .what{min-width:0;flex:1}
-.near-row .what small{display:block;color:var(--muted);font-size:12px}
-.near-row .min{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
-.near-row[disabled]{opacity:.55;cursor:default}
-.mapgl-wrap{position:relative}
-#mapgl{width:100%;height:440px}
-@media (max-width:860px){#mapgl{height:360px}}
-.follow{position:absolute;right:10px;bottom:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 12px;font-weight:600;font-size:13px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
-.gl-vehicle{font-family:var(--mono);font-weight:700;font-size:12px;border-radius:6px;padding:2px 7px;border:2px solid;box-shadow:0 2px 6px rgba(0,0,0,.3)}
-.gl-gps{width:16px;height:16px;border-radius:50%;background:#2f7de1;border:3px solid #fff;box-shadow:0 0 0 6px rgba(47,125,225,.25)}
-.alerts{padding:14px 18px;border-left:4px solid #ee293d;display:flex;flex-direction:column;gap:8px}
-.alerts h2{font-size:17px}
-.alerts ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
-.alerts li b{display:block}
-.alerts li p{margin:2px 0 0;color:var(--muted);font-size:14px;max-width:75ch}
-.deps,.trip{display:flex;flex-direction:column;gap:6px;font-size:14px}
-.trip{padding:10px 14px;border-top:1px solid var(--line)}
-.dep,.leg{display:flex;align-items:center;gap:10px}
-.dep .min,.leg .min{margin-left:auto;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
-.badge{display:inline-block;min-width:28px;text-align:center;font-family:var(--mono);font-weight:700;font-size:12px;border-radius:4px;padding:2px 6px;background:var(--ink);color:var(--bg)}
-.muted{color:var(--muted)}
-.dep.match{font-weight:600}
-.tours{gap:8px}
-.tour-city{flex:1 1 100%;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:4px}
-.tour{padding:6px 10px;gap:10px}
-.tour[aria-current="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
-.tour .num{min-width:30px;text-align:center}
-.dirs{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.picker{display:flex;flex-direction:column;gap:12px}
-.pick-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
-#lineSearch{font:inherit;font-size:14px;padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--ink);min-width:0;width:12rem}
-.tours{max-height:15rem;overflow-y:auto;padding:2px}
-.tour.chip-only{padding:4px;border-radius:8px}
-.tour.chip-only .num{min-width:38px;font-size:15px;padding:4px 6px}
-.dirs .route-name{font-weight:700;margin-right:6px}
-.dir{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 14px;font-weight:600;font-size:13px}
-.dir:hover{border-color:var(--ink)}
-.dir[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.tour b{font-size:13px}
-@media (max-width:560px){.tour{flex:1 1 100%}}
-</style>
+<!-- ================= Startsidan ================= -->
+<main class="home" id="home">
+  <div class="home-top">
+    <span class="logo"><i>↗</i>Hoppa på</span>
+    <div class="seg" role="group" aria-label="Stad" id="cityPick"></div>
+  </div>
+  <div class="hero">
+    <h1>Upptäck <span id="cityName">Göteborg</span> från fönstret</h1>
+    <p>En guide som berättar om det du åker förbi – på vanliga spårvagnar, bussar och båtar. Hoppa av där det låter spännande.</p>
+  </div>
+  <label class="search"><span hidden>Sök linje</span>
+    <input id="lineSearch" type="search" inputmode="numeric" placeholder="Sök linje, t.ex. 11 eller 540" aria-label="Sök linjenummer">
+  </label>
 
-<div class="wrap">
-  <header>
-    <div class="brand">
-      <span class="eyebrow">Guidad tur med vanlig kollektivtrafik · <span class="proto">Prototyp</span></span>
-      <h1>Hoppa på <span id="cityName">Göteborg</span></h1>
+  <section class="sec" aria-labelledby="nearH">
+    <div class="sec-head"><h2 id="nearH">Nära dig</h2><button type="button" class="btn" id="nearClose" hidden>Dölj</button></div>
+    <div class="near-card">
+      <div class="near-empty" id="nearPrompt"><p>Se vilka linjer som går från hållplatserna runt dig just nu.</p><button class="btn primary" id="nearBtn" type="button">📍 Visa</button></div>
+      <div id="nearby" hidden aria-live="polite">
+        <p class="muted" id="nearInfo"></p>
+        <div class="near-list" id="nearList"></div>
+      </div>
     </div>
-    <div class="sign" id="sign"><span class="num" id="signNum">11</span> <span id="signText">Laddar turen…</span></div>
-  </header>
+  </section>
 
-  <section class="picker" aria-label="Välj linje">
-    <div class="pick-row">
-      <div class="mode" role="group" aria-label="Stad" id="cityPick"></div>
-      <div class="mode" role="group" aria-label="Färdmedel" id="modePick"></div>
-      <input id="lineSearch" type="search" inputmode="numeric" placeholder="Sök linje, t.ex. 54" aria-label="Sök linjenummer">
-      <button class="btn near-btn" id="nearBtn" type="button">📍 Avgår nära mig</button>
-    </div>
-    <section class="card nearby" id="nearby" hidden aria-live="polite">
-      <div class="near-head"><h2>Avgår nära dig</h2><button type="button" class="dir" id="nearClose">Stäng</button></div>
-      <p class="muted" id="nearInfo"></p>
-      <div class="near-list" id="nearList"></div>
-    </section>
+  <section class="sec" aria-labelledby="featH" id="featSec">
+    <div class="sec-head"><h2 id="featH">Med inläst guide</h2></div>
+    <div class="featured" id="featured"></div>
+  </section>
+
+  <section class="sec" aria-labelledby="allH">
+    <div class="filters"><h2 id="allH" style="font-size:18px">Alla linjer</h2><div class="seg" role="group" aria-label="Färdmedel" id="modePick"></div></div>
     <nav class="tours" id="tours" aria-label="Linjer"></nav>
-    <div class="dirs" id="dirs" role="group" aria-label="Välj riktning"></div>
   </section>
+  <p class="foot">Prototyp · <button type="button" data-about>Så fungerar guiden</button></p>
+</main>
 
-  <section class="card alerts" id="alerts" hidden aria-live="polite">
-    <h2 id="alertsTitle">Trafikstörningar</h2>
+<!-- ================= Turen ================= -->
+<div class="tour-view" id="tourView">
+  <header class="topbar">
+    <a class="iconbtn" href="#" id="backBtn" aria-label="Tillbaka till linjerna">←</a>
+    <div class="title" id="sign">
+      <span class="badge" id="signNum">11</span>
+      <div style="min-width:0"><b id="signTitle">Laddar…</b><small id="signText"></small></div>
+    </div>
+    <button class="iconbtn" type="button" data-about aria-label="Så fungerar guiden">ⓘ</button>
+  </header>
+  <details class="alerts" id="alerts" hidden aria-live="polite">
+    <summary id="alertsTitle">Trafikstörningar</summary>
     <ul id="alertList"></ul>
-  </section>
+  </details>
 
-  <div class="grid">
-    <section class="card mapcard" aria-label="Karta över turen">
+  <div class="tour-main">
+    <section class="map-area" aria-label="Karta över turen">
       <svg id="map" viewBox="0 0 640 520" role="img" aria-label="Karta över turen"></svg>
       <div class="mapgl-wrap" id="mapglWrap" hidden>
         <div id="mapgl" role="region" aria-label="Karta över turen"></div>
         <button type="button" class="follow" id="followBtn" hidden>◎ Följ fordonet</button>
       </div>
-      <div class="controls">
-        <div class="mode" role="group" aria-label="Läge">
-          <button type="button" id="modeSim" aria-pressed="true">Simulera</button>
-          <button type="button" id="modeGps" aria-pressed="false">Min position</button>
-        </div>
-        <button class="btn primary" id="play" type="button">▶ Starta turen</button>
-        <div class="ctl-group" id="speedGroup">
-          <label for="speed">Tempo</label>
-          <select id="speed">
-            <option value="1">Verklig tid</option>
-            <option value="10" selected>Demo 10×</option>
-            <option value="30">Snabb 30×</option>
-          </select>
-        </div>
-        <div class="ctl-group">
-          <label for="voice">Ljud</label>
-          <select id="voice">
-            <option value="guide" selected id="guideOpt">Guiden</option>
-            <option value="off">Bara text</option>
-          </select>
-        </div>
-        <span class="clock" id="clock">00:00</span>
-      </div>
-      <p class="gpsmsg" id="gpsMsg" hidden></p>
-      <div class="trip" id="trip" hidden></div>
     </section>
 
-    <div class="guide">
-      <section class="card now" aria-live="polite">
-        <div class="meta">
-          <span class="chip" id="stopCount">Hållplats</span>
-          <span class="chip" id="status">Redo att åka</span>
-        </div>
+    <div class="sheet">
+      <section class="now" aria-live="polite">
+        <div class="meta"><span class="chip" id="stopCount">Hållplats</span></div>
         <div class="stage" id="stage">
           <div class="stage-bg" id="bgA"></div><div class="stage-bg" id="bgB"></div>
           <div class="stage-text">
@@ -155,43 +71,77 @@
           <a class="credit" id="credit" target="_blank" rel="noopener" hidden></a>
         </div>
         <div class="lookout" id="lookout" hidden><b>Titta ut</b><span id="lookoutText"></span></div>
-        <div class="row">
-          <button class="btn" id="listen" type="button">🔊 Lyssna</button>
-          <button class="btn" id="stopAudio" type="button" hidden>■ Stoppa ljud</button>
-          <button class="btn" id="hop" type="button">Hoppa av här</button>
-          <button class="btn" id="depBtn" type="button" hidden>Avgångar härifrån</button>
-        </div>
-        <div class="deps" id="deps" hidden></div>
+        <p class="gpsmsg" id="gpsMsg" hidden></p>
         <div class="tips" id="tips">
           <h3>Om du kliver av här</h3>
           <ul id="tipList"></ul>
         </div>
+        <div class="actions">
+          <button class="btn" id="listen" type="button">🔊 Lyssna igen</button>
+          <button class="btn" id="stopAudio" type="button" hidden>■ Tyst</button>
+          <button class="btn" id="hop" type="button">Hoppa av här</button>
+          <button class="btn" id="depBtn" type="button" hidden>Avgångar härifrån</button>
+        </div>
+        <div class="deps" id="deps" hidden></div>
+        <div class="trip" id="trip" hidden></div>
       </section>
 
-      <section class="card stops" aria-label="Hållplatser">
-        <h3>Guidade hållplatser</h3>
+      <details class="panel stops" id="stopsPanel">
+        <summary>Alla guidade hållplatser</summary>
         <ol id="stopList"></ol>
-      </section>
+      </details>
+      <details class="panel">
+        <summary>Byt riktning</summary>
+        <div class="dirs" id="dirs" role="group" aria-label="Välj riktning"></div>
+      </details>
     </div>
   </div>
 
-  <section class="card how">
-    <h2>Så styrs guiden</h2>
-    <div>
-      <h3>Position, inte tid</h3>
-      <p>Allt utgår från var fordonet är längs den riktiga linjen. Berättelsen om en hållplats startar så långt innan att den är klar ungefär vid ankomst.</p>
-    </div>
-    <div>
-      <h3>Titta ut med radie</h3>
-      <p>Varje sevärdhet har en punkt och en radie, de streckade cirklarna på kartan. Tipset spelas när du är innanför radien, även vid förseningar.</p>
-    </div>
-    <div>
-      <h3>Simulera eller åk på riktigt</h3>
-      <p>Simulatorn kör en låtsasbuss längs linjen. "Min position" använder telefonens GPS. Det fungerar i webbappen, men inte i den här förhandsvisningen.</p>
-    </div>
-    <p class="src" style="grid-column:1/-1" id="source">Linjer och hållplatser: © OpenStreetMaps bidragsgivare (ODbL).</p>
-  </section>
+  <div class="dock" role="group" aria-label="Uppspelning">
+    <button class="play" id="play" type="button">▶ Starta</button>
+    <div class="info"><span class="chip" id="status">Redo att åka</span><span class="clock" id="clock">00:00</span></div>
+    <button class="iconbtn" type="button" id="settingsBtn" aria-label="Inställningar">⚙︎</button>
+  </div>
 </div>
+
+<!-- ================= Dialoger ================= -->
+<dialog id="settings" aria-labelledby="setH">
+  <form method="dialog" class="dlg">
+    <div class="dlg-head"><h2 id="setH">Inställningar</h2><button class="iconbtn" value="close" aria-label="Stäng">✕</button></div>
+    <div class="field"><span>Hur ska guiden följa med?</span>
+      <div class="seg" role="group" aria-label="Läge">
+        <button type="button" id="modeSim" aria-pressed="true">Simulera resan</button>
+        <button type="button" id="modeGps" aria-pressed="false">Min position (GPS)</button>
+      </div>
+    </div>
+    <label class="field" id="speedGroup"><span>Tempo i simuleringen</span>
+      <select id="speed">
+        <option value="1">Verklig tid</option>
+        <option value="10" selected>Demo 10×</option>
+        <option value="30">Snabb 30×</option>
+      </select>
+    </label>
+    <label class="field"><span>Ljud</span>
+      <select id="voice">
+        <option value="guide" selected id="guideOpt">Guiden</option>
+        <option value="off">Bara text</option>
+      </select>
+    </label>
+  </form>
+</dialog>
+
+<dialog id="about" aria-labelledby="aboutH">
+  <form method="dialog" class="dlg">
+    <div class="dlg-head"><h2 id="aboutH">Så fungerar guiden</h2><button class="iconbtn" value="close" aria-label="Stäng">✕</button></div>
+    <div class="how">
+      <div><h3>Position, inte tid</h3><p>Allt utgår från var fordonet är längs den riktiga linjen. Berättelsen om en hållplats börjar så att den är klar ungefär vid ankomst.</p></div>
+      <div><h3>Titta ut</h3><p>Sevärdheter har en punkt och en radie. Tipset kommer när du är innanför radien, även om du är försenad.</p></div>
+      <div><h3>Simulera eller åk på riktigt</h3><p>Simuleringen kör en låtsasbuss längs linjen. Med "Min position" följer guiden telefonens GPS när du åker.</p></div>
+      <div><h3>Bilder och fakta</h3><p>Berättelserna bygger på Wikipedia. Bilderna kommer från Wikimedia Commons och museernas samlingar via K-samsök, med fotograf och licens angivna.</p></div>
+      <p class="src" id="source"></p>
+    </div>
+  </form>
+</dialog>
 
 <script>
 (function(){
@@ -271,6 +221,7 @@
     const cities=[...new Set(DATA.tours.map(e=>e.city))];
     segButtons($("cityPick"),cities.map(c=>[c,c]),pick.city,c=>{ pick.city=c; pick.mode=null; buildTabs(); });
     const inCity=DATA.tours.filter(e=>e.city===pick.city);
+    $("cityName").textContent=pick.city; buildFeatured();
     const modes=["tram","bus","boat"].filter(m=>inCity.some(e=>e.mode===m));
     if(!modes.includes(pick.mode)) pick.mode=modes[0];
     segButtons($("modePick"),modes.map(m=>[m,MODE_LABEL[m]+" ("+new Set(inCity.filter(e=>e.mode===m).map(e=>e.group)).size+")"]),pick.mode,m=>{ pick.mode=m; buildTabs(); });
@@ -296,10 +247,25 @@
       if(groups[e.group].some(id=>byId[id].guide)){ const v=document.createElement("small"); v.textContent=" 🔊"; btn.append(v); }
       btn.setAttribute("aria-current", T && T.group===e.group ? "true":"false");
       // linjer med inläst röst öppnar röstturen först
-      btn.addEventListener("click",()=>{ const k=groups[e.group].find(id=>byId[id].guide)||groups[e.group][0]; if(location.hash!=="#"+k) location.hash=k; else loadTour(k); });
+      btn.addEventListener("click",()=>{ const k=groups[e.group].find(id=>byId[id].guide)||groups[e.group][0]; if(location.hash!=="#"+k) location.hash=k; else route(); });
       tabs.appendChild(btn);
     });
     if(!tabs.children.length){ const p=document.createElement("span"); p.className="muted"; p.textContent="Ingen linje matchar."; tabs.appendChild(p); }
+  }
+  // utvalda turer med inläst röst (kort med bild) på startsidan
+  async function buildFeatured(){
+    const box=$("featured"), list=DATA.tours.filter(e=>e.guide && e.city===pick.city);
+    $("featSec").hidden=!list.length;
+    if(box.dataset.city===pick.city) return; box.dataset.city=pick.city; box.textContent="";
+    for(const e of list){
+      const b=document.createElement("button"); b.type="button"; b.className="fcard";
+      const n=document.createElement("span"); n.className="badge"; n.textContent=e.line; paintNum(n,e.color);
+      const t=document.createElement("b"); t.textContent=e.from+" → "+e.to;
+      const m=document.createElement("small"); m.textContent="Guiden "+e.guide+(e.guided?" · "+e.guided+" berättelser":"");
+      b.append(n,t,m); b.addEventListener("click",()=>{ location.hash=e.id; });
+      box.appendChild(b);
+      fetchTour(e.id).then(t=>{ const st=t.stops.find(s=>s.images&&s.images.length); if(st) b.style.backgroundImage="url(\""+st.images[0].src.replace(/"/g,"%22")+"\")"; }).catch(()=>{});
+    }
   }
   function buildDirs(){
     const box=$("dirs"); box.textContent="";
@@ -311,7 +277,7 @@
       const b=document.createElement("button"); b.type="button"; b.className="dir";
       b.setAttribute("aria-pressed", k===T.id ? "true":"false");
       b.textContent=(t.guide?"🔊 ":"")+t.variant;
-      b.addEventListener("click",()=>{ if(location.hash!=="#"+k) location.hash=k; else loadTour(k); });
+      b.addEventListener("click",()=>{ if(location.hash!=="#"+k) location.hash=k; else route(); });
       box.appendChild(b);
     });
   }
@@ -628,10 +594,10 @@
     hopBtn.textContent = S.hopped ? "Hoppa på igen" : "Hoppa av här";
     hopBtn.disabled = finished && !S.hopped;
     if(S.mode==="sim"){
-      playBtn.textContent = S.playing ? "❚❚ Pausa" : (S.started ? (finished ? "↺ Åk igen" : "▶ Fortsätt") : "▶ Starta turen");
+      playBtn.textContent = S.playing ? "❚❚ Paus" : (S.started ? (finished ? "↺ Igen" : "▶ Fortsätt") : "▶ Starta");
       playBtn.disabled = S.hopped;
     }else{
-      playBtn.textContent = S.gpsWatch!==null ? "■ Stoppa GPS" : "▶ Starta med GPS";
+      playBtn.textContent = S.gpsWatch!==null ? "■ Stoppa" : "▶ Starta GPS";
       playBtn.disabled = false;
     }
     [...list.children].forEach(li=>{
@@ -727,9 +693,9 @@
     const d=normName(direction);
     return g.find(id=>!byId[id].guide && d && (d.includes(normName(byId[id].to))||normName(byId[id].to).includes(d))) || g.find(id=>!byId[id].guide) || g[0];
   }
-  $("nearClose").addEventListener("click",()=>{ $("nearby").hidden=true; });
+  $("nearClose").addEventListener("click",()=>{ $("nearby").hidden=true; $("nearPrompt").hidden=false; $("nearClose").hidden=true; });
   $("nearBtn").addEventListener("click",()=>{
-    const box=$("nearby"); box.hidden=false; $("nearList").textContent=""; nearInfo("Söker din position…");
+    const box=$("nearby"); box.hidden=false; $("nearPrompt").hidden=true; $("nearClose").hidden=false; $("nearList").textContent=""; nearInfo("Söker din position…");
     if(!("geolocation" in navigator)){ nearInfo("Den här enheten saknar platstjänster."); return; }
     navigator.geolocation.getCurrentPosition(async pos=>{
       const p={lat:pos.coords.latitude,lon:pos.coords.longitude};
@@ -754,7 +720,7 @@
           w.appendChild(sm);
           const m=document.createElement("span"); m.className="min"; m.textContent=minsUntil(l.time);
           b.append(n,w,m);
-          b.addEventListener("click",()=>{ $("nearby").hidden=true; if(location.hash!=="#"+id) location.hash=id; else loadTour(id); window.scrollTo({top:0,behavior:"smooth"}); });
+          b.addEventListener("click",()=>{ if(location.hash!=="#"+id) location.hash=id; else route(); });
           list.appendChild(b);
         });
         nearInfo(shown ? "Närmast: "+j.stops.slice(0,3).map(s=>s.name).join(", ")+". Tryck på en linje för att starta turen." : "Inga turer avgår från hållplatserna nära dig den närmaste halvtimmen.");
@@ -904,6 +870,7 @@
     paintNum($("signNum"),T.color);
     $("cityName").textContent=T.city;
     $("signNum").textContent=T.line;
+    $("signTitle").textContent=T.vehicleLong.charAt(0).toUpperCase()+T.vehicleLong.slice(1)+" "+T.line+(T.tab?" · "+T.tab:"");
     $("signText").textContent=T.from+" → "+T.to+" · ca "+T.total+" min";
     $("sign").setAttribute("aria-label",T.vehicleLong+" "+T.line+", "+T.from+" till "+T.to);
     const hasVoice=!!(T.guide||T.tts);
@@ -933,12 +900,33 @@
 
   const DEFAULT_TOUR="goteborg-tram-11-rost";
   $("lineSearch").addEventListener("input",e=>{ pick.q=e.target.value; buildTabs(); });
+  // två lägen: startsidan (ingen tur i adressen) och turen (#tur-id)
+  function setView(v){
+    document.body.dataset.view=v;
+    if(v==="tour" && GL.map) setTimeout(()=>{ GL.map.resize(); if(T){ GL.lastPan=0; glPosition(true); } },50);
+  }
+  function route(){
+    const key=location.hash.slice(1);
+    if(key && byId[key]){ setView("tour"); window.scrollTo(0,0); if(!T || T.id!==key) loadTour(key); }
+    else{
+      if(S.playing){ S.playing=false; stopNarr(); }
+      if(S.gpsWatch!==null) stopGps();
+      setView("home");
+      if(!pick.city){ pick.city=DATA.tours[0].city; }
+      buildTabs();
+    }
+  }
+  $("settingsBtn").addEventListener("click",()=>$("settings").showModal());
+  document.querySelectorAll("[data-about]").forEach(b=>b.addEventListener("click",()=>$("about").showModal()));
+  $("backBtn").addEventListener("click",e=>{ e.preventDefault(); location.hash=""; });
+
+  document.body.dataset.view="home";
   fetch("data/index.json").then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); }).then(d=>{
     DATA=d; buildIndex();
     loadGL().then(initGL).catch(()=>{});
-    window.addEventListener("hashchange",()=>loadTour(location.hash.slice(1)));
-    loadTour(location.hash.slice(1));
+    window.addEventListener("hashchange",route);
+    route();
     S.last=performance.now(); requestAnimationFrame(tick);
-  }).catch(()=>{ $("signText").textContent="Kunde inte ladda turerna. Ladda om sidan."; });
+  }).catch(()=>{ $("nearInfo").textContent="Kunde inte ladda turerna. Ladda om sidan."; });
 })();
 </script>

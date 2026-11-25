@@ -871,7 +871,7 @@
   stopAudioBtn.addEventListener("click",()=>{ stopNarr(); });
   $("depBtn").addEventListener("click",()=>{ const D=S.topic>=0?S.topic:guided[0]; showDepartures(D); });
   $("speed").addEventListener("change",e=>{ S.speed=Number(e.target.value)||10; });
-  $("voice").addEventListener("change",e=>{ S.voice=T.guide ? e.target.value : "off"; stopNarr(); });
+  $("voice").addEventListener("change",e=>{ S.voice=(T.guide||T.tts) ? e.target.value : "off"; stopNarr(); });
   function setMode(m){
     if(m===S.mode) return;
     if(S.mode==="gps") stopGps();
@@ -897,8 +897,8 @@
     $("signNum").textContent=T.line;
     $("signText").textContent=T.from+" → "+T.to+" · ca "+T.total+" min";
     $("sign").setAttribute("aria-label",T.vehicleLong+" "+T.line+", "+T.from+" till "+T.to);
-    const hasVoice=!!T.guide;
-    $("guideOpt").textContent= hasVoice ? "Guiden "+T.guide : "Ingen röst än";
+    const hasVoice=!!(T.guide||T.tts);
+    $("guideOpt").textContent= T.guide ? "Guiden "+T.guide : (T.tts ? "Datorröst ("+T.tts+")" : "Ingen röst än");
     $("voice").disabled=!hasVoice;
     S.voice = hasVoice ? $("voice").value : "off";
     svg.setAttribute("aria-label","Karta över "+T.vehicleLong+" "+T.line+" från "+T.from+" till "+T.to);

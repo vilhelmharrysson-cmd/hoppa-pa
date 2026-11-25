@@ -22,7 +22,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 300
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -37,11 +37,35 @@ jobs:
             exit 1
           fi
           python3 tools/gtfs_build.py
+      - name: Hämta Piper-röst (cache)
+        uses: actions/cache@v4
+        with:
+          path: ~/.piper
+          key: piper-voice-sv-v1
+      - name: Spela in berättelser som saknar ljud (Piper)
+        run: |
+          pip install --quiet piper-tts
+          mkdir -p ~/.piper && cd ~/.piper
+          base=https://huggingface.co/rhasspy/piper-voices/resolve/main/sv/sv_SE
+          if [ ! -f voice.onnx ]; then
+            # Lisa om den finns, annars NST
+            if curl -fsSL -o voice.onnx "$base/lisa/medium/sv_SE-lisa-medium.onnx" && curl -fsSL -o voice.onnx.json "$base/lisa/medium/sv_SE-lisa-medium.onnx.json"; then
+              echo "sv_SE-lisa-medium" > name.txt
+            else
+              curl -fsSL -o voice.onnx "$base/nst/medium/sv_SE-nst-medium.onnx"
+              curl -fsSL -o voice.onnx.json "$base/nst/medium/sv_SE-nst-medium.onnx.json"
+              echo "sv_SE-nst-medium" > name.txt
+            fi
+          fi
+          name=$(cat name.txt); cp voice.onnx "$name.onnx"; cp voice.onnx.json "$name.onnx.json"
+          echo "Röst: $name"
+          cd "$GITHUB_WORKSPACE"
+          python3 tools/piper_audio.py ~/.piper/"$name".onnx --workers 4
       - name: Spara om något ändrats
         run: |
           git config user.name "hoppa-pa databygge"
           git config user.email "actions@users.noreply.github.com"
-          git add public/data
+          git add public/data public/audio/piper
           if git diff --cached --quiet; then
             echo "Inga ändringar i linjerna."
           else

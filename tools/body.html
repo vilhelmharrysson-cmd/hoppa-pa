@@ -11,6 +11,12 @@
 .gpsmsg{margin:0;padding:10px 14px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
 .dist{font-family:var(--mono);font-variant-numeric:tabular-nums}
 .src{font-size:12px;color:var(--muted);margin:0}
+.mapgl-wrap{position:relative}
+#mapgl{width:100%;height:440px}
+@media (max-width:860px){#mapgl{height:360px}}
+.follow{position:absolute;right:10px;bottom:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 12px;font-weight:600;font-size:13px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.gl-vehicle{font-family:var(--mono);font-weight:700;font-size:12px;border-radius:6px;padding:2px 7px;border:2px solid;box-shadow:0 2px 6px rgba(0,0,0,.3)}
+.gl-gps{width:16px;height:16px;border-radius:50%;background:#2f7de1;border:3px solid #fff;box-shadow:0 0 0 6px rgba(47,125,225,.25)}
 .alerts{padding:14px 18px;border-left:4px solid #ee293d;display:flex;flex-direction:column;gap:8px}
 .alerts h2{font-size:17px}
 .alerts ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
@@ -70,6 +76,10 @@
   <div class="grid">
     <section class="card mapcard" aria-label="Karta över turen">
       <svg id="map" viewBox="0 0 640 520" role="img" aria-label="Karta över turen"></svg>
+      <div class="mapgl-wrap" id="mapglWrap" hidden>
+        <div id="mapgl" role="region" aria-label="Karta över turen"></div>
+        <button type="button" class="follow" id="followBtn" hidden>◎ Följ fordonet</button>
+      </div>
       <div class="controls">
         <div class="mode" role="group" aria-label="Läge">
           <button type="button" id="modeSim" aria-pressed="true">Simulera</button>
@@ -320,6 +330,7 @@
     const vt=el("text",{x:0,y:4,"text-anchor":"middle",class:"tram-num"},vehicle); vt.textContent=T.line;
     if(T.color){ vb.style.fill=T.color[0]; vb.style.stroke=T.color[1]; vt.style.fill=T.color[1];
       if(T.color[0].toLowerCase()!=="#ffffff") donePath.style.stroke=T.color[0]; }
+    if(GL.ready) glDrawTour();
   }
   function drawPosition(){
     const p=pointAt(R,S.s); const [x,y]=proj(p.lat,p.lon);
@@ -333,6 +344,107 @@
     radii.forEach((c,k)=>c.classList.toggle("done",S.looked.has(k)));
     if(S.mode==="gps" && S.gps){ const [gx,gy]=proj(S.gps.lat,S.gps.lon); gpsDot.setAttribute("cx",gx); gpsDot.setAttribute("cy",gy); gpsDot.style.display=""; }
     else gpsDot.style.display="none";
+    if(GL.ready) glPosition();
+  }
+
+  // ---- Riktig karta: MapLibre med OpenFreeMap (gratis, ingen nyckel) ------------
+  // Laddas om webbläsaren får hämta den. Annars (t.ex. i förhandsvisningen) visas SVG-kartan ovan.
+  const GL={map:null,ready:false,follow:true,vehicle:null,vehEl:null,gps:null,lastDone:0,lastPan:0,doneKey:""};
+  const GL_VER="4.7.1";
+  function loadGL(){
+    return new Promise((res,rej)=>{
+      if(window.maplibregl) return res();
+      const t=setTimeout(()=>rej(new Error("timeout")),8000);
+      const css=document.createElement("link"); css.rel="stylesheet"; css.href="https://unpkg.com/maplibre-gl@"+GL_VER+"/dist/maplibre-gl.css"; document.head.appendChild(css);
+      const sc=document.createElement("script"); sc.src="https://unpkg.com/maplibre-gl@"+GL_VER+"/dist/maplibre-gl.js";
+      sc.onload=()=>{ clearTimeout(t); res(); }; sc.onerror=()=>{ clearTimeout(t); rej(new Error("load")); };
+      document.head.appendChild(sc);
+    });
+  }
+  function isDark(){
+    const a=document.documentElement.getAttribute("data-theme");
+    return a ? a==="dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+  }
+  function initGL(){
+    const style="https://tiles.openfreemap.org/styles/"+(isDark()?"dark":"positron");
+    let map;
+    try{ map=new maplibregl.Map({container:"mapgl",style,center:[11.97,57.70],zoom:11,attributionControl:{compact:true},cooperativeGestures:false}); }
+    catch(e){ return; }
+    GL.map=map;
+    const fail=setTimeout(()=>{ if(!GL.ready){ try{map.remove();}catch(e){} GL.map=null; } },9000);
+    map.addControl(new maplibregl.NavigationControl({showCompass:false}),"top-right");
+    map.on("load",()=>{
+      clearTimeout(fail);
+      // svenska ortnamn i kartan där de finns
+      try{ map.getStyle().layers.forEach(l=>{ if(l.type==="symbol" && l.layout && l.layout["text-field"]) map.setLayoutProperty(l.id,"text-field",["coalesce",["get","name:sv"],["get","name"]]); }); }catch(e){}
+      GL.ready=true;
+      svg.hidden=true; $("mapglWrap").hidden=false; map.resize();
+      if(T) { glDrawTour(); glPosition(true); }
+    });
+    map.on("dragstart",()=>{ GL.follow=false; $("followBtn").hidden=false; });
+    $("followBtn").addEventListener("click",()=>{ GL.follow=true; $("followBtn").hidden=true; GL.lastPan=0; glPosition(true); });
+    map.on("click","gl-major",e=>{ const f=e.features&&e.features[0]; if(f) jumpTo(f.properties.i); });
+    map.on("mouseenter","gl-major",()=>map.getCanvas().style.cursor="pointer");
+    map.on("mouseleave","gl-major",()=>map.getCanvas().style.cursor="");
+  }
+  const lineColor=()=> !T.color || T.color[0].toLowerCase()==="#ffffff" ? (T.color?T.color[1]:"#0d2a33") : T.color[0];
+  function circle(lat,lon,r){ const pts=[]; for(let k=0;k<=32;k++){ const a=k/32*2*Math.PI; pts.push([lon+r*Math.cos(a)/(111320*Math.cos(lat*Math.PI/180)), lat+r*Math.sin(a)/111320]); } return pts; }
+  function stopFeatures(){
+    return {type:"FeatureCollection",features:T.stops.map((st,i)=>({type:"Feature",geometry:{type:"Point",coordinates:[st.lon,st.lat]},
+      properties:{i,name:st.name,major:!!st.story,done:st.s<=S.s+5}}))};
+  }
+  function doneLine(){
+    const c=[]; for(let i=0;i<R.cum.length && R.cum[i]<S.s;i++) c.push([T.route[i][1],T.route[i][0]]);
+    const p=pointAt(R,S.s); c.push([p.lon,p.lat]); if(c.length<2) c.push(c[0]);
+    return {type:"Feature",geometry:{type:"LineString",coordinates:c},properties:{}};
+  }
+  function glDrawTour(){
+    const map=GL.map; if(!map) return;
+    ["gl-route-casing","gl-route","gl-done","gl-radius-fill","gl-radius-line","gl-minor","gl-major","gl-labels"].forEach(id=>{ if(map.getLayer(id)) map.removeLayer(id); });
+    ["gl-route","gl-done","gl-radii","gl-stops"].forEach(id=>{ if(map.getSource(id)) map.removeSource(id); });
+    const col=lineColor();
+    map.addSource("gl-route",{type:"geojson",data:{type:"Feature",geometry:{type:"LineString",coordinates:T.route.map(p=>[p[1],p[0]])},properties:{}}});
+    map.addSource("gl-done",{type:"geojson",data:doneLine()});
+    map.addSource("gl-radii",{type:"geojson",data:{type:"FeatureCollection",features:T.looks.map((L,k)=>({type:"Feature",geometry:{type:"Polygon",coordinates:[circle(L.lat,L.lon,L.r)]},properties:{k,text:L.text}}))}});
+    map.addSource("gl-stops",{type:"geojson",data:stopFeatures()});
+    map.addLayer({id:"gl-radius-fill",type:"fill",source:"gl-radii",paint:{"fill-color":"#f2b705","fill-opacity":0.15}});
+    map.addLayer({id:"gl-radius-line",type:"line",source:"gl-radii",paint:{"line-color":"#c99700","line-width":1.2,"line-dasharray":[2,2]}});
+    map.addLayer({id:"gl-route-casing",type:"line",source:"gl-route",layout:{"line-join":"round","line-cap":"round"},paint:{"line-color":isDark()?"#0b1a1f":"#ffffff","line-width":9}});
+    map.addLayer({id:"gl-route",type:"line",source:"gl-route",layout:{"line-join":"round","line-cap":"round"},paint:{"line-color":col,"line-width":5,"line-opacity":0.45}});
+    map.addLayer({id:"gl-done",type:"line",source:"gl-done",layout:{"line-join":"round","line-cap":"round"},paint:{"line-color":col,"line-width":5}});
+    map.addLayer({id:"gl-minor",type:"circle",source:"gl-stops",filter:["!",["get","major"]],paint:{"circle-radius":3.5,"circle-color":"#ffffff","circle-stroke-color":"#557079","circle-stroke-width":1.5}});
+    map.addLayer({id:"gl-major",type:"circle",source:"gl-stops",filter:["get","major"],paint:{"circle-radius":7,"circle-color":["case",["get","done"],col,"#ffffff"],"circle-stroke-color":col,"circle-stroke-width":3}});
+    map.addLayer({id:"gl-labels",type:"symbol",source:"gl-stops",filter:["get","major"],
+      layout:{"text-field":["get","name"],"text-font":["Noto Sans Bold"],"text-size":12,"text-offset":[0,1.2],"text-anchor":"top","text-optional":true},
+      paint:{"text-color":isDark()?"#e6f0f1":"#0d2a33","text-halo-color":isDark()?"#0b1a1f":"#ffffff","text-halo-width":1.6}});
+    if(GL.vehicle) GL.vehicle.remove();
+    const v=document.createElement("div"); v.className="gl-vehicle"; v.textContent=T.line;
+    if(T.color){ v.style.background=T.color[0]; v.style.color=T.color[1]; v.style.borderColor=T.color[1]; }
+    GL.vehEl=v; GL.vehicle=new maplibregl.Marker({element:v}).setLngLat([T.route[0][1],T.route[0][0]]).addTo(map);
+    if(!GL.gps){ const g=document.createElement("div"); g.className="gl-gps"; GL.gps=new maplibregl.Marker({element:g}).setLngLat([0,0]); }
+    const b=new maplibregl.LngLatBounds(); T.route.forEach(p=>b.extend([p[1],p[0]]));
+    map.fitBounds(b,{padding:40,duration:0});
+    GL.follow=true; $("followBtn").hidden=true; GL.doneKey="";
+  }
+  function glPosition(force){
+    const map=GL.map; if(!map || !GL.vehicle) return;
+    const p=pointAt(R,S.s);
+    GL.vehicle.setLngLat([p.lon,p.lat]);
+    GL.vehEl.style.display = (S.mode==="gps" && !S.gpsSeen) ? "none" : "";
+    if(S.mode==="gps" && S.gps){ GL.gps.setLngLat([S.gps.lon,S.gps.lat]).addTo(map); } else GL.gps.remove();
+    const now=performance.now();
+    if(force || now-GL.lastDone>300){
+      GL.lastDone=now;
+      const src=map.getSource("gl-done"); if(src) src.setData(doneLine());
+      const key=T.stops.filter(st=>st.s<=S.s+5).length;
+      if(key!==GL.doneKey){ GL.doneKey=key; const ss=map.getSource("gl-stops"); if(ss) ss.setData(stopFeatures()); }
+    }
+    const moving = (S.mode==="sim" && S.started) || (S.mode==="gps" && S.gpsSeen);
+    if(GL.follow && moving && (force || now-GL.lastPan>1000)){
+      GL.lastPan=now;
+      const c=S.mode==="gps" && S.gps ? [S.gps.lon,S.gps.lat] : [p.lon,p.lat];
+      map.easeTo({center:c,zoom:Math.max(map.getZoom(),15),duration:900});
+    }
   }
 
   // ---- Ljud ----------------------------------------------------------------
@@ -692,6 +804,7 @@
   $("lineSearch").addEventListener("input",e=>{ pick.q=e.target.value; buildTabs(); });
   fetch("data/index.json").then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); }).then(d=>{
     DATA=d; buildIndex();
+    loadGL().then(initGL).catch(()=>{});
     window.addEventListener("hashchange",()=>loadTour(location.hash.slice(1)));
     loadTour(location.hash.slice(1));
     S.last=performance.now(); requestAnimationFrame(tick);

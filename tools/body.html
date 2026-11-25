@@ -1090,7 +1090,14 @@
     if(!("geolocation" in navigator)) return;
     let state="prompt";
     try{ state=(await navigator.permissions.query({name:"geolocation"})).state; }catch(e){}
-    if(state==="granted" || (state==="prompt" && !savedCity())) $("nearBtn").click();
+    if(!(state==="granted" || (state==="prompt" && !savedCity()))) return;
+    // läser bara av staden – "Nära dig" fälls ut först när man trycker på Visa
+    navigator.geolocation.getCurrentPosition(pos=>{
+      const p={lat:pos.coords.latitude,lon:pos.coords.longitude};
+      const c=CITY_CENTERS.map(c=>({...c,d:distM(p,c,p.lat)})).sort((a,b)=>a.d-b.d)[0];
+      if(c.d<=60000 && pick.city!==c.city && document.body.dataset.view==="home"){ pick.city=c.city; pick.mode=null; saveCity(c.city); buildTabs(); }
+      else if(c.d<=60000) saveCity(c.city);
+    }, ()=>{}, {enableHighAccuracy:false,timeout:15000,maximumAge:300000});
   }
   // två lägen: startsidan (ingen tur i adressen) och turen (#tur-id)
   function setView(v){

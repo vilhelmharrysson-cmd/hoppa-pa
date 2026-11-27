@@ -186,7 +186,7 @@ body[data-view="home"] #tourView{display:none}
 .dir[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
 .stops{padding-bottom:8px}
 .stops ol{list-style:none;margin:0;padding:0}
-.stops li{display:grid;grid-template-columns:48px 20px minmax(0,1fr) auto;align-items:center;gap:10px;padding:9px 16px;cursor:pointer;position:relative}
+.stops li{display:grid;grid-template-columns:48px 20px minmax(0,1fr) auto auto;align-items:center;gap:10px;padding:9px 16px;cursor:pointer;position:relative}
 .stops li:hover{background:var(--faint)}
 .stops li:not(:last-child)::after{content:"";position:absolute;left:73px;top:28px;height:calc(100% - 10px);width:2px;background:var(--line)}
 .stops .t{font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums;text-align:right}
@@ -220,6 +220,14 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
 .dlg{padding:20px;display:flex;flex-direction:column;gap:16px}
 .dlg-head{display:flex;align-items:center;justify-content:space-between}
 .dlg-head h2{font-size:19px}
+.qr{background:#fff;border-radius:14px;padding:12px;width:min(260px,100%);margin:0 auto;aspect-ratio:1}
+.qr svg{display:block;width:100%;height:100%}
+#shareUrl{font:inherit;padding:10px 12px;border-radius:12px;border:1px solid var(--line,#d5dde0);background:var(--bg,#fff);color:inherit;width:100%;box-sizing:border-box}
+.small{font-size:12.5px}
+.stops li .bell{border:0;background:none;font-size:15px;opacity:.35;cursor:pointer;padding:4px 6px;margin-left:auto}
+.stops li.alight .bell{opacity:1}
+#alightBtn[aria-pressed="true"]{background:#ffd23f;color:#1a1a1a;border-color:#e0b400}
+.alight-banner{background:#ffd23f;color:#1a1a1a;font-weight:700;border-radius:14px;padding:12px 14px}
 .field{display:flex;flex-direction:column;gap:6px}
 .field>span{font-size:13px;font-weight:600;color:var(--muted)}
 .how{display:flex;flex-direction:column;gap:12px}
@@ -312,6 +320,7 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
       <span class="badge" id="signNum">11</span>
       <div style="min-width:0"><b id="signTitle">Laddar…</b><small id="signText"></small></div>
     </div>
+    <button class="iconbtn" type="button" id="shareBtn" aria-label="Dela turen">⤴</button>
     <button class="iconbtn" type="button" data-about aria-label="Så fungerar guiden">ⓘ</button>
   </header>
   <details class="alerts" id="alerts" hidden aria-live="polite">
@@ -349,6 +358,8 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
           <button class="btn" id="listen" type="button">🔊 Lyssna igen</button>
           <button class="btn" id="stopAudio" type="button" hidden>■ Tyst</button>
           <button class="btn" id="hop" type="button">Hoppa av här</button>
+          <button class="btn" id="alightBtn" type="button" aria-pressed="false">🔔 Säg till före</button>
+          <button class="btn" id="dlBtn" type="button">⬇ Spara offline</button>
           <button class="btn" id="depBtn" type="button" hidden>Avgångar härifrån</button>
         </div>
         <div class="deps" id="deps" hidden></div>
@@ -404,6 +415,20 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
   </form>
 </dialog>
 
+<dialog id="share" aria-labelledby="shareH">
+  <form method="dialog" class="dlg">
+    <div class="dlg-head"><h2 id="shareH">Dela turen</h2><button class="iconbtn" value="close" aria-label="Stäng">✕</button></div>
+    <p class="muted" id="shareText"></p>
+    <div class="qr" id="qrBox" aria-label="QR-kod till turen"></div>
+    <input id="shareUrl" readonly aria-label="Länk till turen">
+    <div class="actions">
+      <button class="btn primary" type="button" id="shareNative" hidden>Dela…</button>
+      <button class="btn" type="button" id="shareCopy">Kopiera länk</button>
+    </div>
+    <p class="muted small">Skriv ut QR-koden, till exempel på hotellet eller i turistbyrån. Den öppnar turen direkt i telefonen.</p>
+  </form>
+</dialog>
+
 <dialog id="about" aria-labelledby="aboutH">
   <form method="dialog" class="dlg">
     <div class="dlg-head"><h2 id="aboutH">Så fungerar guiden</h2><button class="iconbtn" value="close" aria-label="Stäng">✕</button></div>
@@ -453,7 +478,7 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
   let DATA=null, T=null, R=null, guided=[];
   const S={ mode:"sim", s:0, playing:false, hopped:false, started:false, speed:10, voice:"guide",
             dwellUntil:0, simTime:0, last:0, played:new Set(), looked:new Set(), topic:-1,
-            narr:null, pendingLook:null, gps:null, gpsWatch:null, gpsSeen:false };
+            narr:null, pendingLook:null, gps:null, gpsWatch:null, gpsSeen:false, alight:-1, alightDone:false, curD:-1 };
 
   function prepTour(key){
     T=loaded[key];
@@ -856,8 +881,12 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
   function render(){
     const last=guided[guided.length-1];
     const D = S.topic>=0 ? S.topic : (nextGuided()>=0 ? nextGuided() : last);
-    const st=T.stops[D];
+    const st=T.stops[D]; S.curD=D;
     showStop(D);
+    const ab=$("alightBtn"), on=S.alight===D && !S.alightDone;
+    ab.setAttribute("aria-pressed",on?"true":"false");
+    ab.textContent = on ? "🔔 Säger till före "+st.name : "🔔 Säg till före";
+    ab.hidden = S.hopped || (S.started && st.s - S.s < 450 && !on);
     $("stopCount").textContent="Guidad hållplats "+(guided.indexOf(D)+1)+" av "+guided.length;
     const chip=$("status"); chip.className="chip";
     const at=nearestStopAt(), ng=nextGuided();
@@ -915,6 +944,7 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
       li.classList.toggle("done",T.stops[k].s<S.s-15 && k!==D);
       li.classList.toggle("cur",k===D);
       li.setAttribute("aria-current",k===D?"step":"false");
+      li.classList.toggle("alight",k===S.alight && !S.alightDone);
     });
     const mins = S.mode==="sim" ? S.simTime/60 : 0;
     const mm=Math.floor(mins), ss=Math.floor((mins-mm)*60);
@@ -925,6 +955,7 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
   // ---- Triggers: samma logik för simulator och GPS ----------------------------
   function triggers(pos){
     if(S.hopped) return;
+    alightCheck();
     // 1) Titta ut: inom radien från sevärdhetens punkt
     T.looks.forEach((L,k)=>{
       if(S.looked.has(k)) return;
@@ -951,7 +982,63 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
   function startStory(i){
     S.played.add(i); S.topic=i; showLook("");
     play("story",i,T.stops[i].audio,readMs(T.stops[i].story));
+    mediaMeta(i);
     S.shownD=-1; render(); capStart(i);
+  }
+
+  // ---- Låsskärm och hörlurar (Media Session) ------------------------------------
+  function mediaMeta(i){
+    if(!("mediaSession" in navigator) || !T) return;
+    const st=T.stops[i]; const img=(st.images||[])[0];
+    try{ navigator.mediaSession.metadata=new MediaMetadata({ title:st.name, artist:T.vehicleLong.charAt(0).toUpperCase()+T.vehicleLong.slice(1)+" "+T.line+" mot "+T.to, album:"Hoppa på",
+      artwork: img ? [{src:img.src,sizes:"640x480"}] : [{src:"icons/icon-192.png",sizes:"192x192",type:"image/png"}] }); }catch(e){}
+  }
+  (function(){
+    if(!("mediaSession" in navigator)) return;
+    const h=(a,f)=>{ try{ navigator.mediaSession.setActionHandler(a,f); }catch(e){} };
+    h("play",()=>{ if(S.mode==="sim" && !S.playing && !S.hopped) playBtn.click(); else if(player.src && player.paused) player.play().catch(()=>{}); });
+    h("pause",()=>{ if(S.mode==="sim" && S.playing) playBtn.click(); else stopNarr(); });
+    h("stop",()=>stopNarr());
+    h("nexttrack",()=>{ const g=nextGuided(); if(g>=0) jumpTo(g); });
+    h("previoustrack",()=>listenBtn.click());
+  })();
+
+  // ---- Säg till före avstigning ---------------------------------------------------------
+  function alightCheck(){
+    if(S.alight<0 || S.alightDone || S.hopped || !S.started) return;
+    const st=T.stops[S.alight], prev=T.stops[S.alight-1];
+    const left = st.s - S.s;
+    const nearPrev = prev ? S.s >= prev.s - 5 : true;
+    if(left < -30){ S.alightDone=true; return; }
+    if(left <= 450 || (nearPrev && left <= 1500)){
+      S.alightDone=true; alightAlert(st);
+    }
+  }
+  function alightAlert(st){
+    const msg="Nästa hållplats: "+st.name+". Dags att kliva av.";
+    try{ navigator.vibrate && navigator.vibrate([400,200,400,200,400]); }catch(e){}
+    gpsMsg("🔔 "+msg); $("gpsMsg").classList.add("alight-banner");
+    setTimeout(()=>$("gpsMsg").classList.remove("alight-banner"),20000);
+    try{
+      if(S.voice!=="off" && "speechSynthesis" in window){
+        stopNarr();
+        const u=new SpeechSynthesisUtterance(msg); u.lang="sv-SE"; u.rate=1; speechSynthesis.speak(u);
+      }
+    }catch(e){}
+    try{
+      if("Notification" in window && Notification.permission==="granted" && navigator.serviceWorker)
+        navigator.serviceWorker.ready.then(r=>r.showNotification("Dags att kliva av",{body:msg,tag:"hoppa-pa-alight",renotify:true,vibrate:[400,200,400],icon:"icons/icon-192.png"})).catch(()=>{});
+    }catch(e){}
+    render();
+  }
+  $("alightBtn").addEventListener("click",()=>setAlight(S.curD));
+  function setAlight(D){
+    if(D<0) return;
+    if(S.alight===D && !S.alightDone){ S.alight=-1; gpsMsg(""); render(); return; }
+    S.alight=D; S.alightDone=false;
+    gpsMsg("🔔 Jag säger till när vi närmar oss "+T.stops[D].name+". Telefonen vibrerar och guiden säger till.");
+    try{ if("Notification" in window && Notification.permission==="default") Notification.requestPermission().catch(()=>{}); }catch(e){}
+    render();
   }
 
   // ---- Textning och bilder -------------------------------------------------------
@@ -1115,7 +1202,7 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
   function resetRide(){
     stopNarr(); showLook("");
     Object.assign(S,{ s:T.stops[0].s, playing:false, hopped:false, started:false, dwellUntil:0, simTime:0, topic:-1, pendingLook:null });
-    S.played=new Set(); S.looked=new Set();
+    S.played=new Set(); S.looked=new Set(); S.alight=-1; S.alightDone=false;
   }
   function jumpTo(i){
     if(!T.stops[i].story) return;
@@ -1199,7 +1286,10 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
       const d=document.createElement("span"); d.className="dot";
       const n=document.createElement("span"); n.className="nm"; n.textContent=st.name;
       const g=document.createElement("span"); g.className="tag"; g.textContent=st.tips.length? st.tips.length+" tips" : "";
-      li.append(t,d,n,g);
+      const bell=document.createElement("button"); bell.type="button"; bell.className="bell"; bell.textContent="🔔";
+      bell.setAttribute("aria-label","Säg till före "+st.name);
+      bell.addEventListener("click",e=>{ e.stopPropagation(); setAlight(i); });
+      li.append(t,d,n,g,bell);
       li.addEventListener("click",()=>jumpTo(i));
       li.addEventListener("keydown",e=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); jumpTo(i);} });
       list.appendChild(li);
@@ -1207,9 +1297,56 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
     drawMap(); resetRide(); drawPosition(); render();
     S.tripShown=false; $("trip").hidden=true; $("deps").hidden=true;
     $("depBtn").hidden=!usesVT() || apiOk===false;
-    loadAlerts();
+    loadAlerts(); offLabel();
     if(pendingGps){ pendingGps=false; setMode("gps"); startGps(); }
   }
+
+  // ---- Dela turen (länk och QR-kod) ---------------------------------------------------
+  function loadScript(src){ return new Promise((res,rej)=>{ const sc=document.createElement("script"); sc.src=src; sc.onload=res; sc.onerror=rej; document.head.appendChild(sc); }); }
+  $("shareBtn").addEventListener("click",async()=>{
+    const url=location.origin+location.pathname+"#"+T.id;
+    const title="Hoppa på: "+T.vehicleLong+" "+T.line+" mot "+T.to;
+    $("shareText").textContent=title+" – en guidad tur med "+guided.length+" berättelser.";
+    $("shareUrl").value=url;
+    $("shareNative").hidden=!navigator.share;
+    $("shareNative").onclick=()=>navigator.share({title,text:title,url}).catch(()=>{});
+    $("shareCopy").onclick=()=>{ (navigator.clipboard?navigator.clipboard.writeText(url):Promise.reject()).then(()=>{ $("shareCopy").textContent="Kopierad ✓"; }).catch(()=>{ $("shareUrl").select(); document.execCommand&&document.execCommand("copy"); $("shareCopy").textContent="Kopierad ✓"; }); };
+    $("shareCopy").textContent="Kopiera länk";
+    const box=$("qrBox"); box.textContent="";
+    $("share").showModal();
+    try{
+      if(!window.qrcode) await loadScript("vendor/qrcode.js");
+      const q=qrcode(0,"M"); q.addData(url); q.make(); box.innerHTML=q.createSvgTag({cellSize:4,margin:2,scalable:true});
+    }catch(e){ box.hidden=true; }
+  });
+
+  // ---- Spara turen för resor utan nät --------------------------------------------------
+  // Turdata, ljud och bilder läggs i en egen cache som service workern läser från när nätet saknas.
+  const OFF="hoppa-pa-offline";
+  const offList=()=>{ try{ return JSON.parse(localStorage.getItem("hp_offline")||"[]"); }catch(e){ return []; } };
+  const offSave=l=>{ try{ localStorage.setItem("hp_offline",JSON.stringify(l)); }catch(e){} };
+  function offLabel(){ const b=$("dlBtn"); if(!("caches" in window)){ b.hidden=true; return; } b.disabled=false; b.textContent = offList().includes(T.id) ? "✓ Sparad offline" : "⬇ Spara offline"; }
+  $("dlBtn").addEventListener("click",async()=>{
+    const b=$("dlBtn"), id=T.id, t=T;
+    if(offList().includes(id)){ b.textContent="✓ Sparad offline – fungerar utan nät"; return; }
+    const urls=new Set(["./","index.html","data/index.json","data/tours/"+encodeURIComponent(id)+".json"]);
+    const ext=new Set();
+    t.stops.forEach(st=>{ if(st.audio) urls.add(st.audio); if(st.hopAudio) urls.add(st.hopAudio); (st.images||[]).forEach(im=>im.src && ext.add(im.src)); });
+    t.looks.forEach(L=>{ if(L.audio) urls.add(L.audio); });
+    const all=[...urls].map(u=>[u,false]).concat([...ext].map(u=>[u,true]));
+    let n=0, fail=0; b.disabled=true;
+    try{
+      const c=await caches.open(OFF);
+      const q=[...all];
+      const worker=async()=>{ while(q.length){ const [u,x]=q.shift();
+        try{ const r = x ? await fetch(u,{mode:"no-cors"}) : await fetch(u); if(x || r.ok) await c.put(u,r); else fail++; }catch(e){ fail++; }
+        n++; b.textContent="Sparar… "+Math.round(n/all.length*100)+" %"; } };
+      await Promise.all([worker(),worker(),worker(),worker()]);
+      const l=offList(); if(!l.includes(id)) l.push(id); offSave(l);
+      b.disabled=false; b.textContent = fail ? "✓ Sparad ("+fail+" filer saknas)" : "✓ Sparad offline";
+      try{ navigator.storage && navigator.storage.persist && navigator.storage.persist(); }catch(e){}
+    }catch(e){ b.disabled=false; b.textContent="Kunde inte spara – försök igen"; }
+  });
 
   const DEFAULT_TOUR="goteborg-tram-11-rost";
   $("lineSearch").addEventListener("input",e=>{ pick.q=e.target.value; buildTabs(); });

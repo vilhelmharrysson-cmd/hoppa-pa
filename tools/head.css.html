@@ -168,7 +168,7 @@ body[data-view="home"] #tourView{display:none}
 .dir[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
 .stops{padding-bottom:8px}
 .stops ol{list-style:none;margin:0;padding:0}
-.stops li{display:grid;grid-template-columns:48px 20px minmax(0,1fr) auto;align-items:center;gap:10px;padding:9px 16px;cursor:pointer;position:relative}
+.stops li{display:grid;grid-template-columns:48px 20px minmax(0,1fr) auto auto;align-items:center;gap:10px;padding:9px 16px;cursor:pointer;position:relative}
 .stops li:hover{background:var(--faint)}
 .stops li:not(:last-child)::after{content:"";position:absolute;left:73px;top:28px;height:calc(100% - 10px);width:2px;background:var(--line)}
 .stops .t{font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums;text-align:right}
@@ -202,6 +202,14 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
 .dlg{padding:20px;display:flex;flex-direction:column;gap:16px}
 .dlg-head{display:flex;align-items:center;justify-content:space-between}
 .dlg-head h2{font-size:19px}
+.qr{background:#fff;border-radius:14px;padding:12px;width:min(260px,100%);margin:0 auto;aspect-ratio:1}
+.qr svg{display:block;width:100%;height:100%}
+#shareUrl{font:inherit;padding:10px 12px;border-radius:12px;border:1px solid var(--line,#d5dde0);background:var(--bg,#fff);color:inherit;width:100%;box-sizing:border-box}
+.small{font-size:12.5px}
+.stops li .bell{border:0;background:none;font-size:15px;opacity:.35;cursor:pointer;padding:4px 6px;margin-left:auto}
+.stops li.alight .bell{opacity:1}
+#alightBtn[aria-pressed="true"]{background:#ffd23f;color:#1a1a1a;border-color:#e0b400}
+.alight-banner{background:#ffd23f;color:#1a1a1a;font-weight:700;border-radius:14px;padding:12px 14px}
 .field{display:flex;flex-direction:column;gap:6px}
 .field>span{font-size:13px;font-weight:600;color:var(--muted)}
 .how{display:flex;flex-direction:column;gap:12px}

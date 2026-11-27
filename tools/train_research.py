@@ -19,6 +19,10 @@ UA = {"User-Agent": "hoppa-pa-research/1.3 (open source travel guide prototype)"
 TILE = 0.1
 MAXD = 3500          # meter från spåret
 MAX_MIN = float(os.environ.get("MAX_MIN", "150"))
+# landskap och sevärdheter längs banan som inte har en enskild punkt nära spåret
+MUST = ["Västra stambanan", "Grödingebanan", "Göta kanal", "Billingen", "Mösseberg", "Ålleberg", "Falbygden", "Tiveden",
+        "Kilsbergen", "Säveån", "Mjörn", "Södertälje kanal", "Göta älv", "Hallsbergs rangerbangård", "Västgötaslätten",
+        "Sörmland", "Närke", "Västergötland", "Vättern", "Platåberg"]
 # tågtyper som kan gå på sträckan (för korten "Om ditt tåg"); slås upp med Wikipedias sökning
 TYPE_QUERIES = ["X 2000 snabbtåg", "SJ X 55 Regina snabbtåg", "Regina tåg Bombardier", "Coradia Nordic", "Stadler FLIRT X74",
                 "Zefiro Express SJ", "SJ 3000", "Västtågen", "Mälartåg", "MTR Express", "SJ Regional", "Rc lok SJ"]
@@ -113,8 +117,38 @@ def main():
     done = json.load(open(OUT, encoding="utf8")) if os.path.exists(OUT) else {"texts": {}}
     texts = done.get("texts", {})
     want = [(s["title"], 6000) for s in stations]
-    places.sort(key=lambda p: (p["dist"] > 1500, p["km"]))
-    want += [(p["title"], 2500) for p in places]
+    # tågtyperna först (få artiklar)
+    types = done.get("types", {})
+    for qy in TYPE_QUERIES:
+        if qy in types: continue
+        r = wp({"action": "query", "list": "search", "srsearch": qy, "srlimit": "2"})
+        types[qy] = [h["title"] for h in r.get("query", {}).get("search", [])[:2]]
+        want += [(t, 6000) for t in types[qy]]
+        time.sleep(1)
+    # platser: jämnt spridda längs banan (bästa per 2 km), det man ser från tåget först
+    W = {"sjö": 10, "vattendrag": 8, "å": 8, "kanal": 10, "slott": 10, "herrgård": 9, "säteri": 9, "kyrka": 8, "kyrkobyggnad": 8,
+         "tätort": 7, "småort": 6, "ort": 6, "berg": 7, "kulle": 6, "naturreservat": 7, "bro": 6, "järnvägsbro": 7, "fornborg": 6,
+         "gravfält": 5, "runsten": 5, "gård": 5, "ö": 6, "vik": 5, "mosse": 5, "vattentorn": 6, "kvarn": 5, "bruk": 6, "industri": 4,
+         "tunnel": 6, "platåberg": 9, "fjärd": 6, "älv": 9, "museum": 4, "slottsruin": 8, "borg": 8, "stadsdel": 3, "by": 4}
+    def score(p):
+        t = (p["type"] or "").lower()
+        if any(x in t for x in ("församling", "socken", "kommun", "distrikt", "tingslag")): return -9
+        w = max([v for k, v in W.items() if k in t] or [1])
+        return w * 3 - p["dist"] / 700
+    bins = {}
+    for p in places: bins.setdefault(int(p["km"] // 2), []).append(p)
+    pick = []
+    for b, ps in sorted(bins.items()):
+        urban = b < 8 or b > 220            # Stockholm och Göteborg: färre
+        lakes = 0; n = 0
+        for p in sorted(ps, key=score, reverse=True):
+            if score(p) < 0 or n >= (2 if urban else 5): continue
+            if "sjö" in (p["type"] or ""):
+                lakes += 1
+                if lakes > 2: continue
+            pick.append(p); n += 1
+    want += [(t, 5000) for t in MUST]
+    want += [(p["title"], 2500) for p in pick]
     for n, (title, cap) in enumerate(want):
         if title in texts: continue
         if time.time() - t0 > MAX_MIN * 60: print("tidsgräns"); break
@@ -124,20 +158,7 @@ def main():
         time.sleep(1.2)
         if n % 50 == 0:
             print(n, "av", len(want), flush=True)
-            json.dump({"stations": stations, "places": places, "texts": texts}, open(OUT, "w", encoding="utf8"), ensure_ascii=False)
-    types = done.get("types", {})
-    for qy in TYPE_QUERIES:
-        if qy in types: continue
-        r = wp({"action": "query", "list": "search", "srsearch": qy, "srlimit": "2"})
-        for h in r.get("query", {}).get("search", [])[:2]:
-            t = h["title"]
-            if t not in texts:
-                rr = wp({"action": "query", "prop": "extracts", "explaintext": "1", "redirects": "1", "titles": t})
-                for p in rr.get("query", {}).get("pages", []):
-                    if p.get("extract"): texts[t] = clean(p["extract"], 6000)
-                time.sleep(1.2)
-            types.setdefault(qy, []).append(t)
-        time.sleep(1)
+            json.dump({"stations": stations, "places": places, "texts": texts, "types": types}, open(OUT, "w", encoding="utf8"), ensure_ascii=False)
     json.dump({"stations": stations, "places": places, "texts": texts, "types": types}, open(OUT, "w", encoding="utf8"), ensure_ascii=False)
     print("Klart:", len(stations), "stationer,", len(places), "platser,", len(texts), "texter")
 

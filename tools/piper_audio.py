@@ -4,14 +4,22 @@ Körs i den nattliga GitHub Action efter gtfs_build.py. Turer med inläst röst 
 Varje klipp namnges efter en hash av röst + text, så samma platsberättelse delas av alla linjer
 och bara nya eller ändrade texter spelas in. Klipp som inte längre används tas bort.
 
-  python3 tools/piper_audio.py <röstmodell.onnx> [--workers 4]
+  python3 tools/piper_audio.py <röstmodell.onnx> [--workers 4] [--lang en]
+
+Med --lang en spelas de engelska texterna (story_en, text_en) in till public/audio/piper-en/ och
+fälten audio_en/dur_en sätts, även för turer med inläst svensk röst. Barnversionerna (kids) spelas
+in på svenska.
 """
 import hashlib, json, multiprocessing as mp, os, subprocess, sys, tempfile, wave
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 TOURS = os.path.join(ROOT, "public", "data", "tours")
-ADIR = os.path.join(ROOT, "public", "audio", "piper")
+LANG = sys.argv[sys.argv.index("--lang") + 1] if "--lang" in sys.argv else "sv"
+SUB = "piper" if LANG == "sv" else "piper-" + LANG
+ADIR = os.path.join(ROOT, "public", "audio", SUB)
+LOOK = {"sv": "Titta ut. ", "en": "Look out. "}[LANG]
+SFX = "" if LANG == "sv" else "_" + LANG
 MODEL = sys.argv[1]
 VOICE_ID = os.path.basename(MODEL).replace(".onnx", "")
 WORKERS = int(sys.argv[sys.argv.index("--workers") + 1]) if "--workers" in sys.argv else max(1, mp.cpu_count())
@@ -44,16 +52,20 @@ def main():
     os.makedirs(ADIR, exist_ok=True)
     tours = {}
     for f in sorted(os.listdir(TOURS)):
-        t = json.load(open(os.path.join(TOURS, f), encoding="utf8"))
-        if t.get("guide"):      # ElevenLabs-turer behålls som de är
-            continue
-        tours[f] = t
+        tours[f] = json.load(open(os.path.join(TOURS, f), encoding="utf8"))
+    # svenska: turer med inläst röst (ElevenLabs) behåller sitt ljud, men barnversionerna spelas in för alla
+    own = lambda t: LANG != "sv" or not t.get("guide")
+    story = lambda st: st.get("story" + SFX)
+    look = lambda L: L.get("text" + SFX)
+    kids = lambda st: (st["kids"]["t"] + " " + st["kids"].get("q", "")).strip() if LANG == "sv" and st.get("kids") else None
     jobs = {}
     for t in tours.values():
         for st in t["stops"]:
-            if st.get("story"): jobs.setdefault(key(st["story"]), st["story"])
-        for L in t.get("looks", []):
-            jobs.setdefault(key("Titta ut. " + L["text"]), "Titta ut. " + L["text"])
+            if own(t) and story(st): jobs.setdefault(key(story(st)), story(st))
+            if kids(st): jobs.setdefault(key(kids(st)), kids(st))
+        if own(t):
+            for L in t.get("looks", []):
+                if look(L): jobs.setdefault(key(LOOK + look(L)), LOOK + look(L))
     missing = [(k, v) for k, v in jobs.items() if not os.path.exists(os.path.join(ADIR, k + ".mp3"))]
     print(f"{len(jobs)} unika texter, {len(missing)} att spela in med {WORKERS} processer", flush=True)
     durs = {}
@@ -67,13 +79,17 @@ def main():
     cat.update(durs)
     for f, t in tours.items():
         for st in t["stops"]:
-            if st.get("story"):
-                k = key(st["story"]); st["audio"] = f"audio/piper/{k}.mp3"
-                if k in cat: st["dur"] = cat[k]
-        for L in t.get("looks", []):
-            k = key("Titta ut. " + L["text"]); L["audio"] = f"audio/piper/{k}.mp3"
-            if k in cat: L["dur"] = cat[k]
-        t["tts"] = "Piper"
+            if own(t) and story(st):
+                k = key(story(st)); st["audio" + SFX] = f"audio/{SUB}/{k}.mp3"
+                if k in cat: st["dur" + SFX] = cat[k]
+            if kids(st):
+                k = key(kids(st)); st["kids"]["audio"] = f"audio/{SUB}/{k}.mp3"
+        if own(t):
+            for L in t.get("looks", []):
+                if look(L):
+                    k = key(LOOK + look(L)); L["audio" + SFX] = f"audio/{SUB}/{k}.mp3"
+                    if k in cat: L["dur" + SFX] = cat[k]
+            if LANG == "sv": t["tts"] = "Piper"
         json.dump(t, open(os.path.join(TOURS, f), "w", encoding="utf8"), ensure_ascii=False, separators=(",", ":"))
     # städa bort klipp som inte används längre
     used = set(jobs)

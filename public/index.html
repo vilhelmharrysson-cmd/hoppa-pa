@@ -79,7 +79,7 @@ body[data-view="tour"] #home{display:none}
 body[data-view="home"] #tourView{display:none}
 .home{max-width:720px;margin:0 auto;padding:calc(18px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) 48px max(16px,env(safe-area-inset-left,0px));display:flex;flex-direction:column;gap:26px}
 .home-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.logo{font-weight:800;font-size:15px;letter-spacing:-.01em;display:flex;align-items:center;gap:8px}
+.logo{font-weight:800;font-size:15px;white-space:nowrap;letter-spacing:-.01em;display:flex;align-items:center;gap:8px}
 .logo i{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:8px;background:var(--accent);color:var(--accent-ink);font-style:normal;font-size:15px}
 .hero h1{font-size:clamp(30px,8vw,42px);font-weight:800;letter-spacing:-.03em}
 .hero p{margin:6px 0 0;color:var(--muted);font-size:15.5px;max-width:46ch}
@@ -106,6 +106,22 @@ body[data-view="home"] #tourView{display:none}
 .near-row .what small{display:block;color:var(--muted);font-size:12.5px;font-weight:400}
 .near-row .min{font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
 .near-row[disabled]{opacity:.55;cursor:default}
+.top-right{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.seg.lang button{padding-left:10px;padding-right:10px;font-size:12.5px}
+.sec-sub{margin:-6px 0 0;font-size:14px}
+.rounds{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+.rcard{border:0;border-radius:var(--radius);background:var(--surface);box-shadow:var(--shadow);padding:14px;text-align:left;display:flex;flex-direction:column;gap:4px;color:var(--ink);cursor:pointer}
+.rcard:hover{outline:2px solid var(--accent)}
+.rcard b{font-size:15.5px;line-height:1.3}
+.rcard small{color:var(--muted);font-size:12.5px}
+.rkind{align-self:flex-start;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-ink);background:var(--accent);border-radius:6px;padding:1px 7px}
+.rcard.dag .rkind{background:var(--brand);color:#fff}
+.round-steps{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:12px}
+.round-steps li p{margin:4px 0 0;font-size:14px}
+.round-steps li.walk p{margin:0}
+.leg-btn{display:flex;align-items:center;gap:10px;width:100%;border:0;background:var(--faint);border-radius:12px;padding:10px 12px;text-align:left;color:var(--ink);font:inherit;cursor:pointer}
+.leg-btn .what{flex:1;min-width:0;font-weight:600;font-size:14px}
+.leg-btn .go{font-weight:700;white-space:nowrap}
 #nearInfo{margin:0;padding:8px 12px;font-size:13px}
 .filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between}
 .tours{display:grid;grid-template-columns:repeat(auto-fill,minmax(58px,1fr));gap:8px}
@@ -270,7 +286,10 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
 <main class="home" id="home">
   <div class="home-top">
     <span class="logo"><i>↗</i>Hoppa på</span>
-    <div class="seg" role="group" aria-label="Stad" id="cityPick"></div>
+    <div class="top-right">
+      <div class="seg" role="group" aria-label="Stad" id="cityPick"></div>
+      <div class="seg lang" role="group" aria-label="Språk / Language" id="langPick"><button type="button" data-lang="sv">SV</button><button type="button" data-lang="en">EN</button></div>
+    </div>
   </div>
   <div class="hero">
     <h1>Upptäck <span id="cityName">Göteborg</span> från fönstret</h1>
@@ -306,6 +325,12 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
   <section class="sec" aria-labelledby="featH" id="featSec">
     <div class="sec-head"><h2 id="featH">Med inläst guide</h2></div>
     <div class="featured" id="featured"></div>
+  </section>
+
+  <section class="sec" aria-labelledby="roundH" id="roundSec" hidden>
+    <div class="sec-head"><h2 id="roundH">Färdiga rundor</h2></div>
+    <p class="muted sec-sub">Kombinera flera linjer med byten och korta promenader. Guiden säger till var du ska kliva av.</p>
+    <div class="rounds" id="rounds"></div>
   </section>
 
   <section class="sec" aria-labelledby="allH">
@@ -410,12 +435,31 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
         <option value="30">Snabb 30×</option>
       </select>
     </label>
+    <div class="field" id="kidsField"><span>Berättelser</span>
+      <div class="seg" role="group" aria-label="Barnläge">
+        <button type="button" id="kidsOff" aria-pressed="true">Vanliga</button>
+        <button type="button" id="kidsOn" aria-pressed="false">Barnläge 🧒</button>
+      </div>
+      <small class="muted">Barnläge: kortare berättelser med spana-uppdrag, på de hållplatser som har det.</small>
+    </div>
+    <div class="field"><span id="langLbl">Språk / Language</span>
+      <div class="seg" role="group" aria-label="Språk / Language" id="langPick2"><button type="button" data-lang="sv">Svenska</button><button type="button" data-lang="en">English</button></div>
+    </div>
     <label class="field"><span>Ljud</span>
       <select id="voice">
         <option value="guide" selected id="guideOpt">Guiden</option>
         <option value="off">Bara text</option>
       </select>
     </label>
+  </form>
+</dialog>
+
+<dialog id="round" aria-labelledby="roundTitle">
+  <form method="dialog" class="dlg">
+    <div class="dlg-head"><h2 id="roundTitle"></h2><button class="iconbtn" value="close" aria-label="Stäng">✕</button></div>
+    <p class="muted" id="roundMeta"></p>
+    <p id="roundIntro"></p>
+    <ol class="round-steps" id="roundSteps"></ol>
   </form>
 </dialog>
 
@@ -469,6 +513,26 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
 <script>
 (function(){
   "use strict";
+  // ---- Språk: svenska eller engelska (väljs automatiskt efter telefonens språk, kan ändras) ----
+  const LANG=(()=>{ try{ const s=localStorage.getItem("hp_lang"); if(s==="sv"||s==="en") return s; }catch(e){} return /^(sv|nb|nn|no|da)/i.test(navigator.language||"sv")?"sv":"en"; })();
+  const EN_UI={" till ":" to ","Guiden":"Guide","Bara text":"Text only","✓ Sparad offline": "✓ Saved offline", "titta ut": "look out", "mot ": "to ", " mot ": " to ", "Kunde inte läsa positionen just nu.": "Couldn't read your position right now.", "Kopierad ✓": "Copied ✓", "Hoppa på finns i Göteborg och Stockholm. Du är ": "Hoppa på is available in Gothenburg and Stockholm. You are ", "Guiden ": "Guide ", "Den här enheten saknar platstjänster.": "This device has no location services.", " km från närmaste stad.": " km from the nearest city.", "🔔 Säger till före ": "🔔 Alerting before ", "🔔 Säg till före": "🔔 Alert me before", "🔔 Jag säger till när vi närmar oss ": "🔔 I'll alert you when we approach ", "📖 Medan vi åker: läs mer om ": "📖 While we ride: read more about ", "⬇ Spara offline": "⬇ Save offline", "❚❚ Paus": "❚❚ Pause", "✓ Sparad offline – fungerar utan nät": "✓ Saved offline – works without internet", "✓ Sparad (": "✓ Saved (", "▶ Starta": "▶ Start", "▶ Starta GPS": "▶ Start GPS", "▶ Fortsätt": "▶ Continue", "■ Stoppa": "■ Stop", "↺ Igen": "↺ Again", "Åk en bit så känner jag av linjen… ": "Ride a little and I'll detect the line… ", "startar guiden med GPS": "starts the guide with GPS", "okänd": "unknown", "Väntas vid ": "Expected at ", "Väntar på bättre GPS-signal (±": "Waiting for a better GPS signal (±", "Väntar på GPS": "Waiting for GPS", "Vid ": "At ", "Tryck på Starta med GPS när du är vid en hållplats längs linjen.": "Tap Start GPS when you're at a stop along the line.", "Trafikstörningar på linje ": "Service disruptions on line ", "Titta ut: ": "Look out: ", "Tips från en resenär": "Tip from a traveller", "Tillåt platsåtkomst för att se linjer nära dig.": "Allow location access to see lines near you.", "Tillåt platsåtkomst för att känna av linjen.": "Allow location access to detect the line.", "Tack! Vi läser allt som kommer in.": "Thank you! We read everything that comes in.", "Söker resa till ": "Searching for a trip to ", "Söker din position…": "Finding your position…", "Söker din position… Ha telefonen framme, så hålls skärmen tänd.": "Finding your position… Keep the phone out and the screen stays on.", "Säg till före ": "Alert me before ", "Sparar… ": "Saving… ", "Skriv lite mer först.": "Please write a little more first.", "Skickar…": "Sending…", "Reseplaneraren finns i webbappen.": "The journey planner is available in the web app.", "Redo att åka": "Ready to ride", "Platsåtkomst nekades. Den här förhandsvisningen får inte läsa din position, men webbappen kan det. Där tillåter du platsåtkomst när webbläsaren frågar.": "Location access was denied. Allow location access when your browser asks.", "Om du kliver av vid ": "If you get off at ", "Nästa hållplats: ": "Next stop: ", "Närmast: ": "Nearest: ", "Mot ": "Towards ", "Läs mer om ": "Read more about ", "Linjedragning och hållplatser: © OpenStreetMaps bidragsgivare (ODbL), ": "Routes and stops: © OpenStreetMap contributors (ODbL), ", "Letar efter linjer som stämmer… ": "Looking for matching lines… ", "Laddar linjerna i ": "Loading the lines in ", "Kunde inte söka resa just nu.": "Couldn't search for a trip right now.", "Kunde inte spara – försök igen": "Couldn't save – try again", "Kunde inte skicka just nu (": "Couldn't send right now (", "Kunde inte läsa din position just nu.": "Couldn't read your position right now.", "Kunde inte ladda turerna. Ladda om sidan.": "Couldn't load the tours. Reload the page.", "Kunde inte ladda turen. Försök igen.": "Couldn't load the tour. Try again.", "Kunde inte ladda linjerna. Försök igen.": "Couldn't load the lines. Try again.", "Kunde inte hämta avgångar just nu.": "Couldn't fetch departures right now.", "Kunde inte hämta avgångar just nu. Funktionen fungerar i webbappen, inte i förhandsvisningen.": "Couldn't fetch departures right now.", "Kopiera länk": "Copy link", "Karta över ": "Map of ", "Inställd": "Cancelled", "Ingen röst än": "No voice yet", "Ingen position ännu. Gå gärna utomhus eller närmare ett fönster.": "No position yet. Try going outside or closer to a window.", "Ingen linje matchar.": "No line matches.", "Inga turer avgår från hållplatserna nära dig den närmaste halvtimmen.": "No tours leave from stops near you in the next half hour.", "Inga avgångar den närmaste timmen.": "No departures in the next hour.", "Hämtar avgångar nära dig…": "Fetching departures near you…", "Hämtar avgångar från ": "Fetching departures from ", "Hoppa på: ": "Hoppa på: ", "Hoppa på igen": "Hop back on", "Hoppa av här": "Hop off here", "Hittar ingen linje som stämmer med sträckan. Fortsätter att lyssna…": "No line matches the route yet. Still listening…", "Hittade ingen resa just nu.": "No trip found right now.", "Guidad hållplats ": "Guided stop ", " av ": " of ", "GPS aktiv · noggrannhet ±": "GPS active · accuracy ±", "Förr": "Then", "Foto: ": "Photo: ", "Framme ": "Arrive ", "Framme": "Arrived", "Avstigen": "Hopped off", "Du är ": "You are ", "Du har klivit av vid ": "You got off at ", "Det ser ut som någon av de här. Välj rätt:": "It looks like one of these. Pick the right one:", "Det ser ut som att du åker med:": "It looks like you're riding:", "Datorröst (": "Computer voice (", "Dags att kliva av": "Time to get off", "Avgångar i realtid finns i webbappen.": "Real-time departures are available in the web app.", ". Tryck på en linje för att starta turen.": ". Tap a line to start the tour.", ". Telefonen vibrerar och guiden säger till.": ". The phone vibrates and the guide tells you.", ". Ta dig till en hållplats längs linjen och kliv på mot ": ". Go to a stop on the line and board towards ", ". Nästa ": ". The next ", ". Kontrollera mot ": ". Check with ", ". Kliv på linje ": ". Board line ", ". Dags att kliva av.": ". Time to get off.", " – en guidad tur med ": " – a guided tour with ", " · läge ": " · stand ", " tips": " tips", " på linje ": " on line ", " m hittills.": " m so far.", " kommer om några minuter. Tryck på Hoppa på igen när du vill fortsätta.": " comes in a few minutes. Tap Hop back on when you want to continue.", " före lansering.": " before launch.", " från linje ": " from line ", " filer saknas)": " files missing)", " enligt realtid": " according to real-time data", " där.": " there.", " berättelser.": " stories.", " berättelser · ": " stories · ", " berättelser": " stories", " (tidtabell)": " (timetable)", "Nästa avgångar med ": "Next departures with ", " från ": " from ", "Så kommer du till ": "How to get to ", " och turen": " and the tour", "Inget fordon på väg in enligt ": "No vehicle approaching according to ", "Du har klivit av – passa på": "You've hopped off – make the most of it", "Källa: Wikipedia – ": "Source: Wikipedia (Swedish) – ", "Visa vägen ↗": "Directions ↗", " promenad. Öppna vägbeskrivning i kartan": " walk. Open directions in maps", "Säg till före avstigning": "Alert before getting off", "Läs mer": "Read more", "Hämtar…": "Loading…", "Fel": "Error", "Spårvagn": "Tram", "Buss": "Bus", "Båt": "Boat", "Söker…": "Searching…", "Avbryt": "Cancel", "Kunde inte hämta linjerna just nu.": "Couldn't fetch the lines right now.", "Ingen linje i närheten än.": "No line nearby yet."};
+  const tr=s=>LANG==="en" && EN_UI[s]!==undefined ? EN_UI[s] : s;
+  const VEH={"spårvagn":"tram","buss":"bus","båt":"boat","vagn":"tram"};
+  const vL=s=>LANG==="en" ? (VEH[s]||s) : s;
+  const TAB={"Pendelbåt":"Commuter boat","Djurgårdsfärjan":"Djurgården ferry","Över Västerbron":"Across Västerbron bridge","Spårvagn mot havet":"Tram to the sea","Tvärs över Söder":"Across Södermalm"};
+  const tabL=s=>LANG==="en" ? (TAB[s]||s) : s;
+  const cap=s=>s.charAt(0).toUpperCase()+s.slice(1);
+  const varL=s=>LANG==="en" ? (s||"").replace(/^Mot /,"To ") : s;
+  document.documentElement.lang=LANG;
+  let KIDS=false; try{ KIDS=LANG==="sv" && localStorage.getItem("hp_kids")==="1"; }catch(e){}
+  // vilken text och vilket ljud som gäller för en hållplats/sevärdhet (språk och barnläge)
+  function storyOf(st){
+    if(KIDS && st.kids) return {text:st.kids.t+(st.kids.q?" 🔎 "+st.kids.q:""), audio:st.kids.audio, dur:null, kids:true};
+    if(LANG==="en" && st.story_en) return {text:st.story_en, audio:st.audio_en, dur:st.dur_en};
+    return {text:st.story||"", audio:LANG==="en"?null:st.audio, dur:st.dur};
+  }
+  const lookText=x=>LANG==="en" && x.text_en ? x.text_en : x.text;
+  const lookAudio=x=>LANG==="en" ? x.audio_en : x.audio;
   const $=id=>document.getElementById(id);
   const NS="http://www.w3.org/2000/svg";
   const svg=$("map");
@@ -525,7 +589,7 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
   // ---- Linjeväljare -----------------------------------------------------------
   // index.json listar alla turer; varje tur laddas först när den väljs.
   const groups={}, byId={}, loaded={};
-  const MODE_LABEL={tram:"Spårvagn",bus:"Buss",boat:"Båt"};
+  const MODE_LABEL={tram:tr("Spårvagn"),bus:tr("Buss"),boat:tr("Båt")};
   const pick={city:null,mode:null,q:""};
   function buildIndex(){
     DATA.tours.forEach(e=>{ byId[e.id]=e; (groups[e.group]=groups[e.group]||[]).push(e.id); });
@@ -544,7 +608,7 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
     const cities=[...new Set(DATA.tours.map(e=>e.city))];
     segButtons($("cityPick"),cities.map(c=>[c,c]),pick.city,c=>{ pick.city=c; pick.mode=null; saveCity(c); buildTabs(); });
     const inCity=DATA.tours.filter(e=>e.city===pick.city);
-    $("cityName").textContent=pick.city; buildFeatured();
+    $("cityName").textContent=pick.city; buildFeatured(); buildRounds();
     const modes=["tram","bus","boat"].filter(m=>inCity.some(e=>e.mode===m));
     if(!modes.includes(pick.mode)) pick.mode=modes[0];
     segButtons($("modePick"),modes.map(m=>[m,MODE_LABEL[m]+" ("+new Set(inCity.filter(e=>e.mode===m).map(e=>e.group)).size+")"]),pick.mode,m=>{ pick.mode=m; buildTabs(); });
@@ -563,8 +627,8 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
       const first=byId[groups[e.group].find(id=>!byId[id].guide)||groups[e.group][0]];
       const btn=document.createElement("button");
       btn.type="button"; btn.className="tour chip-only"; btn.dataset.group=e.group;
-      btn.title=first.from+" – "+first.to+(first.tab?" · "+first.tab:"");
-      btn.setAttribute("aria-label",first.vehicleLong+" "+e.line+", "+btn.title);
+      btn.title=first.from+" – "+first.to+(first.tab?" · "+tabL(first.tab):"");
+      btn.setAttribute("aria-label",vL(first.vehicleLong)+" "+e.line+", "+btn.title);
       const n=document.createElement("span"); n.className="num"; n.textContent=e.line; paintNum(n,first.color);
       btn.append(n);
       if(groups[e.group].some(id=>byId[id].guide)){ const v=document.createElement("small"); v.textContent=" 🔊"; btn.append(v); }
@@ -573,7 +637,7 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
       btn.addEventListener("click",()=>{ const k=groups[e.group].find(id=>byId[id].guide)||groups[e.group][0]; if(location.hash!=="#"+k) location.hash=k; else route(); });
       tabs.appendChild(btn);
     });
-    if(!tabs.children.length){ const p=document.createElement("span"); p.className="muted"; p.textContent="Ingen linje matchar."; tabs.appendChild(p); }
+    if(!tabs.children.length){ const p=document.createElement("span"); p.className="muted"; p.textContent=tr("Ingen linje matchar."); tabs.appendChild(p); }
   }
   // utvalda turer med inläst röst (kort med bild) på startsidan
   async function buildFeatured(){
@@ -584,7 +648,7 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
       const b=document.createElement("button"); b.type="button"; b.className="fcard";
       const n=document.createElement("span"); n.className="badge"; n.textContent=e.line; paintNum(n,e.color);
       const t=document.createElement("b"); t.textContent=e.from+" → "+e.to;
-      const m=document.createElement("small"); m.textContent="Guiden "+e.guide+(e.guided?" · "+e.guided+" berättelser":"");
+      const m=document.createElement("small"); m.textContent=(LANG==="en"?"Swedish guide "+e.guide+" · English computer voice":"Guiden "+e.guide)+(e.guided?" · "+e.guided+tr(" berättelser"):"");
       b.append(n,t,m); b.addEventListener("click",()=>{ location.hash=e.id; });
       box.appendChild(b);
       fetchTour(e.id).then(t=>{ const st=t.stops.find(s=>s.images&&s.images.length); if(st) b.style.backgroundImage="url(\""+st.images[0].src.replace(/"/g,"%22")+"\")"; }).catch(()=>{});
@@ -593,13 +657,13 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
   function buildDirs(){
     const box=$("dirs"); box.textContent="";
     const nm=document.createElement("span"); nm.className="route-name";
-    nm.textContent=T.vehicleLong.charAt(0).toUpperCase()+T.vehicleLong.slice(1)+" "+T.line+(T.tab?" · "+T.tab:"");
+    nm.textContent=cap(vL(T.vehicleLong))+" "+T.line+(T.tab?" · "+tabL(T.tab):"");
     box.appendChild(nm);
     [...groups[T.group]].sort((a,b)=>(byId[b].guide?1:0)-(byId[a].guide?1:0)).forEach(k=>{
       const t=byId[k];
       const b=document.createElement("button"); b.type="button"; b.className="dir";
       b.setAttribute("aria-pressed", k===T.id ? "true":"false");
-      b.textContent=(t.guide?"🔊 ":"")+t.variant;
+      b.textContent=(t.guide?"🔊 ":"")+varL(t.variant);
       b.addEventListener("click",()=>{ if(location.hash!=="#"+k) location.hash=k; else route(); });
       box.appendChild(b);
     });
@@ -630,7 +694,7 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
     const d="M"+pts.map(p=>p[0].toFixed(1)+","+p[1].toFixed(1)).join(" L");
     el("path",{d,class:"map-route-bg"});
     // radier för "titta ut"
-    radii=T.looks.map(L=>{ const [x,y]=proj(L.lat,L.lon); const c=el("circle",{cx:x,cy:y,r:Math.max(6,L.r*sc),class:"map-radius"}); el("title",{},c).textContent="Titta ut: "+L.text; return c; });
+    radii=T.looks.map(L=>{ const [x,y]=proj(L.lat,L.lon); const c=el("circle",{cx:x,cy:y,r:Math.max(6,L.r*sc),class:"map-radius"}); el("title",{},c).textContent=tr("Titta ut: ")+lookText(L); return c; });
     el("path",{d,class:"map-route"});
     donePath=el("path",{d:"",class:"map-done"});
     minorDots=[]; majorDots=[];
@@ -740,7 +804,7 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
     const col=lineColor();
     map.addSource("gl-route",{type:"geojson",data:{type:"Feature",geometry:{type:"LineString",coordinates:T.route.map(p=>[p[1],p[0]])},properties:{}}});
     map.addSource("gl-done",{type:"geojson",data:doneLine()});
-    map.addSource("gl-radii",{type:"geojson",data:{type:"FeatureCollection",features:T.looks.map((L,k)=>({type:"Feature",geometry:{type:"Polygon",coordinates:[circle(L.lat,L.lon,L.r)]},properties:{k,text:L.text}}))}});
+    map.addSource("gl-radii",{type:"geojson",data:{type:"FeatureCollection",features:T.looks.map((L,k)=>({type:"Feature",geometry:{type:"Polygon",coordinates:[circle(L.lat,L.lon,L.r)]},properties:{k,text:lookText(L)}}))}});
     map.addSource("gl-stops",{type:"geojson",data:stopFeatures()});
     map.addLayer({id:"gl-radius-fill",type:"fill",source:"gl-radii",paint:{"fill-color":"#f2b705","fill-opacity":0.15}});
     map.addLayer({id:"gl-radius-line",type:"line",source:"gl-radii",paint:{"line-color":"#c99700","line-width":1.2,"line-dasharray":[2,2]}});
@@ -842,27 +906,27 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
         const p=document.createElement("p"); p.textContent=s.description||"";
         li.append(b,p); ul.appendChild(li);
       });
-      $("alertsTitle").textContent="Trafikstörningar på linje "+T.line;
+      $("alertsTitle").textContent=tr("Trafikstörningar på linje ")+T.line;
       box.hidden=j.situations.length===0;
     }).catch(()=>{});
   }
   function showDepartures(stopIdx){
     const box=$("deps"); const st=T.stops[stopIdx];
     if(!usesVT()){ box.hidden=true; return; }
-    box.hidden=false; box.textContent="Hämtar avgångar från "+st.name+"…";
+    box.hidden=false; box.textContent=tr("Hämtar avgångar från ")+st.name+"…";
     api({op:"departures",stop:st.name,line:T.line,lat:st.lat,lon:st.lon}).then(j=>{
       box.textContent="";
-      const h=document.createElement("b"); h.textContent="Nästa avgångar med "+T.vehicleLong+" "+T.line+" från "+j.stop.split(",")[0]; box.appendChild(h);
-      if(!j.departures.length){ const p=document.createElement("span"); p.className="muted"; p.textContent="Inga avgångar den närmaste timmen."; box.appendChild(p); return; }
+      const h=document.createElement("b"); h.textContent=tr("Nästa avgångar med ")+vL(T.vehicleLong)+" "+T.line+tr(" från ")+j.stop.split(",")[0]; box.appendChild(h);
+      if(!j.departures.length){ const p=document.createElement("span"); p.className="muted"; p.textContent=tr("Inga avgångar den närmaste timmen."); box.appendChild(p); return; }
       j.departures.slice(0,6).forEach(d=>{
         const row=document.createElement("div"); row.className="dep";
         if(T.to && (d.direction||"").toLowerCase().includes(T.to.toLowerCase().split(" ")[0])) row.classList.add("match");
-        const dir=document.createElement("span"); dir.textContent="mot "+d.direction+(d.platform?" · läge "+d.platform:"");
+        const dir=document.createElement("span"); dir.textContent=tr("mot ")+d.direction+(d.platform?tr(" · läge ")+d.platform:"");
         const m=document.createElement("span"); m.className="min";
-        m.textContent = d.cancelled ? "Inställd" : minsUntil(d.estimated||d.planned)+(d.realtime?"":" (tidtabell)");
+        m.textContent = d.cancelled ? tr("Inställd") : minsUntil(d.estimated||d.planned)+(d.realtime?"":tr(" (tidtabell)"));
         row.append(badge(d.line),dir,m); box.appendChild(row);
       });
-    }).catch(e=>{ box.textContent = apiOk===false ? "Avgångar i realtid finns i webbappen." : "Kunde inte hämta avgångar just nu."; });
+    }).catch(e=>{ box.textContent = apiOk===false ? tr("Avgångar i realtid finns i webbappen.") : tr("Kunde inte hämta avgångar just nu."); });
   }
   function showTrip(pos){
     const box=$("trip");
@@ -871,21 +935,21 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
     let best=guided[0], bd=Infinity;
     guided.forEach(i=>{ const d=distM(pos,T.stops[i],R.lat0); if(d<bd){bd=d;best=i;} });
     const st=T.stops[best];
-    box.hidden=false; box.textContent="Söker resa till "+st.name+"…";
+    box.hidden=false; box.textContent=tr("Söker resa till ")+st.name+"…";
     api({op:"journey",fromLat:pos.lat.toFixed(5),fromLon:pos.lon.toFixed(5),toStop:st.name,toLat:st.lat,toLon:st.lon}).then(j=>{
       box.textContent="";
-      const h=document.createElement("b"); h.textContent="Så kommer du till "+st.name+" och turen"; box.appendChild(h);
+      const h=document.createElement("b"); h.textContent=tr("Så kommer du till ")+st.name+tr(" och turen"); box.appendChild(h);
       const jr=j.journeys[0];
-      if(!jr){ box.append("Hittade ingen resa just nu."); return; }
+      if(!jr){ box.append(tr("Hittade ingen resa just nu.")); return; }
       jr.legs.forEach(l=>{
         const row=document.createElement("div"); row.className="leg";
         const txt=document.createElement("span"); const m=document.createElement("span"); m.className="min";
         if(l.type==="walk"){ txt.textContent="🚶 "+l.label+(l.meters?" ("+l.meters+" m)":""); m.textContent=(l.minutes??"?")+" min"; row.append(txt,m); }
-        else{ txt.textContent=(l.from||"")+" → "+(l.to||"")+" mot "+(l.direction||""); m.textContent=l.cancelled?"Inställd":clock(l.departs); row.append(badge(l.line,l.colors),txt,m); }
+        else{ txt.textContent=(l.from||"")+" → "+(l.to||"")+tr(" mot ")+(l.direction||""); m.textContent=l.cancelled?tr("Inställd"):clock(l.departs); row.append(badge(l.line,l.colors),txt,m); }
         box.appendChild(row);
       });
-      const a=document.createElement("span"); a.className="muted"; a.textContent="Framme "+clock(jr.arrives)+". Kliv på linje "+T.line+" mot "+T.to+" där."; box.appendChild(a);
-    }).catch(()=>{ box.textContent = apiOk===false ? "Reseplaneraren finns i webbappen." : "Kunde inte söka resa just nu."; });
+      const a=document.createElement("span"); a.className="muted"; a.textContent=tr("Framme ")+clock(jr.arrives)+tr(". Kliv på linje ")+T.line+tr(" mot ")+T.to+tr(" där."); box.appendChild(a);
+    }).catch(()=>{ box.textContent = apiOk===false ? tr("Reseplaneraren finns i webbappen.") : tr("Kunde inte söka resa just nu."); });
   }
 
   // Vägbeskrivning till fots i telefonens kartapp: Apple Kartor på iPhone/iPad, annars Google Maps.
@@ -909,33 +973,34 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
     showStop(D);
     const ab=$("alightBtn"), on=S.alight===D && !S.alightDone;
     ab.setAttribute("aria-pressed",on?"true":"false");
-    ab.textContent = on ? "🔔 Säger till före "+st.name : "🔔 Säg till före";
+    ab.textContent = on ? tr("🔔 Säger till före ")+st.name : tr("🔔 Säg till före");
     ab.hidden = S.hopped || (S.started && st.s - S.s < 450 && !on);
-    $("stopCount").textContent="Guidad hållplats "+(guided.indexOf(D)+1)+" av "+guided.length;
+    $("stopCount").textContent=tr("Guidad hållplats ")+(guided.indexOf(D)+1)+tr(" av ")+guided.length;
     const chip=$("status"); chip.className="chip";
     const at=nearestStopAt(), ng=nextGuided();
     const finished = S.started && S.s>=T.stops[last].s-10;
-    if(S.hopped){ chip.textContent="Avstigen"; chip.classList.add("off"); }
-    else if(finished){ chip.textContent="Framme"; }
-    else if(!S.started && S.mode==="sim"){ chip.textContent="Redo att åka"; }
-    else if(S.mode==="gps" && !S.gpsSeen){ chip.textContent="Väntar på GPS"; }
-    else if(at>=0){ chip.textContent="Vid "+T.stops[at].name; chip.classList.add("live"); }
-    else if(ng>=0){ const m=Math.round((T.stops[ng].s-S.s)/10)*10; chip.textContent="Mot "+T.stops[ng].name+" · "+(m>=1000?(m/1000).toFixed(1)+" km":m+" m"); chip.classList.add("live"); }
+    if(S.hopped){ chip.textContent=tr("Avstigen"); chip.classList.add("off"); }
+    else if(finished){ chip.textContent=tr("Framme"); }
+    else if(!S.started && S.mode==="sim"){ chip.textContent=tr("Redo att åka"); }
+    else if(S.mode==="gps" && !S.gpsSeen){ chip.textContent=tr("Väntar på GPS"); }
+    else if(at>=0){ chip.textContent=tr("Vid ")+T.stops[at].name; chip.classList.add("live"); }
+    else if(ng>=0){ const m=Math.round((T.stops[ng].s-S.s)/10)*10; chip.textContent=tr("Mot ")+T.stops[ng].name+" · "+(m>=1000?(m/1000).toFixed(1)+" km":m+" m"); chip.classList.add("live"); }
     const ul=$("tipList"), tk=T.id+"|"+D;
     if(ul.dataset.k!==tk){ ul.dataset.k=tk; ul.textContent="";
-      st.tips.forEach(([what,walk,lat,lon])=>{
+      st.tips.forEach(([what,walk,lat,lon],ti)=>{
+        const shown = LANG==="en" && st.tips_en ? st.tips_en[ti] : what;
         const li=document.createElement("li");
         const link=document.createElement("a"); link.href=mapsLink(what,lat,lon,st); link.target="_blank"; link.rel="noopener";
-        link.setAttribute("aria-label",what+", "+walk+" promenad. Öppna vägbeskrivning i kartan");
-        const a=document.createElement("span"); a.textContent=what;
+        link.setAttribute("aria-label",shown+", "+walk+tr(" promenad. Öppna vägbeskrivning i kartan"));
+        const a=document.createElement("span"); a.textContent=shown;
         const b=document.createElement("span"); b.textContent=walk;
-        const c=document.createElement("span"); c.className="go"; c.textContent="Visa vägen ↗";
+        const c=document.createElement("span"); c.className="go"; c.textContent=tr("Visa vägen ↗");
         link.append(a,b,c); li.appendChild(link); ul.appendChild(li);
       });
       ((ugcTips[T.city]||{})[st.name]||[]).slice(0,3).forEach(t=>{
         const li=document.createElement("li"); li.className="ugc";
         const a=document.createElement("span"); a.textContent="💬 "+t;
-        const b=document.createElement("small"); b.textContent="Tips från en resenär";
+        const b=document.createElement("small"); b.textContent=tr("Tips från en resenär");
         li.append(a,b); ul.appendChild(li);
       });
     }
@@ -943,7 +1008,7 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
     const mp=$("morePanel"), mk=T.id+"|"+D;
     if(mp.dataset.k!==mk){ mp.dataset.k=mk; mp.open=false; const box=$("moreList"); box.textContent="";
       mp.hidden=!(st.more&&st.more.length);
-      $("moreTitle").textContent="Läs mer om "+st.name;
+      $("moreTitle").textContent=tr("Läs mer om ")+st.name;
       (st.more||[]).forEach(c=>{
         const card=document.createElement("article"); card.className="more-card";
         const k=document.createElement("span"); k.className="kicker"; k.textContent=c.k;
@@ -951,22 +1016,22 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
         const p=document.createElement("p"); p.textContent=c.t;
         card.append(k); if(c.h) card.append(h); card.append(p);
         if(c.src){ const a=document.createElement("a"); a.className="srclink"; a.target="_blank"; a.rel="noopener";
-          a.href="https://sv.wikipedia.org/wiki/"+encodeURIComponent(c.src.replace(/ /g,"_")); a.textContent="Källa: Wikipedia – "+c.src+" ↗"; card.append(a); }
+          a.href="https://sv.wikipedia.org/wiki/"+encodeURIComponent(c.src.replace(/ /g,"_")); a.textContent=tr("Källa: Wikipedia – ")+c.src+" ↗"; card.append(a); }
         box.appendChild(card);
       });
     }
     // tyst sträcka till nästa hållplats: tipsa om att läsa mer
     const quiet = S.started && !S.hopped && (!S.narr || S.narr.done) && ng>=0 && T.stops[ng].s-S.s>700 && st.more && st.more.length && !mp.open;
     $("moreHint").hidden=!quiet;
-    if(quiet) $("moreHint").textContent="📖 Medan vi åker: läs mer om "+st.name+" ›";
-    $("tips").querySelector("h3").textContent = S.hopped ? "Du har klivit av – passa på" : "Om du kliver av vid "+st.name;
-    hopBtn.textContent = S.hopped ? "Hoppa på igen" : "Hoppa av här";
+    if(quiet) $("moreHint").textContent=tr("📖 Medan vi åker: läs mer om ")+st.name+" ›";
+    $("tips").querySelector("h3").textContent = S.hopped ? tr("Du har klivit av – passa på") : tr("Om du kliver av vid ")+st.name;
+    hopBtn.textContent = S.hopped ? tr("Hoppa på igen") : tr("Hoppa av här");
     hopBtn.disabled = finished && !S.hopped;
     if(S.mode==="sim"){
-      playBtn.textContent = S.playing ? "❚❚ Paus" : (S.started ? (finished ? "↺ Igen" : "▶ Fortsätt") : "▶ Starta");
+      playBtn.textContent = S.playing ? tr("❚❚ Paus") : (S.started ? (finished ? tr("↺ Igen") : tr("▶ Fortsätt")) : tr("▶ Starta"));
       playBtn.disabled = S.hopped;
     }else{
-      playBtn.textContent = S.gpsWatch!==null ? "■ Stoppa" : "▶ Starta GPS";
+      playBtn.textContent = S.gpsWatch!==null ? tr("■ Stoppa") : tr("▶ Starta GPS");
       playBtn.disabled = false;
     }
     [...list.children].forEach(li=>{
@@ -991,17 +1056,17 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
       if(S.looked.has(k)) return;
       const d=distM(pos,L,R.lat0);
       if(d<=L.r){
-        if(!S.narr || S.narr.kind==="look"){ S.looked.add(k); showLook(L.text); play("look",k,L.audio,readMs(L.text)); }
-        else if(S.pendingLook!==k){ S.pendingLook=k; showLook(L.text); }
+        if(!S.narr || S.narr.kind==="look"){ S.looked.add(k); showLook(lookText(L)); play("look",k,lookAudio(L),readMs(lookText(L))); }
+        else if(S.pendingLook!==k){ S.pendingLook=k; showLook(lookText(L)); }
       }else if(S.pendingLook===k && d>L.r){ S.looked.add(k); S.pendingLook=null; }   // passerad: bara text
     });
-    if(S.pendingLook!==null && !S.narr){ const k=S.pendingLook; S.pendingLook=null; S.looked.add(k); play("look",k,T.looks[k].audio,readMs(T.looks[k].text)); }
+    if(S.pendingLook!==null && !S.narr){ const k=S.pendingLook; S.pendingLook=null; S.looked.add(k); play("look",k,lookAudio(T.looks[k]),readMs(lookText(T.looks[k]))); }
     // 2) Berättelse: starta så att den slutar ungefär vid ankomst
     const g=nextGuided();
     if(g>=0 && !S.played.has(g) && !S.narr){
       const st=T.stops[g];
       const prevS = guided.indexOf(g)>0 ? T.stops[guided[guided.indexOf(g)-1]].s : -Infinity;
-      const durS = (st.dur||20) * (S.mode==="sim" ? S.speed : 1);
+      const so=storyOf(st), durS = (so.dur || so.text.length/14 || 20) * (S.mode==="sim" ? S.speed : 1);
       let trigger = Math.max(120, Math.min(1200, durS*T.v + 40));
       trigger = Math.min(trigger, st.s-prevS-40);  // inte innan vi lämnat förra guidade hållplatsen
       // vänta in ett "titta ut" som ligger strax före hållplatsen
@@ -1011,7 +1076,7 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
   }
   function startStory(i){
     S.played.add(i); S.topic=i; showLook("");
-    play("story",i,T.stops[i].audio,readMs(T.stops[i].story));
+    const so=storyOf(T.stops[i]); play("story",i,so.audio,readMs(so.text));
     mediaMeta(i);
     S.shownD=-1; render(); capStart(i);
   }
@@ -1020,7 +1085,7 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
   function mediaMeta(i){
     if(!("mediaSession" in navigator) || !T) return;
     const st=T.stops[i]; const img=(st.images||[])[0];
-    try{ navigator.mediaSession.metadata=new MediaMetadata({ title:st.name, artist:T.vehicleLong.charAt(0).toUpperCase()+T.vehicleLong.slice(1)+" "+T.line+" mot "+T.to, album:"Hoppa på",
+    try{ navigator.mediaSession.metadata=new MediaMetadata({ title:st.name, artist:cap(vL(T.vehicleLong))+" "+T.line+tr(" mot ")+T.to, album:"Hoppa på",
       artwork: img ? [{src:img.src,sizes:"640x480"}] : [{src:"icons/icon-192.png",sizes:"192x192",type:"image/png"}] }); }catch(e){}
   }
   (function(){
@@ -1045,7 +1110,7 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
     }
   }
   function alightAlert(st){
-    const msg="Nästa hållplats: "+st.name+". Dags att kliva av.";
+    const msg=tr("Nästa hållplats: ")+st.name+tr(". Dags att kliva av.");
     try{ navigator.vibrate && navigator.vibrate([400,200,400,200,400]); }catch(e){}
     gpsMsg("🔔 "+msg); $("gpsMsg").classList.add("alight-banner");
     setTimeout(()=>$("gpsMsg").classList.remove("alight-banner"),20000);
@@ -1057,7 +1122,7 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
     }catch(e){}
     try{
       if("Notification" in window && Notification.permission==="granted" && navigator.serviceWorker)
-        navigator.serviceWorker.ready.then(r=>r.showNotification("Dags att kliva av",{body:msg,tag:"hoppa-pa-alight",renotify:true,vibrate:[400,200,400],icon:"icons/icon-192.png"})).catch(()=>{});
+        navigator.serviceWorker.ready.then(r=>r.showNotification(tr("Dags att kliva av"),{body:msg,tag:"hoppa-pa-alight",renotify:true,vibrate:[400,200,400],icon:"icons/icon-192.png"})).catch(()=>{});
     }catch(e){}
     render();
   }
@@ -1066,7 +1131,7 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
     if(D<0) return;
     if(S.alight===D && !S.alightDone){ S.alight=-1; gpsMsg(""); render(); return; }
     S.alight=D; S.alightDone=false; hit("alight",T.id);
-    gpsMsg("🔔 Jag säger till när vi närmar oss "+T.stops[D].name+". Telefonen vibrerar och guiden säger till.");
+    gpsMsg(tr("🔔 Jag säger till när vi närmar oss ")+T.stops[D].name+tr(". Telefonen vibrerar och guiden säger till."));
     try{ if("Notification" in window && Notification.permission==="default") Notification.requestPermission().catch(()=>{}); }catch(e){}
     render();
   }
@@ -1080,7 +1145,7 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
     const st=T.stops[D];
     $("stopName").textContent=st.name;
     const p=$("story"); p.textContent="";
-    CAP.spans=(st.story||"").split(/(\s+)/).map(w=>{ if(/^\s+$/.test(w)) { p.appendChild(document.createTextNode(w)); return null; }
+    CAP.spans=storyOf(st).text.split(/(\s+)/).map(w=>{ if(/^\s+$/.test(w)) { p.appendChild(document.createTextNode(w)); return null; }
       const sp=document.createElement("span"); sp.className="w"; sp.textContent=w; p.appendChild(sp); return sp; }).filter(Boolean);
     CAP.i=D; CAP.n=-1; CAP.imgs=st.images||[]; CAP.img=-1;
     $("stage").classList.toggle("has-img",CAP.imgs.length>0);
@@ -1093,7 +1158,7 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
     const next=CAP.layer===0?$("bgB"):$("bgA"), prev=CAP.layer===0?$("bgA"):$("bgB");
     const pre=new Image(); pre.onload=()=>{ next.style.backgroundImage="url(\""+im.src.replace(/"/g,"%22")+"\")"; next.classList.remove("on"); void next.offsetWidth; next.classList.add("on"); prev.classList.remove("on"); };
     pre.src=im.src; CAP.layer=1-CAP.layer;
-    const c=$("credit"); c.hidden=false; c.textContent=(im.old?"Förr"+(im.year?" ("+im.year+")":"")+": "+(im.title||"").slice(0,70)+" · ":"")+"Foto: "+(im.credit||"okänd")+(im.license?" · "+im.license:"");
+    const c=$("credit"); c.hidden=false; c.textContent=(im.old?tr("Förr")+(im.year?" ("+im.year+")":"")+": "+(im.title||"").slice(0,70)+" · ":"")+tr("Foto: ")+(im.credit||tr("okänd"))+(im.license?" · "+im.license:"");
     c.classList.toggle("old",!!im.old);
     c.href=(im.page||"").startsWith("https://")?im.page:"#"; c.title=im.title||"";
   }
@@ -1122,15 +1187,15 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
   }
   $("nearClose").addEventListener("click",()=>{ $("nearby").hidden=true; $("nearPrompt").hidden=false; $("nearClose").hidden=true; });
   $("nearBtn").addEventListener("click",()=>{
-    const box=$("nearby"); box.hidden=false; $("nearPrompt").hidden=true; $("nearClose").hidden=false; $("nearList").textContent=""; nearInfo("Söker din position…");
-    if(!("geolocation" in navigator)){ nearInfo("Den här enheten saknar platstjänster."); return; }
+    const box=$("nearby"); box.hidden=false; $("nearPrompt").hidden=true; $("nearClose").hidden=false; $("nearList").textContent=""; nearInfo(tr("Söker din position…"));
+    if(!("geolocation" in navigator)){ nearInfo(tr("Den här enheten saknar platstjänster.")); return; }
     navigator.geolocation.getCurrentPosition(async pos=>{
       const p={lat:pos.coords.latitude,lon:pos.coords.longitude};
       const c=CITY_CENTERS.map(c=>({...c,d:distM(p,c,p.lat)})).sort((a,b)=>a.d-b.d)[0];
       // byt stad automatiskt efter var man är
       if(c.d<=60000 && pick.city!==c.city && document.body.dataset.view==="home"){ pick.city=c.city; pick.mode=null; saveCity(c.city); buildTabs(); }
-      if(c.d>60000){ nearInfo("Hoppa på finns i Göteborg och Stockholm. Du är "+Math.round(c.d/1000)+" km från närmaste stad."); return; }
-      nearInfo("Hämtar avgångar nära dig…");
+      if(c.d>60000){ nearInfo(tr("Hoppa på finns i Göteborg och Stockholm. Du är ")+Math.round(c.d/1000)+tr(" km från närmaste stad.")); return; }
+      nearInfo(tr("Hämtar avgångar nära dig…"));
       try{
         const r=await fetch(c.api+"?op=nearby&lat="+p.lat.toFixed(5)+"&lon="+p.lon.toFixed(5));
         if(!(r.headers.get("content-type")||"").includes("json")) throw new Error("ingen server");
@@ -1144,17 +1209,17 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
           const e=byId[id]; shown++;
           const b=document.createElement("button"); b.type="button"; b.className="near-row";
           const n=document.createElement("span"); n.className="badge"; n.textContent=l.line; paintNum(n,e.color);
-          const w=document.createElement("span"); w.className="what"; w.textContent="mot "+l.direction;
-          const sm=document.createElement("small"); sm.textContent=l.stop+(l.dist!=null?" · "+l.dist+" m bort":"")+(e.guided>2?" · "+e.guided+" berättelser":"");
+          const w=document.createElement("span"); w.className="what"; w.textContent=tr("mot ")+l.direction;
+          const sm=document.createElement("small"); sm.textContent=l.stop+(l.dist!=null?" · "+l.dist+" m bort":"")+(e.guided>2?" · "+e.guided+tr(" berättelser"):"");
           w.appendChild(sm);
           const m=document.createElement("span"); m.className="min"; m.textContent=minsUntil(l.time);
           b.append(n,w,m);
           b.addEventListener("click",()=>{ if(location.hash!=="#"+id) location.hash=id; else route(); });
           list.appendChild(b);
         });
-        nearInfo(shown ? "Närmast: "+j.stops.slice(0,3).map(s=>s.name).join(", ")+". Tryck på en linje för att starta turen." : "Inga turer avgår från hållplatserna nära dig den närmaste halvtimmen.");
-      }catch(e){ nearInfo("Kunde inte hämta avgångar just nu. Funktionen fungerar i webbappen, inte i förhandsvisningen."); }
-    }, err=>{ nearInfo(err.code===1 ? "Tillåt platsåtkomst för att se linjer nära dig." : "Kunde inte läsa din position just nu."); }, {enableHighAccuracy:true,timeout:15000,maximumAge:30000});
+        nearInfo(shown ? tr("Närmast: ")+j.stops.slice(0,3).map(s=>s.name).join(", ")+tr(". Tryck på en linje för att starta turen.") : tr("Inga turer avgår från hållplatserna nära dig den närmaste halvtimmen."));
+      }catch(e){ nearInfo(tr("Kunde inte hämta avgångar just nu. Funktionen fungerar i webbappen, inte i förhandsvisningen.")); }
+    }, err=>{ nearInfo(err.code===1 ? tr("Tillåt platsåtkomst för att se linjer nära dig.") : tr("Kunde inte läsa din position just nu.")); }, {enableHighAccuracy:true,timeout:15000,maximumAge:30000});
   });
 
   // ---- Simulator -------------------------------------------------------------
@@ -1185,15 +1250,15 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
   function gpsMsg(text){ $("gpsMsg").hidden=!text; $("gpsMsg").textContent=text||""; }
   let wakeLock=null;
   function startGps(){
-    if(!("geolocation" in navigator)){ gpsMsg("Den här enheten saknar platstjänster."); return; }
+    if(!("geolocation" in navigator)){ gpsMsg(tr("Den här enheten saknar platstjänster.")); return; }
     unlockAudio();
     try{ navigator.wakeLock && navigator.wakeLock.request("screen").then(l=>{ wakeLock=l; }).catch(()=>{}); }catch(e){}
-    gpsMsg("Söker din position… Ha telefonen framme, så hålls skärmen tänd."); hit("gps",T.id);
+    gpsMsg(tr("Söker din position… Ha telefonen framme, så hålls skärmen tänd.")); hit("gps",T.id);
     S.gpsSeen=false; S.started=true;
     S.gpsWatch=navigator.geolocation.watchPosition(onGps, err=>{
-      const why = err.code===1 ? "Platsåtkomst nekades. Den här förhandsvisningen får inte läsa din position, men webbappen kan det. Där tillåter du platsåtkomst när webbläsaren frågar."
-                : err.code===3 ? "Ingen position ännu. Gå gärna utomhus eller närmare ett fönster."
-                : "Kunde inte läsa positionen just nu.";
+      const why = err.code===1 ? tr("Platsåtkomst nekades. Den här förhandsvisningen får inte läsa din position, men webbappen kan det. Där tillåter du platsåtkomst när webbläsaren frågar.")
+                : err.code===3 ? tr("Ingen position ännu. Gå gärna utomhus eller närmare ett fönster.")
+                : tr("Kunde inte läsa positionen just nu.");
       gpsMsg(why); render();
     }, {enableHighAccuracy:true, maximumAge:2000, timeout:20000});
     render();
@@ -1212,7 +1277,7 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
     const pr = S.gpsSeen ? projectOn(R,x,y,S.s-150,S.s+1500) : projectOn(R,x,y,-Infinity,Infinity);
     const acc=Math.round(p.coords.accuracy||0);
     if(pr.d>250){
-      gpsMsg("Du är "+(pr.d>=1000?(pr.d/1000).toFixed(1)+" km":Math.round(pr.d)+" m")+" från linje "+T.line+". Ta dig till en hållplats längs linjen och kliv på mot "+T.to+".");
+      gpsMsg(tr("Du är ")+(pr.d>=1000?(pr.d/1000).toFixed(1)+" km":Math.round(pr.d)+" m")+tr(" från linje ")+T.line+tr(". Ta dig till en hållplats längs linjen och kliv på mot ")+T.to+".");
       if(!S.tripShown){ S.tripShown=true; showTrip(pos); }
       drawPosition(); render(); return;
     }
@@ -1224,7 +1289,7 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
       S.gpsSeen=true;
     }
     S.s = Math.max(S.s - 40, pr.s);   // tål lite GPS-brus bakåt
-    gpsMsg("GPS aktiv · noggrannhet ±"+acc+" m · "+Math.round(pr.d)+" m från linjen");
+    gpsMsg(tr("GPS aktiv · noggrannhet ±")+acc+" m · "+Math.round(pr.d)+" m från linjen");
     triggers(pos); drawPosition(); render();
   }
 
@@ -1257,9 +1322,9 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
       let i = guided.find(g=>T.stops[g].s>=S.s-25); if(i===undefined) i=guided[guided.length-1];
       if(S.mode==="sim"){ S.s=T.stops[i].s; S.simTime=T.stops[i].min*60; S.playing=false; }
       S.played.add(i); S.topic=i; S.hopped=true; showLook("");
-      play("hop",i,T.stops[i].hopAudio,2500);
+      const hopA=LANG==="en"?null:T.stops[i].hopAudio; play("hop",i,hopA,2500);
       showDepartures(i);
-      if(!T.stops[i].hopAudio) gpsMsg("Du har klivit av vid "+T.stops[i].name+". Nästa "+T.vehicle+" på linje "+T.line+" kommer om några minuter. Tryck på Hoppa på igen när du vill fortsätta.");
+      if(!hopA) gpsMsg(tr("Du har klivit av vid ")+T.stops[i].name+tr(". Nästa ")+vL(T.vehicle)+tr(" på linje ")+T.line+tr(" kommer om några minuter. Tryck på Hoppa på igen när du vill fortsätta."));
       drawPosition(); render();
     }else{
       S.hopped=false; stopNarr(); $("deps").hidden=true; if(S.mode==="sim") gpsMsg("");
@@ -1271,7 +1336,7 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
       render();
     }
   });
-  listenBtn.addEventListener("click",()=>{ setTimeout(()=>capStart(S.topic>=0?S.topic:guided[0]),0); const D=S.topic>=0?S.topic:guided[0]; const v=S.voice; S.voice="guide"; play("story",D,T.stops[D].audio,readMs(T.stops[D].story)); S.voice=v; });
+  listenBtn.addEventListener("click",()=>{ setTimeout(()=>capStart(S.topic>=0?S.topic:guided[0]),0); const D=S.topic>=0?S.topic:guided[0]; const v=S.voice; S.voice="guide"; const so=storyOf(T.stops[D]); play("story",D,so.audio,readMs(so.text)); S.voice=v; });
   stopAudioBtn.addEventListener("click",()=>{ stopNarr(); });
   $("depBtn").addEventListener("click",()=>{ const D=S.topic>=0?S.topic:guided[0]; showDepartures(D); });
   $("speed").addEventListener("change",e=>{ S.speed=Number(e.target.value)||10; });
@@ -1282,7 +1347,7 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
     S.mode=m; resetRide();
     $("modeSim").setAttribute("aria-pressed",m==="sim"); $("modeGps").setAttribute("aria-pressed",m==="gps");
     $("speedGroup").hidden = m==="gps";
-    if(m==="gps"){ S.speed=1; gpsMsg("Tryck på Starta med GPS när du är vid en hållplats längs linjen."); }
+    if(m==="gps"){ S.speed=1; gpsMsg(tr("Tryck på Starta med GPS när du är vid en hållplats längs linjen.")); }
     else{ S.speed=Number($("speed").value)||10; gpsMsg(""); }
     drawPosition(); render();
   }
@@ -1292,22 +1357,22 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
   async function loadTour(key){
     if(!byId[key]) key=DEFAULT_TOUR in byId ? DEFAULT_TOUR : DATA.tours[0].id;
     if(S.gpsWatch!==null) stopGps();
-    try{ await fetchTour(key); }catch(e){ $("signText").textContent="Kunde inte ladda turen. Försök igen."; return; }
+    try{ await fetchTour(key); }catch(e){ $("signText").textContent=tr("Kunde inte ladda turen. Försök igen."); return; }
     prepTour(key);
     pick.city=T.city; pick.mode=T.mode; buildTabs();
     buildDirs();
     paintNum($("signNum"),T.color);
     $("cityName").textContent=T.city;
     $("signNum").textContent=T.line;
-    $("signTitle").textContent=T.vehicleLong.charAt(0).toUpperCase()+T.vehicleLong.slice(1)+" "+T.line+(T.tab?" · "+T.tab:"");
+    $("signTitle").textContent=cap(vL(T.vehicleLong))+" "+T.line+(T.tab?" · "+tabL(T.tab):"");
     $("signText").textContent=T.from+" → "+T.to+" · ca "+T.total+" min";
-    $("sign").setAttribute("aria-label",T.vehicleLong+" "+T.line+", "+T.from+" till "+T.to);
-    const hasVoice=!!(T.guide||T.tts);
-    $("guideOpt").textContent= T.guide ? "Guiden "+T.guide : (T.tts ? "Datorröst ("+T.tts+")" : "Ingen röst än");
+    $("sign").setAttribute("aria-label",T.vehicleLong+" "+T.line+", "+T.from+tr(" till ")+T.to);
+    const hasVoice = LANG==="en" ? T.stops.some(st=>st.audio_en) : !!(T.guide||T.tts);
+    $("guideOpt").textContent= LANG==="en" ? (hasVoice ? "Computer voice (English)" : "No English voice yet") : (T.guide ? tr("Guiden ")+T.guide : (T.tts ? tr("Datorröst (")+T.tts+")" : tr("Ingen röst än")));
     $("voice").disabled=!hasVoice;
     S.voice = hasVoice ? $("voice").value : "off";
-    svg.setAttribute("aria-label","Karta över "+T.vehicleLong+" "+T.line+" från "+T.from+" till "+T.to);
-    $("source").textContent="Linjedragning och hållplatser: © OpenStreetMaps bidragsgivare (ODbL), "+T.source+". Kontrollera mot "+T.operator+" före lansering.";
+    svg.setAttribute("aria-label",tr("Karta över ")+vL(T.vehicleLong)+" "+T.line+tr(" från ")+T.from+tr(" till ")+T.to);
+    $("source").textContent=tr("Linjedragning och hållplatser: © OpenStreetMaps bidragsgivare (ODbL), ")+T.source+tr(". Kontrollera mot ")+T.operator+tr(" före lansering.");
     list.textContent="";
     guided.forEach(i=>{
       const st=T.stops[i];
@@ -1315,9 +1380,9 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
       const t=document.createElement("span"); t.className="t"; t.textContent=Math.round(st.min)+" min";
       const d=document.createElement("span"); d.className="dot";
       const n=document.createElement("span"); n.className="nm"; n.textContent=st.name;
-      const g=document.createElement("span"); g.className="tag"; g.textContent=st.tips.length? st.tips.length+" tips" : "";
+      const g=document.createElement("span"); g.className="tag"; g.textContent=st.tips.length? st.tips.length+tr(" tips") : "";
       const bell=document.createElement("button"); bell.type="button"; bell.className="bell"; bell.textContent="🔔";
-      bell.setAttribute("aria-label","Säg till före "+st.name);
+      bell.setAttribute("aria-label",tr("Säg till före ")+st.name);
       bell.addEventListener("click",e=>{ e.stopPropagation(); setAlight(i); });
       li.append(t,d,n,g,bell);
       li.addEventListener("click",()=>jumpTo(i));
@@ -1329,19 +1394,20 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
     $("depBtn").hidden=!usesVT() || apiOk===false;
     loadAlerts(); offLabel(); loadUgc(T.city); hit("open",T.id);
     if(pendingGps){ pendingGps=false; setMode("gps"); startGps(); }
+    applyLeg();
   }
 
   // ---- Dela turen (länk och QR-kod) ---------------------------------------------------
   function loadScript(src){ return new Promise((res,rej)=>{ const sc=document.createElement("script"); sc.src=src; sc.onload=res; sc.onerror=rej; document.head.appendChild(sc); }); }
   $("shareBtn").addEventListener("click",async()=>{
     const url=location.origin+location.pathname+"#"+T.id;
-    const title="Hoppa på: "+T.vehicleLong+" "+T.line+" mot "+T.to;
-    $("shareText").textContent=title+" – en guidad tur med "+guided.length+" berättelser.";
+    const title=tr("Hoppa på: ")+vL(T.vehicleLong)+" "+T.line+tr(" mot ")+T.to;
+    $("shareText").textContent=title+tr(" – en guidad tur med ")+guided.length+tr(" berättelser.");
     $("shareUrl").value=url;
     $("shareNative").hidden=!navigator.share;
     $("shareNative").onclick=()=>navigator.share({title,text:title,url}).catch(()=>{});
-    $("shareCopy").onclick=()=>{ (navigator.clipboard?navigator.clipboard.writeText(url):Promise.reject()).then(()=>{ $("shareCopy").textContent="Kopierad ✓"; }).catch(()=>{ $("shareUrl").select(); document.execCommand&&document.execCommand("copy"); $("shareCopy").textContent="Kopierad ✓"; }); };
-    $("shareCopy").textContent="Kopiera länk";
+    $("shareCopy").onclick=()=>{ (navigator.clipboard?navigator.clipboard.writeText(url):Promise.reject()).then(()=>{ $("shareCopy").textContent=tr("Kopierad ✓"); }).catch(()=>{ $("shareUrl").select(); document.execCommand&&document.execCommand("copy"); $("shareCopy").textContent=tr("Kopierad ✓"); }); };
+    $("shareCopy").textContent=tr("Kopiera länk");
     const box=$("qrBox"); box.textContent="";
     $("share").showModal(); hit("share",T.id);
     try{
@@ -1355,14 +1421,14 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
   const OFF="hoppa-pa-offline";
   const offList=()=>{ try{ return JSON.parse(localStorage.getItem("hp_offline")||"[]"); }catch(e){ return []; } };
   const offSave=l=>{ try{ localStorage.setItem("hp_offline",JSON.stringify(l)); }catch(e){} };
-  function offLabel(){ const b=$("dlBtn"); if(!("caches" in window)){ b.hidden=true; return; } b.disabled=false; b.textContent = offList().includes(T.id) ? "✓ Sparad offline" : "⬇ Spara offline"; }
+  function offLabel(){ const b=$("dlBtn"); if(!("caches" in window)){ b.hidden=true; return; } b.disabled=false; b.textContent = offList().includes(T.id) ? tr("✓ Sparad offline") : tr("⬇ Spara offline"); }
   $("dlBtn").addEventListener("click",async()=>{
     const b=$("dlBtn"), id=T.id, t=T;
-    if(offList().includes(id)){ b.textContent="✓ Sparad offline – fungerar utan nät"; return; }
+    if(offList().includes(id)){ b.textContent=tr("✓ Sparad offline – fungerar utan nät"); return; }
     const urls=new Set(["./","index.html","data/index.json","data/tours/"+encodeURIComponent(id)+".json"]);
     const ext=new Set();
-    t.stops.forEach(st=>{ if(st.audio) urls.add(st.audio); if(st.hopAudio) urls.add(st.hopAudio); (st.images||[]).forEach(im=>im.src && ext.add(im.src)); });
-    t.looks.forEach(L=>{ if(L.audio) urls.add(L.audio); });
+    t.stops.forEach(st=>{ const so=st.story?storyOf(st):{}; if(so.audio) urls.add(so.audio); if(st.hopAudio) urls.add(st.hopAudio); (st.images||[]).forEach(im=>im.src && ext.add(im.src)); });
+    t.looks.forEach(x=>{ if(lookAudio(x)) urls.add(lookAudio(x)); });
     const all=[...urls].map(u=>[u,false]).concat([...ext].map(u=>[u,true]));
     let n=0, fail=0; b.disabled=true;
     try{
@@ -1370,12 +1436,12 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
       const q=[...all];
       const worker=async()=>{ while(q.length){ const [u,x]=q.shift();
         try{ const r = x ? await fetch(u,{mode:"no-cors"}) : await fetch(u); if(x || r.ok) await c.put(u,r); else fail++; }catch(e){ fail++; }
-        n++; b.textContent="Sparar… "+Math.round(n/all.length*100)+" %"; } };
+        n++; b.textContent=tr("Sparar… ")+Math.round(n/all.length*100)+" %"; } };
       await Promise.all([worker(),worker(),worker(),worker()]);
       const l=offList(); if(!l.includes(id)) l.push(id); offSave(l); hit("offline",id);
-      b.disabled=false; b.textContent = fail ? "✓ Sparad ("+fail+" filer saknas)" : "✓ Sparad offline";
+      b.disabled=false; b.textContent = fail ? tr("✓ Sparad (")+fail+tr(" filer saknas)") : tr("✓ Sparad offline");
       try{ navigator.storage && navigator.storage.persist && navigator.storage.persist(); }catch(e){}
-    }catch(e){ b.disabled=false; b.textContent="Kunde inte spara – försök igen"; }
+    }catch(e){ b.disabled=false; b.textContent=tr("Kunde inte spara – försök igen"); }
   });
 
   // ---- Statistik (anonyma räknare per dag) och resenärernas bidrag ----------------------
@@ -1392,22 +1458,141 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
   }
   $("fbBtn").addEventListener("click",()=>{
     const st=T.stops[S.curD];
-    $("fbWhere").textContent=st.name+" · "+T.vehicleLong+" "+T.line+" mot "+T.to;
+    $("fbWhere").textContent=st.name+" · "+vL(T.vehicleLong)+" "+T.line+tr(" mot ")+T.to;
     $("fbMsg").textContent=""; $("fbSend").disabled=false;
     $("feedback").showModal();
   });
   $("fbSend").addEventListener("click",async()=>{
-    const text=$("fbText").value.trim(); if(text.length<3){ $("fbMsg").textContent="Skriv lite mer först."; return; }
-    const st=T.stops[S.curD]; $("fbSend").disabled=true; $("fbMsg").textContent="Skickar…";
+    const text=$("fbText").value.trim(); if(text.length<3){ $("fbMsg").textContent=tr("Skriv lite mer först."); return; }
+    const st=T.stops[S.curD]; $("fbSend").disabled=true; $("fbMsg").textContent=tr("Skickar…");
     try{
       const r=await fetch("/api/feedback",{method:"POST",headers:{"content-type":"application/json"},
         body:JSON.stringify({kind:$("fbKind").value,city:T.city,tour:T.id,stop:st.name,text,contact:$("fbContact").value})});
       const j=await r.json().catch(()=>({}));
       if(!r.ok) throw new Error(j.error||"fel");
-      $("fbMsg").textContent="Tack! Vi läser allt som kommer in."; $("fbText").value="";
+      $("fbMsg").textContent=tr("Tack! Vi läser allt som kommer in."); $("fbText").value="";
       setTimeout(()=>$("feedback").close(),1800);
-    }catch(e){ $("fbSend").disabled=false; $("fbMsg").textContent="Kunde inte skicka just nu ("+e.message+")."; }
+    }catch(e){ $("fbSend").disabled=false; $("fbMsg").textContent=tr("Kunde inte skicka just nu (")+e.message+")."; }
   });
+
+  // ---- Språkval, barnläge och engelska för sidans fasta texter ------------------------------
+  const STATIC_EN=[
+    ["#lineSearch","placeholder","Search line, e.g. 11 or 540"],
+    [".hero p","text","A guide that tells you about what you pass – on ordinary trams, buses and boats. Hop off wherever it sounds exciting."],
+    ["#detH","text","Already on board?"],
+    ["#detectPrompt p","text","Ride a little and the app detects which bus, tram or boat you're on."],
+    ["#detectBtn","text","🛰 Detect"],["#detectStop","text","Cancel"],
+    ["#nearH","text","Near you"],["#nearClose","text","Hide"],
+    ["#nearPrompt p","text","See which lines leave from the stops around you right now."],["#nearBtn","text","📍 Show"],
+    ["#featH","text","With a recorded guide"],["#allH","text","All lines"],
+    ["#roundH","text","Ready-made routes"],
+    [".foot","html","Prototype · <button type=\"button\" data-about>How the guide works</button>"],
+    ["#backBtn","aria-label","Back to the lines"],["#shareBtn","aria-label","Share the tour"],
+    ["#followBtn","text","◎ Follow the vehicle"],
+    ["#tips h3","text","If you get off here"],
+    ["#listen","text","🔊 Listen again"],["#stopAudio","text","■ Mute"],["#depBtn","text","Departures from here"],
+    ["#fbBtn","text","✎ Send a tip or report an error"],
+    ["#stopsPanel summary","text","All guided stops"],
+    ["#dirs","aria-label","Choose direction"],
+    ["#setH","text","Settings"],
+    ["#modeSim","text","Simulate the ride"],["#modeGps","text","My position (GPS)"],
+    ["#speedGroup span","text","Simulation speed"],
+    ["#speed option[value='1']","text","Real time"],["#speed option[value='30']","text","Fast 30×"],
+    ["#voice option[value='off']","text","Text only"],
+    ["#shareH","text","Share the tour"],["#shareNative","text","Share…"],
+    ["#share .small","text","Print the QR code, for example at your hotel or the tourist office. It opens the tour directly on the phone."],
+    ["#fbH","text","Send a tip or report"],
+    ["#fbKind option[value='tips']","text","A tip on something to see or do here"],
+    ["#fbKind option[value='fel']","text","An error in the story, image or tips"],
+    ["#fbKind option[value='berattelse']","text","Something you know about the place"],
+    ["#fbKind option[value='bild']","text","A better image"],
+    ["#fbKind option[value='annat']","text","Other"],
+    ["#fbSend","text","Send"],
+    ["#feedback .small","text","Everything is reviewed before it appears in the app. Approved tips are shown to other travellers, without names."],
+    ["#aboutH","text","How the guide works"],
+  ];
+  function applyLang(){
+    document.querySelectorAll("#langPick button,#langPick2 button").forEach(b=>{ b.setAttribute("aria-pressed",b.dataset.lang===LANG?"true":"false");
+      b.addEventListener("click",()=>{ if(b.dataset.lang===LANG) return; try{ localStorage.setItem("hp_lang",b.dataset.lang); }catch(e){} if(b.dataset.lang==="en") hit("lang_en"); location.reload(); }); });
+    if(LANG!=="en") return;
+    STATIC_EN.forEach(([sel,prop,val])=>document.querySelectorAll(sel).forEach(el=>{ if(prop==="text") el.textContent=val; else if(prop==="html") el.innerHTML=val; else el.setAttribute(prop,val); }));
+    const h=document.querySelector(".hero h1"); if(h){ h.firstChild.textContent="Discover "; h.lastChild.textContent=" from the window"; }
+    const fb=document.querySelectorAll("#feedback .field > span"); if(fb[0]) fb[0].textContent="What is it about?"; if(fb[1]) fb[1].textContent="Your message"; if(fb[2]) fb[2].textContent="E-mail (optional, if you want a reply)";
+    const st=document.querySelectorAll("#settings .field > span"); if(st[0]) st[0].textContent="How should the guide follow you?";
+    $("kidsField").hidden=true;
+    $("voice").closest("label").querySelector("span").textContent="Sound";
+    const how=document.querySelectorAll("#about .how > div");
+    const HOW=[["Position, not time","Everything is based on where the vehicle is along the real line. The story about a stop starts so that it ends around arrival."],
+      ["Look out","Sights have a point and a radius. The tip comes when you're inside the radius, even if you're running late."],
+      ["Simulate or ride for real","The simulation drives a pretend bus along the line. With \"My position\" the guide follows the phone's GPS as you ride."],
+      ["Images and facts","The stories are based on Swedish Wikipedia, translated into English. Images come from Wikimedia Commons and Swedish museum collections via K-samsök, with photographer and licence shown. \"Read more\" cards are in Swedish."]];
+    how.forEach((d,k)=>{ if(HOW[k]){ d.querySelector("h3").textContent=HOW[k][0]; d.querySelector("p").textContent=HOW[k][1]; } });
+    document.querySelectorAll("[aria-label='Stäng']").forEach(b=>b.setAttribute("aria-label","Close"));
+    document.querySelectorAll(".foot [data-about]").forEach(b=>b.addEventListener("click",()=>$("about").showModal()));
+  }
+  function setKids(on){
+    KIDS=!!on; try{ localStorage.setItem("hp_kids",on?"1":"0"); }catch(e){}
+    $("kidsOn").setAttribute("aria-pressed",on?"true":"false"); $("kidsOff").setAttribute("aria-pressed",on?"false":"true");
+    if(on) hit("kids",T?T.id:"");
+    if(T){ S.shownD=-1; render(); }
+  }
+  $("kidsOn").addEventListener("click",()=>setKids(true));
+  $("kidsOff").addEventListener("click",()=>setKids(false));
+
+  // ---- Färdiga rundor (tema och dagsturer) -------------------------------------------------
+  let ROUNDS=[], pendingLeg=null;
+  function buildRounds(){
+    const box=$("rounds"), list=ROUNDS.filter(r=>r.city===pick.city);
+    $("roundSec").hidden = !list.length || LANG==="en";
+    if(box.dataset.city===pick.city) return; box.dataset.city=pick.city; box.textContent="";
+    list.forEach(r=>{
+      const b=document.createElement("button"); b.type="button"; b.className="rcard "+r.type;
+      const k=document.createElement("span"); k.className="rkind"; k.textContent=r.type==="dag"?"Dagstur":"Tema";
+      const t=document.createElement("b"); t.textContent=r.title;
+      const lines=[...new Set(r.steps.filter(s=>s.tour&&byId[s.tour]).map(s=>byId[s.tour].line))];
+      const m=document.createElement("small"); m.textContent=(r.time||"")+(lines.length?" · linje "+lines.join(", "):"");
+      b.append(k,t,m); b.addEventListener("click",()=>openRound(r)); box.appendChild(b);
+    });
+  }
+  function openRound(r){
+    $("roundTitle").textContent=r.title; $("roundIntro").textContent=r.intro||"";
+    $("roundMeta").textContent=(r.type==="dag"?"Dagstur":"Temarunda")+(r.time?" · "+r.time:"");
+    const ol=$("roundSteps"); ol.textContent="";
+    r.steps.forEach(st=>{
+      const li=document.createElement("li");
+      if(st.tour && byId[st.tour]){
+        const e=byId[st.tour];
+        const b=document.createElement("button"); b.type="button"; b.className="leg-btn";
+        const n=document.createElement("span"); n.className="badge"; n.textContent=e.line; paintNum(n,e.color);
+        const w=document.createElement("span"); w.className="what"; w.textContent=cap(vL(e.vehicleLong))+" "+e.line+" från "+st.from+" till "+st.to;
+        const go=document.createElement("span"); go.className="go"; go.textContent="Starta ›";
+        b.append(n,w,go);
+        b.addEventListener("click",()=>{ pendingLeg={tour:st.tour,from:st.from,to:st.to}; hit("theme",st.tour); $("round").close(); if(location.hash!=="#"+st.tour) location.hash=st.tour; else { applyLeg(); } });
+        li.append(b);
+        if(st.note){ const p=document.createElement("p"); p.className="muted"; p.textContent=st.note; li.append(p); }
+      }else{
+        li.className="walk"; const p=document.createElement("p"); p.textContent="🚶 "+(st.walk||""); li.append(p);
+      }
+      ol.appendChild(li);
+    });
+    $("round").showModal();
+  }
+  function applyLeg(){
+    if(!pendingLeg || !T || T.id!==pendingLeg.tour) return;
+    const L0=pendingLeg; pendingLeg=null;
+    const names=T.stops.map(s=>s.name);
+    const fi=names.indexOf(L0.from), ti=names.lastIndexOf(L0.to);
+    if(fi<0 || ti<=fi) return;
+    if(S.mode==="sim"){
+      const st=T.stops[fi];
+      S.started=true; S.playing=false; S.hopped=false; S.s=st.s; S.simTime=st.min*60; S.dwellUntil=S.simTime+T.dwellSec;
+      guided.forEach(g=>{ if(T.stops[g].s<st.s-5) S.played.add(g); });
+      T.looks.forEach((x,k)=>{ if(x.s<st.s) S.looked.add(k); });
+    }
+    setAlight(ti);
+    gpsMsg("Kliv på vid "+L0.from+". Jag säger till före "+L0.to+", där du ska kliva av.");
+    drawPosition(); render();
+  }
 
   const DEFAULT_TOUR="goteborg-tram-11-rost";
   $("lineSearch").addEventListener("input",e=>{ pick.q=e.target.value; buildTabs(); });
@@ -1452,7 +1637,7 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
       j=i+1; while(j<pts.length && distM(pts[i],pts[j],lat0)<20) j++;
       if(pts[j-1].t-pts[i].t>=12000) dwells.push(XY[i]);
     }
-    if(trav<250){ detInfo("Åk en bit så känner jag av linjen… "+Math.round(trav)+" av 250 m."+(trav<20?" Väntar på att fordonet ska rulla.":"")); return; }
+    if(trav<250){ detInfo(tr("Åk en bit så känner jag av linjen… ")+Math.round(trav)+" av 250 m."+(trav<20?" Väntar på att fordonet ska rulla.":"")); return; }
     const res=[];
     for(const id in lines){
       const L=lines[id]; if(!byId[id]) continue;
@@ -1479,16 +1664,16 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
     for(const r of res){ const e=byId[r.id], k=e.group+"|"+e.to; if(seen.has(k)) continue; seen.add(k); top.push(r); if(top.length===4) break; }
     if(top.length>1) detRealtime(top, XY, lat0);
     const list=$("detectList"); list.textContent="";
-    if(!top.length){ detInfo(trav>800 ? "Hittar ingen linje som stämmer med sträckan. Fortsätter att lyssna…" : "Letar efter linjer som stämmer… "+Math.round(trav)+" m hittills."); return; }
-    detInfo(top.length===1 ? "Det ser ut som att du åker med:" : "Det ser ut som någon av de här. Välj rätt:");
+    if(!top.length){ detInfo(trav>800 ? tr("Hittar ingen linje som stämmer med sträckan. Fortsätter att lyssna…") : tr("Letar efter linjer som stämmer… ")+Math.round(trav)+tr(" m hittills.")); return; }
+    detInfo(top.length===1 ? tr("Det ser ut som att du åker med:") : tr("Det ser ut som någon av de här. Välj rätt:"));
     top.forEach(r=>{
       const e=byId[r.id];
       const b=document.createElement("button"); b.type="button"; b.className="near-row";
       const n=document.createElement("span"); n.className="badge"; n.textContent=e.line; paintNum(n,e.color);
-      const w=document.createElement("span"); w.className="what"; w.textContent=e.vehicleLong.charAt(0).toUpperCase()+e.vehicleLong.slice(1)+" "+e.line+" mot "+e.to;
+      const w=document.createElement("span"); w.className="what"; w.textContent=cap(vL(e.vehicleLong))+" "+e.line+tr(" mot ")+e.to;
       const q=DET.rt[r.id];
       const sm=document.createElement("small");
-      sm.textContent= q ? (q.ok ? "🟢 "+q.text : "Inget fordon på väg in enligt "+(DET.city==="Stockholm"?"SL":"Västtrafik")) : (e.guided?e.guided+" berättelser · ":"")+"startar guiden med GPS";
+      sm.textContent= q ? (q.ok ? "🟢 "+q.text : tr("Inget fordon på väg in enligt ")+(DET.city==="Stockholm"?"SL":"Västtrafik")) : (e.guided?e.guided+tr(" berättelser · "):"")+tr("startar guiden med GPS");
       if(q && !q.ok) b.style.opacity=".6";
       w.appendChild(sm);
       const go=document.createElement("span"); go.className="min"; go.textContent="›";
@@ -1531,7 +1716,7 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
         const hit=pool.map(d=>(Date.parse(d.estimated||d.planned)-Date.now())/60000).filter(m=>m>=-1.5 && m<=eta+3).sort((a,b)=>a-b)[0];
         if(hit===undefined){ if(dir.length) DET.rt[t.id]={ok:false}; return; }
         const m=Math.max(0,Math.round(hit));
-        DET.rt[t.id]={ok:true,text:"Väntas vid "+stop+(m?" om "+m+" min":" nu")+" enligt realtid"};
+        DET.rt[t.id]={ok:true,text:tr("Väntas vid ")+stop+(m?" om "+m+" min":" nu")+tr(" enligt realtid")};
       });
       detAnalyse();
     }catch(e){ /* realtid saknas – förslagen bygger då bara på sträckan */ }
@@ -1541,24 +1726,24 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
   $("detectBtn").addEventListener("click",()=>{
     if(!("geolocation" in navigator)){ return; }
     $("detectPrompt").hidden=true; $("detect").hidden=false; $("detectList").textContent="";
-    DET.pts=[]; DET.city=null; DET.rt={}; DET.rtAt=0; detInfo("Söker din position…");
+    DET.pts=[]; DET.city=null; DET.rt={}; DET.rtAt=0; detInfo(tr("Söker din position…"));
     try{ navigator.wakeLock && navigator.wakeLock.request("screen").catch(()=>{}); }catch(e){}
     DET.watch=navigator.geolocation.watchPosition(async pos=>{
       const p={lat:pos.coords.latitude,lon:pos.coords.longitude,acc:pos.coords.accuracy||30,t:pos.timestamp||Date.now()};
-      if(p.acc>80) { detInfo("Väntar på bättre GPS-signal (±"+Math.round(p.acc)+" m)…"); return; }
+      if(p.acc>80) { detInfo(tr("Väntar på bättre GPS-signal (±")+Math.round(p.acc)+" m)…"); return; }
       if(!DET.city){
         const c=CITY_CENTERS.map(c=>({...c,d:distM(p,c,p.lat)})).sort((a,b)=>a.d-b.d)[0];
-        if(c.d>60000){ detInfo("Hoppa på finns i Göteborg och Stockholm. Du är "+Math.round(c.d/1000)+" km från närmaste stad."); return; }
+        if(c.d>60000){ detInfo(tr("Hoppa på finns i Göteborg och Stockholm. Du är ")+Math.round(c.d/1000)+tr(" km från närmaste stad.")); return; }
         DET.city=c.city;
         if(pick.city!==c.city){ pick.city=c.city; pick.mode=null; saveCity(c.city); buildTabs(); }
-        detInfo("Laddar linjerna i "+c.city+"…");
-        try{ await detLines(c.city); }catch(e){ detInfo("Kunde inte ladda linjerna. Försök igen."); return; }
+        detInfo(tr("Laddar linjerna i ")+c.city+"…");
+        try{ await detLines(c.city); }catch(e){ detInfo(tr("Kunde inte ladda linjerna. Försök igen.")); return; }
       }
       DET.pts.push(p);
       // behåll ungefär de senaste 2 km
       let d=0; for(let i=DET.pts.length-1;i>0;i--){ d+=distM(DET.pts[i],DET.pts[i-1],p.lat); if(d>2000){ DET.pts=DET.pts.slice(i); break; } }
       detAnalyse();
-    }, err=>{ detInfo(err.code===1 ? "Tillåt platsåtkomst för att känna av linjen." : "Kunde inte läsa positionen just nu."); },
+    }, err=>{ detInfo(err.code===1 ? tr("Tillåt platsåtkomst för att känna av linjen.") : tr("Kunde inte läsa positionen just nu.")); },
     {enableHighAccuracy:true,maximumAge:1000,timeout:20000});
   });
 
@@ -1602,13 +1787,15 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
   $("backBtn").addEventListener("click",e=>{ e.preventDefault(); location.hash=""; });
 
   document.body.dataset.view="home";
+  applyLang(); setKids(KIDS);
+  fetch("data/rounds.json").then(r=>r.ok?r.json():[]).then(r=>{ ROUNDS=r||[]; if(DATA) buildRounds(); }).catch(()=>{});
   fetch("data/index.json").then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); }).then(d=>{
     DATA=d; buildIndex();
     loadGL().then(initGL).catch(()=>{});
     window.addEventListener("hashchange",route);
     route();
     S.last=performance.now(); requestAnimationFrame(tick);
-  }).catch(()=>{ $("nearInfo").textContent="Kunde inte ladda turerna. Ladda om sidan."; });
+  }).catch(()=>{ $("nearInfo").textContent=tr("Kunde inte ladda turerna. Ladda om sidan."); });
 })();
 </script>
 

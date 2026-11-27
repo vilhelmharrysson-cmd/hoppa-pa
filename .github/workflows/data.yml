@@ -42,11 +42,12 @@ jobs:
           fi
           python3 tools/gtfs_build.py
           python3 tools/lines_index.py
+          python3 tools/enrich.py
       - name: Hämta Piper-röst (cache)
         uses: actions/cache@v4
         with:
           path: ~/.piper
-          key: piper-voice-sv-v1
+          key: piper-voice-sv-en-v1
       - name: Spela in berättelser som saknar ljud (Piper)
         run: |
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
@@ -67,11 +68,18 @@ jobs:
           echo "Röst: $name"
           cd "$GITHUB_WORKSPACE"
           python3 tools/piper_audio.py ~/.piper/"$name".onnx --workers 4
+          # engelska rösten
+          enb=https://huggingface.co/rhasspy/piper-voices/resolve/main/en/en_US/lessac/medium
+          if [ ! -f ~/.piper/en_US-lessac-medium.onnx ]; then
+            curl -fsSL -o ~/.piper/en_US-lessac-medium.onnx "$enb/en_US-lessac-medium.onnx"
+            curl -fsSL -o ~/.piper/en_US-lessac-medium.onnx.json "$enb/en_US-lessac-medium.onnx.json"
+          fi
+          python3 tools/piper_audio.py ~/.piper/en_US-lessac-medium.onnx --workers 4 --lang en
       - name: Spara om något ändrats
         run: |
           git config user.name "hoppa-pa databygge"
           git config user.email "actions@users.noreply.github.com"
-          git add public/data public/audio/piper tools/places_extra.json
+          git add public/data public/audio/piper public/audio/piper-en tools/places_extra.json
           if git diff --cached --quiet; then
             echo "Inga ändringar i linjerna."
           else

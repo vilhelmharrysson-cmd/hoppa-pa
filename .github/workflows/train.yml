@@ -1,0 +1,29 @@
+name: Tågturen (Wikipedia)
+
+# Hämtar fakta om platser och stationer längs Västra stambanan till tågturen Stockholm–Göteborg.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  deep:
+    runs-on: ubuntu-latest
+    timeout-minutes: 200
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Hämta artiklar
+        run: python3 tools/train_research.py
+      - name: Spara
+        run: |
+          git config user.name "hoppa-pa faktainsamling"
+          git config user.email "actions@users.noreply.github.com"
+          git add tools/research
+          git commit -m "Tågturen: fakta från Wikipedia ($(date -u +%Y-%m-%d))" || exit 0
+          git pull --rebase
+          git push

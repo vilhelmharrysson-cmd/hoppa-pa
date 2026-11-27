@@ -110,7 +110,7 @@ PLACES = {
     "tips": [["Kaknästornets utsikt", "2 min"], ["Promenad på Gärdet", "3 min"]]},
   # --- Spårvägar -------------------------------------------------------------
   "Globen": {
-    "story": "Den vita kupolen är Avicii Arena, som tidigare hette Globen. Den invigdes 1989 och är världens största sfäriska byggnad. På utsidan kan du åka i glasgondolerna SkyView upp till toppen.",
+    "story": "Den vita kupolen är Avicii Arena, som tidigare hette Globen. Den invigdes 1989 och var länge världens största sfäriska byggnad, tills Sphere i Las Vegas blev större 2023. På utsidan kan du åka i glasgondolerna SkyView upp till toppen.",
     "tips": [["SkyView, gondolen upp på kupolen", "3 min"]]},
   "Luma": {
     "story": "Vi är i Hammarby sjöstad, en stadsdel som byggts från 1990-talet på gammal industrimark. Det stora funkishuset är Lumafabriken, där det förr tillverkades glödlampor.",

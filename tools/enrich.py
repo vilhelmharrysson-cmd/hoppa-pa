@@ -11,7 +11,7 @@ Källor:
 Resultat: fälten story_en, tips_en, text_en (titta ut) och kids i public/data/tours/*.json,
 samt public/data/rounds.json.
 """
-import json, os, sys
+import json, os, re, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(os.path.dirname(HERE), "public", "data")
@@ -20,6 +20,27 @@ TOURS = os.path.join(DATA, "tours")
 def jload(name, default):
     p = os.path.join(HERE, name)
     return json.load(open(p, encoding="utf8")) if os.path.exists(p) else default
+
+VEH_EN = {"buss": "bus", "spårvagn": "tram", "båt": "boat", "tåg": "train"}
+
+def story_en(sv, EN):
+    """Engelsk text för en berättelse. Inledningen och avslutningen som gtfs_build lägger på
+    översätts med fast mall, så att en rättad brödtext bara behöver översättas en gång."""
+    if sv in EN: return EN[sv]
+    m = re.match(r"Välkommen ombord på (\S+) (\S+) mot (.+?)! Resan tar ungefär (\d+) minuter\.(?: (.*))?$", sv, re.S)
+    if m:
+        body = m.group(5) or ""
+        b = "Sit back, relax and enjoy the view." if body.startswith("Luta dig tillbaka") else (EN.get(body) if body else "")
+        if b is None: return None
+        return (f"Welcome aboard {VEH_EN.get(m.group(1), m.group(1))} {m.group(2)} towards {m.group(3)}! "
+                f"The journey takes about {m.group(4)} minutes. {b}").strip()
+    m = re.match(r"Snart är vi framme vid ändhållplatsen (.+?)\.(?: (.*?))? Tack för att du åkte med!$", sv, re.S)
+    if m:
+        body = m.group(2) or ""
+        b = EN.get(body) if body else ""
+        if b is None: return None
+        return f"We'll soon reach the final stop, {m.group(1)}. {b} Thank you for riding with us!".replace("  ", " ")
+    return None
 
 def main():
     EN = jload("en.json", {})
@@ -38,7 +59,8 @@ def main():
             st.pop("kids", None)   # engelska som redan finns (t.ex. tågturens egna texter) behålls om en.json saknar texten
             if st.get("story"):
                 tot += 1
-                if st["story"] in EN: st["story_en"] = EN[st["story"]]; got += 1
+                en = story_en(st["story"], EN)
+                if en: st["story_en"] = en; got += 1
                 kid = KIDS.get(f"{t['city']}|{st['name']}")
                 if kid and kid.get("t"): st["kids"] = {"t": kid["t"], "q": kid.get("q", "")}; n_kids += 1
             for c in st.get("more", []):

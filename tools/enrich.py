@@ -35,7 +35,7 @@ def main():
         stops_by_tour[t["id"]] = [s["name"] for s in t["stops"]]
         got = tot = 0
         for st in t["stops"]:
-            for k in ("story_en", "tips_en", "kids"): st.pop(k, None)
+            st.pop("kids", None)   # engelska som redan finns (t.ex. tågturens egna texter) behålls om en.json saknar texten
             if st.get("story"):
                 tot += 1
                 if st["story"] in EN: st["story_en"] = EN[st["story"]]; got += 1
@@ -49,7 +49,6 @@ def main():
                 tr = [EN.get(tp[0]) for tp in st["tips"]]
                 if any(tr): st["tips_en"] = [x or tp[0] for x, tp in zip(tr, st["tips"])]
         for L in t.get("looks", []):
-            L.pop("text_en", None)
             if L["text"] in EN: L["text_en"] = EN[L["text"]]
         n_en += got; n_tot += tot
         en_share[t["id"]] = round(got / tot, 2) if tot else 0

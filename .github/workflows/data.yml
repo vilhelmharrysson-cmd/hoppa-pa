@@ -32,6 +32,16 @@ jobs:
         run: python3 tools/wiki_images.py || echo "::warning::Bildhämtningen misslyckades, försöker igen nästa natt"
       - name: Hämta historiska foton (K-samsök)
         run: python3 tools/historic_images.py || echo "::warning::Historiska foton misslyckades, försöker igen nästa natt"
+      - name: Datum för GTFS-cachen
+        id: day
+        run: echo "d=$(date -u +%Y-%m-%d)" >> "$GITHUB_OUTPUT"
+      - name: GTFS-filer (hämtas högst en gång per dygn, Trafiklab har en kvot)
+        id: gtfs
+        uses: actions/cache@v4
+        with:
+          path: ~/.gtfs
+          key: gtfs-${{ steps.day.outputs.d }}
+          restore-keys: gtfs-
       - name: Bygg turer från GTFS
         env:
           TRAFIKLAB_KEY: ${{ secrets.TRAFIKLAB_KEY }}
@@ -40,7 +50,20 @@ jobs:
             echo "::error::Hemligheten TRAFIKLAB_KEY saknas. Lägg till den under Settings → Secrets and variables → Actions."
             exit 1
           fi
-          python3 tools/gtfs_build.py
+          # Dagens filer från cachen om de finns. Annars hämtas nya; svarar Trafiklab inte
+          # (t.ex. kvoten slut) byggs turerna med senast hämtade filer.
+          mkdir -p ~/.gtfs
+          if [ "${{ steps.gtfs.outputs.cache-hit }}" != "true" ]; then
+            rm -rf ~/.gtfs-prev && mv ~/.gtfs ~/.gtfs-prev && mkdir -p ~/.gtfs
+            if ! python3 tools/gtfs_build.py --cache ~/.gtfs; then
+              echo "::warning::Kunde inte hämta GTFS från Trafiklab, bygger med senast hämtade filer"
+              git checkout -- public/data
+              cp ~/.gtfs-prev/*.zip ~/.gtfs/ 2>/dev/null || true
+              python3 tools/gtfs_build.py --cache ~/.gtfs
+            fi
+          else
+            python3 tools/gtfs_build.py --cache ~/.gtfs
+          fi
           python3 tools/lines_index.py
           python3 tools/enrich.py
       - name: Hämta Piper-röst (cache)

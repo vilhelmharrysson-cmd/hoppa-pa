@@ -41,6 +41,10 @@ def main():
                 if st["story"] in EN: st["story_en"] = EN[st["story"]]; got += 1
                 kid = KIDS.get(f"{t['city']}|{st['name']}")
                 if kid and kid.get("t"): st["kids"] = {"t": kid["t"], "q": kid.get("q", "")}; n_kids += 1
+            for c in st.get("more", []):
+                for f in ("h", "t"):
+                    c.pop(f + "_en", None)
+                    if c.get(f) in EN: c[f + "_en"] = EN[c[f]]
             if st.get("tips"):
                 tr = [EN.get(tp[0]) for tp in st["tips"]]
                 if any(tr): st["tips_en"] = [x or tp[0] for x, tp in zip(tr, st["tips"])]
@@ -63,7 +67,13 @@ def main():
                 if not names or s["from"] not in names or s["to"] not in names or names.index(s["from"]) >= len(names) - 1 - names[::-1].index(s["to"]):
                     good = False; print("  rundan", r["id"], "har ett ogiltigt steg:", s.get("tour"), s.get("from"), "→", s.get("to"))
                     break
-        if good: ok.append(r)
+        if good:
+            for f in ("title", "intro", "time"):
+                if r.get(f) in EN: r[f + "_en"] = EN[r[f]]
+            for s in r.get("steps", []):
+                for f in ("note", "walk"):
+                    if s.get(f) in EN: s[f + "_en"] = EN[s[f]]
+            ok.append(r)
     json.dump(ok, open(os.path.join(DATA, "rounds.json"), "w", encoding="utf8"), ensure_ascii=False, separators=(",", ":"))
     print(f"Engelska: {n_en} av {n_tot} berättelser · barnversioner: {n_kids} · rundor: {len(ok)} av {len(ROUNDS)}")
 

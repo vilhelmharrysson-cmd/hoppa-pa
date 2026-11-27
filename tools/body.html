@@ -1477,7 +1477,7 @@
     for(let i=pool.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [pool[i],pool[j]]=[pool[j],pool[i]]; }
     return {n:bingoN, items:pool.slice(0,bingoN*bingoN), marked:[], won:false};
   }
-  function bingoLoad(){ try{ const b=JSON.parse(localStorage.getItem(bingoKey())||"null"); if(b && b.items) return b; }catch(e){} return null; }
+  function bingoLoad(){ try{ const b=JSON.parse(localStorage.getItem(bingoKey())||"null"); if(b && b.items && b.items.every(x=>/^[a-z-]+$/.test(x[0]))) return b; }catch(e){} return null; }
   function bingoSave(b){ try{ localStorage.setItem(bingoKey(),JSON.stringify(b)); }catch(e){} }
   function bingoLines(b){
     const n=b.n, m=new Set(b.marked), L=[];

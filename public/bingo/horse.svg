@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><ellipse cx="50" cy="88" rx="40" ry="4" fill="#5aa469"/>
+<path d="M22 44 Q8 50 10 74 Q16 66 20 56" fill="#5a3d22" stroke="#26323a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="24" y="60" width="8" height="27" rx="3" fill="#9a6b3f" stroke="#26323a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="34" y="60" width="8" height="27" rx="3" fill="#9a6b3f" stroke="#26323a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="56" y="60" width="8" height="27" rx="3" fill="#9a6b3f" stroke="#26323a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="66" y="60" width="8" height="27" rx="3" fill="#9a6b3f" stroke="#26323a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="23" y="82" width="10" height="6" rx="1" fill="#26323a"/><rect x="33" y="82" width="10" height="6" rx="1" fill="#26323a"/>
+<rect x="55" y="82" width="10" height="6" rx="1" fill="#26323a"/><rect x="65" y="82" width="10" height="6" rx="1" fill="#26323a"/>
+<rect x="18" y="40" width="58" height="26" rx="13" fill="#9a6b3f" stroke="#26323a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M62 46 L70 16 L82 18 L78 48 Z" fill="#9a6b3f" stroke="#26323a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M70 16 Q76 10 82 14 L94 30 Q96 36 90 38 L78 34 Z" fill="#9a6b3f" stroke="#26323a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M72 14 L72 6 L78 12" fill="#9a6b3f" stroke="#26323a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M70 16 Q62 26 62 44 L66 44 Q66 28 72 20 Z" fill="#5a3d22" stroke="#26323a" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M70 15 Q74 8 80 13" fill="none" stroke="#5a3d22" stroke-width="4" stroke-linecap="round"/>
+<circle cx="80" cy="21" r="2.2" fill="#26323a"/>
+<circle cx="91" cy="32" r="1.4" fill="#26323a"/></svg>

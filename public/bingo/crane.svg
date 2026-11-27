@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g stroke="#26323a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+<path d="M36 9 L12 18 M36 9 L86 18" fill="none" stroke-width="2"/>
+<path d="M33 18 L36 7 L39 18 Z" fill="#f4c430"/>
+<rect x="8" y="18" width="84" height="7" fill="#f4c430"/>
+<path d="M14 18 L20 25 L26 18 L32 25 L40 25 L46 18 L52 25 L58 18 L64 25 L70 18 L76 25 L82 18 L88 25" fill="none" stroke-width="2"/>
+<rect x="8" y="25" width="14" height="10" rx="1" fill="#9aa5ab"/>
+<rect x="31" y="25" width="10" height="65" fill="#f4c430"/>
+<path d="M31 32 L41 40 L31 48 L41 56 L31 64 L41 72 L31 80 L41 88" fill="none" stroke-width="2"/>
+<rect x="40" y="25" width="10" height="10" rx="1" fill="#a9d4f5"/>
+<rect x="76" y="25" width="8" height="4" fill="#26323a"/>
+<path d="M80 29 L80 60" fill="none" stroke-width="2"/>
+<path d="M80 60 L80 66 Q80 72 75 70" fill="none" stroke-width="3.5"/>
+<rect x="64" y="72" width="26" height="12" rx="1" fill="#d94f3d"/>
+<path d="M70 72 L77 66 L84 72" fill="none" stroke-width="2"/>
+<path d="M22 92 L52 92" fill="none" stroke="#9aa5ab" stroke-width="5"/>
+</g></svg>

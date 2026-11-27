@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+<rect x="2" y="88" width="96" height="5" rx="2" fill="#5aa469"/>
+<path d="M26,44 L50,28 L74,44 Z" fill="#9aa5ab" stroke="#26323a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="24" y="44" width="52" height="44" fill="#f7e7b4" stroke="#26323a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="30" y="50" width="6" height="9" rx="1.5" fill="#3d8bd9" stroke="#26323a" stroke-width="2"/><rect x="30" y="66" width="6" height="9" rx="1.5" fill="#3d8bd9" stroke="#26323a" stroke-width="2"/><rect x="40" y="50" width="6" height="9" rx="1.5" fill="#3d8bd9" stroke="#26323a" stroke-width="2"/><rect x="40" y="66" width="6" height="9" rx="1.5" fill="#3d8bd9" stroke="#26323a" stroke-width="2"/><rect x="54" y="50" width="6" height="9" rx="1.5" fill="#3d8bd9" stroke="#26323a" stroke-width="2"/><rect x="54" y="66" width="6" height="9" rx="1.5" fill="#3d8bd9" stroke="#26323a" stroke-width="2"/><rect x="64" y="50" width="6" height="9" rx="1.5" fill="#3d8bd9" stroke="#26323a" stroke-width="2"/><rect x="64" y="66" width="6" height="9" rx="1.5" fill="#3d8bd9" stroke="#26323a" stroke-width="2"/>
+<path d="M44,88 L44,74 Q50,66 56,74 L56,88 Z" fill="#9a6b3f" stroke="#26323a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="8" y="38" width="18" height="50" fill="#f7e7b4" stroke="#26323a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="74" y="38" width="18" height="50" fill="#f7e7b4" stroke="#26323a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M5,40 L17,14 L29,40 Z" fill="#3d8bd9" stroke="#26323a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M71,40 L83,14 L95,40 Z" fill="#3d8bd9" stroke="#26323a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M17,14 L17,4 M83,14 L83,4" stroke="#26323a" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M17,4 L25,7 L17,10 Z M83,4 L91,7 L83,10 Z" fill="#d94f3d" stroke="#26323a" stroke-width="2" stroke-linejoin="round"/>
+<rect x="14" y="48" width="6" height="9" rx="1.5" fill="#3d8bd9" stroke="#26323a" stroke-width="2"/><rect x="14" y="66" width="6" height="9" rx="1.5" fill="#3d8bd9" stroke="#26323a" stroke-width="2"/><rect x="80" y="48" width="6" height="9" rx="1.5" fill="#3d8bd9" stroke="#26323a" stroke-width="2"/><rect x="80" y="66" width="6" height="9" rx="1.5" fill="#3d8bd9" stroke="#26323a" stroke-width="2"/>
+<circle cx="50" cy="38" r="3.5" fill="#f4c430" stroke="#26323a" stroke-width="2"/>
+</svg>

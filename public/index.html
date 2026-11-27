@@ -1101,7 +1101,12 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
   })();
 
   // ---- Säg till före avstigning ---------------------------------------------------------
+  function alightClear(){
+    if($("gpsMsg").dataset.alight){ delete $("gpsMsg").dataset.alight; $("gpsMsg").classList.remove("alight-banner"); gpsMsg(""); }
+  }
   function alightCheck(){
+    // påminnelsen tas bort när fordonet har lämnat hållplatsen (man åkte vidare)
+    if(S.alight>=0 && S.alightDone && S.s > T.stops[S.alight].s + 40){ S.alight=-1; alightClear(); return; }
     if(S.alight<0 || S.alightDone || S.hopped || !S.started) return;
     const st=T.stops[S.alight], prev=T.stops[S.alight-1];
     const left = st.s - S.s;
@@ -1114,8 +1119,7 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
   function alightAlert(st){
     const msg=tr("Nästa hållplats: ")+st.name+tr(". Dags att kliva av.");
     try{ navigator.vibrate && navigator.vibrate([400,200,400,200,400]); }catch(e){}
-    gpsMsg("🔔 "+msg); $("gpsMsg").classList.add("alight-banner");
-    setTimeout(()=>$("gpsMsg").classList.remove("alight-banner"),20000);
+    gpsMsg("🔔 "+msg); $("gpsMsg").classList.add("alight-banner"); $("gpsMsg").dataset.alight="1";
     try{
       if(S.voice!=="off" && "speechSynthesis" in window){
         stopNarr();
@@ -1131,7 +1135,7 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
   $("alightBtn").addEventListener("click",()=>setAlight(S.curD));
   function setAlight(D){
     if(D<0) return;
-    if(S.alight===D && !S.alightDone){ S.alight=-1; gpsMsg(""); render(); return; }
+    if(S.alight===D && !S.alightDone){ S.alight=-1; alightClear(); gpsMsg(""); render(); return; }
     S.alight=D; S.alightDone=false; hit("alight",T.id);
     gpsMsg(tr("🔔 Jag säger till när vi närmar oss ")+T.stops[D].name+tr(". Telefonen vibrerar och guiden säger till."));
     try{ if("Notification" in window && Notification.permission==="default") Notification.requestPermission().catch(()=>{}); }catch(e){}
@@ -1323,7 +1327,7 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
       // kliv av vid nästa guidade hållplats (eller den du står vid)
       let i = guided.find(g=>T.stops[g].s>=S.s-25); if(i===undefined) i=guided[guided.length-1];
       if(S.mode==="sim"){ S.s=T.stops[i].s; S.simTime=T.stops[i].min*60; S.playing=false; }
-      S.played.add(i); S.topic=i; S.hopped=true; showLook("");
+      S.played.add(i); S.topic=i; S.hopped=true; showLook(""); S.alight=-1; alightClear();
       const hopA=LANG==="en"?null:T.stops[i].hopAudio; play("hop",i,hopA,2500);
       showDepartures(i);
       if(!hopA) gpsMsg(tr("Du har klivit av vid ")+T.stops[i].name+tr(". Nästa ")+vL(T.vehicle)+tr(" på linje ")+T.line+tr(" kommer om några minuter. Tryck på Hoppa på igen när du vill fortsätta."));

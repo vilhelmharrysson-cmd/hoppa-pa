@@ -4,6 +4,8 @@
   "name": "hoppa-pa",
   "main": "worker.mjs",
   "compatibility_date": "2025-09-01",
+  // behåll variabler som lagts in i Cloudflares dashboard när koden driftsätts
+  "keep_vars": true,
   "assets": {
     "directory": "./public",
     "binding": "ASSETS",

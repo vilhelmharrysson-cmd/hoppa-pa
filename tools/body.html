@@ -95,6 +95,7 @@
           <button class="btn" id="hop" type="button">Hoppa av här</button>
           <button class="btn" id="alightBtn" type="button" aria-pressed="false">🔔 Säg till före</button>
           <button class="btn" id="dlBtn" type="button">⬇ Spara offline</button>
+          <button class="btn" id="fbBtn" type="button" hidden>✎ Tipsa eller rapportera fel</button>
           <button class="btn" id="depBtn" type="button" hidden>Avgångar härifrån</button>
         </div>
         <div class="deps" id="deps" hidden></div>
@@ -161,6 +162,26 @@
       <button class="btn" type="button" id="shareCopy">Kopiera länk</button>
     </div>
     <p class="muted small">Skriv ut QR-koden, till exempel på hotellet eller i turistbyrån. Den öppnar turen direkt i telefonen.</p>
+  </form>
+</dialog>
+
+<dialog id="feedback" aria-labelledby="fbH">
+  <form method="dialog" class="dlg" id="fbForm">
+    <div class="dlg-head"><h2 id="fbH">Tipsa eller rapportera</h2><button class="iconbtn" value="close" aria-label="Stäng">✕</button></div>
+    <p class="muted" id="fbWhere"></p>
+    <label class="field"><span>Vad gäller det?</span>
+      <select id="fbKind">
+        <option value="tips">Tips på något att se eller göra här</option>
+        <option value="fel">Fel i berättelsen, bilden eller tipsen</option>
+        <option value="berattelse">Något du vet om platsen som borde berättas</option>
+        <option value="bild">Förslag på bättre bild</option>
+        <option value="annat">Annat</option>
+      </select>
+    </label>
+    <label class="field"><span>Ditt meddelande</span><textarea id="fbText" rows="5" maxlength="2000" required></textarea></label>
+    <label class="field"><span>E-post (valfritt, om du vill ha svar)</span><input id="fbContact" type="email" maxlength="120" autocomplete="email"></label>
+    <p class="muted small">Allt granskas innan det syns i appen. Tips som godkänns visas för andra resenärer, utan namn.</p>
+    <div class="actions"><button class="btn primary" type="button" id="fbSend">Skicka</button><span class="muted" id="fbMsg" aria-live="polite"></span></div>
   </form>
 </dialog>
 
@@ -643,6 +664,12 @@
         const c=document.createElement("span"); c.className="go"; c.textContent="Visa vägen ↗";
         link.append(a,b,c); li.appendChild(link); ul.appendChild(li);
       });
+      ((ugcTips[T.city]||{})[st.name]||[]).slice(0,3).forEach(t=>{
+        const li=document.createElement("li"); li.className="ugc";
+        const a=document.createElement("span"); a.textContent="💬 "+t;
+        const b=document.createElement("small"); b.textContent="Tips från en resenär";
+        li.append(a,b); ul.appendChild(li);
+      });
     }
     // "Läs mer": fördjupning man kan läsa i egen takt
     const mp=$("morePanel"), mk=T.id+"|"+D;
@@ -770,7 +797,7 @@
   function setAlight(D){
     if(D<0) return;
     if(S.alight===D && !S.alightDone){ S.alight=-1; gpsMsg(""); render(); return; }
-    S.alight=D; S.alightDone=false;
+    S.alight=D; S.alightDone=false; hit("alight",T.id);
     gpsMsg("🔔 Jag säger till när vi närmar oss "+T.stops[D].name+". Telefonen vibrerar och guiden säger till.");
     try{ if("Notification" in window && Notification.permission==="default") Notification.requestPermission().catch(()=>{}); }catch(e){}
     render();
@@ -893,7 +920,7 @@
     if(!("geolocation" in navigator)){ gpsMsg("Den här enheten saknar platstjänster."); return; }
     unlockAudio();
     try{ navigator.wakeLock && navigator.wakeLock.request("screen").then(l=>{ wakeLock=l; }).catch(()=>{}); }catch(e){}
-    gpsMsg("Söker din position… Ha telefonen framme, så hålls skärmen tänd.");
+    gpsMsg("Söker din position… Ha telefonen framme, så hålls skärmen tänd."); hit("gps",T.id);
     S.gpsSeen=false; S.started=true;
     S.gpsWatch=navigator.geolocation.watchPosition(onGps, err=>{
       const why = err.code===1 ? "Platsåtkomst nekades. Den här förhandsvisningen får inte läsa din position, men webbappen kan det. Där tillåter du platsåtkomst när webbläsaren frågar."
@@ -952,7 +979,7 @@
     if(S.mode==="gps"){ if(S.gpsWatch!==null) stopGps(); else startGps(); return; }
     const last=guided[guided.length-1];
     if(S.started && S.s>=T.stops[last].s-10 && !S.playing){ resetRide(); }
-    if(!S.started){ S.started=true; S.playing=true; S.dwellUntil=T.dwellSec; startStory(guided[0]); drawPosition(); render(); return; }
+    if(!S.started){ hit("start",T.id); S.started=true; S.playing=true; S.dwellUntil=T.dwellSec; startStory(guided[0]); drawPosition(); render(); return; }
     S.playing=!S.playing; if(!S.playing) stopNarr();
     render();
   });
@@ -1032,7 +1059,7 @@
     drawMap(); resetRide(); drawPosition(); render();
     S.tripShown=false; $("trip").hidden=true; $("deps").hidden=true;
     $("depBtn").hidden=!usesVT() || apiOk===false;
-    loadAlerts(); offLabel();
+    loadAlerts(); offLabel(); loadUgc(T.city); hit("open",T.id);
     if(pendingGps){ pendingGps=false; setMode("gps"); startGps(); }
   }
 
@@ -1048,7 +1075,7 @@
     $("shareCopy").onclick=()=>{ (navigator.clipboard?navigator.clipboard.writeText(url):Promise.reject()).then(()=>{ $("shareCopy").textContent="Kopierad ✓"; }).catch(()=>{ $("shareUrl").select(); document.execCommand&&document.execCommand("copy"); $("shareCopy").textContent="Kopierad ✓"; }); };
     $("shareCopy").textContent="Kopiera länk";
     const box=$("qrBox"); box.textContent="";
-    $("share").showModal();
+    $("share").showModal(); hit("share",T.id);
     try{
       if(!window.qrcode) await loadScript("vendor/qrcode.js");
       const q=qrcode(0,"M"); q.addData(url); q.make(); box.innerHTML=q.createSvgTag({cellSize:4,margin:2,scalable:true});
@@ -1077,10 +1104,41 @@
         try{ const r = x ? await fetch(u,{mode:"no-cors"}) : await fetch(u); if(x || r.ok) await c.put(u,r); else fail++; }catch(e){ fail++; }
         n++; b.textContent="Sparar… "+Math.round(n/all.length*100)+" %"; } };
       await Promise.all([worker(),worker(),worker(),worker()]);
-      const l=offList(); if(!l.includes(id)) l.push(id); offSave(l);
+      const l=offList(); if(!l.includes(id)) l.push(id); offSave(l); hit("offline",id);
       b.disabled=false; b.textContent = fail ? "✓ Sparad ("+fail+" filer saknas)" : "✓ Sparad offline";
       try{ navigator.storage && navigator.storage.persist && navigator.storage.persist(); }catch(e){}
     }catch(e){ b.disabled=false; b.textContent="Kunde inte spara – försök igen"; }
+  });
+
+  // ---- Statistik (anonyma räknare per dag) och resenärernas bidrag ----------------------
+  let ugcOk=null; const ugcTips={};
+  function hit(ev,tour){ if(ugcOk===false) return; try{ fetch("/api/hit",{method:"POST",keepalive:true,headers:{"content-type":"application/json"},body:JSON.stringify({ev,tour:tour||""})}).then(r=>{ if(r.status===503||!(r.headers.get("content-type")||"").includes("json")) ugcOk=false; }).catch(()=>{}); }catch(e){} }
+  async function loadUgc(city){
+    if(ugcOk===false || ugcTips[city]) return;
+    try{
+      const r=await fetch("/api/ugc?city="+encodeURIComponent(city));
+      if(!r.ok || !(r.headers.get("content-type")||"").includes("json")){ ugcOk=false; $("fbBtn").hidden=true; return; }
+      ugcOk=true; ugcTips[city]=await r.json(); $("fbBtn").hidden=false;
+      const ul=$("tipList"); ul.dataset.k=""; if(T) render();
+    }catch(e){}
+  }
+  $("fbBtn").addEventListener("click",()=>{
+    const st=T.stops[S.curD];
+    $("fbWhere").textContent=st.name+" · "+T.vehicleLong+" "+T.line+" mot "+T.to;
+    $("fbMsg").textContent=""; $("fbSend").disabled=false;
+    $("feedback").showModal();
+  });
+  $("fbSend").addEventListener("click",async()=>{
+    const text=$("fbText").value.trim(); if(text.length<3){ $("fbMsg").textContent="Skriv lite mer först."; return; }
+    const st=T.stops[S.curD]; $("fbSend").disabled=true; $("fbMsg").textContent="Skickar…";
+    try{
+      const r=await fetch("/api/feedback",{method:"POST",headers:{"content-type":"application/json"},
+        body:JSON.stringify({kind:$("fbKind").value,city:T.city,tour:T.id,stop:st.name,text,contact:$("fbContact").value})});
+      const j=await r.json().catch(()=>({}));
+      if(!r.ok) throw new Error(j.error||"fel");
+      $("fbMsg").textContent="Tack! Vi läser allt som kommer in."; $("fbText").value="";
+      setTimeout(()=>$("feedback").close(),1800);
+    }catch(e){ $("fbSend").disabled=false; $("fbMsg").textContent="Kunde inte skicka just nu ("+e.message+")."; }
   });
 
   const DEFAULT_TOUR="goteborg-tram-11-rost";
@@ -1269,6 +1327,7 @@
       buildTabs();
     }
   }
+  $("morePanel").addEventListener("toggle",()=>{ if($("morePanel").open) hit("more",T.id); });
   $("moreHint").addEventListener("click",()=>{ const mp=$("morePanel"); mp.open=true; $("moreHint").hidden=true; mp.scrollIntoView({behavior:"smooth",block:"start"}); });
   $("settingsBtn").addEventListener("click",()=>$("settings").showModal());
   document.querySelectorAll("[data-about]").forEach(b=>b.addEventListener("click",()=>$("about").showModal()));

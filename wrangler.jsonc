@@ -8,5 +8,8 @@
     "directory": "./public",
     "binding": "ASSETS",
     "run_worker_first": ["/api/*"]
-  }
+  },
+  // Resenärernas tips/felrapporter och anonym statistik. Databasen skapas automatiskt vid första deploy.
+  // Granskningssidan /admin.html kräver hemligheten ADMIN_KEY (Settings → Variables and Secrets).
+  "d1_databases": [{ "binding": "DB", "database_name": "hoppa-pa" }]
 }

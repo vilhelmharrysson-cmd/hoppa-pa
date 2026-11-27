@@ -911,12 +911,12 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
       box.hidden=j.situations.length===0;
     }).catch(()=>{});
   }
-  // tåg: Trafikverkets avgångar från stationen (alla operatörer)
+  // tåg: avgångar i realtid från stationen via Trafiklab (alla operatörer)
   function showTrainDepartures(stopIdx){
     const box=$("deps"), st=T.stops[stopIdx];
     box.hidden=false; box.textContent=tr("Hämtar avgångar från ")+st.name+"…";
     const later=new Set(T.stops.slice(stopIdx+1).map(s=>normName(s.name).replace(/c$/,"")));
-    fetch("/api/trv?op=departures&lat="+st.lat+"&lon="+st.lon).then(async r=>{
+    fetch("/api/trv?op=departures&name="+encodeURIComponent(st.name)+"&lat="+st.lat+"&lon="+st.lon).then(async r=>{
       if(!(r.headers.get("content-type")||"").includes("json")) throw new Error("ingen server");
       const j=await r.json(); if(!r.ok) throw new Error(j.error||r.status);
       box.textContent="";

@@ -1,5 +1,5 @@
 // Cloudflare Workers: statiska filer från public/ och API:erna /api/vt och /api/sl.
-// Västtrafiks nyckel läggs in som hemlighet VT_AUTH_KEY och Trafikverkets som TRV_API_KEY (Settings → Variables and Secrets).
+// Västtrafiks nyckel läggs in som hemlighet VT_AUTH_KEY och Trafiklab Realtime APIs som TRAFIKLAB_RT_KEY (Settings → Variables and Secrets).
 {
   "name": "hoppa-pa",
   "main": "worker.mjs",

@@ -1,4 +1,4 @@
-// Cloudflare Worker: /api/vt och /api/sl (realtid), /api/trv (tåg, Trafikverket) samt resenärernas bidrag och statistik (lib/ugc.mjs)
+// Cloudflare Worker: /api/vt och /api/sl (realtid), /api/trv (tåg, Trafiklab Realtime) samt resenärernas bidrag och statistik (lib/ugc.mjs)
 // hanteras av lib/, allt annat serveras från public/.
 import * as vt from "./lib/vt.mjs";
 import * as sl from "./lib/sl.mjs";

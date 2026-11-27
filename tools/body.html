@@ -109,6 +109,7 @@
           <button class="btn" id="alightBtn" type="button" aria-pressed="false">🔔 Säg till före</button>
           <button class="btn" id="dlBtn" type="button">⬇ Spara offline</button>
           <button class="btn" id="fbBtn" type="button" hidden>✎ Tipsa eller rapportera fel</button>
+          <button class="btn" id="bingoBtn" type="button" hidden>🎯 Bingo</button>
           <button class="btn" id="depBtn" type="button" hidden>Avgångar härifrån</button>
         </div>
         <div class="deps" id="deps" hidden></div>
@@ -180,6 +181,16 @@
     <p class="muted" id="roundMeta"></p>
     <p id="roundIntro"></p>
     <ol class="round-steps" id="roundSteps"></ol>
+  </form>
+</dialog>
+
+<dialog id="bingo" aria-labelledby="bingoH">
+  <form method="dialog" class="dlg">
+    <div class="dlg-head"><h2 id="bingoH">Fönsterbingo</h2><button class="iconbtn" value="close" aria-label="Stäng">✕</button></div>
+    <p class="muted" id="bingoHelp">Titta ut genom fönstret. Tryck på rutan när du ser saken. Fyra i rad – vågrätt, lodrätt eller snett – ger bingo!</p>
+    <div class="bingo-grid" id="bingoGrid" role="grid"></div>
+    <p class="bingo-win" id="bingoWin" hidden aria-live="assertive"></p>
+    <div class="actions"><button class="btn primary" type="button" id="bingoNew">Ny bricka</button><button class="btn" type="button" id="bingoSize">3 × 3 (lättare)</button></div>
   </form>
 </dialog>
 
@@ -1235,7 +1246,7 @@
     drawMap(); resetRide(); drawPosition(); render();
     S.tripShown=false; $("trip").hidden=true; $("deps").hidden=true;
     $("depBtn").hidden=T.mode!=="train" && (!usesVT() || apiOk===false);
-    loadAlerts(); offLabel(); loadUgc(T.city); hit("open",T.id);
+    loadAlerts(); offLabel(); loadUgc(T.city); hit("open",T.id); bingoShow();
     if(T.mode==="train"){ if(!TRAIN_TYPES) fetch("data/train_types.json").then(r=>r.ok?r.json():[]).then(j=>{ TRAIN_TYPES=j; renderMyTrain(); }).catch(()=>{ TRAIN_TYPES=[]; }); loadMyTrain(); trackTrain(); } else renderMyTrain();
     dirHist=[];
     if(pendingGps){ pendingGps=false; setMode("gps"); startGps(); if(pendingDirMsg){ const m=pendingDirMsg; pendingDirMsg=""; dirNote="↔ "+m; dirNoteUntil=Date.now()+30000; gpsMsg(dirNote); } }
@@ -1338,7 +1349,9 @@
     ["#tips h3","text","If you get off here"],
     ["#listen","text","🔊 Listen again"],["#stopAudio","text","■ Mute"],["#depBtn","text","Departures from here"],
     ["#fbBtn","text","✎ Send a tip or report an error"],
-    ["#myTrainAbout","text","About the train"],["#trainInfoH","text","About your train"],
+    ["#myTrainAbout","text","About the train"],
+    ["#bingoH","text","Window bingo"],["#bingoNew","text","New card"],
+    ["#bingoHelp","text","Look out of the window. Tap a square when you spot the thing. Four in a row – across, down or diagonally – is bingo!"],["#trainInfoH","text","About your train"],
     ["#stopsPanel summary","text","All guided stops"],
     ["#dirs","aria-label","Choose direction"],
     ["#setH","text","Settings"],
@@ -1381,7 +1394,7 @@
     KIDS=!!on; try{ localStorage.setItem("hp_kids",on?"1":"0"); }catch(e){}
     $("kidsOn").setAttribute("aria-pressed",on?"true":"false"); $("kidsOff").setAttribute("aria-pressed",on?"false":"true");
     if(on) hit("kids",T?T.id:"");
-    if(T){ S.shownD=-1; render(); }
+    if(T){ S.shownD=-1; render(); bingoShow(); }
   }
   $("kidsOn").addEventListener("click",()=>setKids(true));
   $("kidsOff").addEventListener("click",()=>setKids(false));
@@ -1441,6 +1454,62 @@
     gpsMsg(tr("Kliv på vid ")+L0.from+tr(". Jag säger till före ")+L0.to+tr(", där du ska kliva av."));
     drawPosition(); render();
   }
+
+  // ---- Fönsterbingo (barnläge): saker att spana efter genom fönstret ------------------------
+  const BINGO={
+    land:[["🐄","En ko","A cow"],["🐴","En häst","A horse"],["🐑","Ett får","A sheep"],["🚜","En traktor","A tractor"],["🏠","Ett rött hus","A red house"],
+      ["⛪","En kyrka","A church"],["🌊","En sjö","A lake"],["🌉","En bro","A bridge"],["🚇","En tunnel","A tunnel"],["🌬️","Ett vindkraftverk","A wind turbine"],
+      ["🦌","Ett rådjur","A deer"],["🐦","En fågel","A bird"],["🌾","En åker","A field"],["🌲","En skog","A forest"],["🚆","Ett annat tåg","Another train"],
+      ["🚉","En station","A station"],["🚚","En lastbil","A lorry"],["⛵","En båt","A boat"],["🇸🇪","En svensk flagga","A Swedish flag"],["🚧","En järnvägsbom","A level crossing"],
+      ["🐕","En hund","A dog"],["🏭","En fabrik","A factory"],["🗼","Ett vattentorn","A water tower"],["🌳","En ensam ek","A lonely oak"],["🚗","En röd bil","A red car"],
+      ["🐎","Hästar som springer","Running horses"],["🦢","En svan","A swan"],["⚡","En kraftledning","A power line"],["🛖","En lada","A barn"],["🏰","Ett slott eller en herrgård","A castle or manor"]],
+    city:[["🚋","En spårvagn","A tram"],["🚌","En buss","A bus"],["🚲","En cykel","A bike"],["🐕","En hund","A dog"],["🕊️","En duva","A pigeon"],
+      ["👶","En barnvagn","A pram"],["☂️","Ett paraply","An umbrella"],["🗿","En staty","A statue"],["⛲","En fontän","A fountain"],["⛪","En kyrka","A church"],
+      ["🏗️","En lyftkran","A crane"],["⛵","En båt","A boat"],["🇸🇪","En svensk flagga","A Swedish flag"],["🚓","En polisbil","A police car"],["🚕","En taxi","A taxi"],
+      ["🍦","En glass","An ice cream"],["🌳","Ett stort träd","A big tree"],["🚦","Ett rött trafikljus","A red traffic light"],["🛴","En sparkcykel","A scooter"],["🐈","En katt","A cat"],
+      ["🎒","En ryggsäck","A backpack"],["🛒","En kundvagn","A shopping trolley"],["🌉","En bro","A bridge"],["🦆","En and","A duck"],["🚒","En brandbil","A fire engine"],
+      ["🎈","En ballong","A balloon"],["🏠","Ett gult hus","A yellow house"],["🕰️","En klocka på en vägg","A clock on a wall"]],
+  };
+  let bingoN=4;
+  const bingoKey=()=>"hp_bingo_"+(T?T.group:"x");
+  function bingoNew(){
+    const pool=[...BINGO[T.mode==="train"?"land":"city"]];
+    for(let i=pool.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [pool[i],pool[j]]=[pool[j],pool[i]]; }
+    return {n:bingoN, items:pool.slice(0,bingoN*bingoN), marked:[], won:false};
+  }
+  function bingoLoad(){ try{ const b=JSON.parse(localStorage.getItem(bingoKey())||"null"); if(b && b.items) return b; }catch(e){} return null; }
+  function bingoSave(b){ try{ localStorage.setItem(bingoKey(),JSON.stringify(b)); }catch(e){} }
+  function bingoLines(b){
+    const n=b.n, m=new Set(b.marked), L=[];
+    for(let r=0;r<n;r++) L.push([...Array(n)].map((_,c)=>r*n+c));
+    for(let c=0;c<n;c++) L.push([...Array(n)].map((_,r)=>r*n+c));
+    L.push([...Array(n)].map((_,i)=>i*n+i)); L.push([...Array(n)].map((_,i)=>i*n+(n-1-i)));
+    return L.filter(l=>l.every(i=>m.has(i)));
+  }
+  function bingoRender(b){
+    const g=$("bingoGrid"); g.textContent=""; g.style.gridTemplateColumns="repeat("+b.n+",1fr)";
+    const win=new Set(bingoLines(b).flat());
+    b.items.forEach((it,i)=>{
+      const c=document.createElement("button"); c.type="button"; c.className="bingo-cell";
+      const on=b.marked.includes(i); c.setAttribute("aria-pressed",on?"true":"false");
+      if(win.has(i)) c.classList.add("win");
+      const e=document.createElement("span"); e.className="em"; e.textContent=it[0];
+      const t=document.createElement("span"); t.textContent=LANG==="en"?it[2]:it[1];
+      c.append(e,t);
+      c.addEventListener("click",()=>{
+        b.marked = on ? b.marked.filter(x=>x!==i) : [...b.marked,i];
+        const had=b.won; b.won=bingoLines(b).length>0; bingoSave(b); bingoRender(b);
+        if(b.won && !had){ try{ navigator.vibrate && navigator.vibrate([200,100,200,100,400]); }catch(e){} hit("kids",T.id); }
+      });
+      g.appendChild(c);
+    });
+    const w=$("bingoWin"); w.hidden=!b.won; w.textContent=b.won ? (LANG==="en"?"🎉 BINGO! Well spotted!":"🎉 BINGO! Bra spanat!") : "";
+    $("bingoSize").textContent = b.n===4 ? (LANG==="en"?"3 × 3 (easier)":"3 × 3 (lättare)") : (LANG==="en"?"4 × 4 (harder)":"4 × 4 (svårare)");
+  }
+  $("bingoBtn").addEventListener("click",()=>{ let b=bingoLoad(); if(!b){ b=bingoNew(); bingoSave(b); } bingoN=b.n; bingoRender(b); $("bingo").showModal(); });
+  $("bingoNew").addEventListener("click",()=>{ const b=bingoNew(); bingoSave(b); bingoRender(b); });
+  $("bingoSize").addEventListener("click",()=>{ bingoN = bingoN===4 ? 3 : 4; const b=bingoNew(); bingoSave(b); bingoRender(b); });
+  function bingoShow(){ $("bingoBtn").hidden = !(KIDS || (T && T.mode==="train")); $("bingoBtn").textContent = T && T.mode==="train" ? "🎯 "+(LANG==="en"?"Train bingo":"Tågbingo") : "🎯 "+(LANG==="en"?"Window bingo":"Fönsterbingo"); }
 
   const DEFAULT_TOUR="goteborg-tram-11-rost";
   $("lineSearch").addEventListener("input",e=>{ pick.q=e.target.value; buildTabs(); });

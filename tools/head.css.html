@@ -179,6 +179,12 @@ body[data-view="home"] #tourView{display:none}
 .mytrain b{display:block;font-size:15px}
 .mytrain small{display:block;color:var(--muted);font-size:13px}
 .mt-actions{display:flex;gap:6px;flex-shrink:0}
+.bingo-grid{display:grid;gap:6px}
+.bingo-cell{aspect-ratio:1;border:0;border-radius:12px;background:var(--faint);color:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:4px;font:inherit;font-size:11.5px;line-height:1.15;text-align:center;cursor:pointer;transition:transform .1s}
+.bingo-cell .em{font-size:26px;line-height:1}
+.bingo-cell[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);transform:scale(.96)}
+.bingo-cell.win{box-shadow:0 0 0 3px #1d7a46 inset}
+.bingo-win{margin:0;text-align:center;font-weight:800;font-size:22px}
 .dep.match{font-weight:600}
 .panel{background:var(--surface);border-radius:var(--radius);box-shadow:var(--shadow)}
 .panel>summary{list-style:none;cursor:pointer;padding:14px 16px;font-weight:700;display:flex;align-items:center;gap:8px}

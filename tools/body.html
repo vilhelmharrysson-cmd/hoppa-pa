@@ -94,6 +94,10 @@
         </div>
         <div class="lookout" id="lookout" hidden><b>Titta ut</b><span id="lookoutText"></span></div>
         <p class="gpsmsg" id="gpsMsg" hidden></p>
+        <div class="mytrain" id="myTrain" hidden aria-live="polite">
+          <div><b id="myTrainName"></b><small id="myTrainInfo"></small></div>
+          <div class="mt-actions"><button class="btn" type="button" id="myTrainAbout">Om tåget</button><button class="btn" type="button" id="myTrainClear" aria-label="Glöm tåget">✕</button></div>
+        </div>
         <div class="tips" id="tips">
           <h3>Om du kliver av här</h3>
           <ul id="tipList"></ul>
@@ -179,6 +183,13 @@
   </form>
 </dialog>
 
+<dialog id="trainInfo" aria-labelledby="trainInfoH">
+  <form method="dialog" class="dlg">
+    <div class="dlg-head"><h2 id="trainInfoH">Om ditt tåg</h2><button class="iconbtn" value="close" aria-label="Stäng">✕</button></div>
+    <div id="trainInfoBody" class="more-list"></div>
+  </form>
+</dialog>
+
 <dialog id="share" aria-labelledby="shareH">
   <form method="dialog" class="dlg">
     <div class="dlg-head"><h2 id="shareH">Dela turen</h2><button class="iconbtn" value="close" aria-label="Stäng">✕</button></div>
@@ -231,7 +242,7 @@
   "use strict";
   // ---- Språk: svenska eller engelska (väljs automatiskt efter telefonens språk, kan ändras) ----
   const LANG=(()=>{ try{ const s=localStorage.getItem("hp_lang"); if(s==="sv"||s==="en") return s; }catch(e){} return /^(sv|nb|nn|no|da)/i.test(navigator.language||"sv")?"sv":"en"; })();
-  const EN_UI={"Du verkar åka åt andra hållet, så jag bytte till turen mot ":"You seem to be travelling the other way, so I switched to the tour towards ","Nästa tåg från ":"Next trains from ","Inga avgångar de närmaste timmarna.":"No departures in the next few hours."," · spår ":" · track ","ny tid ":"now ","Tåg":"Train","Dagstur":"Day trip","Tema":"Theme","Temarunda":"Themed route"," · linje ":" · line ","Starta ›":"Start ›","Kliv på vid ":"Board at ",". Jag säger till före ":". I'll alert you before ",", där du ska kliva av.":", where you get off."," till ":" to ","Guiden":"Guide","Bara text":"Text only","✓ Sparad offline": "✓ Saved offline", "titta ut": "look out", "mot ": "to ", " mot ": " to ", "Kunde inte läsa positionen just nu.": "Couldn't read your position right now.", "Kopierad ✓": "Copied ✓", "Hoppa på finns i Göteborg och Stockholm. Du är ": "Hoppa på is available in Gothenburg and Stockholm. You are ", "Guiden ": "Guide ", "Den här enheten saknar platstjänster.": "This device has no location services.", " km från närmaste stad.": " km from the nearest city.", "🔔 Säger till före ": "🔔 Alerting before ", "🔔 Säg till före": "🔔 Alert me before", "🔔 Jag säger till när vi närmar oss ": "🔔 I'll alert you when we approach ", "📖 Medan vi åker: läs mer om ": "📖 While we ride: read more about ", "⬇ Spara offline": "⬇ Save offline", "❚❚ Paus": "❚❚ Pause", "✓ Sparad offline – fungerar utan nät": "✓ Saved offline – works without internet", "✓ Sparad (": "✓ Saved (", "▶ Starta": "▶ Start", "▶ Starta GPS": "▶ Start GPS", "▶ Fortsätt": "▶ Continue", "■ Stoppa": "■ Stop", "↺ Igen": "↺ Again", "Åk en bit så känner jag av linjen… ": "Ride a little and I'll detect the line… ", "startar guiden med GPS": "starts the guide with GPS", "okänd": "unknown", "Väntas vid ": "Expected at ", "Väntar på bättre GPS-signal (±": "Waiting for a better GPS signal (±", "Väntar på GPS": "Waiting for GPS", "Vid ": "At ", "Tryck på Starta med GPS när du är vid en hållplats längs linjen.": "Tap Start GPS when you're at a stop along the line.", "Trafikstörningar på linje ": "Service disruptions on line ", "Titta ut: ": "Look out: ", "Tips från en resenär": "Tip from a traveller", "Tillåt platsåtkomst för att se linjer nära dig.": "Allow location access to see lines near you.", "Tillåt platsåtkomst för att känna av linjen.": "Allow location access to detect the line.", "Tack! Vi läser allt som kommer in.": "Thank you! We read everything that comes in.", "Söker resa till ": "Searching for a trip to ", "Söker din position…": "Finding your position…", "Söker din position… Ha telefonen framme, så hålls skärmen tänd.": "Finding your position… Keep the phone out and the screen stays on.", "Säg till före ": "Alert me before ", "Sparar… ": "Saving… ", "Skriv lite mer först.": "Please write a little more first.", "Skickar…": "Sending…", "Reseplaneraren finns i webbappen.": "The journey planner is available in the web app.", "Redo att åka": "Ready to ride", "Platsåtkomst nekades. Den här förhandsvisningen får inte läsa din position, men webbappen kan det. Där tillåter du platsåtkomst när webbläsaren frågar.": "Location access was denied. Allow location access when your browser asks.", "Om du kliver av vid ": "If you get off at ", "Nästa hållplats: ": "Next stop: ", "Närmast: ": "Nearest: ", "Mot ": "Towards ", "Läs mer om ": "Read more about ", "Linjedragning och hållplatser: © OpenStreetMaps bidragsgivare (ODbL), ": "Routes and stops: © OpenStreetMap contributors (ODbL), ", "Letar efter linjer som stämmer… ": "Looking for matching lines… ", "Laddar linjerna i ": "Loading the lines in ", "Kunde inte söka resa just nu.": "Couldn't search for a trip right now.", "Kunde inte spara – försök igen": "Couldn't save – try again", "Kunde inte skicka just nu (": "Couldn't send right now (", "Kunde inte läsa din position just nu.": "Couldn't read your position right now.", "Kunde inte ladda turerna. Ladda om sidan.": "Couldn't load the tours. Reload the page.", "Kunde inte ladda turen. Försök igen.": "Couldn't load the tour. Try again.", "Kunde inte ladda linjerna. Försök igen.": "Couldn't load the lines. Try again.", "Kunde inte hämta avgångar just nu.": "Couldn't fetch departures right now.", "Kunde inte hämta avgångar just nu. Funktionen fungerar i webbappen, inte i förhandsvisningen.": "Couldn't fetch departures right now.", "Kopiera länk": "Copy link", "Karta över ": "Map of ", "Inställd": "Cancelled", "Ingen röst än": "No voice yet", "Ingen position ännu. Gå gärna utomhus eller närmare ett fönster.": "No position yet. Try going outside or closer to a window.", "Ingen linje matchar.": "No line matches.", "Inga turer avgår från hållplatserna nära dig den närmaste halvtimmen.": "No tours leave from stops near you in the next half hour.", "Inga avgångar den närmaste timmen.": "No departures in the next hour.", "Hämtar avgångar nära dig…": "Fetching departures near you…", "Hämtar avgångar från ": "Fetching departures from ", "Hoppa på: ": "Hoppa på: ", "Hoppa på igen": "Hop back on", "Hoppa av här": "Hop off here", "Hittar ingen linje som stämmer med sträckan. Fortsätter att lyssna…": "No line matches the route yet. Still listening…", "Hittade ingen resa just nu.": "No trip found right now.", "Guidad hållplats ": "Guided stop ", " av ": " of ", "GPS aktiv · noggrannhet ±": "GPS active · accuracy ±", "Förr": "Then", "Foto: ": "Photo: ", "Framme ": "Arrive ", "Framme": "Arrived", "Avstigen": "Hopped off", "Du är ": "You are ", "Du har klivit av vid ": "You got off at ", "Det ser ut som någon av de här. Välj rätt:": "It looks like one of these. Pick the right one:", "Det ser ut som att du åker med:": "It looks like you're riding:", "Datorröst (": "Computer voice (", "Dags att kliva av": "Time to get off", "Avgångar i realtid finns i webbappen.": "Real-time departures are available in the web app.", ". Tryck på en linje för att starta turen.": ". Tap a line to start the tour.", ". Telefonen vibrerar och guiden säger till.": ". The phone vibrates and the guide tells you.", ". Ta dig till en hållplats längs linjen och kliv på mot ": ". Go to a stop on the line and board towards ", ". Nästa ": ". The next ", ". Kontrollera mot ": ". Check with ", ". Kliv på linje ": ". Board line ", ". Dags att kliva av.": ". Time to get off.", " – en guidad tur med ": " – a guided tour with ", " · läge ": " · stand ", " tips": " tips", " på linje ": " on line ", " m hittills.": " m so far.", " kommer om några minuter. Tryck på Hoppa på igen när du vill fortsätta.": " comes in a few minutes. Tap Hop back on when you want to continue.", " före lansering.": " before launch.", " från linje ": " from line ", " filer saknas)": " files missing)", " enligt realtid": " according to real-time data", " där.": " there.", " berättelser.": " stories.", " berättelser · ": " stories · ", " berättelser": " stories", " (tidtabell)": " (timetable)", "Nästa avgångar med ": "Next departures with ", " från ": " from ", "Så kommer du till ": "How to get to ", " och turen": " and the tour", "Inget fordon på väg in enligt ": "No vehicle approaching according to ", "Du har klivit av – passa på": "You've hopped off – make the most of it", "Källa: Wikipedia – ": "Source: Wikipedia (Swedish) – ", "Visa vägen ↗": "Directions ↗", " promenad. Öppna vägbeskrivning i kartan": " walk. Open directions in maps", "Säg till före avstigning": "Alert before getting off", "Läs mer": "Read more", "Hämtar…": "Loading…", "Fel": "Error", "Spårvagn": "Tram", "Buss": "Bus", "Båt": "Boat", "Söker…": "Searching…", "Avbryt": "Cancel", "Kunde inte hämta linjerna just nu.": "Couldn't fetch the lines right now.", "Ingen linje i närheten än.": "No line nearby yet."};
+  const EN_UI={"Tryck om du åker med det här tåget":"Tap if you are on this train","Tryck på ditt tåg så följer guiden det och visar förseningar.":"Tap your train and the guide follows it and shows delays.","Inställt vid ":"Cancelled at ","Ankomst ":"Arriving "," (i tid)":" (on time)","Från ":"From ",", ny tid ":", now ","Om tåget":"About the train","Om ditt tåg":"About your train","Du verkar åka åt andra hållet, så jag bytte till turen mot ":"You seem to be travelling the other way, so I switched to the tour towards ","Nästa tåg från ":"Next trains from ","Inga avgångar de närmaste timmarna.":"No departures in the next few hours."," · spår ":" · track ","ny tid ":"now ","Tåg":"Train","Dagstur":"Day trip","Tema":"Theme","Temarunda":"Themed route"," · linje ":" · line ","Starta ›":"Start ›","Kliv på vid ":"Board at ",". Jag säger till före ":". I'll alert you before ",", där du ska kliva av.":", where you get off."," till ":" to ","Guiden":"Guide","Bara text":"Text only","✓ Sparad offline": "✓ Saved offline", "titta ut": "look out", "mot ": "to ", " mot ": " to ", "Kunde inte läsa positionen just nu.": "Couldn't read your position right now.", "Kopierad ✓": "Copied ✓", "Hoppa på finns i Göteborg och Stockholm. Du är ": "Hoppa på is available in Gothenburg and Stockholm. You are ", "Guiden ": "Guide ", "Den här enheten saknar platstjänster.": "This device has no location services.", " km från närmaste stad.": " km from the nearest city.", "🔔 Säger till före ": "🔔 Alerting before ", "🔔 Säg till före": "🔔 Alert me before", "🔔 Jag säger till när vi närmar oss ": "🔔 I'll alert you when we approach ", "📖 Medan vi åker: läs mer om ": "📖 While we ride: read more about ", "⬇ Spara offline": "⬇ Save offline", "❚❚ Paus": "❚❚ Pause", "✓ Sparad offline – fungerar utan nät": "✓ Saved offline – works without internet", "✓ Sparad (": "✓ Saved (", "▶ Starta": "▶ Start", "▶ Starta GPS": "▶ Start GPS", "▶ Fortsätt": "▶ Continue", "■ Stoppa": "■ Stop", "↺ Igen": "↺ Again", "Åk en bit så känner jag av linjen… ": "Ride a little and I'll detect the line… ", "startar guiden med GPS": "starts the guide with GPS", "okänd": "unknown", "Väntas vid ": "Expected at ", "Väntar på bättre GPS-signal (±": "Waiting for a better GPS signal (±", "Väntar på GPS": "Waiting for GPS", "Vid ": "At ", "Tryck på Starta med GPS när du är vid en hållplats längs linjen.": "Tap Start GPS when you're at a stop along the line.", "Trafikstörningar på linje ": "Service disruptions on line ", "Titta ut: ": "Look out: ", "Tips från en resenär": "Tip from a traveller", "Tillåt platsåtkomst för att se linjer nära dig.": "Allow location access to see lines near you.", "Tillåt platsåtkomst för att känna av linjen.": "Allow location access to detect the line.", "Tack! Vi läser allt som kommer in.": "Thank you! We read everything that comes in.", "Söker resa till ": "Searching for a trip to ", "Söker din position…": "Finding your position…", "Söker din position… Ha telefonen framme, så hålls skärmen tänd.": "Finding your position… Keep the phone out and the screen stays on.", "Säg till före ": "Alert me before ", "Sparar… ": "Saving… ", "Skriv lite mer först.": "Please write a little more first.", "Skickar…": "Sending…", "Reseplaneraren finns i webbappen.": "The journey planner is available in the web app.", "Redo att åka": "Ready to ride", "Platsåtkomst nekades. Den här förhandsvisningen får inte läsa din position, men webbappen kan det. Där tillåter du platsåtkomst när webbläsaren frågar.": "Location access was denied. Allow location access when your browser asks.", "Om du kliver av vid ": "If you get off at ", "Nästa hållplats: ": "Next stop: ", "Närmast: ": "Nearest: ", "Mot ": "Towards ", "Läs mer om ": "Read more about ", "Linjedragning och hållplatser: © OpenStreetMaps bidragsgivare (ODbL), ": "Routes and stops: © OpenStreetMap contributors (ODbL), ", "Letar efter linjer som stämmer… ": "Looking for matching lines… ", "Laddar linjerna i ": "Loading the lines in ", "Kunde inte söka resa just nu.": "Couldn't search for a trip right now.", "Kunde inte spara – försök igen": "Couldn't save – try again", "Kunde inte skicka just nu (": "Couldn't send right now (", "Kunde inte läsa din position just nu.": "Couldn't read your position right now.", "Kunde inte ladda turerna. Ladda om sidan.": "Couldn't load the tours. Reload the page.", "Kunde inte ladda turen. Försök igen.": "Couldn't load the tour. Try again.", "Kunde inte ladda linjerna. Försök igen.": "Couldn't load the lines. Try again.", "Kunde inte hämta avgångar just nu.": "Couldn't fetch departures right now.", "Kunde inte hämta avgångar just nu. Funktionen fungerar i webbappen, inte i förhandsvisningen.": "Couldn't fetch departures right now.", "Kopiera länk": "Copy link", "Karta över ": "Map of ", "Inställd": "Cancelled", "Ingen röst än": "No voice yet", "Ingen position ännu. Gå gärna utomhus eller närmare ett fönster.": "No position yet. Try going outside or closer to a window.", "Ingen linje matchar.": "No line matches.", "Inga turer avgår från hållplatserna nära dig den närmaste halvtimmen.": "No tours leave from stops near you in the next half hour.", "Inga avgångar den närmaste timmen.": "No departures in the next hour.", "Hämtar avgångar nära dig…": "Fetching departures near you…", "Hämtar avgångar från ": "Fetching departures from ", "Hoppa på: ": "Hoppa på: ", "Hoppa på igen": "Hop back on", "Hoppa av här": "Hop off here", "Hittar ingen linje som stämmer med sträckan. Fortsätter att lyssna…": "No line matches the route yet. Still listening…", "Hittade ingen resa just nu.": "No trip found right now.", "Guidad hållplats ": "Guided stop ", " av ": " of ", "GPS aktiv · noggrannhet ±": "GPS active · accuracy ±", "Förr": "Then", "Foto: ": "Photo: ", "Framme ": "Arrive ", "Framme": "Arrived", "Avstigen": "Hopped off", "Du är ": "You are ", "Du har klivit av vid ": "You got off at ", "Det ser ut som någon av de här. Välj rätt:": "It looks like one of these. Pick the right one:", "Det ser ut som att du åker med:": "It looks like you're riding:", "Datorröst (": "Computer voice (", "Dags att kliva av": "Time to get off", "Avgångar i realtid finns i webbappen.": "Real-time departures are available in the web app.", ". Tryck på en linje för att starta turen.": ". Tap a line to start the tour.", ". Telefonen vibrerar och guiden säger till.": ". The phone vibrates and the guide tells you.", ". Ta dig till en hållplats längs linjen och kliv på mot ": ". Go to a stop on the line and board towards ", ". Nästa ": ". The next ", ". Kontrollera mot ": ". Check with ", ". Kliv på linje ": ". Board line ", ". Dags att kliva av.": ". Time to get off.", " – en guidad tur med ": " – a guided tour with ", " · läge ": " · stand ", " tips": " tips", " på linje ": " on line ", " m hittills.": " m so far.", " kommer om några minuter. Tryck på Hoppa på igen när du vill fortsätta.": " comes in a few minutes. Tap Hop back on when you want to continue.", " före lansering.": " before launch.", " från linje ": " from line ", " filer saknas)": " files missing)", " enligt realtid": " according to real-time data", " där.": " there.", " berättelser.": " stories.", " berättelser · ": " stories · ", " berättelser": " stories", " (tidtabell)": " (timetable)", "Nästa avgångar med ": "Next departures with ", " från ": " from ", "Så kommer du till ": "How to get to ", " och turen": " and the tour", "Inget fordon på väg in enligt ": "No vehicle approaching according to ", "Du har klivit av – passa på": "You've hopped off – make the most of it", "Källa: Wikipedia – ": "Source: Wikipedia (Swedish) – ", "Visa vägen ↗": "Directions ↗", " promenad. Öppna vägbeskrivning i kartan": " walk. Open directions in maps", "Säg till före avstigning": "Alert before getting off", "Läs mer": "Read more", "Hämtar…": "Loading…", "Fel": "Error", "Spårvagn": "Tram", "Buss": "Bus", "Båt": "Boat", "Söker…": "Searching…", "Avbryt": "Cancel", "Kunde inte hämta linjerna just nu.": "Couldn't fetch the lines right now.", "Ingen linje i närheten än.": "No line nearby yet."};
   const tr=s=>LANG==="en" && EN_UI[s]!==undefined ? EN_UI[s] : s;
   const VEH={"spårvagn":"tram","buss":"bus","båt":"boat","vagn":"tram","tåg":"train"};
   const vL=s=>LANG==="en" ? (VEH[s]||s) : s;
@@ -648,10 +659,71 @@
         const late=d.estimated && Date.parse(d.estimated)-Date.parse(d.planned)>=60000;
         m.textContent = d.cancelled ? tr("Inställd") : late ? tr("ny tid ")+clock(d.estimated) : minsUntil(d.planned);
         if(late||d.cancelled) m.classList.add("late");
-        row.append(t,dir,m); box.appendChild(row);
+        row.append(t,dir,m);
+        row.classList.add("pick"); row.tabIndex=0; row.setAttribute("role","button");
+        row.title=tr("Tryck om du åker med det här tåget");
+        const pickIt=()=>chooseTrain(d,st);
+        row.addEventListener("click",pickIt); row.addEventListener("keydown",e=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); pickIt(); } });
+        box.appendChild(row);
       });
+      const hint=document.createElement("small"); hint.className="muted"; hint.textContent=tr("Tryck på ditt tåg så följer guiden det och visar förseningar."); box.appendChild(hint);
     }).catch(()=>{ box.textContent=tr("Kunde inte hämta avgångar just nu."); });
   }
+  // ---- Mitt tåg: valt i avgångslistan, följs med ankomsttider längs vägen ----------------
+  let TRAIN_TYPES=null, myTrain=null, myTrainTimer=null;
+  function saveMyTrain(){ try{ if(myTrain) sessionStorage.setItem("hp_train_"+T.id,JSON.stringify(myTrain)); else sessionStorage.removeItem("hp_train_"+T.id); }catch(e){} }
+  function loadMyTrain(){ myTrain=null; try{ myTrain=JSON.parse(sessionStorage.getItem("hp_train_"+T.id)||"null"); }catch(e){} renderMyTrain(); }
+  function chooseTrain(d,st){
+    myTrain={product:d.product,operator:d.operator||"",to:d.to,trip:d.trip,from:st.name,planned:d.planned,estimated:d.estimated,next:null};
+    saveMyTrain(); $("deps").hidden=true; hit("train",T.id); renderMyTrain(); trackTrain();
+  }
+  function renderMyTrain(){
+    const box=$("myTrain");
+    if(!T || T.mode!=="train" || !myTrain){ box.hidden=true; clearInterval(myTrainTimer); myTrainTimer=null; return; }
+    box.hidden=false;
+    $("myTrainName").textContent="🚆 "+myTrain.product+tr(" mot ")+myTrain.to;
+    const n=myTrain.next;
+    let info = n ? (n.cancelled ? tr("Inställt vid ")+n.station
+                 : tr("Ankomst ")+n.station+" "+clock(n.estimated||n.planned)+(n.delay>=60?" (+"+Math.round(n.delay/60)+" min)":tr(" (i tid)")))
+                 : tr("Från ")+myTrain.from+" "+clock(myTrain.planned)+(myTrain.estimated?tr(", ny tid ")+clock(myTrain.estimated):"");
+    $("myTrainInfo").textContent=info;
+    $("myTrainAbout").hidden=!typeFor(myTrain);
+    if(!myTrainTimer) myTrainTimer=setInterval(trackTrain,120000);
+  }
+  // nästa station framför oss (där tåget kan stanna) – vi frågar efter tågets ankomst dit
+  async function trackTrain(){
+    if(!myTrain || !T || T.mode!=="train") return;
+    const ahead=T.stops.filter(st=>st.s>S.s+200);
+    for(const st of ahead.slice(0,4)){
+      try{
+        const r=await fetch("/api/trv?op=arrival&trip="+encodeURIComponent(myTrain.trip)+"&name="+encodeURIComponent(st.name)+"&lat="+st.lat+"&lon="+st.lon);
+        const j=await r.json(); if(!r.ok) continue;
+        if(j.found){ myTrain.next={station:j.station,planned:j.planned,estimated:j.estimated,delay:j.delay,cancelled:j.cancelled}; saveMyTrain(); renderMyTrain(); return; }
+      }catch(e){ return; }
+    }
+  }
+  function typeFor(t){
+    if(!TRAIN_TYPES || !t) return null;
+    const key=(t.operator+" "+t.product).toLowerCase();
+    return TRAIN_TYPES.find(x=>x.match.some(m=>key.includes(m.toLowerCase())));
+  }
+  $("myTrainClear").addEventListener("click",()=>{ myTrain=null; saveMyTrain(); renderMyTrain(); });
+  $("myTrainAbout").addEventListener("click",()=>{
+    const ty=typeFor(myTrain), box=$("trainInfoBody"); box.textContent="";
+    if(!ty) return;
+    const en=LANG==="en";
+    const intro=document.createElement("p"); intro.className="muted"; intro.textContent=en?ty.intro_en||ty.intro:ty.intro; box.appendChild(intro);
+    (ty.cards||[]).forEach(c=>{
+      const card=document.createElement("article"); card.className="more-card";
+      const h=document.createElement("h4"); h.textContent=en&&c.h_en?c.h_en:c.h;
+      const p=document.createElement("p"); p.textContent=en&&c.t_en?c.t_en:c.t;
+      card.append(h,p);
+      if(c.src){ const a=document.createElement("a"); a.className="srclink"; a.target="_blank"; a.rel="noopener";
+        a.href="https://sv.wikipedia.org/wiki/"+encodeURIComponent(c.src.replace(/ /g,"_")); a.textContent=tr("Källa: Wikipedia – ")+c.src+" ↗"; card.append(a); }
+      box.appendChild(card);
+    });
+    $("trainInfo").showModal();
+  });
   function showDepartures(stopIdx){
     if(T.mode==="train") return showTrainDepartures(stopIdx);
     const box=$("deps"); const st=T.stops[stopIdx];
@@ -1164,6 +1236,7 @@
     S.tripShown=false; $("trip").hidden=true; $("deps").hidden=true;
     $("depBtn").hidden=T.mode!=="train" && (!usesVT() || apiOk===false);
     loadAlerts(); offLabel(); loadUgc(T.city); hit("open",T.id);
+    if(T.mode==="train"){ if(!TRAIN_TYPES) fetch("data/train_types.json").then(r=>r.ok?r.json():[]).then(j=>{ TRAIN_TYPES=j; renderMyTrain(); }).catch(()=>{ TRAIN_TYPES=[]; }); loadMyTrain(); trackTrain(); } else renderMyTrain();
     dirHist=[];
     if(pendingGps){ pendingGps=false; setMode("gps"); startGps(); if(pendingDirMsg){ const m=pendingDirMsg; pendingDirMsg=""; dirNote="↔ "+m; dirNoteUntil=Date.now()+30000; gpsMsg(dirNote); } }
     applyLeg();
@@ -1265,6 +1338,7 @@
     ["#tips h3","text","If you get off here"],
     ["#listen","text","🔊 Listen again"],["#stopAudio","text","■ Mute"],["#depBtn","text","Departures from here"],
     ["#fbBtn","text","✎ Send a tip or report an error"],
+    ["#myTrainAbout","text","About the train"],["#trainInfoH","text","About your train"],
     ["#stopsPanel summary","text","All guided stops"],
     ["#dirs","aria-label","Choose direction"],
     ["#setH","text","Settings"],

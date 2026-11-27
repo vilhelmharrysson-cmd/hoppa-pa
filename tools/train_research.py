@@ -19,6 +19,9 @@ UA = {"User-Agent": "hoppa-pa-research/1.3 (open source travel guide prototype)"
 TILE = 0.1
 MAXD = 3500          # meter från spåret
 MAX_MIN = float(os.environ.get("MAX_MIN", "150"))
+# tågtyper som kan gå på sträckan (för korten "Om ditt tåg"); slås upp med Wikipedias sökning
+TYPE_QUERIES = ["X 2000 snabbtåg", "SJ X 55 Regina snabbtåg", "Regina tåg Bombardier", "Coradia Nordic", "Stadler FLIRT X74",
+                "Zefiro Express SJ", "SJ 3000", "Västtågen", "Mälartåg", "MTR Express", "SJ Regional", "Rc lok SJ"]
 
 def xy(lat, lon): return (lon * 111320 * math.cos(math.radians(58.5)), lat * 110540)
 P = [xy(*q) for q in ROUTE]
@@ -122,7 +125,20 @@ def main():
         if n % 50 == 0:
             print(n, "av", len(want), flush=True)
             json.dump({"stations": stations, "places": places, "texts": texts}, open(OUT, "w", encoding="utf8"), ensure_ascii=False)
-    json.dump({"stations": stations, "places": places, "texts": texts}, open(OUT, "w", encoding="utf8"), ensure_ascii=False)
+    types = done.get("types", {})
+    for qy in TYPE_QUERIES:
+        if qy in types: continue
+        r = wp({"action": "query", "list": "search", "srsearch": qy, "srlimit": "2"})
+        for h in r.get("query", {}).get("search", [])[:2]:
+            t = h["title"]
+            if t not in texts:
+                rr = wp({"action": "query", "prop": "extracts", "explaintext": "1", "redirects": "1", "titles": t})
+                for p in rr.get("query", {}).get("pages", []):
+                    if p.get("extract"): texts[t] = clean(p["extract"], 6000)
+                time.sleep(1.2)
+            types.setdefault(qy, []).append(t)
+        time.sleep(1)
+    json.dump({"stations": stations, "places": places, "texts": texts, "types": types}, open(OUT, "w", encoding="utf8"), ensure_ascii=False)
     print("Klart:", len(stations), "stationer,", len(places), "platser,", len(texts), "texter")
 
 if __name__ == "__main__":

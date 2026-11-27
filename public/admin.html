@@ -48,7 +48,7 @@ td.n{text-align:right;font-variant-numeric:tabular-nums}
 <script>
 const $=id=>document.getElementById(id);
 const KIND={tips:"Tips",fel:"Fel",berattelse:"Berättelse",bild:"Bild",annat:"Annat"};
-const EV={open:"Öppnade turer",start:"Startade simuleringar",gps:"Startade med GPS",offline:"Sparade offline",share:"Delningar",more:"Öppnade Läs mer",alight:"Säg till före",lang_en:"Engelska",kids:"Barnläge",theme:"Temarundor"};
+const EV={open:"Öppnade turer",start:"Startade simuleringar",gps:"Startade med GPS",offline:"Sparade offline",share:"Delningar",more:"Öppnade Läs mer",alight:"Säg till före",lang_en:"Engelska",kids:"Barnläge",theme:"Temarundor",train:"Valde sitt tåg"};
 try{ $("key").value=localStorage.getItem("hp_admin")||""; }catch(e){}
 async function api(method,body){
   const k=$("key").value; try{ localStorage.setItem("hp_admin",k); }catch(e){}

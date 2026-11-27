@@ -1457,18 +1457,18 @@
 
   // ---- Fönsterbingo (barnläge): saker att spana efter genom fönstret ------------------------
   const BINGO={
-    land:[["🐄","En ko","A cow"],["🐴","En häst","A horse"],["🐑","Ett får","A sheep"],["🚜","En traktor","A tractor"],["🏠","Ett rött hus","A red house"],
-      ["⛪","En kyrka","A church"],["🌊","En sjö","A lake"],["🌉","En bro","A bridge"],["🚇","En tunnel","A tunnel"],["🌬️","Ett vindkraftverk","A wind turbine"],
-      ["🦌","Ett rådjur","A deer"],["🐦","En fågel","A bird"],["🌾","En åker","A field"],["🌲","En skog","A forest"],["🚆","Ett annat tåg","Another train"],
-      ["🚉","En station","A station"],["🚚","En lastbil","A lorry"],["⛵","En båt","A boat"],["🇸🇪","En svensk flagga","A Swedish flag"],["🚧","En järnvägsbom","A level crossing"],
-      ["🐕","En hund","A dog"],["🏭","En fabrik","A factory"],["🗼","Ett vattentorn","A water tower"],["🌳","En ensam ek","A lonely oak"],["🚗","En röd bil","A red car"],
-      ["🐎","Hästar som springer","Running horses"],["🦢","En svan","A swan"],["⚡","En kraftledning","A power line"],["🛖","En lada","A barn"],["🏰","Ett slott eller en herrgård","A castle or manor"]],
-    city:[["🚋","En spårvagn","A tram"],["🚌","En buss","A bus"],["🚲","En cykel","A bike"],["🐕","En hund","A dog"],["🕊️","En duva","A pigeon"],
-      ["👶","En barnvagn","A pram"],["☂️","Ett paraply","An umbrella"],["🗿","En staty","A statue"],["⛲","En fontän","A fountain"],["⛪","En kyrka","A church"],
-      ["🏗️","En lyftkran","A crane"],["⛵","En båt","A boat"],["🇸🇪","En svensk flagga","A Swedish flag"],["🚓","En polisbil","A police car"],["🚕","En taxi","A taxi"],
-      ["🍦","En glass","An ice cream"],["🌳","Ett stort träd","A big tree"],["🚦","Ett rött trafikljus","A red traffic light"],["🛴","En sparkcykel","A scooter"],["🐈","En katt","A cat"],
-      ["🎒","En ryggsäck","A backpack"],["🛒","En kundvagn","A shopping trolley"],["🌉","En bro","A bridge"],["🦆","En and","A duck"],["🚒","En brandbil","A fire engine"],
-      ["🎈","En ballong","A balloon"],["🏠","Ett gult hus","A yellow house"],["🕰️","En klocka på en vägg","A clock on a wall"]],
+    land:[["cow","En ko","A cow"],["horse","En häst","A horse"],["sheep","Ett får","A sheep"],["tractor","En traktor","A tractor"],["red-house","Ett rött hus","A red house"],
+      ["church","En kyrka","A church"],["lake","En sjö","A lake"],["bridge","En bro","A bridge"],["tunnel","En tunnel","A tunnel"],["wind-turbine","Ett vindkraftverk","A wind turbine"],
+      ["deer","Ett rådjur","A deer"],["bird","En fågel","A bird"],["field","En åker","A field"],["forest","En skog","A forest"],["train","Ett annat tåg","Another train"],
+      ["station","En station","A station"],["lorry","En lastbil","A lorry"],["sailboat","En båt","A boat"],["flag","En svensk flagga","A Swedish flag"],["level-crossing","En järnvägsbom","A level crossing"],
+      ["dog","En hund","A dog"],["factory","En fabrik","A factory"],["water-tower","Ett vattentorn","A water tower"],["oak","En ensam ek","A lonely oak"],["red-car","En röd bil","A red car"],
+      ["horses-running","Hästar som springer","Running horses"],["swan","En svan","A swan"],["power-line","En kraftledning","A power line"],["barn","En lada","A barn"],["castle","Ett slott eller en herrgård","A castle or manor"]],
+    city:[["tram","En spårvagn","A tram"],["bus","En buss","A bus"],["bike","En cykel","A bike"],["dog","En hund","A dog"],["pigeon","En duva","A pigeon"],
+      ["pram","En barnvagn","A pram"],["umbrella","Ett paraply","An umbrella"],["statue","En staty","A statue"],["fountain","En fontän","A fountain"],["church","En kyrka","A church"],
+      ["crane","En lyftkran","A crane"],["sailboat","En båt","A boat"],["flag","En svensk flagga","A Swedish flag"],["police-car","En polisbil","A police car"],["taxi","En taxi","A taxi"],
+      ["ice-cream","En glass","An ice cream"],["big-tree","Ett stort träd","A big tree"],["traffic-light","Ett rött trafikljus","A red traffic light"],["scooter","En sparkcykel","A scooter"],["cat","En katt","A cat"],
+      ["backpack","En ryggsäck","A backpack"],["trolley","En kundvagn","A shopping trolley"],["bridge","En bro","A bridge"],["duck","En and","A duck"],["fire-engine","En brandbil","A fire engine"],
+      ["balloon","En ballong","A balloon"],["yellow-house","Ett gult hus","A yellow house"],["clock","En klocka på en vägg","A clock on a wall"]],
   };
   let bingoN=4;
   const bingoKey=()=>"hp_bingo_"+(T?T.group:"x");
@@ -1493,7 +1493,7 @@
       const c=document.createElement("button"); c.type="button"; c.className="bingo-cell";
       const on=b.marked.includes(i); c.setAttribute("aria-pressed",on?"true":"false");
       if(win.has(i)) c.classList.add("win");
-      const e=document.createElement("span"); e.className="em"; e.textContent=it[0];
+      const e=document.createElement("img"); e.className="em"; e.src="bingo/"+it[0]+".svg"; e.alt=""; e.decoding="async";
       const t=document.createElement("span"); t.textContent=LANG==="en"?it[2]:it[1];
       c.append(e,t);
       c.addEventListener("click",()=>{

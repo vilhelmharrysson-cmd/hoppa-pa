@@ -27,6 +27,14 @@ def side_left(route, lat, lon):
         if d < best[0]: best = (d, dx * (y - ay) - dy * (x - ax) > 0)
     return best[1]
 
+def track_dist(route, lat, lon):
+    P = [xy(*q) for q in route]; x, y = xy(lat, lon); best = 1e18
+    for (ax, ay), (bx, by) in zip(P, P[1:]):
+        dx, dy = bx - ax, by - ay; L = dx * dx + dy * dy or 1e-9
+        t = max(0, min(1, ((x - ax) * dx + (y - ay) * dy) / L))
+        best = min(best, math.hypot(x - ax - t * dx, y - ay - t * dy))
+    return best
+
 def km_along(route, lat, lon):
     P = [xy(*q) for q in route]; x, y = xy(lat, lon); best = (1e18, 0); cum = 0
     for (ax, ay), (bx, by) in zip(P, P[1:]):
@@ -58,7 +66,9 @@ def build(C, key, route):
     looks = []
     for k, L in enumerate(C["looks"]):
         left = side_left(route, L["lat"], L["lon"])
-        lk = {"id": f"l{k}", "lat": L["lat"], "lon": L["lon"], "r": L.get("r", 1500),
+        # radien måste nå ut till spåret, annars utlöses "titta ut" aldrig
+        L = dict(L, r=max(L.get("r", 1500), round(track_dist(route, L["lat"], L["lon"]) + 300)))
+        lk = {"id": f"l{k}", "title": L.get("title", ""), "lat": L["lat"], "lon": L["lon"], "r": L.get("r", 1500),
               "text": L["text"].replace("{sida}", SIDE["sv"][left])}
         if L.get("text_en"): lk["text_en"] = L["text_en"].replace("{side}", SIDE["en"][left])
         if L.get("images"): lk["images"] = L["images"][:1]

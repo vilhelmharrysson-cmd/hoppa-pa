@@ -142,7 +142,7 @@ body[data-view="home"] #tourView{display:none}
 .now{display:flex;flex-direction:column;gap:12px}
 .now .meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
 .stage{position:relative;border-radius:var(--radius);overflow:hidden;background:var(--surface);box-shadow:var(--shadow);padding:18px;display:flex;flex-direction:column;gap:8px}
-.stage.has-img{min-height:min(62dvh,460px);justify-content:flex-end;background:#0b1214;padding:20px 18px 18px}
+.stage.has-img{min-height:min(62dvh,460px);justify-content:flex-end;background:#0b1214;padding:48px 18px 18px}
 .stage-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.4s ease;transform:scale(1.03)}
 .stage-bg.on{opacity:1;animation:kenburns 14s ease-out forwards}
 @keyframes kenburns{from{transform:scale(1.03)}to{transform:scale(1.1)}}
@@ -183,6 +183,15 @@ body[data-view="home"] #tourView{display:none}
 .lookout div b{display:block;margin-bottom:2px}
 #lookoutImg{width:96px;height:72px;object-fit:cover;border-radius:10px;flex-shrink:0}
 .credit-mini{display:block;font-size:11px;opacity:.7;margin-top:4px;color:inherit}
+.look-arrow{position:fixed;z-index:40;left:50%;top:calc(env(safe-area-inset-top,0px) + 74px);transform:translateX(-50%);display:flex;align-items:center;gap:12px;background:var(--accent);color:var(--accent-ink);border-radius:22px;padding:10px 18px 10px 10px;box-shadow:0 10px 30px rgba(0,0,0,.25);max-width:calc(100% - 32px)}
+.look-arrow svg{width:64px;height:64px;flex-shrink:0;transition:transform .4s ease}
+.look-arrow circle{fill:rgba(255,255,255,.55)}
+.look-arrow path{fill:#26323a}
+.look-arrow b{display:block;font-size:19px;font-weight:800}
+.look-arrow small{display:block;font-size:13px;font-weight:600;opacity:.85}
+.look-arrow.pop{animation:laPop .6s ease}
+@keyframes laPop{0%{transform:translateX(-50%) scale(.6);opacity:0}60%{transform:translateX(-50%) scale(1.06);opacity:1}100%{transform:translateX(-50%) scale(1)}}
+@media (prefers-reduced-motion:reduce){.look-arrow.pop{animation:none}.look-arrow svg{transition:none}}
 .bingo-grid{display:grid;gap:6px;width:100%;min-width:0}
 #bingo{overflow-x:hidden}
 #bingo .dlg{overflow-x:hidden}

@@ -12,7 +12,7 @@ permissions:
 jobs:
   flyg:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -21,12 +21,16 @@ jobs:
       - name: Hämta linjerna
         env:
           TRAFIKLAB_SWEDEN3_KEY: ${{ secrets.TRAFIKLAB_SWEDEN3_KEY }}
-        run: python3 tools/flyg_fetch.py
+        run: |
+          # linjerna hämtas bara om de saknas (kvot hos Trafiklab); vägar och fakta fylls på
+          [ -f tools/flyg/patterns.json ] || python3 tools/flyg_fetch.py
+          python3 tools/flyg_route.py
+          python3 tools/flyg_research.py
       - name: Spara
         run: |
           git config user.name "hoppa-pa databygge"
           git config user.email "actions@users.noreply.github.com"
-          git add tools/flyg
+          git add tools/flyg tools/research
           git commit -m "Flygbussarna: linjer från GTFS Sweden 3 ($(date -u +%Y-%m-%d))" || exit 0
           git pull --rebase
           git push

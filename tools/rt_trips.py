@@ -10,6 +10,7 @@ Tur-id lagras sorterade: första som text, sedan skillnader mot föregående, s�
 import collections, csv, datetime, io, json, os, sys, urllib.request, zipfile
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+PREFIX = "1401"
 OUT = os.path.join(os.path.dirname(HERE), "public", "data", "rt", "sl-trips.json")
 
 def rows(z, name):
@@ -26,7 +27,8 @@ def main():
     z = zipfile.ZipFile(path)
     sl = {a["agency_id"] for a in rows(z, "agency.txt") if a["agency_name"].strip().lower() in ("sl", "storstockholms lokaltrafik")}
     print("SL:", sl)
-    routes = {r["route_id"]: r.get("route_short_name") or "" for r in rows(z, "routes.txt") if r.get("agency_id") in sl}
+    # SL:s turer känns igen på tur-id:t (börjar med 1401, samma som i realtidsflödet); linjenummer från routes.txt
+    routes = {r["route_id"]: r.get("route_short_name") or "" for r in rows(z, "routes.txt")}
     today = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=1))).date()
     days = {(today + datetime.timedelta(days=d)).strftime("%Y%m%d") for d in (0, 1)}
     active = set()
@@ -43,7 +45,8 @@ def main():
     lines = collections.defaultdict(list)
     n_sl = 0
     for t in rows(z, "trips.txt"):
-        if t["route_id"] in routes: n_sl += 1
+        if not t["trip_id"].startswith(PREFIX): continue
+        n_sl += 1
         if t["route_id"] in routes and t["service_id"] in active:
             try: lines[f"{routes[t['route_id']]}|{t.get('trip_headsign', '')}"].append(int(t["trip_id"]))
             except ValueError: pass

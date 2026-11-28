@@ -1,0 +1,25 @@
+name: Realtid – turtabell (SL)
+# Bygger public/data/rt/sl-trips.json (tur-id → linje) utan att bygga om resten. Startas för hand.
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  trips:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - env:
+          TRAFIKLAB_SWEDEN3_KEY: ${{ secrets.TRAFIKLAB_SWEDEN3_KEY }}
+        run: python3 tools/rt_trips.py
+      - run: |
+          git config user.name "hoppa-pa databygge"
+          git config user.email "actions@users.noreply.github.com"
+          git add public/data/rt
+          git commit -m "Realtid: turtabell för SL ($(date -u +%Y-%m-%d))" || exit 0
+          git pull --rebase
+          git push

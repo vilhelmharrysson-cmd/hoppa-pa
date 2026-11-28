@@ -20,7 +20,7 @@ def main():
     path = sys.argv[1] if len(sys.argv) > 1 else "/tmp/sweden.zip"
     if not os.path.exists(path):
         key = os.environ.get("TRAFIKLAB_SWEDEN3_KEY") or sys.exit("TRAFIKLAB_SWEDEN3_KEY saknas")
-        req = urllib.request.Request(f"https://opendata.samtrafiken.se/gtfs-sweden/sweden.zip?key={key}", headers={"User-Agent": "hoppa-pa-databygge"})
+        req = urllib.request.Request(f"https://opendata.samtrafiken.se/gtfs-sweden/sweden.zip?key={key}", headers={"Accept-Encoding": "gzip", "User-Agent": "hoppa-pa-databygge"})
         with urllib.request.urlopen(req, timeout=900) as r, open(path, "wb") as f:
             while (b := r.read(1 << 20)): f.write(b)
     z = zipfile.ZipFile(path)

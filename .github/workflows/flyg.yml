@@ -1,0 +1,32 @@
+name: Flygbussarna (GTFS Sweden 3)
+
+# Hämtar flygbussarnas linjer ur Trafiklabs rikstäckande GTFS. Startas för hand.
+# Kräver hemligheten TRAFIKLAB_SWEDEN3_KEY.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  flyg:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Hämta linjerna
+        env:
+          TRAFIKLAB_SWEDEN3_KEY: ${{ secrets.TRAFIKLAB_SWEDEN3_KEY }}
+        run: python3 tools/flyg_fetch.py
+      - name: Spara
+        run: |
+          git config user.name "hoppa-pa databygge"
+          git config user.email "actions@users.noreply.github.com"
+          git add tools/flyg
+          git commit -m "Flygbussarna: linjer från GTFS Sweden 3 ($(date -u +%Y-%m-%d))" || exit 0
+          git pull --rebase
+          git push

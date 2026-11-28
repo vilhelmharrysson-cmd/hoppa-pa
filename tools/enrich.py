@@ -21,7 +21,7 @@ def jload(name, default):
     p = os.path.join(HERE, name)
     return json.load(open(p, encoding="utf8")) if os.path.exists(p) else default
 
-VEH_EN = {"buss": "bus", "spårvagn": "tram", "båt": "boat", "tåg": "train"}
+VEH_EN = {"buss": "bus", "spårvagn": "tram", "båt": "boat", "tåg": "train", "flygbuss": "airport coach"}
 
 def story_en(sv, EN):
     """Engelsk text för en berättelse. Inledningen och avslutningen som gtfs_build lägger på

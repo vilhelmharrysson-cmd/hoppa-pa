@@ -92,6 +92,10 @@
           </div>
           <a class="credit" id="credit" target="_blank" rel="noopener" hidden></a>
         </div>
+        <details class="panel more" id="morePanel" hidden>
+          <summary><span class="more-sum"><b id="moreTitle">Läs mer</b><small id="moreTeaser"></small></span></summary>
+          <div class="more-list" id="moreList"></div>
+        </details>
         <div class="lookout" id="lookout" hidden><img id="lookoutImg" alt="" hidden><div><b>Titta ut</b><span id="lookoutText"></span><a class="credit-mini" id="lookoutCredit" target="_blank" rel="noopener" hidden></a></div></div>
         <p class="gpsmsg" id="gpsMsg" hidden></p>
         <div class="mytrain" id="myTrain" hidden aria-live="polite">
@@ -117,10 +121,6 @@
       </section>
 
       <button type="button" class="hint" id="moreHint" hidden></button>
-      <details class="panel more" id="morePanel" hidden>
-        <summary id="moreTitle">Läs mer</summary>
-        <div class="more-list" id="moreList"></div>
-      </details>
       <details class="panel stops" id="stopsPanel">
         <summary>Alla guidade hållplatser</summary>
         <ol id="stopList"></ol>
@@ -835,6 +835,8 @@
     if(mp.dataset.k!==mk){ mp.dataset.k=mk; mp.open=false; const box=$("moreList"); box.textContent="";
       mp.hidden=!(st.more&&st.more.length);
       $("moreTitle").textContent=tr("Läs mer om ")+st.name;
+      { const c0=(st.more||[])[0], n=(st.more||[]).length;
+        $("moreTeaser").textContent = c0 ? ((LANG==="en"&&c0.h_en?c0.h_en:c0.h)||"")+" · "+n+(LANG==="en"?(n===1?" card":" cards"):(n===1?" kort":" kort")) : ""; }
       const KICK={"Visste du?":"Did you know?","Historia":"History","Mat och fika":"Food and fika","Film, musik och kända personer":"Film, music and famous faces","Förr och nu":"Then and now","Arkitektur":"Architecture","Natur":"Nature"};
       (st.more||[]).forEach(c=>{
         const en=LANG==="en" && c.t_en;

@@ -92,7 +92,7 @@
           </div>
           <a class="credit" id="credit" target="_blank" rel="noopener" hidden></a>
         </div>
-        <div class="lookout" id="lookout" hidden><b>Titta ut</b><span id="lookoutText"></span></div>
+        <div class="lookout" id="lookout" hidden><img id="lookoutImg" alt="" hidden><div><b>Titta ut</b><span id="lookoutText"></span><a class="credit-mini" id="lookoutCredit" target="_blank" rel="noopener" hidden></a></div></div>
         <p class="gpsmsg" id="gpsMsg" hidden></p>
         <div class="mytrain" id="myTrain" hidden aria-live="polite">
           <div><b id="myTrainName"></b><small id="myTrainInfo"></small></div>
@@ -873,7 +873,12 @@
     const mm=Math.floor(mins), ss=Math.floor((mins-mm)*60);
     $("clock").textContent = S.mode==="sim" ? String(mm).padStart(2,"0")+":"+String(ss).padStart(2,"0")+" / "+T.total+" min" : "GPS";
   }
-  function showLook(text){ $("lookout").hidden=!text; $("lookoutText").textContent=text||""; }
+  function showLook(text,L){
+    $("lookout").hidden=!text; $("lookoutText").textContent=text||"";
+    const im=L && L.images && L.images[0], img=$("lookoutImg"), cr=$("lookoutCredit");
+    img.hidden=!im; cr.hidden=!im;
+    if(im){ img.src=im.src; cr.textContent=tr("Foto: ")+(im.credit||"")+(im.license?" · "+im.license:""); cr.href=(im.page||"").startsWith("https://")?im.page:"#"; }
+  }
 
   // ---- Triggers: samma logik för simulator och GPS ----------------------------
   function triggers(pos){
@@ -884,8 +889,8 @@
       if(S.looked.has(k)) return;
       const d=distM(pos,L,R.lat0);
       if(d<=L.r){
-        if(!S.narr || S.narr.kind==="look"){ S.looked.add(k); showLook(lookText(L)); play("look",k,lookAudio(L),readMs(lookText(L))); }
-        else if(S.pendingLook!==k){ S.pendingLook=k; showLook(lookText(L)); }
+        if(!S.narr || S.narr.kind==="look"){ S.looked.add(k); showLook(lookText(L),L); play("look",k,lookAudio(L),readMs(lookText(L))); }
+        else if(S.pendingLook!==k){ S.pendingLook=k; showLook(lookText(L),L); }
       }else if(S.pendingLook===k && d>L.r){ S.looked.add(k); S.pendingLook=null; }   // passerad: bara text
     });
     if(S.pendingLook!==null && !S.narr){ const k=S.pendingLook; S.pendingLook=null; S.looked.add(k); play("look",k,lookAudio(T.looks[k]),readMs(lookText(T.looks[k]))); }

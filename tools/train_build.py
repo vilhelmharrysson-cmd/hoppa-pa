@@ -61,6 +61,7 @@ def build(C, key, route):
         lk = {"id": f"l{k}", "lat": L["lat"], "lon": L["lon"], "r": L.get("r", 1500),
               "text": L["text"].replace("{sida}", SIDE["sv"][left])}
         if L.get("text_en"): lk["text_en"] = L["text_en"].replace("{side}", SIDE["en"][left])
+        if L.get("images"): lk["images"] = L["images"][:1]
         looks.append(lk)
     looks.sort(key=lambda L: km_along(route, L["lat"], L["lon"]))
     city = "Stockholm" if key == "sg" else "Göteborg"

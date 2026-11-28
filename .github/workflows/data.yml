@@ -65,6 +65,7 @@ jobs:
             python3 tools/gtfs_build.py --cache ~/.gtfs
           fi
           python3 tools/train_build.py
+          TRAFIKLAB_SWEDEN3_KEY="${{ secrets.TRAFIKLAB_SWEDEN3_KEY }}" python3 tools/rt_trips.py || echo "::warning::Turtabellen för realtid kunde inte byggas"
           python3 tools/flyg_build.py
           python3 tools/lines_index.py
           python3 tools/enrich.py

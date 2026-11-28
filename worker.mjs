@@ -4,6 +4,7 @@ import * as vt from "./lib/vt.mjs";
 import * as sl from "./lib/sl.mjs";
 import * as ugc from "./lib/ugc.mjs";
 import * as trv from "./lib/trv.mjs";
+import * as rt from "./lib/rt.mjs";
 
 export default {
   async fetch(request, env) {
@@ -11,6 +12,7 @@ export default {
     if (pathname === "/api/vt") return vt.handle(request, env);
     if (pathname === "/api/sl") return sl.handle(request, env);
     if (pathname === "/api/trv") return trv.handle(request, env);
+    if (pathname === "/api/rt") return rt.handle(request, env);
     if (["/api/feedback", "/api/ugc", "/api/hit", "/api/admin"].includes(pathname)) return ugc.handle(request, env);
     return env.ASSETS.fetch(request);
   },

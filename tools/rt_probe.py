@@ -14,7 +14,12 @@ for op in OPS:
             data = urllib.request.urlopen(urllib.request.Request(url, headers={"Accept-Encoding": "gzip"}), timeout=60).read()
         except Exception as e:
             out[f"{op}/{kind}"] = str(e)[:80]; continue
-        f = gtfs_realtime_pb2.FeedMessage(); f.ParseFromString(data)
+        if data[:2] == b"\x1f\x8b":
+            import gzip; data = gzip.decompress(data)
+        f = gtfs_realtime_pb2.FeedMessage()
+        try: f.ParseFromString(data)
+        except Exception as e:
+            out[f"{op}/{kind}"] = "ej protobuf: " + repr(data[:120]); print(op, kind, out[f"{op}/{kind}"], flush=True); continue
         ents = list(f.entity)
         info = {"bytes": len(data), "entities": len(ents)}
         if kind == "VehiclePositions" and ents:

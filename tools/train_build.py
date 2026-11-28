@@ -67,7 +67,7 @@ def build(C, key, route):
     city = "Stockholm" if key == "sg" else "Göteborg"
     to = stations[-1]["name"]
     return {"id": f"{'stockholm' if key == 'sg' else 'goteborg'}-train-vsb-{'goteborg' if key == 'sg' else 'stockholm'}",
-            "group": "train-vsb", "city": city, "cities": ["Stockholm", "Göteborg"], "mode": "train", "line": "Tåg",
+            "group": "train-vsb", "city": city, "cities": ["Stockholm", "Göteborg"], "mode": "train", "line": "🚆",
             "vehicle": "tåg", "vehicleLong": "tåg", "operator": "Trafikverket", "tab": "Stockholm–Göteborg",
             "guide": None, "speedKmh": 150, "dwellSec": 45, "route": route, "stops": stops, "looks": looks,
             "from": stations[0]["name"], "to": to, "variant": "Mot " + to, "color": ["#1f3a5f", "#ffffff"],

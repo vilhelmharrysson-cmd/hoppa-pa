@@ -201,8 +201,10 @@ body[data-view="home"] #tourView{display:none}
 .lookout div b{display:block;margin-bottom:2px}
 #lookoutImg{width:96px;height:72px;object-fit:cover;border-radius:10px;flex-shrink:0}
 .credit-mini{display:block;font-size:11px;opacity:.7;margin-top:4px;color:inherit}
-.bingo-grid{display:grid;gap:6px}
-.bingo-cell{aspect-ratio:1;border:0;border-radius:12px;background:#fff;box-shadow:inset 0 0 0 1px var(--line);color:#26323a;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:4px;font:inherit;font-size:11.5px;line-height:1.15;text-align:center;cursor:pointer;transition:transform .1s}
+.bingo-grid{display:grid;gap:6px;width:100%;min-width:0}
+#bingo{overflow-x:hidden}
+#bingo .dlg{overflow-x:hidden}
+.bingo-cell{min-width:0;overflow:hidden;overflow-wrap:anywhere;hyphens:auto;aspect-ratio:1;border:0;border-radius:12px;background:#fff;box-shadow:inset 0 0 0 1px var(--line);color:#26323a;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:4px;font:inherit;font-size:11.5px;line-height:1.15;text-align:center;cursor:pointer;transition:transform .1s}
 .bingo-cell .em{width:68%;height:auto;aspect-ratio:1;display:block}
 .bingo-cell[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);transform:scale(.96)}
 .bingo-cell.win{box-shadow:0 0 0 3px #1d7a46 inset}
@@ -1763,18 +1765,18 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
 
   // ---- Fönsterbingo (barnläge): saker att spana efter genom fönstret ------------------------
   const BINGO={
-    land:[["cow","En ko","A cow"],["horse","En häst","A horse"],["sheep","Ett får","A sheep"],["tractor","En traktor","A tractor"],["red-house","Ett rött hus","A red house"],
-      ["church","En kyrka","A church"],["lake","En sjö","A lake"],["bridge","En bro","A bridge"],["tunnel","En tunnel","A tunnel"],["wind-turbine","Ett vindkraftverk","A wind turbine"],
-      ["deer","Ett rådjur","A deer"],["bird","En fågel","A bird"],["field","En åker","A field"],["forest","En skog","A forest"],["train","Ett annat tåg","Another train"],
-      ["station","En station","A station"],["lorry","En lastbil","A lorry"],["sailboat","En båt","A boat"],["flag","En svensk flagga","A Swedish flag"],["level-crossing","En järnvägsbom","A level crossing"],
-      ["dog","En hund","A dog"],["factory","En fabrik","A factory"],["water-tower","Ett vattentorn","A water tower"],["oak","En ensam ek","A lonely oak"],["red-car","En röd bil","A red car"],
-      ["horses-running","Hästar som springer","Running horses"],["swan","En svan","A swan"],["power-line","En kraftledning","A power line"],["barn","En lada","A barn"],["castle","Ett slott eller en herrgård","A castle or manor"]],
-    city:[["tram","En spårvagn","A tram"],["bus","En buss","A bus"],["bike","En cykel","A bike"],["dog","En hund","A dog"],["pigeon","En duva","A pigeon"],
-      ["pram","En barnvagn","A pram"],["umbrella","Ett paraply","An umbrella"],["statue","En staty","A statue"],["fountain","En fontän","A fountain"],["church","En kyrka","A church"],
-      ["crane","En lyftkran","A crane"],["sailboat","En båt","A boat"],["flag","En svensk flagga","A Swedish flag"],["police-car","En polisbil","A police car"],["taxi","En taxi","A taxi"],
-      ["ice-cream","En glass","An ice cream"],["big-tree","Ett stort träd","A big tree"],["traffic-light","Ett rött trafikljus","A red traffic light"],["scooter","En sparkcykel","A scooter"],["cat","En katt","A cat"],
-      ["backpack","En ryggsäck","A backpack"],["trolley","En kundvagn","A shopping trolley"],["bridge","En bro","A bridge"],["duck","En and","A duck"],["fire-engine","En brandbil","A fire engine"],
-      ["balloon","En ballong","A balloon"],["yellow-house","Ett gult hus","A yellow house"],["clock","En klocka på en vägg","A clock on a wall"]],
+    land:[["cow","Ko","Cow"],["horse","Häst","Horse"],["sheep","Får","Sheep"],["tractor","Traktor","Tractor"],["red-house","Rött hus","Red house"],
+      ["church","Kyrka","Church"],["lake","Sjö","Lake"],["bridge","Bro","Bridge"],["tunnel","Tunnel","Tunnel"],["wind-turbine","Vindkraftverk","Wind turbine"],
+      ["deer","Rådjur","Deer"],["bird","Fågel","Bird"],["field","Åker","Field"],["forest","Skog","Forest"],["train","Annat tåg","Another train"],
+      ["station","Station","Station"],["lorry","Lastbil","Lorry"],["sailboat","Båt","Boat"],["flag","Svensk flagga","Swedish flag"],["level-crossing","Järnvägsbom","Level crossing"],
+      ["dog","Hund","Dog"],["factory","Fabrik","Factory"],["water-tower","Vattentorn","Water tower"],["hay-bales","Höbalar","Hay bales"],["red-car","Röd bil","Red car"],
+      ["motorcycle","Motorcykel","Motorbike"],["swan","Svan","Swan"],["power-line","Kraftledning","Power line"],["barn","Lada","Barn"],["castle","Slott eller herrgård","Castle or manor"]],
+    city:[["tram","Spårvagn","Tram"],["bus","Buss","Bus"],["bike","Cykel","Bike"],["dog","Hund","Dog"],["pigeon","Duva","Pigeon"],
+      ["pram","Barnvagn","Pram"],["umbrella","Paraply","Umbrella"],["statue","Staty","Statue"],["fountain","Fontän","Fountain"],["church","Kyrka","Church"],
+      ["crane","Lyftkran","Crane"],["sailboat","Båt","Boat"],["flag","Svensk flagga","Swedish flag"],["police-car","Polisbil","Police car"],["taxi","Taxi","Taxi"],
+      ["ice-cream","Glass","Ice cream"],["big-tree","Stort träd","Big tree"],["traffic-light","Rött trafikljus","Red traffic light"],["scooter","Sparkcykel","Scooter"],["cat","Katt","Cat"],
+      ["backpack","Ryggsäck","Backpack"],["trolley","Kundvagn","Shopping trolley"],["bridge","Bro","Bridge"],["duck","And","Duck"],["fire-engine","Brandbil","Fire engine"],
+      ["balloon","Ballong","Balloon"],["yellow-house","Gult hus","Yellow house"],["clock","Klocka på vägg","Clock on a wall"]],
   };
   let bingoN=4;
   const bingoKey=()=>"hp_bingo_"+(T?T.group:"x");
@@ -1793,7 +1795,7 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
     return L.filter(l=>l.every(i=>m.has(i)));
   }
   function bingoRender(b){
-    const g=$("bingoGrid"); g.textContent=""; g.style.gridTemplateColumns="repeat("+b.n+",1fr)";
+    const g=$("bingoGrid"); g.textContent=""; g.style.gridTemplateColumns="repeat("+b.n+",minmax(0,1fr))";
     const win=new Set(bingoLines(b).flat());
     b.items.forEach((it,i)=>{
       const c=document.createElement("button"); c.type="button"; c.className="bingo-cell";
@@ -1809,6 +1811,9 @@ dialog::backdrop{background:rgba(5,10,12,.45);backdrop-filter:blur(2px)}
       });
       g.appendChild(c);
     });
+    $("bingoHelp").textContent = LANG==="en"
+      ? "Look out of the window. Tap a square when you spot it. "+(b.n===4?"Four":"Three")+" in a row – across, down or diagonally – is bingo!"
+      : "Titta ut genom fönstret. Tryck på rutan när du ser saken. "+(b.n===4?"Fyra":"Tre")+" i rad – vågrätt, lodrätt eller snett – ger bingo!";
     const w=$("bingoWin"); w.hidden=!b.won; w.textContent=b.won ? (LANG==="en"?"🎉 BINGO! Well spotted!":"🎉 BINGO! Bra spanat!") : "";
     $("bingoSize").textContent = b.n===4 ? (LANG==="en"?"3 × 3 (easier)":"3 × 3 (lättare)") : (LANG==="en"?"4 × 4 (harder)":"4 × 4 (svårare)");
   }

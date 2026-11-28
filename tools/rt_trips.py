@@ -39,11 +39,18 @@ def main():
             for d in days:
                 dt = datetime.datetime.strptime(d, "%Y%m%d").date()
                 if c["start_date"] <= d <= c["end_date"] and c[wd[dt.weekday()]] == "1": active.add(c["service_id"])
+    print(len(routes), "SL-linjer,", len(active), "aktiva trafikdagar-id för", sorted(days), flush=True)
     lines = collections.defaultdict(list)
+    n_sl = 0
     for t in rows(z, "trips.txt"):
+        if t["route_id"] in routes: n_sl += 1
         if t["route_id"] in routes and t["service_id"] in active:
             try: lines[f"{routes[t['route_id']]}|{t.get('trip_headsign', '')}"].append(int(t["trip_id"]))
             except ValueError: pass
+    print(n_sl, "SL-turer totalt", flush=True)
+    if not active:
+        cd = list(rows(z, "calendar_dates.txt"))[:3] if "calendar_dates.txt" in z.namelist() else []
+        print("exempel calendar_dates:", cd, "filer:", z.namelist())
     out = {}
     for k, ids in lines.items():
         # första id som text (för stort för JavaScripts tal), sedan skillnader
